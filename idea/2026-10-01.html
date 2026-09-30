@@ -135,6 +135,43 @@
       letter-spacing: -0.02em;
     }
 
+
+    .takeaways {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .takeaways h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+
+    .takeaways h3 + h3 {
+      margin-top: 1.35rem;
+    }
+
+    .takeaways p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .takeaways p + p {
+      margin-top: 0.85rem;
+    }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
     .picked {
       background: var(--card);
       border: 1px solid var(--line);
@@ -256,6 +293,18 @@
         <p class="meta">Bednarz et al. (2026), ACP — picked by Mrs. Lantern alone, after shortlist pass ×3.</p>
         <p class="url"><a href="https://doi.org/10.5194/acp-26-12751-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-12751-2026</a></p>
         <p class="path">Path that ran: Mrs. Vanguard emailed 6 papers → Mrs. Lantern shortlist of 3 (Bednarz, Perny, Lee reframed) → The Devil pass ×3 → Mrs. Lantern picked Bednarz → up to 3 ideas + one research-directions write-up → The Devil document review pass.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Paper takeaways</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the chosen paper delivered — not in the email.</p>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Bednarz et al. (2026) give a clear multi-model look at stratospheric ozone under sulfur-based stratospheric aerosol injection in the GeoMIP G6-1.5K-SAI setup, with UKESM compared to CESM and MIROC, and a WITH_HET / NO_HET pair that separates heterogeneous chemistry on SAI sulfate from transport. The lasting contribution is mapping process-level disagreement rather than a single verdict on whether SAI is good or bad for ozone. Stratospheric water vapour under this subtropical strategy disagrees in sign across models: UKESM dries by up to about 10%, while CESM and MIROC moisten, and the authors note that cold-point warming alone may not explain UKESM’s dry path. Southern Hemisphere mid-latitude ozone loss looks relatively robust, but Northern Hemisphere mid-latitude ozone does not: UKESM keeps losing about 5–10 DU while the others stay near flat or only weakly positive later. Heterogeneous chemistry explains only part of UKESM’s subtropical and mid-latitude ozone loss; a clear transport residual remains. Antarctic springtime ozone reductions are sensitive to heterogeneous chemistry and sit against a multi-model ozone–vortex correlation the authors float as a potential constraint. Injection strategy can outweigh inter-model spread for global-mean column ozone, though not for Antarctic spring ozone, where model differences dominate. They also note that earlier UKESM strategy–ozone work lacked coupled heterogeneous chemistry on SAI sulfate.</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>They listed four candidate processes for UKESM’s dry stratosphere but did not rank which ones matter most. The WITH_HET / NO_HET experiments separate chemistry from transport, but they do not separate residual circulation from mixing. The Antarctic ozone–vortex link is offered as a potential constraint, not a validated observational one, and the paper has no clear Arctic counterpart. A strategy comparison inside UKESM with coupled heterogeneous chemistry remains incomplete. The study covers sulfur SAI only: it does not examine solid particles.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): UKESM’s smaller Antarctic loss is not evidence that sulfur SAI is ozone-safe.</p>
       </div>
     </section>
 
