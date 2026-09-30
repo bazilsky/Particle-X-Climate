@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Idea path — Perny — 1 October 2026</title>
-  <meta name="description" content="Takeaways, three ideas, and research directions from Perny et al. (2026) on the Pinatubo stratospheric temperature response.">
+  <title>Idea path — Perny et al. — 1 October 2026</title>
+  <meta name="description" content="Chosen paper, takeaways, ideas, and research directions for Perny et al. on 1 October 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -240,10 +240,10 @@
     </section>
 
     <section>
-      <h2>Paper</h2>
+      <h2>Chosen paper</h2>
       <div class="picked">
         <h3>Assessing the stratospheric temperature response to volcanic sulfate injections by Mt. Pinatubo: insights from the Interactive Stratospheric Aerosol Model Intercomparison Project</h3>
-        <p class="meta">Perny, K., et al. (2026). Atmospheric Chemistry and Physics, 26, 10997–11025.</p>
+        <p class="meta">Perny, K., et al. (2026): Assessing the stratospheric temperature response to volcanic sulfate injections by Mt. Pinatubo: insights from the Interactive Stratospheric Aerosol Model Intercomparison Project. Atmos. Chem. Phys., 26, 10997–11025.</p>
         <p class="url"><a href="https://doi.org/10.5194/acp-26-10997-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-10997-2026</a></p>
       </div>
     </section>
@@ -255,84 +255,63 @@
         <h3>What they got right (main result)</h3>
         <p>Perny et al. (2026) give a clear ISA-MIP HErSEA look at how Pinatubo-like volcanic sulfate warms the tropical stratosphere across interactive aerosol chemistry–climate models, including GA4 UM-UKCA with interactive GLOMAP, against reanalyses and a REMAP–GloSSAC sulfate composite. The lasting contribution is mapping structural disagreement rather than a single verdict on Pinatubo heating. The multi-model mean temperature anomaly tracks reanalysis reasonably well for most injection settings, but differences between models are usually larger than differences for one model across injection amount and altitude. Transport, radiative transfer, microphysics, and how models characterise aerosol size distributions all matter for that spread, and those processes interact too tightly under the HErSEA protocol alone to pin one cause. UM-UKCA sits among the lower SO₄–temperature sensitivities, with a weak warming signal despite sulfate concentrations that look comparatively well reproduced, and it prefers deep-branch transport in the first post-eruption winter. Comparing to prescribed-aerosol MIPs (CCMI-2022, CMIP6-AMIP) does not shrink the temperature-anomaly spread, pointing to model choice rather than interactive aerosol alone as the dominant driver of the multi-model distribution. The authors therefore caution against attribution studies and against interpreting stratospheric aerosol injection temperature responses from individual or few models.</p>
         <h3>What they didn’t quite nail</h3>
-        <p>They flag size distributions as somewhat important for matching the observed temperature response and call for a detailed analysis beyond effective radius, but they do not deliver that analysis here — and for most models they treat effective radius as not the main explanation of the spread they see. They list radiative transfer, transport, and sedimentation as core uncertainties that need process-oriented follow-ups and within-family subroutine tests, but HErSEA itself cannot separate those levers. The participating UK configuration is GA4 UM-UKCA, not UKESM1.1, so any bridge to today’s coupled UKESM/GLOMAP stack is an extension, not a result of this paper. The study is volcanic sulfate under a Pinatubo protocol: it does not examine continuous SAI strategies in depth, and it does not examine solid particles.</p>
-        <p class="caveat">Reader caveat (not a paper flaw): a single-model (including UKESM/GLOMAP) Pinatubo or high-burden sulfate temperature number is not, on this paper’s own caution, enough for SAI attribution.</p>
+        <p>They flag size distributions as somewhat important for matching the observed temperature response and call for a detailed analysis beyond effective radius, but they do not deliver that analysis here — and for most models they treat effective radius as not the main explanation of the spread they see. They list radiative transfer, transport, and sedimentation as core uncertainties that need process-oriented follow-ups and within-family subroutine tests, but HErSEA itself cannot separate those levers. The participating UK configuration is GA4 UM-UKCA, not UKESM1.1, so any bridge to today’s coupled UKESM/GLOMAP stack is an extension, not a result of this paper. The study is volcanic sulfate under a Pinatubo protocol: it does not examine continuous SAI strategies in depth, and it does not examine solid particles.</p><p class="caveat">Reader caveat (not a paper flaw): a single-model (including UKESM/GLOMAP) Pinatubo or high-burden sulfate temperature number is not, on this paper’s own caution, enough for SAI attribution.</p>
       </div>
     </section>
 
     <section>
       <h2>Ideas</h2>
-      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing. Ideas 1 and 2 are the experiments. Idea 3 is an interpretive bridge under the paper’s few-model caution, not a test of whether that caution fails.</p>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
         <article>
-          <p class="label">Idea 1 · author documented</p>
+          <p class="label">Idea 1</p>
           <h3>GLOMAP / UM-UKCA Pinatubo size distributions beyond effective radius as a lever on stratospheric temperature response</h3>
-          <p>Perny et al. find large inter-model spread in Pinatubo stratospheric temperature even under the strict HErSEA protocol, and argue that simulated size distribution matters for matching the observed temperature response — while noting that effective radius alone is often insufficient, and that for most models they treat effective radius as not the main driver of the spread they see. They explicitly call for a detailed analysis of model size distributions and of how well effective radius represents them. UM-UKCA shows a lower sensitivity to SO₄ (about 0.28), with weak warming despite comparatively well reproduced sulfate, and uses interactive GLOMAP in the GA4 configuration. A UK-side follow-on would diagnose full GLOMAP modal moments — number, mass, and width — not effective radius alone, against Perny’s SO₄–temperature regression for the GA4 UM-UKCA HErSEA members. Only then ask, as (inferred), whether the same size-distribution gap persists in UKESM1.1/GLOMAP high-burden sulfate runs. The paper’s UK member is GA4 UM-UKCA, not UKESM1.1.</p>
+          <p>Perny et al. find large inter-model spread in Pinatubo stratospheric temperature even under the strict HErSEA protocol, and argue that simulated size distribution matters for matching the observed temperature response — while noting that effective radius alone is often insufficient (and for most models they treat Reff as not the main driver of the spread they see). They explicitly call for a detailed analysis of model size distributions and of how well effective radius represents them. A UK-side follow-on would diagnose full GLOMAP modal moments / number–mass–width diagnostics (not Reff alone) against Perny’s SO₄↔temperature regression framing for the GA4 UM-UKCA HErSEA members — and only then ask, <strong>(inferred)</strong>, whether the same size-distribution gap persists in UKESM1.1/GLOMAP high-burden sulfate runs.</p>
         </article>
         <article>
-          <p class="label">Idea 2 · author documented core</p>
-          <h3>Within-family process isolation of radiative transfer, transport, and sedimentation for Pinatubo and high-burden sulfate temperature response</h3>
-          <p>Perny attribute the Pinatubo temperature-response spread to interacting differences in transport, radiative transfer, microphysics, and size-distribution characterisation, and state that under HErSEA alone it is not trivial to extract the exact reason for inter-model differences. Differences between models are in most cases larger than differences within one model across experiments. UM-UKCA mainly transports through the deep branch until winter 1991/92. Their listed future directions include process-oriented comparisons that separately address radiative transfer, transport, and sedimentation, plus sensitivity tests on model subroutines within model families and generations. For this stack the near-term path is not waiting to host a new community MIP. It is a UK-family process-switched or diagnostic suite on sulfate Pinatubo — and, as (inferred), continuous high-burden sulfate — that holds the SO₂ injection protocol fixed while isolating heating rates, Brewer–Dobson and tropical-pipe transport, and sedimentation. Start from GA4 UM-UKCA archives. Any UKESM1.1 leap stays (inferred).</p>
+          <p class="label">Idea 2</p>
+          <h3>Within-family process isolation of radiative transfer, transport, and sedimentation for Pinatubo / high-burden sulfate temperature response</h3>
+          <p>Perny attribute the Pinatubo temperature-response spread to interacting differences in transport, radiative transfer, microphysics, and size-distribution characterisation, and state that under HErSEA alone “it is not trivial to extract the exact reason” of inter-model differences. Their listed future directions include process-oriented MIPs that separately address radiative transfer, transport, and sedimentation, plus sensitivity tests on model subroutines within model families and generations. For Ananth’s stack the actionable near-term path is <strong>not</strong> waiting to host a new community MIP, but a UK-family process-switched / diagnostic suite on sulfate Pinatubo (and, <strong>(inferred)</strong>, continuous high-burden sulfate) that holds SO₂ injection protocol fixed while isolating heating rates, BDC / tropical-pipe transport, and sedimentation — using GA4 UM-UKCA archives first, with any UKESM1.1 leap tagged <strong>(inferred)</strong>.</p>
         </article>
         <article>
-          <p class="label">Idea 3 · mostly inferred · caution is author documented</p>
-          <h3>UKESM1.1/GLOMAP high-burden sulfate temperature sensitivity under Perny’s SO₄–temperature metric, read under the paper’s few-model caution</h3>
-          <p>Perny’s third point is caution, not a third experimental lever. They argue against attribution and against interpreting stratospheric aerosol injection temperature responses from individual or few models, because the spread in burden, transport, and temperature stays large even under a strict protocol, and because model choice dominates the multi-model temperature distribution. This idea does not ask whether that caution fails. It asks how to use Perny’s SO₄–temperature regression, together with the size-distribution and process findings of Ideas 1 and 2, when reading (inferred) UKESM1.1/GLOMAP Pinatubo or continuous high-burden sulfate runs — always as single-family sensitivity under multi-model caution, never as a standalone SAI temperature verdict. The GA4 UM-UKCA to UKESM1.1/ENDGAME leap is family-level only and stays (inferred). The paper notes that this GA4 setup differs from the ENDGAME dynamics used for UKESM1.0. The paper is volcanic sulfate. Solid-particle high-burden is out of scope here unless separately gated and tagged (inferred), and it is never framed as ozone-safer.</p>
+          <p class="label">Idea 3</p>
+          <h3><strong>(inferred)</strong> UKESM1.1/GLOMAP high-burden sulfate temperature sensitivity under Perny’s SO₄↔T metric — interpreted under the paper’s few-model SAI caution</h3>
+          <p>Perny’s Q3 is <strong>caution</strong>, not a third experimental lever: they argue against attribution and against interpreting stratospheric aerosol injection temperature responses from individual or few models, given large spread in burden, transport, and temperature even under a strict protocol, and given that model choice dominates multi-model temperature distributions. Idea 3 does <strong>not</strong> ask whether that caution “holds.” It asks how to use Perny’s SO₄↔temperature regression metric and Ideas 1–2 process/size findings when reading <strong>(inferred)</strong> UKESM1.1/GLOMAP Pinatubo or continuous high-burden <strong>sulfate</strong> runs — always as single-family sensitivity under multi-model caution, never as a standalone SAI temperature verdict. The GA4 UM-UKCA → UKESM1.1/ENDGAME leap is family-level only and stays <strong>(inferred)</strong> (Sect. 2.2.6). Paper is volcanic sulfate; solid-particle high-burden is out of scope here unless separately gated and tagged <strong>(inferred)</strong> — and never framed as ozone-safer.</p>
         </article>
       </div>
     </section>
 
     <section>
       <h2>Research directions</h2>
-      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">How those hooks could become actual UKESM, UKCA, and GLOMAP work. Directions A and B are the experiments. Direction C is the caution-bound bridge.</p>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Perny. Directions (below) are how those hooks could become actual UKESM / UKCA / GLOMAP work.</p>
       <div class="ideas">
         <article>
-          <p class="label">Direction A · from Idea 1</p>
-          <h3>Size distributions beyond effective radius</h3>
-          <p>Perny recommend a detailed analysis of model size distributions and of whether effective radius represents them. Size distribution is “somewhat important” for the observed temperature response, while for most models effective radius alone does not explain the spread (author documented). UM-UKCA shows low tropical SO₄–temperature sensitivity, about 0.28 K per µg m⁻³, with weak warming despite well reproduced SO₄ (author documented).</p>
-          <ul>
-            <li>Start from published GA4 UM-UKCA HErSEA members (Med-22 km core; Low and High injection variants as sensitivity).</li>
-            <li>Diagnose full GLOMAP modal moments — number, mass, width, and mode radii — not effective radius alone, co-located with SO₄ mass and tropical temperature anomaly. That diagnostic package is (inferred).</li>
-            <li>Recompute Perny-style SO₄–temperature regressions conditioned on size-distribution diagnostics, to test whether UM-UKCA’s low sensitivity tracks modal shape, not just mass.</li>
-            <li>Only after the GA4 baseline: ask whether the same size–temperature relationship appears in (inferred) UKESM1.1/GLOMAP Pinatubo or continuous high-burden sulfate runs.</li>
-          </ul>
-          <p>Do not claim Perny already closed the size-distribution question. Do not treat effective radius as proven irrelevant. Keep the GA4 to UKESM1.1 step tagged (inferred).</p>
+          <h3>Direction A ↔ Idea 1 — Size distributions beyond effective radius <em>(author documented core)</em></h3>
+          <p><strong>Hook:</strong> Perny recommend a detailed analysis of model size distributions and of whether effective radius represents them; they find size distribution “somewhat important” for the observed temperature response, while for most models Reff alone does not explain the spread <em>(author documented)</em>. UM-UKCA shows low tropical SO₄↔T sensitivity (~0.28 K per µg m⁻³) with weak warming despite well-reproduced SO₄ <em>(author documented)</em>.</p>
+          <p><strong>UK / GLOMAP next steps:</strong></p>
+          <ul><li>Start from published GA4 UM-UKCA HErSEA members (Med-22km core; Low/High injection variants as sensitivity).</li><li>Diagnose full GLOMAP modal moments (number, mass, width / mode radii) — not Reff alone — co-located with SO₄ mass and tropical temperature anomaly <em>(inferred)</em> diagnostic package.</li><li>Recompute Perny-style SO₄↔temperature regressions conditioned on size-distribution diagnostics to test whether UM-UKCA’s low sensitivity tracks modal shape, not just mass.</li><li>Only after the GA4 baseline: ask whether the same size–temperature relationship appears in <strong>(inferred)</strong> UKESM1.1/GLOMAP Pinatubo or continuous high-burden <strong>sulfate</strong> runs.</li></ul>
+          <p>Do not claim Perny already closed the size-distribution question. Do not treat Reff as proven irrelevant. Keep GA4 → UKESM1.1 tagged <strong>(inferred)</strong>.</p>
         </article>
         <article>
-          <p class="label">Direction B · from Idea 2</p>
-          <h3>Process isolation of radiative transfer, transport, and sedimentation</h3>
-          <p>Transport, radiative transfer, microphysics, and size-distribution characterisation interact too tightly under HErSEA to attribute inter-model temperature differences. Perny call for process-oriented work on radiative transfer, transport, and sedimentation, plus within-family subroutine tests (author documented). UM-UKCA prefers deep-branch transport in the first post-eruption winter (author documented).</p>
-          <ul>
-            <li>Hold an HErSEA-like SO₂ injection fixed. Isolate aerosol heating and radiative transfer, tropical-pipe versus shallow and deep residual-circulation transport, and sedimentation or size-dependent removal. Those process switches are (inferred).</li>
-            <li>Use GA4 UM-UKCA archives and control-minus-eruption anomalies first. Quantify how much of the low SO₄–temperature sensitivity survives when transport or heating is constrained.</li>
-            <li>Any new community process-oriented MIP is (inferred) context only. The primary deliverable is UK-family depth, matching Perny’s call for tests within model families and generations.</li>
-            <li>Any UKESM1.1/ENDGAME re-implementation of those switches is (inferred) relative to the paper’s GA4 member.</li>
-          </ul>
-          <p>Keep this distinct from Direction A. A diagnoses size distributions. B isolates radiative transfer, transport, and sedimentation as interacting process levers. Do not pretend HErSEA already separated them.</p>
+          <h3>Direction B ↔ Idea 2 — Process isolation of radiative transfer, transport, sedimentation <em>(author documented core)</em></h3>
+          <p><strong>Hook:</strong> Transport, radiative transfer, microphysics, and size-distribution characterisation interact too tightly under HErSEA to attribute inter-model temperature differences; Perny call for process-oriented MIPs on radiative transfer, transport, and sedimentation, plus within-family subroutine sensitivity tests <em>(author documented)</em>. UM-UKCA prefers deep-branch transport in the first post-eruption winter <em>(author documented)</em>.</p>
+          <p><strong>UK / GLOMAP next steps (single-family — not a new community MIP as the deliverable):</strong></p>
+          <ul><li>Hold HErSEA-like SO₂ injection fixed; isolate (i) aerosol heating / radiative transfer, (ii) tropical-pipe vs shallow/deep BDC transport, (iii) sedimentation / size-dependent removal <em>(inferred)</em> process switches or offline–online diagnostics.</li><li>Use GA4 UM-UKCA archives and Control-minus-eruption anomalies first; quantify how much of the low SO₄↔T sensitivity survives when transport or heating is constrained.</li><li>Tag any new community process-oriented MIP as <em>(inferred)</em> context only — primary deliverable is UK-family depth matching Perny’s direction (iii) “within model families and generations.”</li><li>Any UKESM1.1/ENDGAME re-implementation of those switches is <strong>(inferred)</strong> relative to the paper’s GA4 member.</li></ul>
+          <p>Keep distinct from Direction A: A diagnoses size distributions; B isolates RT / transport / sedimentation as interacting process levers. Do not pretend HErSEA already separated them.</p>
         </article>
         <article>
-          <p class="label">Direction C · from Idea 3</p>
-          <h3>Caution-bound UKESM1.1 and high-burden sulfate SO₄–temperature bridge</h3>
-          <p>Perny argue for caution in attribution and in interpreting SAI temperature responses from individual or few models. Model choice dominates the magnitude and spread of the temperature response even under a strict protocol (author documented). This is caution, not an experiment that asks whether caution fails.</p>
-          <ul>
-            <li>Apply Perny’s tropical SO₄–temperature regression to (inferred) UKESM1.1/GLOMAP Pinatubo-class and continuous high-burden sulfate SAI ensembles. Report single-family sensitivity under multi-model caution, never a standalone SAI temperature attribution.</li>
-            <li>Document the GA4 UM-UKCA to UKESM1.1/ENDGAME leap as a family-generation uncertainty to quantify, not ignore.</li>
-            <li>Fold the size-distribution and process-isolation diagnostics from Ideas 1 and 2 into the UKESM1.1 reading so the bridge inherits process depth rather than a single scalar sensitivity.</li>
-            <li>Sulfate only. Solid-particle high-burden is out of this direction unless separately gated, tagged (inferred), and never framed as ozone-safer. Perny did not study solids or the ozone-safety of materials.</li>
-          </ul>
-          <p>Do not test the caution away. Do not quote GA4 numbers as UKESM1.1 results. Do not claim a UKESM-only high-burden temperature is enough for SAI attribution.</p>
+          <h3>Direction C ↔ Idea 3 — Caution-bound <strong>(inferred)</strong> UKESM1.1 / high-burden sulfate SO₄↔T bridge</h3>
+          <p><strong>Hook:</strong> Perny argue for caution in attribution and in interpreting SAI temperature responses from individual or few models; model choice dominates magnitude and spread of temperature response even under a strict protocol <em>(author documented)</em>. Q3 is <strong>caution</strong>, not an experiment that asks whether caution fails.</p>
+          <p><strong>UKESM next steps (interpretive + inferred bridge):</strong></p>
+          <ul><li>Apply Perny’s tropical SO₄↔temperature regression metric to <strong>(inferred)</strong> UKESM1.1/GLOMAP Pinatubo-class and continuous high-burden <strong>sulfate</strong> SAI ensembles — report as single-family sensitivity under multi-model caution, never as a standalone SAI temperature attribution.</li><li>Explicitly document the GA4 UM-UKCA → UKESM1.1/ENDGAME leap (Perny Sect. 2.2.6) as a family-generation uncertainty to quantify, not ignore.</li><li>Fold Ideas 1–2 diagnostics (size distributions; RT / transport / sedimentation isolation) into the UKESM1.1 reading so the bridge inherits process depth rather than a single scalar sensitivity.</li><li><strong>Sulfate only.</strong> Solid-particle high-burden is out of this Direction unless separately gated, tagged <strong>(inferred)</strong>, and never framed as ozone-safer (Perny did not study solids or ozone-safety of materials).</li></ul>
+          <p><strong>Hard fences:</strong> Do not “test” Q3 away; do not quote GA4 numbers as UKESM1.1; do not claim UKESM-only high-burden T is enough for SAI attribution.</p>
         </article>
       </div>
+      
       <div class="fence">
         <strong>The Devil’s fences that must hold:</strong>
-        <ul>
-          <li>Ideas 1–2 / Directions A–B are the experiments: size distributions, then process isolation. Experiments disentangle; they do not confirm a preferred story.</li>
-          <li>Idea 3 / Direction C: the few-model point is caution only. It is the interpretive bind for any UKESM/GLOMAP SAI or high-burden temperature reading, not a third experiment that disproves that caution.</li>
-          <li>GA4 is not UKESM1.1. The participating UK configuration is GA4 UM-UKCA with interactive GLOMAP. ENDGAME and UKESM1.0–1.1 leaps stay (inferred).</li>
-          <li>Sulfate only. No solid-particle content without an (inferred) tag, and no ozone-safer claim for any material.</li>
-        </ul>
+        <ul><li>Ideas 1–2 / Directions A–B: These are the experiments (Q1 size distributions; Q2 process isolation). Candidate language stays open; experiments disentangle, they do not confirm a preferred story.</li><li>Idea 3 / Direction C: Q3 is caution only — interpretive bind for any UKESM/GLOMAP SAI or high-burden temperature reading. Not a third experiment that disproves few-model caution.</li><li>GA4 ≠ UKESM1.1: Participating UK configuration is GA4 UM-UKCA with interactive GLOMAP; ENDGAME / UKESM1.0–1.1 leaps stay (inferred).</li><li>Sulfate only: No solid-particle smuggling without (inferred) tags; no ozone-safer claims for any material.</li></ul>
       </div>
-      <p class="joint"><strong>Joint note from Mrs. Lantern and The Devil.</strong> Mrs. Lantern maps size distributions, process isolation, and a caution-bound bridge toward UKESM1.1. The Devil keeps the few-model warning as a fence, not a result to overturn. Between them: two experiments on GA4 UM-UKCA, one inferred sulfate bridge, and no reading of a single-model temperature number as SAI attribution.</p>
       <p class="signoff">Mrs. Vanguard</p>
     </section>
 
