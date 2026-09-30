@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week of 28 September — Grant path</title>
+  <meta name="description" content="Monday grant digest for the week of 28 September 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+      --go: #1f4d45;
+      --go-soft: #e4eeeb;
+      --maybe: #8a6a2f;
+      --maybe-soft: #f3ead4;
+      --nogo: #9a3b24;
+      --nogo-soft: #f3e4dc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid var(--rust);
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    .tip small {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .grants {
+      display: grid;
+      gap: 1rem;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta li {
+      margin: 0 0 0.35rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .meta li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+    }
+
+    .tag.go {
+      background: var(--go-soft);
+      color: var(--go);
+    }
+
+    .tag.maybe {
+      background: var(--maybe-soft);
+      color: var(--maybe);
+    }
+
+    .tag.nogo {
+      background: var(--nogo-soft);
+      color: var(--nogo);
+    }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    .note {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .signoff {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      header { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../index.html">Particle X Climate</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Grant path</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">Monday grant digest</p>
+      <h1>Week of 28 September</h1>
+      <p class="lede">Two blind search passes merged (UK/UKRI and EU/international). Overlap between passes: none — coverage, not corroboration. Eligibility tags assume a possible Applicant PI / project lead (PhD Dec 2022; postdoc at a UK host). <span class="tag go">GO</span> only when the call text itself allows a postdoc Applicant PI; <span class="tag maybe">MAYBE</span> only when unsure. Finished mail goes to a fixed list.</p>
+      <div class="tip">
+        <p>Grant hunting tip of the day: GO means the call text said so — not that you felt lucky.</p>
+        <small>— The Devil</small>
+      </div>
+    </section>
+
+    <section>
+      <h2>Highlights</h2>
+      <div class="grants">
+        <article>
+          <h3>Solar Radiation Management (SRM) research programme [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Simons Foundation (Mathematics and Physical Sciences)</li>
+            <li><strong>Deadline:</strong> 6 October 2026, 12:00 noon ET (LOI); full proposal by invitation 17 February 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> as Applicant PI — call requires tenured/tenure-track (or equivalent) in a PhD-granting department. Named modeller on a faculty-led LOI is a different role.</li>
+            <li><strong>Fit:</strong> Direct fit for SAI/MCB/CCT lab and modelling science.</li>
+            <li><strong>Why it might not fit:</strong> Very short runway to the LOI; lab/modelling only, no in-situ release.</li>
+          </ul>
+          <p class="url">https://www.simonsfoundation.org/grant/solar-radiation-management/</p>
+        </article>
+
+        <article>
+          <h3>ERC Starting Grant 2027 [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> European Research Council (Horizon Europe)</li>
+            <li><strong>Scheme:</strong> ERC-2027-STG</li>
+            <li><strong>Deadline:</strong> 14 October 2026</li>
+            <li><strong>Eligibility:</strong> <span class="tag go">GO</span> — call allows a single PI with a UK (Associated Country) host; PhD Dec 2022 is inside the 0–10 year window. A host letter is still required to submit.</li>
+            <li><strong>Fit:</strong> Bottom-up route for SAI microphysics, UKESM/UKCA/GLOMAP, atmospheric composition, or nuclear-war climate effects.</li>
+            <li><strong>Why it might not fit:</strong> High excellence bar; need host commitment in time.</li>
+          </ul>
+          <p class="url">https://erc.europa.eu/apply-grant/starting-grant</p>
+        </article>
+
+        <article>
+          <h3>Exploring the frontiers of environmental research 2026 [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> NERC (UKRI)</li>
+            <li><strong>Deadline:</strong> 12 November 2026, 16:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — all career stages encouraged; the host must confirm a postdoc can be project lead on the contract.</li>
+            <li><strong>Fit:</strong> Strong for novel SAI/SRM aerosol microphysics or Earth-system modelling within NERC remit.</li>
+            <li><strong>Why it might not fit:</strong> Small award (£100–200k); mandatory distributed peer review; not a fellowship.</li>
+          </ul>
+          <p class="url">https://www.ukri.org/opportunity/exploring-the-frontiers-of-environmental-research-2026/</p>
+        </article>
+
+        <article>
+          <h3>Research Fellowships [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> The Leverhulme Trust</li>
+            <li><strong>Deadline:</strong> 5 November 2026, 16:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — possible if the UK post lasts beyond the fellowship; official page not fully verified here.</li>
+            <li><strong>Fit:</strong> Protected time for SRM/SAI modelling, aerosol chemistry, Earth-system modelling, or nuclear-winter climate research.</li>
+            <li><strong>Why it might not fit:</strong> Teaching-relief emphasis may not match a modelling-heavy case.</li>
+          </ul>
+          <p class="url">https://www.leverhulme.ac.uk/research-fellowships</p>
+        </article>
+
+        <article>
+          <h3>Pushing the frontiers of environmental research [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> NERC (UKRI)</li>
+            <li><strong>Deadline:</strong> Open — no closing date (applicant-led)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — open in principle at any career stage; the host must confirm project-lead rights on a postdoc contract.</li>
+            <li><strong>Fit:</strong> Main NERC discovery-science route for UKESM/UKCA/GLOMAP-style modelling.</li>
+            <li><strong>Why it might not fit:</strong> Long assessment (~9 months); broad NERC competition. Still open from a recent shortlist.</li>
+          </ul>
+          <p class="url">https://www.ukri.org/opportunity/pushing-the-frontiers-of-environmental-research/</p>
+        </article>
+
+        <article>
+          <h3>ERC Consolidator Grant 2027 [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> European Research Council (Horizon Europe)</li>
+            <li><strong>Scheme:</strong> ERC-2027-COG</li>
+            <li><strong>Deadline:</strong> 12 January 2027, 17:00 CET</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — consolidator window for WP 2027 is PhD defence 1 Jan 2012–31 Dec 2021; Dec 2022 is too recent.</li>
+            <li><strong>Fit:</strong> Would suit later group-building on atmospheric composition / SAI / UKESM if in window.</li>
+            <li><strong>Why it might not fit:</strong> Career-stage miss.</li>
+          </ul>
+          <p class="url">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/ERC-2027-COG</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Other relevant</h2>
+      <div class="grants">
+        <article>
+          <h3>Advancing atmospheric and aerial autonomy [single-source] — NERC (UKRI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 21 October 2026, 16:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> (host PL check). Weak remit fit unless there is an autonomous observing angle.</li>
+          </ul>
+          <p class="url">https://www.ukri.org/opportunity/advancing-atmospheric-and-aerial-autonomy/</p>
+        </article>
+
+        <article>
+          <h3>EPSRC new investigator award: applicant-led mode [single-source] — EPSRC (UKRI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Open — no closing date</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — early-career first EPSRC lead; strict first-grant rules + host confirmation.</li>
+          </ul>
+          <p class="url">https://www.ukri.org/opportunity/epsrc-new-investigator-award-applicant-led-mode/</p>
+        </article>
+
+        <article>
+          <h3>Future Leaders Fellowships: round 12 (pre-announcement) [single-source] — UKRI</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Not yet published</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — call text and dates not out; institutional sift likely.</li>
+          </ul>
+          <p class="url">https://www.ukri.org/apply-for-funding/future-research-and-innovation-funding-opportunities/</p>
+        </article>
+
+        <article>
+          <h3>Closing knowledge gaps on Earth system science (HORIZON-CL5-2026-08-Two-Stage-D1-06) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Stage 2: 8 October 2026, 17:00 CEST</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> unless a Stage 1 invitation is already held.</li>
+          </ul>
+          <p class="url">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2026-08-Two-Stage-D1-06</p>
+        </article>
+
+        <article>
+          <h3>Extreme events modelling (HORIZON-CL5-2027-01-D1-07) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 17 November 2026; closes 4 March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — consortium partner role, not a solo postdoc Applicant-PI route.</li>
+          </ul>
+          <p class="url">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2027-01-D1-07</p>
+        </article>
+
+        <article>
+          <h3>Palaeoclimate / Earth system dynamics (HORIZON-CL5-2027-01-D1-08) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 17 November 2026; closes 4 March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — consortium partner role.</li>
+          </ul>
+          <p class="url">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2027-01-D1-08</p>
+        </article>
+
+        <article>
+          <h3>Next generation climate scenarios (HORIZON-CL5-2027-01-D1-13) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 17 November 2026; closes 4 March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — consortium partner role.</li>
+          </ul>
+          <p class="url">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2027-01-D1-13</p>
+        </article>
+
+        <article>
+          <h3>NSF Geosciences Core Research (NSF 26-516) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Rolling</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> as a UK host lead — US organisations submit.</li>
+          </ul>
+          <p class="url">https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation</p>
+        </article>
+
+        <article>
+          <h3>ERC Advanced Grant 2027 [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 27 May 2027; closes 26 August 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> for now — established-leader scheme; unrealistic with PhD Dec 2022.</li>
+          </ul>
+          <p class="url">https://erc.europa.eu/apply-grant/advanced-grant</p>
+        </article>
+      </div>
+      <p class="note">Items marked [single-source] appeared in only one of the two blind passes and were kept.</p>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Grant path</a>
+    </footer>
+  </div>
+</body>
+</html>

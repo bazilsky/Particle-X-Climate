@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week of 28 September — Paper path</title>
+  <meta name="description" content="Thursday paper digest for the week of 28 September 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .papers {
+      display: grid;
+      gap: 1rem;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+      background: var(--rust-soft);
+      color: var(--rust);
+    }
+
+    .note {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .devil {
+      margin: 0.75rem 0 0;
+      color: var(--rust);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .signoff {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      header { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../index.html">Particle X Climate</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Paper path</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">Thursday paper digest</p>
+      <h1>Week of 28 September</h1>
+      <p class="lede">Six most recent remit matches from two blind searches (by publication date), listed newest to oldest. Self-authored papers omitted from the six. Preprints allowed. Older matches held for later digests; sent DOIs are logged so they are not repeated.</p>
+    </section>
+
+    <section>
+      <h2>Papers</h2>
+      <div class="papers">
+        <article>
+          <h3>Detectability of solid particle injections into the stratosphere with satellite solar occultation instruments</h3>
+          <p class="meta">Lange et al. (2026-09-16). Atmospheric Chemistry and Physics.</p>
+          <p class="url"><a href="https://doi.org/10.5194/acp-26-13055-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-13055-2026</a></p>
+        </article>
+
+        <article>
+          <h3>Stratospheric ozone projections under sulfur-based stratospheric aerosol injection: Insights from the multi-model G6-1.5K-SAI experiment</h3>
+          <p class="meta">Bednarz et al. (2026-09-10). Atmospheric Chemistry and Physics.</p>
+          <p class="url"><a href="https://doi.org/10.5194/acp-26-12751-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-12751-2026</a></p>
+        </article>
+
+        <article>
+          <h3>On the detectability by uninvolved parties of covert stratospheric aerosol injection programs producing transboundary impacts</h3>
+          <p class="meta">Smith et al. (2026-09-01). Environmental Research: Climate.</p>
+          <p class="url"><a href="https://doi.org/10.1088/2752-5295/ae7148" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/2752-5295/ae7148</a></p>
+        </article>
+
+        <article>
+          <h3>Assessing the stratospheric temperature response to volcanic sulfate injections by Mt. Pinatubo: insights from the Interactive Stratospheric Aerosol Model Intercomparison Project</h3>
+          <p class="meta">Perny et al. (2026-08-06). Atmospheric Chemistry and Physics.</p>
+          <p class="url"><a href="https://doi.org/10.5194/acp-26-10997-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-10997-2026</a></p>
+        </article>
+
+        <article>
+          <h3>G6-1.5K-SAI and G6sulfur: changes in impacts and uncertainty depending on stratospheric aerosol injection strategy in the Geoengineering Model Intercomparison Project</h3>
+          <p class="meta">Lee et al. (2026-05-29). Atmospheric Chemistry and Physics.</p>
+          <p class="url"><a href="https://doi.org/10.5194/acp-26-7463-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-7463-2026</a></p>
+        </article>
+
+        <article>
+          <h3>The enhanced capabilities of mid-infrared limb emission sounding to observe stratospheric aerosol injection geoengineering interventions <span class="tag">Preprint</span></h3>
+          <p class="meta">Sellitto et al. (2026-04-21). EGUsphere (preprint; under review for AMT).</p>
+          <p class="url"><a href="https://doi.org/10.5194/egusphere-2026-919" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/egusphere-2026-919</a></p>
+          <p class="devil">The Devil sniffed this preprint, declined to peer-review it, and left the salt shaker.</p>
+        </article>
+      </div>
+      <p class="note">Digest dated 27 September 2026; filed with the Monday of 28 September.</p>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Paper path</a>
+    </footer>
+  </div>
+</body>
+</html>
