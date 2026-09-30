@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idea path — 1 October 2026</title>
-  <meta name="description" content="Worked idea from the nominated paper for 1 October 2026.">
+  <meta name="description" content="Three nominated papers for 1 October 2026: Bednarz, Perny, and Geurts.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
         radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
         var(--paper);
       font-family: "Source Sans 3", "Segoe UI", sans-serif;
-      font-size: 1.1125rem;
+      font-size: 1.05rem;
       line-height: 1.55;
     }
 
@@ -103,28 +103,6 @@
       font-size: 1.08rem;
     }
 
-    .tip {
-      margin: 1.4rem 0 0;
-      border-left: 3px solid var(--rust);
-      padding: 0.15rem 0 0.15rem 1.1rem;
-      max-width: 42rem;
-    }
-
-    .tip p {
-      margin: 0;
-      font-family: Fraunces, Georgia, serif;
-      font-size: 1.08rem;
-      line-height: 1.35;
-    }
-
-    .tip small {
-      display: block;
-      margin-top: 0.55rem;
-      color: var(--muted);
-      font-family: "Source Sans 3", sans-serif;
-      font-size: 0.88rem;
-    }
-
     section { padding: 0.5rem 0 2.5rem; }
 
     h2 {
@@ -135,132 +113,51 @@
       letter-spacing: -0.02em;
     }
 
-
-    .takeaways {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 1.25rem 1.3rem 1.35rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .takeaways h3 {
-      margin: 0 0 0.65rem;
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 500;
-      font-size: 1.15rem;
-      letter-spacing: -0.01em;
-    }
-
-    .takeaways h3 + h3 {
-      margin-top: 1.35rem;
-    }
-
-    .takeaways p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.0425rem;
-    }
-
-    .takeaways p + p {
-      margin-top: 0.85rem;
-    }
-
-    .takeaways .caveat {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      font-style: italic;
-    }
-
-
-    .picked, .takeaways, article {
-      text-align: justify;
-      -webkit-hyphens: auto;
-      hyphens: auto;
-    }
-
-    .picked p, .takeaways p, article p {
-      font-size: 1.0425rem;
-    }
-
-    .picked {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 1.25rem 1.3rem 1.35rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .picked h3 {
-      margin: 0 0 0.65rem;
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 500;
-      font-size: 1.25rem;
-      letter-spacing: -0.01em;
-    }
-
-    .meta {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.0425rem;
-    }
-
-    .url {
-      margin: 0.75rem 0 0;
-      word-break: break-all;
-      font-size: 0.92rem;
-    }
-
-    .path {
-      margin: 1rem 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .ideas {
+    .week-list {
       display: grid;
       gap: 1rem;
+      max-width: 40rem;
     }
 
-    article {
+    .week-btn {
+      display: block;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 1.25rem 1.3rem 1.35rem;
+      padding: 1.25rem 1.35rem;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
 
-    article h3 {
-      margin: 0 0 0.65rem;
+    .week-btn:hover {
+      border-color: var(--rust);
+      transform: translateY(-1px);
+    }
+
+    .week-btn .day {
+      display: inline-block;
+      margin-bottom: 0.55rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .week-btn h3 {
+      margin: 0;
       font-family: Fraunces, Georgia, serif;
       font-weight: 500;
-      font-size: 1.2rem;
-      letter-spacing: -0.01em;
-    }
-
-    article p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.0425rem;
-    }
-
-    .fence {
-      margin: 1.25rem 0 0;
-      padding: 1rem 1.15rem;
-      background: var(--rust-soft);
-      border-radius: 12px;
+      font-size: 1.35rem;
       color: var(--ink);
-      font-size: 0.95rem;
     }
 
-    .joint {
-      margin: 1.25rem 0 0;
-      max-width: 42rem;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .signoff {
-      margin: 1.25rem 0 0;
+    .week-btn p {
+      margin: 0.4rem 0 0;
       color: var(--muted);
       font-size: 0.95rem;
     }
@@ -294,70 +191,28 @@
     <section class="hero">
       <p class="kicker">1 October 2026</p>
       <h1>Idea path</h1>
-      <p class="lede">One nominated paper, three approved ideas, and research directions. Grant-agnostic — no call names.</p>
+      <p class="lede">Three nominated papers. Each page has takeaways, three ideas, and research directions. Grant-agnostic — no call names.</p>
     </section>
 
     <section>
-      <h2>Chosen paper</h2>
-      <div class="picked">
-        <h3>Stratospheric ozone projections under sulfur-based stratospheric aerosol injection: Insights from the multi-model G6-1.5K-SAI experiment</h3>
-        <p class="meta">Bednarz et al. (2026), ACP — picked by Mrs. Lantern alone, after shortlist pass ×3.</p>
-        <p class="url"><a href="https://doi.org/10.5194/acp-26-12751-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-12751-2026</a></p>
-        <p class="path">Path that ran: Mrs. Vanguard emailed 6 papers → Mrs. Lantern shortlist of 3 (Bednarz, Perny, Lee reframed) → The Devil pass ×3 → Mrs. Lantern picked Bednarz → up to 3 ideas + one research-directions write-up → The Devil document review pass.</p>
+      <h2>Papers</h2>
+      <div class="week-list">
+        <a class="week-btn" href="2026-10-01-bednarz.html">
+          <span class="day">Paper 1</span>
+          <h3>Bednarz et al.</h3>
+          <p>Stratospheric ozone under sulfur-based SAI in the multi-model G6-1.5K-SAI experiment.</p>
+        </a>
+        <a class="week-btn" href="2026-10-01-perny.html">
+          <span class="day">Paper 2</span>
+          <h3>Perny et al.</h3>
+          <p>Stratospheric temperature response to Pinatubo sulfate in ISA-MIP HErSEA.</p>
+        </a>
+        <a class="week-btn" href="2026-10-01-geurts.html">
+          <span class="day">Paper 3</span>
+          <h3>Geurts et al.</h3>
+          <p>Lower-absorptivity materials and the SAI hydrological cycle.</p>
+        </a>
       </div>
-    </section>
-
-    <section>
-      <h2>Paper takeaways</h2>
-      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the chosen paper delivered — not in the email.</p>
-      <div class="takeaways">
-        <h3>What they got right (main result)</h3>
-        <p>Bednarz et al. (2026) give a clear multi-model look at stratospheric ozone under sulfur-based stratospheric aerosol injection in the GeoMIP G6-1.5K-SAI setup, with UKESM compared to CESM and MIROC, and a WITH_HET / NO_HET pair that separates heterogeneous chemistry on SAI sulfate from transport. The lasting contribution is mapping process-level disagreement rather than a single verdict on whether SAI is good or bad for ozone. Stratospheric water vapour under this subtropical strategy disagrees in sign across models: UKESM dries by up to about 10%, while CESM and MIROC moisten, and the authors note that cold-point warming alone may not explain UKESM’s dry path. Southern Hemisphere mid-latitude ozone loss looks relatively robust, but Northern Hemisphere mid-latitude ozone does not: UKESM keeps losing about 5–10 DU while the others stay near flat or only weakly positive later. Heterogeneous chemistry explains only part of UKESM’s subtropical and mid-latitude ozone loss; a clear transport residual remains. Antarctic springtime ozone reductions are sensitive to heterogeneous chemistry and sit against a multi-model ozone–vortex correlation the authors float as a potential constraint. Injection strategy can outweigh inter-model spread for global-mean column ozone, though not for Antarctic spring ozone, where model differences dominate. They also note that earlier UKESM strategy–ozone work lacked coupled heterogeneous chemistry on SAI sulfate.</p>
-        <h3>What they didn’t quite nail</h3>
-        <p>They listed four candidate processes for UKESM’s dry stratosphere but did not rank which ones matter most. The WITH_HET / NO_HET experiments separate chemistry from transport, but they do not separate residual circulation from mixing. The Antarctic ozone–vortex link is offered as a potential constraint, not a validated observational one, and the paper has no clear Arctic counterpart. A strategy comparison inside UKESM with coupled heterogeneous chemistry remains incomplete. The study covers sulfur SAI only: it does not examine solid particles.</p>
-        <p class="caveat">Reader caveat (not a paper flaw): UKESM’s smaller Antarctic loss is not evidence that sulfur SAI is ozone-safe.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Ideas</h2>
-      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
-      <div class="ideas">
-        <article>
-          <h3>Idea 1 — author documented</h3>
-          <p>Why does UKESM dry the stratosphere under subtropical SO₂ SAI when CESM and MIROC moisten it? Bednarz lists four candidate processes beyond cold-point warming and asks for follow-up; this idea is that UKESM attribution.</p>
-        </article>
-        <article>
-          <h3>Idea 2 — author documented</h3>
-          <p>Why does UKESM lose NH mid-latitude ozone under G6-1.5K-SAI while other models do not? Bednarz already shows chemistry is only part of it (WITH_HET / NO_HET); this idea digs into residual circulation versus mixing.</p>
-        </article>
-        <article>
-          <h3>Idea 3 — mostly inferred; pass with teeth</h3>
-          <p>Can that same chemistry-vs-transport habit transfer to high-burden volcanic cases, and later to solid-particle SAI only if GLOMAP/UKCA is ready? Not claimed by Bednarz; fences stay hard.</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2>Research directions</h2>
-      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">How those hooks could become actual UKESM work.</p>
-      <div class="ideas">
-        <article>
-          <h3>Direction A, from Idea 1</h3>
-          <p>Take Bednarz’s four candidate processes for UKESM’s dry stratosphere under G6-1.5K-SAI and rank which ones matter in the model — using budgets and diagnostics already available, not a new multi-model campaign.</p>
-        </article>
-        <article>
-          <h3>Direction B, from Idea 2</h3>
-          <p>Use the existing WITH_HET / NO_HET UKESM pair to split how much of the NH mid-latitude ozone drop is chemistry vs transport, and whether residual circulation or mixing is doing more of the transport work.</p>
-        </article>
-        <article>
-          <h3>Direction C, from Idea 3 — mostly inferred</h3>
-          <p>Reuse that chemistry-vs-transport mindset on high-burden volcanic / Hunga-class cases first; solid-particle SAI only after a written GLOMAP/UKCA readiness check — and never as a soft rewrite of Idea 1 or 2.</p>
-        </article>
-      </div>
-      <p class="fence"><strong>The Devil’s fences that must hold:</strong> do not soften Idea 3’s inferred tags; do not claim Bednarz studied solid particles; do not re-bridge Lee’s Arctic residual to material via lifetime/R_eff.</p>
-      <p class="joint"><strong>Joint note from Mrs. Lantern and The Devil.</strong> Mrs. Lantern maps the questions Bednarz left open. The Devil maps where overclaim would land. Between them: three hooks, one readiness gate, and a fence that still has teeth in it.</p>
-      <p class="signoff">Mrs. Vanguard</p>
     </section>
 
     <footer>

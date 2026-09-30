@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idea path — Perny — 1 October 2026</title>
+  <meta name="description" content="Takeaways, three ideas, and research directions from Perny et al. (2026) on the Pinatubo stratospheric temperature response.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      header { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../index.html">Particle X Climate</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Idea path</a>
+        <a href="2026-10-01.html">1 October</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">1 October 2026 · Paper 2</p>
+      <h1>Perny et al.</h1>
+      <p class="lede">Takeaways, three ideas, and research directions. Volcanic sulfate only. The participating UK configuration is GA4 UM-UKCA, not UKESM1.1. Grant-agnostic — no call names.</p>
+    </section>
+
+    <section>
+      <h2>Paper</h2>
+      <div class="picked">
+        <h3>Assessing the stratospheric temperature response to volcanic sulfate injections by Mt. Pinatubo: insights from the Interactive Stratospheric Aerosol Model Intercomparison Project</h3>
+        <p class="meta">Perny, K., et al. (2026). Atmospheric Chemistry and Physics, 26, 10997–11025.</p>
+        <p class="url"><a href="https://doi.org/10.5194/acp-26-10997-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-10997-2026</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Paper takeaways</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Perny et al. (2026) give a clear ISA-MIP HErSEA look at how Pinatubo-like volcanic sulfate warms the tropical stratosphere across interactive aerosol chemistry–climate models, including GA4 UM-UKCA with interactive GLOMAP, against reanalyses and a REMAP–GloSSAC sulfate composite. The lasting contribution is mapping structural disagreement rather than a single verdict on Pinatubo heating. The multi-model mean temperature anomaly tracks reanalysis reasonably well for most injection settings, but differences between models are usually larger than differences for one model across injection amount and altitude. Transport, radiative transfer, microphysics, and how models characterise aerosol size distributions all matter for that spread, and those processes interact too tightly under the HErSEA protocol alone to pin one cause. UM-UKCA sits among the lower SO₄–temperature sensitivities, with a weak warming signal despite sulfate concentrations that look comparatively well reproduced, and it prefers deep-branch transport in the first post-eruption winter. Comparing to prescribed-aerosol MIPs (CCMI-2022, CMIP6-AMIP) does not shrink the temperature-anomaly spread, pointing to model choice rather than interactive aerosol alone as the dominant driver of the multi-model distribution. The authors therefore caution against attribution studies and against interpreting stratospheric aerosol injection temperature responses from individual or few models.</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>They flag size distributions as somewhat important for matching the observed temperature response and call for a detailed analysis beyond effective radius, but they do not deliver that analysis here — and for most models they treat effective radius as not the main explanation of the spread they see. They list radiative transfer, transport, and sedimentation as core uncertainties that need process-oriented follow-ups and within-family subroutine tests, but HErSEA itself cannot separate those levers. The participating UK configuration is GA4 UM-UKCA, not UKESM1.1, so any bridge to today’s coupled UKESM/GLOMAP stack is an extension, not a result of this paper. The study is volcanic sulfate under a Pinatubo protocol: it does not examine continuous SAI strategies in depth, and it does not examine solid particles.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): a single-model (including UKESM/GLOMAP) Pinatubo or high-burden sulfate temperature number is not, on this paper’s own caution, enough for SAI attribution.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing. Ideas 1 and 2 are the experiments. Idea 3 is an interpretive bridge under the paper’s few-model caution, not a test of whether that caution fails.</p>
+      <div class="ideas">
+        <article>
+          <p class="label">Idea 1 · author documented</p>
+          <h3>GLOMAP / UM-UKCA Pinatubo size distributions beyond effective radius as a lever on stratospheric temperature response</h3>
+          <p>Perny et al. find large inter-model spread in Pinatubo stratospheric temperature even under the strict HErSEA protocol, and argue that simulated size distribution matters for matching the observed temperature response — while noting that effective radius alone is often insufficient, and that for most models they treat effective radius as not the main driver of the spread they see. They explicitly call for a detailed analysis of model size distributions and of how well effective radius represents them. UM-UKCA shows a lower sensitivity to SO₄ (about 0.28), with weak warming despite comparatively well reproduced sulfate, and uses interactive GLOMAP in the GA4 configuration. A UK-side follow-on would diagnose full GLOMAP modal moments — number, mass, and width — not effective radius alone, against Perny’s SO₄–temperature regression for the GA4 UM-UKCA HErSEA members. Only then ask, as (inferred), whether the same size-distribution gap persists in UKESM1.1/GLOMAP high-burden sulfate runs. The paper’s UK member is GA4 UM-UKCA, not UKESM1.1.</p>
+        </article>
+        <article>
+          <p class="label">Idea 2 · author documented core</p>
+          <h3>Within-family process isolation of radiative transfer, transport, and sedimentation for Pinatubo and high-burden sulfate temperature response</h3>
+          <p>Perny attribute the Pinatubo temperature-response spread to interacting differences in transport, radiative transfer, microphysics, and size-distribution characterisation, and state that under HErSEA alone it is not trivial to extract the exact reason for inter-model differences. Differences between models are in most cases larger than differences within one model across experiments. UM-UKCA mainly transports through the deep branch until winter 1991/92. Their listed future directions include process-oriented comparisons that separately address radiative transfer, transport, and sedimentation, plus sensitivity tests on model subroutines within model families and generations. For this stack the near-term path is not waiting to host a new community MIP. It is a UK-family process-switched or diagnostic suite on sulfate Pinatubo — and, as (inferred), continuous high-burden sulfate — that holds the SO₂ injection protocol fixed while isolating heating rates, Brewer–Dobson and tropical-pipe transport, and sedimentation. Start from GA4 UM-UKCA archives. Any UKESM1.1 leap stays (inferred).</p>
+        </article>
+        <article>
+          <p class="label">Idea 3 · mostly inferred · caution is author documented</p>
+          <h3>UKESM1.1/GLOMAP high-burden sulfate temperature sensitivity under Perny’s SO₄–temperature metric, read under the paper’s few-model caution</h3>
+          <p>Perny’s third point is caution, not a third experimental lever. They argue against attribution and against interpreting stratospheric aerosol injection temperature responses from individual or few models, because the spread in burden, transport, and temperature stays large even under a strict protocol, and because model choice dominates the multi-model temperature distribution. This idea does not ask whether that caution fails. It asks how to use Perny’s SO₄–temperature regression, together with the size-distribution and process findings of Ideas 1 and 2, when reading (inferred) UKESM1.1/GLOMAP Pinatubo or continuous high-burden sulfate runs — always as single-family sensitivity under multi-model caution, never as a standalone SAI temperature verdict. The GA4 UM-UKCA to UKESM1.1/ENDGAME leap is family-level only and stays (inferred). The paper notes that this GA4 setup differs from the ENDGAME dynamics used for UKESM1.0. The paper is volcanic sulfate. Solid-particle high-burden is out of scope here unless separately gated and tagged (inferred), and it is never framed as ozone-safer.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Research directions</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">How those hooks could become actual UKESM, UKCA, and GLOMAP work. Directions A and B are the experiments. Direction C is the caution-bound bridge.</p>
+      <div class="ideas">
+        <article>
+          <p class="label">Direction A · from Idea 1</p>
+          <h3>Size distributions beyond effective radius</h3>
+          <p>Perny recommend a detailed analysis of model size distributions and of whether effective radius represents them. Size distribution is “somewhat important” for the observed temperature response, while for most models effective radius alone does not explain the spread (author documented). UM-UKCA shows low tropical SO₄–temperature sensitivity, about 0.28 K per µg m⁻³, with weak warming despite well reproduced SO₄ (author documented).</p>
+          <ul>
+            <li>Start from published GA4 UM-UKCA HErSEA members (Med-22 km core; Low and High injection variants as sensitivity).</li>
+            <li>Diagnose full GLOMAP modal moments — number, mass, width, and mode radii — not effective radius alone, co-located with SO₄ mass and tropical temperature anomaly. That diagnostic package is (inferred).</li>
+            <li>Recompute Perny-style SO₄–temperature regressions conditioned on size-distribution diagnostics, to test whether UM-UKCA’s low sensitivity tracks modal shape, not just mass.</li>
+            <li>Only after the GA4 baseline: ask whether the same size–temperature relationship appears in (inferred) UKESM1.1/GLOMAP Pinatubo or continuous high-burden sulfate runs.</li>
+          </ul>
+          <p>Do not claim Perny already closed the size-distribution question. Do not treat effective radius as proven irrelevant. Keep the GA4 to UKESM1.1 step tagged (inferred).</p>
+        </article>
+        <article>
+          <p class="label">Direction B · from Idea 2</p>
+          <h3>Process isolation of radiative transfer, transport, and sedimentation</h3>
+          <p>Transport, radiative transfer, microphysics, and size-distribution characterisation interact too tightly under HErSEA to attribute inter-model temperature differences. Perny call for process-oriented work on radiative transfer, transport, and sedimentation, plus within-family subroutine tests (author documented). UM-UKCA prefers deep-branch transport in the first post-eruption winter (author documented).</p>
+          <ul>
+            <li>Hold an HErSEA-like SO₂ injection fixed. Isolate aerosol heating and radiative transfer, tropical-pipe versus shallow and deep residual-circulation transport, and sedimentation or size-dependent removal. Those process switches are (inferred).</li>
+            <li>Use GA4 UM-UKCA archives and control-minus-eruption anomalies first. Quantify how much of the low SO₄–temperature sensitivity survives when transport or heating is constrained.</li>
+            <li>Any new community process-oriented MIP is (inferred) context only. The primary deliverable is UK-family depth, matching Perny’s call for tests within model families and generations.</li>
+            <li>Any UKESM1.1/ENDGAME re-implementation of those switches is (inferred) relative to the paper’s GA4 member.</li>
+          </ul>
+          <p>Keep this distinct from Direction A. A diagnoses size distributions. B isolates radiative transfer, transport, and sedimentation as interacting process levers. Do not pretend HErSEA already separated them.</p>
+        </article>
+        <article>
+          <p class="label">Direction C · from Idea 3</p>
+          <h3>Caution-bound UKESM1.1 and high-burden sulfate SO₄–temperature bridge</h3>
+          <p>Perny argue for caution in attribution and in interpreting SAI temperature responses from individual or few models. Model choice dominates the magnitude and spread of the temperature response even under a strict protocol (author documented). This is caution, not an experiment that asks whether caution fails.</p>
+          <ul>
+            <li>Apply Perny’s tropical SO₄–temperature regression to (inferred) UKESM1.1/GLOMAP Pinatubo-class and continuous high-burden sulfate SAI ensembles. Report single-family sensitivity under multi-model caution, never a standalone SAI temperature attribution.</li>
+            <li>Document the GA4 UM-UKCA to UKESM1.1/ENDGAME leap as a family-generation uncertainty to quantify, not ignore.</li>
+            <li>Fold the size-distribution and process-isolation diagnostics from Ideas 1 and 2 into the UKESM1.1 reading so the bridge inherits process depth rather than a single scalar sensitivity.</li>
+            <li>Sulfate only. Solid-particle high-burden is out of this direction unless separately gated, tagged (inferred), and never framed as ozone-safer. Perny did not study solids or the ozone-safety of materials.</li>
+          </ul>
+          <p>Do not test the caution away. Do not quote GA4 numbers as UKESM1.1 results. Do not claim a UKESM-only high-burden temperature is enough for SAI attribution.</p>
+        </article>
+      </div>
+      <div class="fence">
+        <strong>The Devil’s fences that must hold:</strong>
+        <ul>
+          <li>Ideas 1–2 / Directions A–B are the experiments: size distributions, then process isolation. Experiments disentangle; they do not confirm a preferred story.</li>
+          <li>Idea 3 / Direction C: the few-model point is caution only. It is the interpretive bind for any UKESM/GLOMAP SAI or high-burden temperature reading, not a third experiment that disproves that caution.</li>
+          <li>GA4 is not UKESM1.1. The participating UK configuration is GA4 UM-UKCA with interactive GLOMAP. ENDGAME and UKESM1.0–1.1 leaps stay (inferred).</li>
+          <li>Sulfate only. No solid-particle content without an (inferred) tag, and no ozone-safer claim for any material.</li>
+        </ul>
+      </div>
+      <p class="joint"><strong>Joint note from Mrs. Lantern and The Devil.</strong> Mrs. Lantern maps size distributions, process isolation, and a caution-bound bridge toward UKESM1.1. The Devil keeps the few-model warning as a fence, not a result to overturn. Between them: two experiments on GA4 UM-UKCA, one inferred sulfate bridge, and no reading of a single-model temperature number as SAI attribution.</p>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="2026-10-01.html">Back to 1 October</a>
+    </footer>
+  </div>
+</body>
+</html>
