@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Idea path — Bednarz — 1 October 2026</title>
-  <meta name="description" content="Takeaways, three ideas, and research directions from Bednarz et al. (2026) on sulfur-based SAI and stratospheric ozone.">
+  <title>Idea path — Bednarz et al. — 1 October 2026</title>
+  <meta name="description" content="Chosen paper, takeaways, ideas, and research directions for Bednarz et al. on 1 October 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -240,10 +240,10 @@
     </section>
 
     <section>
-      <h2>Paper</h2>
+      <h2>Chosen paper</h2>
       <div class="picked">
         <h3>Stratospheric ozone projections under sulfur-based stratospheric aerosol injection: Insights from the multi-model G6-1.5K-SAI experiment</h3>
-        <p class="meta">Bednarz, E. M., et al. (2026). Atmospheric Chemistry and Physics, 26, 12751–12770.</p>
+        <p class="meta">Bednarz, E. M., et al. (2026): Stratospheric ozone projections under sulfur-based stratospheric aerosol injection: Insights from the multi-model G6-1.5K-SAI experiment. Atmos. Chem. Phys., 26, 12751–12770.</p>
         <p class="url"><a href="https://doi.org/10.5194/acp-26-12751-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-12751-2026</a></p>
       </div>
     </section>
@@ -255,86 +255,63 @@
         <h3>What they got right (main result)</h3>
         <p>Bednarz et al. (2026) give a clear multi-model look at stratospheric ozone under sulfur-based stratospheric aerosol injection in the GeoMIP G6-1.5K-SAI setup, with UKESM compared to CESM and MIROC, and a WITH_HET / NO_HET pair that separates heterogeneous chemistry on SAI sulfate from transport. The lasting contribution is mapping process-level disagreement rather than a single verdict on whether SAI is good or bad for ozone. Stratospheric water vapour under this subtropical strategy disagrees in sign across models: UKESM dries by up to about 10%, while CESM and MIROC moisten, and the authors note that cold-point warming alone may not explain UKESM’s dry path. Southern Hemisphere mid-latitude ozone loss looks relatively robust, but Northern Hemisphere mid-latitude ozone does not: UKESM keeps losing about 5–10 DU while the others stay near flat or only weakly positive later. Heterogeneous chemistry explains only part of UKESM’s subtropical and mid-latitude ozone loss; a clear transport residual remains. Antarctic springtime ozone reductions are sensitive to heterogeneous chemistry and sit against a multi-model ozone–vortex correlation the authors float as a potential constraint. Injection strategy can outweigh inter-model spread for global-mean column ozone, though not for Antarctic spring ozone, where model differences dominate. They also note that earlier UKESM strategy–ozone work lacked coupled heterogeneous chemistry on SAI sulfate.</p>
         <h3>What they didn’t quite nail</h3>
-        <p>They listed four candidate processes for UKESM’s dry stratosphere but did not rank which ones matter most. The WITH_HET / NO_HET experiments separate chemistry from transport, but they do not separate residual circulation from mixing. The Antarctic ozone–vortex link is offered as a potential constraint, not a validated observational one, and the paper has no clear Arctic counterpart. A strategy comparison inside UKESM with coupled heterogeneous chemistry remains incomplete. The study covers sulfur SAI only: it does not examine solid particles.</p>
-        <p class="caveat">Reader caveat (not a paper flaw): UKESM’s smaller Antarctic loss is not evidence that sulfur SAI is ozone-safe.</p>
+        <p>They listed four candidate processes for UKESM’s dry stratosphere but did not rank which ones matter most. The WITH_HET / NO_HET experiments separate chemistry from transport, but they do not separate residual circulation from mixing. The Antarctic ozone–vortex link is offered as a potential constraint, not a validated observational one, and the paper has no clear Arctic counterpart. A strategy comparison inside UKESM with coupled heterogeneous chemistry remains incomplete. The study covers sulfur SAI only: it does not examine solid particles.</p><p class="caveat">Reader caveat (not a paper flaw): UKESM’s smaller Antarctic loss is not evidence that sulfur SAI is ozone-safe.</p>
       </div>
     </section>
 
     <section>
       <h2>Ideas</h2>
-      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing. Claim lines marked (author documented) are in Bednarz; lines marked (inferred) are extensions.</p>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
         <article>
-          <p class="label">Idea 1 · author documented · Q1 experiment</p>
+          <p class="label">Idea 1</p>
           <h3>Process attribution of UKESM1.1’s negative stratospheric water-vapour response to subtropical SO₂ SAI</h3>
-          <p>Under GeoMIP G6-1.5K-SAI, UKESM uniquely dries the stratosphere (up to about −10% H₂O) while CESM and MIROC moisten it. Bednarz et al. list four candidate processes beyond cold-point warming and explicitly call for follow-up experiments to disentangle them: tropical tropopause pressure, overshooting tropical convection, extratropical cross-tropopause transport, and in-situ water production from methane oxidation. A UKESM/UKCA diagnostic suite on those four, with optional process-switched or nudged runs, would rank the contributions. That diagnostic architecture is (inferred). The four processes are an author-listed candidate list, not proven mechanisms.</p>
+          <p>Under GeoMIP G6-1.5K-SAI, UKESM uniquely dries the stratosphere (up to ~−10% H₂O) while CESM and MIROC moisten it; Bednarz et al. list four candidate processes beyond cold-point warming and explicitly call for follow-up experiments to disentangle them. A UKESM/UKCA diagnostic suite (tropopause-pressure, convection/overshoot, extratropical cross-tropopause flux, CH₄-oxidation water production; optional process-switched or nudged runs) would rank those contributions <strong>(inferred)</strong> diagnostic architecture.</p>
         </article>
         <article>
-          <p class="label">Idea 2 · author documented · Q2 experiment</p>
+          <p class="label">Idea 2</p>
           <h3>Constraining SAI-driven residual circulation versus isentropic mixing in UKESM to explain NH mid-latitude ozone disagreement</h3>
-          <p>Southern Hemisphere mid-latitude ozone loss is robust across G6-1.5K-SAI models, but the Northern Hemisphere mid-latitude ozone sign disagrees: UKESM shows persistent decreases of about 5–10 DU while CESM and MIROC are near-flat or only weakly positive late in the century. The UKESM WITH_HET versus NO_HET pair shows subtropical and mid-latitude ozone loss surviving without heterogeneous chemistry on SAI sulfate, with the remainder attributed to transport — acceleration of the residual circulation above the aerosol layer and/or enhanced isentropic mixing. A UKESM transport diagnosis (TEM residual circulation, age of air, mixing or effective diffusivity, and WITH_HET–NO_HET differencing) targets that sign disagreement. WITH_HET/NO_HET separates chemistry from transport. It does not already separate residual circulation from mixing. Specific diffusivity and TEM budget design, and any expansion beyond the paper’s pair, is (inferred).</p>
+          <p>SH mid-latitude ozone loss is robust across G6-1.5K-SAI models, but NH mid-latitude ozone <strong>sign</strong> disagrees — UKESM shows persistent ~5–10 DU decreases while CESM/MIROC are near-flat or weakly positive late-century. Bednarz’s UKESM WITH_HET vs NO_HET pair shows subtropical/mid-latitude ozone loss survives without heterogeneous chemistry on SAI sulfate and attributes the remainder to transport (BDC acceleration above the aerosol layer and/or enhanced isentropic mixing). A UKESM transport diagnosis (TEM residual circulation, age-of-air, mixing/effective diffusivity, WITH_HET–NO_HET differencing) targets that sign disagreement at its stated root. WITH_HET/NO_HET separates chemistry from transport; it does <strong>not</strong> already separate residual circulation from mixing.</p>
         </article>
         <article>
-          <p class="label">Idea 3 · author documented</p>
-          <h3>UKESM springtime Antarctic ozone under G6-1.5K-SAI: WITH_HET halogen pathway magnitude and the ozone–vortex emergent constraint</h3>
-          <p>Across G6-1.5K-SAI models, Antarctic springtime column ozone falls relative to SSP2-4.5, but the magnitude spreads widely once normalised (CESM about −44 DU K⁻¹ versus UKESM about −13 DU K⁻¹ in 2045–2064). That inter-model spread outweighs strategy uncertainty for Antarctic ozone. The UKESM WITH_HET versus NO_HET pair shows polar ozone reductions vanishing without heterogeneous chemistry on SAI sulfate, while mid-latitude losses partly survive. Separately, Bednarz reports a very strong correlation (R ≈ −0.95) between Antarctic springtime ozone loss and austral polar-vortex strengthening across models and periods, and calls it a potential constraint — the first such demonstration for SAI. A UKESM-focused follow-on would quantify how much of UKESM’s comparatively modest Antarctic ozone loss is halogen activation on SAI sulfate versus dynamical coupling, and test whether the ozone–vortex relationship holds inside UKESM ensembles and early-versus-late halogen eras. Expanded polar halogen budgets or ensemble members beyond the paper’s pair are (inferred). This is distinct from Idea 2’s Northern Hemisphere mid-latitude transport-versus-mixing diagnosis.</p>
+          <p class="label">Idea 3</p>
+          <h3>UKESM springtime Antarctic ozone under G6-1.5K-SAI: WITH_HET halogen pathway magnitude and the Bednarz ozone–vortex emergent constraint</h3>
+          <p>Across G6-1.5K-SAI models, Antarctic springtime column ozone falls relative to SSP2-4.5, but <strong>magnitude</strong> spreads hugely once normalised (CESM ~−44 DU K⁻¹ vs UKESM ~−13 DU K⁻¹ in 2045–2064) — and that inter-model spread outweighs strategy uncertainty for Antarctic ozone. Bednarz’s UKESM WITH_HET vs NO_HET pair shows polar ozone reductions vanish without heterogeneous chemistry on SAI sulfate (halogen-catalyzed loss + circulation coupling), while mid-latitude losses partly survive. Separately, Bednarz reports a very strong correlation (R ≈ −0.95) between Antarctic springtime ozone loss and austral polar-vortex strengthening across models and periods, calling it a potential constraint — the first such demonstration for SAI. A UKESM-focused follow-on would quantify how much of UKESM’s comparatively modest Antarctic ozone loss is halogen activation on SAI sulfate versus dynamical coupling, and test whether the ozone–vortex relationship holds inside UKESM ensembles / early-vs-late halogen eras — distinct from Idea 2’s NH mid-latitude transport-vs-mixing diagnosis.</p>
         </article>
       </div>
     </section>
 
     <section>
       <h2>Research directions</h2>
-      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">How those hooks could become actual UKESM work. Directions A and B are the experiments. Wider strategy comparison stays context only.</p>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Bednarz. Directions (below) are how those hooks could become actual UKESM work for you.</p>
       <div class="ideas">
         <article>
-          <p class="label">Direction A · from Idea 1</p>
-          <h3>UKESM stratospheric H₂O process attribution</h3>
-          <p>UKESM dries the stratosphere under G6-1.5K-SAI while CESM and MIROC moisten. Bednarz lists four candidate processes beyond cold-point warming and calls for follow-up to disentangle them (author documented).</p>
-          <ul>
-            <li>Reuse existing UKESM G6-1.5K-SAI versus SSP2-4.5 ensembles, WITH_HET as in Bednarz.</li>
-            <li>Tag and budget tropical tropopause pressure, overshooting convection, extratropical cross-tropopause flux, and CH₄-to-H₂O chemical production. The diagnostic package is (inferred).</li>
-            <li>Optional nudged or process-switched members if budgets alone cannot rank the four factors (inferred).</li>
-            <li>Deliverable: ranked process contributions; whether UKESM’s dry stratosphere is a structural feature under subtropical SAI; implications for humidity-sensitive ozone chemistry within sulfur SAI.</li>
-          </ul>
-          <p>Do not treat the four factors as proven mechanisms. They are Bednarz’s candidate list. Experiments disentangle; they do not confirm a preferred story in advance.</p>
+          <h3>Direction A ↔ Idea 1 — UKESM stratospheric H₂O process attribution <em>(author documented core; Q1 experiment)</em></h3>
+          <p><strong>Hook:</strong> UKESM dries the stratosphere under G6-1.5K-SAI (up to ~−10% H₂O) while CESM/MIROC moisten; Bednarz lists four candidate processes beyond cold-point warming and calls for follow-up to disentangle them <em>(author documented)</em>.</p>
+          <p><strong>UKESM next steps:</strong></p>
+          <ul><li>Reuse existing UKESM G6-1.5K-SAI vs SSP2-4.5 ensembles (WITH_HET as in Bednarz).</li><li>Tag / budget: tropical tropopause pressure; overshooting convection; extratropical cross-tropopause flux; CH₄→H₂O chemical production <em>(inferred)</em> diagnostic package.</li><li>Optional nudged or process-switched members if budgets alone cannot rank the four factors <em>(inferred)</em>.</li><li>Deliverable shape: ranked process contributions; whether UKESM’s dry stratosphere is a structural feature under subtropical SAI; implications for humidity-sensitive ozone chemistry <strong>within sulfur SAI</strong>.</li></ul>
+          <p>Do not treat the four factors as proven mechanisms — they are Bednarz’s candidate list. Experiments disentangle; they do not confirm a preferred story in advance.</p>
         </article>
         <article>
-          <p class="label">Direction B · from Idea 2</p>
-          <h3>Residual circulation versus mixing for NH mid-latitude ozone</h3>
-          <p>The Northern Hemisphere mid-latitude ozone sign disagrees across models. WITH_HET versus NO_HET shows a transport residual. Bednarz flags residual circulation versus mixing as the open process uncertainty (author documented).</p>
-          <ul>
-            <li>Start from the published WITH_HET / NO_HET differencing and age of air. That pair separates chemistry from transport. It does not already separate residual circulation from mixing.</li>
-            <li>Add TEM residual circulation and mixing or effective diffusivity in the 30–60° N lower stratosphere. Those metrics are (inferred).</li>
-            <li>Partition the UKESM Northern Hemisphere mid-latitude ozone change into chemistry (WITH_HET minus NO_HET) versus dynamical pathways (residual circulation versus mixing).</li>
-            <li>Interpret against the published CESM and MIROC disagreement without claiming to close the other models.</li>
-          </ul>
+          <h3>Direction B ↔ Idea 2 — Residual circulation vs mixing for NH mid-latitude ozone <em>(author documented core; Q2 experiment)</em></h3>
+          <p><strong>Hook:</strong> NH mid-latitude ozone <strong>sign</strong> disagrees across models (UKESM ~5–10 DU decrease throughout); WITH_HET vs NO_HET shows a transport residual; Bednarz flags residual circulation vs mixing as the open process uncertainty <em>(author documented)</em>.</p>
+          <p><strong>UKESM next steps:</strong></p>
+          <ul><li>Start from published WITH_HET / NO_HET differencing and age-of-air. That pair separates chemistry from transport — it does <strong>not</strong> already separate residual circulation from mixing.</li><li>Add TEM residual circulation (<em>w</em><em>, streamfunction) and mixing / effective-diffusivity (or equivalent) in 30–60° N lower stratosphere </em>(inferred)* metrics.</li><li>Partition UKESM NH mid-latitude ozone change into chemistry (WITH_HET−NO_HET) vs dynamical pathways (residual circulation vs mixing).</li><li>Interpret against published CESM/MIROC disagreement without claiming to close other models.</li></ul>
           <p>Keep Bednarz’s “and/or” open until UKESM diagnostics separate the two dynamical levers.</p>
         </article>
         <article>
-          <p class="label">Direction C · from Idea 3</p>
-          <h3>Antarctic springtime halogen pathway and the ozone–vortex constraint</h3>
-          <p>Antarctic springtime ozone loss under G6-1.5K-SAI is robust in sign but not in magnitude. Inter-model spread outweighs strategy uncertainty for Antarctic ozone. Polar ozone reductions disappear in UKESM NO_HET. Bednarz reports an R ≈ −0.95 ozone–vortex correlation as a potential SAI constraint (author documented).</p>
-          <ul>
-            <li>Quantify WITH_HET minus NO_HET Antarctic, and carefully Arctic, springtime column and lower-stratospheric ClO/BrO and active-halogen budgets for 2045–2064 versus 2065–2084.</li>
-            <li>Diagnose sulfate surface area, PSC-relevant temperatures, and austral polar-vortex strength on the same periods Bednarz used.</li>
-            <li>Test whether the ozone–vortex slope holds inside UKESM ensembles and across halogen eras. That within-model stress test is (inferred).</li>
-            <li>Deliverable: how much of UKESM’s modest normalised Antarctic loss is halogen activation on SAI sulfate versus dynamical coupling, and whether UKESM sits on the multi-model ozone–vortex line for structural reasons.</li>
-          </ul>
-          <p>Keep this distinct from Direction B: Southern Hemisphere springtime halogen chemistry and the vortex, not Northern Hemisphere mid-latitude residual circulation versus mixing. Do not invent an Arctic ozone–vortex constraint. Bednarz finds none clear. Do not treat UKESM’s smaller Antarctic loss as evidence that sulfur SAI is ozone-safe.</p>
+          <h3>Direction C ↔ Idea 3 — Antarctic springtime halogen pathway + ozone–vortex constraint <em>(author documented core)</em></h3>
+          <p><strong>Hook:</strong> Antarctic springtime ozone loss under G6-1.5K-SAI is robust in sign but not magnitude (UKESM ~−13 vs CESM ~−44 DU K⁻¹ early period); inter-model spread outweighs strategy uncertainty for Antarctic; polar ozone reductions disappear in UKESM NO_HET; Bednarz reports R ≈ −0.95 ozone–vortex correlation as a potential SAI constraint <em>(author documented)</em>.</p>
+          <p><strong>UKESM next steps:</strong></p>
+          <ul><li>Quantify WITH_HET−NO_HET Antarctic (and, carefully, Arctic) springtime column and lower-stratospheric ClO/BrO / active-halogen budgets for 2045–2064 vs 2065–2084.</li><li>Diagnose SAD, PSC-relevant temperatures, and austral polar-vortex strength on the same periods Bednarz used.</li><li>Test whether the ozone–vortex slope holds inside UKESM ensembles and across halogen eras <em>(inferred)</em> stress-test of the multi-model correlation within one model.</li><li>Deliverable shape: how much of UKESM’s modest normalised Antarctic loss is halogen activation on SAI sulfate vs dynamical coupling; whether UKESM sits on the Bednarz multi-model ozone–vortex line for structural reasons.</li></ul>
+          <p><strong>Keep distinct from Direction B:</strong> this is SH springtime <strong>halogen / HET + vortex</strong>, not NH mid-latitude residual circulation vs mixing. Do not invent an Arctic ozone–vortex constraint — Bednarz finds none clear. Do not treat UKESM’s smaller Antarctic loss as evidence that sulfur SAI is ozone-safe.</p>
         </article>
       </div>
-      <p class="joint"><strong>Context only, not a direction.</strong> Bednarz calls for assessing SAI ozone across a wider strategy and scenario range in a multi-model framework (author documented). For global-mean column ozone, the choice of SAI strategy can outweigh inter-model uncertainty; for Antarctic spring ozone, inter-model spread dominates. Earlier UKESM strategy–ozone work lacked coupled heterogeneous chemistry on SAI sulfate. That framing is context for Directions A–C. It is not a fourth idea and not a new community GeoMIP deliverable.</p>
+      <p class="joint"><strong>Context only (not a Direction) — Shortlist Q3 / wider strategy–scenario.</strong> Bednarz calls for assessing SAI ozone in a wider strategy and scenario dimension using a multi-model framework, and notes that for <strong>global-mean</strong> column ozone the choice of SAI strategy can outweigh inter-model uncertainty, while for Antarctic spring ozone inter-model spread dominates <em>(author documented)</em>. Earlier UKESM strategy–ozone work (Henry et al. 2024) lacked coupled heterogeneous chemistry on SAI sulfate. That framing stays <strong>context</strong> for interpreting Directions A–C — it is not a fourth idea or a new community GeoMIP deliverable in this packet.</p>
       <div class="fence">
         <strong>The Devil’s fences that must hold:</strong>
-        <ul>
-          <li>Idea 1 / Direction A: the four H₂O processes stay a candidate list, not proven mechanisms.</li>
-          <li>Idea 2 / Direction B: WITH_HET/NO_HET separates chemistry from transport, not residual circulation from mixing.</li>
-          <li>Idea 3 / Direction C: do not collapse this into Idea 2; do not treat the multi-model ozone–vortex correlation as a validated observational constraint; no invented Arctic constraint; no reading of UKESM’s smaller Antarctic loss as ozone-safe SAI.</li>
-          <li>Wider strategy comparison stays context only.</li>
-          <li>The paper is sulfur SAI only. Solid-particle content is always (inferred) and is not an ozone-safer bridge from these sulfur results.</li>
-        </ul>
+        <ul><li>Idea 1 / Direction A: Candidate lists stay open; the four H₂O processes are not proven mechanisms. Experiments disentangle; they do not confirm a preferred story.</li><li>Idea 2 / Direction B: WITH_HET/NO_HET separates chemistry from transport, not residual circulation from mixing. Keep “and/or” open until UKESM diagnostics separate the two dynamical levers.</li><li>Idea 3 / Direction C: Do not collapse into Idea 2; do not overclaim the multi-model ozone–vortex R as an observational constraint; no invented Arctic constraint; no “UKESM smaller Antarctic loss ⇒ ozone-safe SAI” story.</li><li>Q3 / strategy: Context only — do not inflate into a primary idea or a new community multi-model GeoMIP as the sole deliverable.</li><li>Document-wide: Primary weight remains sulfur UKESM process depth (Directions A–C). Paper is sulfur SAI only. Solid-particle content is always (inferred) and must not appear as an ozone-safer bridge from these sulfur results.</li></ul>
       </div>
-      <p class="joint"><strong>Joint note from Mrs. Lantern and The Devil.</strong> Mrs. Lantern maps the questions Bednarz left open on water vapour, Northern Hemisphere ozone transport, and Antarctic springtime ozone. The Devil maps where overclaim would land. Between them: three sulfur-SAI hooks, candidate lists that stay open, and no ozone-safe reading of a smaller Antarctic loss.</p>
       <p class="signoff">Mrs. Vanguard</p>
     </section>
 
