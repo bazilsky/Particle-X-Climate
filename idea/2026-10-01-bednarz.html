@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idea path — Bednarz — 1 October 2026</title>
+  <meta name="description" content="Takeaways, three ideas, and research directions from Bednarz et al. (2026) on sulfur-based SAI and stratospheric ozone.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      header { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../index.html">Particle X Climate</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Idea path</a>
+        <a href="2026-10-01.html">1 October</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">1 October 2026 · Paper 1</p>
+      <h1>Bednarz et al.</h1>
+      <p class="lede">Takeaways, three ideas, and research directions. Sulfur SAI only. Grant-agnostic — no call names.</p>
+    </section>
+
+    <section>
+      <h2>Paper</h2>
+      <div class="picked">
+        <h3>Stratospheric ozone projections under sulfur-based stratospheric aerosol injection: Insights from the multi-model G6-1.5K-SAI experiment</h3>
+        <p class="meta">Bednarz, E. M., et al. (2026). Atmospheric Chemistry and Physics, 26, 12751–12770.</p>
+        <p class="url"><a href="https://doi.org/10.5194/acp-26-12751-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-26-12751-2026</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Paper takeaways</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Bednarz et al. (2026) give a clear multi-model look at stratospheric ozone under sulfur-based stratospheric aerosol injection in the GeoMIP G6-1.5K-SAI setup, with UKESM compared to CESM and MIROC, and a WITH_HET / NO_HET pair that separates heterogeneous chemistry on SAI sulfate from transport. The lasting contribution is mapping process-level disagreement rather than a single verdict on whether SAI is good or bad for ozone. Stratospheric water vapour under this subtropical strategy disagrees in sign across models: UKESM dries by up to about 10%, while CESM and MIROC moisten, and the authors note that cold-point warming alone may not explain UKESM’s dry path. Southern Hemisphere mid-latitude ozone loss looks relatively robust, but Northern Hemisphere mid-latitude ozone does not: UKESM keeps losing about 5–10 DU while the others stay near flat or only weakly positive later. Heterogeneous chemistry explains only part of UKESM’s subtropical and mid-latitude ozone loss; a clear transport residual remains. Antarctic springtime ozone reductions are sensitive to heterogeneous chemistry and sit against a multi-model ozone–vortex correlation the authors float as a potential constraint. Injection strategy can outweigh inter-model spread for global-mean column ozone, though not for Antarctic spring ozone, where model differences dominate. They also note that earlier UKESM strategy–ozone work lacked coupled heterogeneous chemistry on SAI sulfate.</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>They listed four candidate processes for UKESM’s dry stratosphere but did not rank which ones matter most. The WITH_HET / NO_HET experiments separate chemistry from transport, but they do not separate residual circulation from mixing. The Antarctic ozone–vortex link is offered as a potential constraint, not a validated observational one, and the paper has no clear Arctic counterpart. A strategy comparison inside UKESM with coupled heterogeneous chemistry remains incomplete. The study covers sulfur SAI only: it does not examine solid particles.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): UKESM’s smaller Antarctic loss is not evidence that sulfur SAI is ozone-safe.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing. Claim lines marked (author documented) are in Bednarz; lines marked (inferred) are extensions.</p>
+      <div class="ideas">
+        <article>
+          <p class="label">Idea 1 · author documented · Q1 experiment</p>
+          <h3>Process attribution of UKESM1.1’s negative stratospheric water-vapour response to subtropical SO₂ SAI</h3>
+          <p>Under GeoMIP G6-1.5K-SAI, UKESM uniquely dries the stratosphere (up to about −10% H₂O) while CESM and MIROC moisten it. Bednarz et al. list four candidate processes beyond cold-point warming and explicitly call for follow-up experiments to disentangle them: tropical tropopause pressure, overshooting tropical convection, extratropical cross-tropopause transport, and in-situ water production from methane oxidation. A UKESM/UKCA diagnostic suite on those four, with optional process-switched or nudged runs, would rank the contributions. That diagnostic architecture is (inferred). The four processes are an author-listed candidate list, not proven mechanisms.</p>
+        </article>
+        <article>
+          <p class="label">Idea 2 · author documented · Q2 experiment</p>
+          <h3>Constraining SAI-driven residual circulation versus isentropic mixing in UKESM to explain NH mid-latitude ozone disagreement</h3>
+          <p>Southern Hemisphere mid-latitude ozone loss is robust across G6-1.5K-SAI models, but the Northern Hemisphere mid-latitude ozone sign disagrees: UKESM shows persistent decreases of about 5–10 DU while CESM and MIROC are near-flat or only weakly positive late in the century. The UKESM WITH_HET versus NO_HET pair shows subtropical and mid-latitude ozone loss surviving without heterogeneous chemistry on SAI sulfate, with the remainder attributed to transport — acceleration of the residual circulation above the aerosol layer and/or enhanced isentropic mixing. A UKESM transport diagnosis (TEM residual circulation, age of air, mixing or effective diffusivity, and WITH_HET–NO_HET differencing) targets that sign disagreement. WITH_HET/NO_HET separates chemistry from transport. It does not already separate residual circulation from mixing. Specific diffusivity and TEM budget design, and any expansion beyond the paper’s pair, is (inferred).</p>
+        </article>
+        <article>
+          <p class="label">Idea 3 · author documented</p>
+          <h3>UKESM springtime Antarctic ozone under G6-1.5K-SAI: WITH_HET halogen pathway magnitude and the ozone–vortex emergent constraint</h3>
+          <p>Across G6-1.5K-SAI models, Antarctic springtime column ozone falls relative to SSP2-4.5, but the magnitude spreads widely once normalised (CESM about −44 DU K⁻¹ versus UKESM about −13 DU K⁻¹ in 2045–2064). That inter-model spread outweighs strategy uncertainty for Antarctic ozone. The UKESM WITH_HET versus NO_HET pair shows polar ozone reductions vanishing without heterogeneous chemistry on SAI sulfate, while mid-latitude losses partly survive. Separately, Bednarz reports a very strong correlation (R ≈ −0.95) between Antarctic springtime ozone loss and austral polar-vortex strengthening across models and periods, and calls it a potential constraint — the first such demonstration for SAI. A UKESM-focused follow-on would quantify how much of UKESM’s comparatively modest Antarctic ozone loss is halogen activation on SAI sulfate versus dynamical coupling, and test whether the ozone–vortex relationship holds inside UKESM ensembles and early-versus-late halogen eras. Expanded polar halogen budgets or ensemble members beyond the paper’s pair are (inferred). This is distinct from Idea 2’s Northern Hemisphere mid-latitude transport-versus-mixing diagnosis.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Research directions</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">How those hooks could become actual UKESM work. Directions A and B are the experiments. Wider strategy comparison stays context only.</p>
+      <div class="ideas">
+        <article>
+          <p class="label">Direction A · from Idea 1</p>
+          <h3>UKESM stratospheric H₂O process attribution</h3>
+          <p>UKESM dries the stratosphere under G6-1.5K-SAI while CESM and MIROC moisten. Bednarz lists four candidate processes beyond cold-point warming and calls for follow-up to disentangle them (author documented).</p>
+          <ul>
+            <li>Reuse existing UKESM G6-1.5K-SAI versus SSP2-4.5 ensembles, WITH_HET as in Bednarz.</li>
+            <li>Tag and budget tropical tropopause pressure, overshooting convection, extratropical cross-tropopause flux, and CH₄-to-H₂O chemical production. The diagnostic package is (inferred).</li>
+            <li>Optional nudged or process-switched members if budgets alone cannot rank the four factors (inferred).</li>
+            <li>Deliverable: ranked process contributions; whether UKESM’s dry stratosphere is a structural feature under subtropical SAI; implications for humidity-sensitive ozone chemistry within sulfur SAI.</li>
+          </ul>
+          <p>Do not treat the four factors as proven mechanisms. They are Bednarz’s candidate list. Experiments disentangle; they do not confirm a preferred story in advance.</p>
+        </article>
+        <article>
+          <p class="label">Direction B · from Idea 2</p>
+          <h3>Residual circulation versus mixing for NH mid-latitude ozone</h3>
+          <p>The Northern Hemisphere mid-latitude ozone sign disagrees across models. WITH_HET versus NO_HET shows a transport residual. Bednarz flags residual circulation versus mixing as the open process uncertainty (author documented).</p>
+          <ul>
+            <li>Start from the published WITH_HET / NO_HET differencing and age of air. That pair separates chemistry from transport. It does not already separate residual circulation from mixing.</li>
+            <li>Add TEM residual circulation and mixing or effective diffusivity in the 30–60° N lower stratosphere. Those metrics are (inferred).</li>
+            <li>Partition the UKESM Northern Hemisphere mid-latitude ozone change into chemistry (WITH_HET minus NO_HET) versus dynamical pathways (residual circulation versus mixing).</li>
+            <li>Interpret against the published CESM and MIROC disagreement without claiming to close the other models.</li>
+          </ul>
+          <p>Keep Bednarz’s “and/or” open until UKESM diagnostics separate the two dynamical levers.</p>
+        </article>
+        <article>
+          <p class="label">Direction C · from Idea 3</p>
+          <h3>Antarctic springtime halogen pathway and the ozone–vortex constraint</h3>
+          <p>Antarctic springtime ozone loss under G6-1.5K-SAI is robust in sign but not in magnitude. Inter-model spread outweighs strategy uncertainty for Antarctic ozone. Polar ozone reductions disappear in UKESM NO_HET. Bednarz reports an R ≈ −0.95 ozone–vortex correlation as a potential SAI constraint (author documented).</p>
+          <ul>
+            <li>Quantify WITH_HET minus NO_HET Antarctic, and carefully Arctic, springtime column and lower-stratospheric ClO/BrO and active-halogen budgets for 2045–2064 versus 2065–2084.</li>
+            <li>Diagnose sulfate surface area, PSC-relevant temperatures, and austral polar-vortex strength on the same periods Bednarz used.</li>
+            <li>Test whether the ozone–vortex slope holds inside UKESM ensembles and across halogen eras. That within-model stress test is (inferred).</li>
+            <li>Deliverable: how much of UKESM’s modest normalised Antarctic loss is halogen activation on SAI sulfate versus dynamical coupling, and whether UKESM sits on the multi-model ozone–vortex line for structural reasons.</li>
+          </ul>
+          <p>Keep this distinct from Direction B: Southern Hemisphere springtime halogen chemistry and the vortex, not Northern Hemisphere mid-latitude residual circulation versus mixing. Do not invent an Arctic ozone–vortex constraint. Bednarz finds none clear. Do not treat UKESM’s smaller Antarctic loss as evidence that sulfur SAI is ozone-safe.</p>
+        </article>
+      </div>
+      <p class="joint"><strong>Context only, not a direction.</strong> Bednarz calls for assessing SAI ozone across a wider strategy and scenario range in a multi-model framework (author documented). For global-mean column ozone, the choice of SAI strategy can outweigh inter-model uncertainty; for Antarctic spring ozone, inter-model spread dominates. Earlier UKESM strategy–ozone work lacked coupled heterogeneous chemistry on SAI sulfate. That framing is context for Directions A–C. It is not a fourth idea and not a new community GeoMIP deliverable.</p>
+      <div class="fence">
+        <strong>The Devil’s fences that must hold:</strong>
+        <ul>
+          <li>Idea 1 / Direction A: the four H₂O processes stay a candidate list, not proven mechanisms.</li>
+          <li>Idea 2 / Direction B: WITH_HET/NO_HET separates chemistry from transport, not residual circulation from mixing.</li>
+          <li>Idea 3 / Direction C: do not collapse this into Idea 2; do not treat the multi-model ozone–vortex correlation as a validated observational constraint; no invented Arctic constraint; no reading of UKESM’s smaller Antarctic loss as ozone-safe SAI.</li>
+          <li>Wider strategy comparison stays context only.</li>
+          <li>The paper is sulfur SAI only. Solid-particle content is always (inferred) and is not an ozone-safer bridge from these sulfur results.</li>
+        </ul>
+      </div>
+      <p class="joint"><strong>Joint note from Mrs. Lantern and The Devil.</strong> Mrs. Lantern maps the questions Bednarz left open on water vapour, Northern Hemisphere ozone transport, and Antarctic springtime ozone. The Devil maps where overclaim would land. Between them: three sulfur-SAI hooks, candidate lists that stay open, and no ozone-safe reading of a smaller Antarctic loss.</p>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="2026-10-01.html">Back to 1 October</a>
+    </footer>
+  </div>
+</body>
+</html>

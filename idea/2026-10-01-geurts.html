@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idea path — Geurts — 1 October 2026</title>
+  <meta name="description" content="Takeaways, three ideas, and research directions from Geurts et al. (2026) on absorptivity and the SAI hydrological cycle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      header { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../index.html">Particle X Climate</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Idea path</a>
+        <a href="2026-10-01.html">1 October</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">1 October 2026 · Paper 3</p>
+      <h1>Geurts et al.</h1>
+      <p class="lede">Takeaways, three ideas, and research directions. Host model in the paper is SOCOLv4. Any UKESM/GLOMAP path stays (inferred). Grant-agnostic — no call names.</p>
+    </section>
+
+    <section>
+      <h2>Paper</h2>
+      <div class="picked">
+        <h3>Materials with smaller absorptivity could reduce detrimental impacts of stratospheric aerosol injection on the hydrological cycle</h3>
+        <p class="meta">Geurts, M., et al. (2026). Environmental Research Letters, 21, 134037.</p>
+        <p class="url"><a href="https://doi.org/10.1088/1748-9326/ae7e0d" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/1748-9326/ae7e0d</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Paper takeaways</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Geurts et al. (2026) give a clear G6-style comparison of hydrological and tropical-circulation responses to sulfur-based stratospheric aerosol injection versus three less longwave-absorptive solid particles — alumina, calcite, and diamond — in the fully coupled SOCOLv4 model under a transient SSP5-8.5 to SSP2-4.5 temperature target. Within that idealized framework, lower absorptivity reduces perturbations to the atmospheric radiation balance, lowers apparent hydrological sensitivity (precipitation change per degree of surface cooling), and limits lower-stratospheric warming and associated Hadley Cell and ITCZ shifts relative to sulfate. Regional precipitation and P–E patterns for the least absorptive materials sit closer to SSP2-4.5 in several tropical and extratropical metrics, and Northern Hemisphere summer monsoon drying is generally milder for less absorptive particles, while Southern Hemisphere monsoon responses stay limited. The authors also document the process reasons: tropical loading concentrates Fa and latent-heat reductions over the oceans, and absorptive lower-stratospheric warming steepens stratospheric equator-to-pole gradients that feed dynamical side effects. They close with an explicit uncertainty fence — solid-particle simulations carry larger uncertainties than sulfur SAI — and they state the hydrological and dynamical benefit under the caveat that potential stratospheric interactions were neglected.</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>Solid particles are injected as monodisperse aerosols at ideal scattering sizes, with sub-grid plume microphysics neglected, so agglomeration and cooling-efficiency losses inside real plumes are outside the experiment. Heterogeneous surface chemistry on solid particles and interactions with sulfuric acid are omitted, so the study does not constrain how coupled chemistry would reshape ozone, lower-stratospheric warming, or the hydrological ranking. Aerosol–cloud interactions are absent; the paper calls for further study rather than quantifying whether clouds change material benefits. The design is tropical injection only, so claims about less-absorptive materials under off-equatorial or other strategies remain open, as do finer local and seasonal monsoon diagnoses for regional outliers.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): the low-absorptivity hydrological advantage is a constraint-call result under idealized SOCOLv4 assumptions — it is not proof the benefit survives once plume microphysics and heterogeneous chemistry are constrained, not a finding that clouds already offset the ranking, and not evidence that lower-absorptivity materials are ozone-safer or GLOMAP-ready. Any UKESM/GLOMAP path is outside this host.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing. Idea 1 is a constraint call, not proof the benefit survives. Idea 2 is a study call, not a finding that clouds already offset the ranking. Idea 3 changes strategy and monsoon scope.</p>
+      <div class="ideas">
+        <article>
+          <p class="label">Idea 1 · author documented · constraint call</p>
+          <h3>Can plume-scale microphysics and heterogeneous chemistry on solid particles be constrained enough that the low-absorptivity hydrological benefit survives more realistic treatments?</h3>
+          <p>Geurts et al. show that, in an idealized SOCOLv4 G6-style tropical design, less longwave-absorptive solid particles (calcite and diamond, with alumina intermediate) reduce apparent hydrological sensitivity, lower-stratospheric warming, and tropical circulation perturbations relative to sulfate. The authors themselves flag that solid-particle simulations carry substantially larger uncertainties than sulfur SAI — especially plume-scale microphysics, stratospheric chemistry, and aerosol–cloud interactions — and call for targeted laboratory and process-level studies to constrain plume microphysics and stratospheric chemical interactions. In SOCOLv4 here, solid particles are injected monodisperse at ideal scattering sizes, sub-grid plume microphysics are neglected, and interactions with sulfuric acid plus heterogeneous surface chemistry on the particles are omitted. The research ask is a constraint call: quantify how much of the paper’s material ranking and hydrological benefit survives once those processes are better constrained. It is not a claim that the benefit already survives, and not a claim that lower-absorptivity materials are ozone-safer. Previous studies, cited by Geurts, have shown that accounting for such chemistry can modify stratospheric ozone, with implications for lower-stratospheric warming; Geurts did not couple that chemistry. Repeating a sulfur / alumina / calcite / diamond comparison in UKESM/GLOMAP is (inferred). The host here is SOCOLv4, not UKESM/GLOMAP.</p>
+        </article>
+        <article>
+          <p class="label">Idea 2 · author documented · study call</p>
+          <h3>Do aerosol–cloud interactions with solid-particle SAI materials need to be quantified before a material ranking on hydrological benefit is robust?</h3>
+          <p>Geurts et al. note that their model does not account for aerosol–cloud interactions that can occur due to SAI, and state that those interactions with SAI materials need to be studied further to understand material benefits fully. They give potential high-cloud thickening as an example of a process that could offset the positive effect of reduced longwave absorptivity. That is a motivation for further study, not a finding that clouds already offset the material ranking. The follow-on is to bring aerosol–cloud interactions, or an explicit interactions-off / interactions-on pair, into the same G6-style material comparison so the hydrological ranking can be stress-tested under cloud coupling. Do not rewrite Geurts as having shown that clouds erase the low-absorptivity advantage. A specific cloud scheme, and any UKESM/GLOMAP implementation for solids, is (inferred).</p>
+        </article>
+        <article>
+          <p class="label">Idea 3 · author documented</p>
+          <h3>Assess less-absorptive solid particles under alternative injection strategies, with local and seasonal monsoon analysis beyond the tropical design</h3>
+          <p>Geurts’s hydrological and circulation comparison is exclusively tropical G6-style injection (18–20 km, 10°S–10°N). The authors state that assessing the benefits of less absorptive solid particles therefore requires exploration of alternative injection strategies; that future solid-particle SAI studies should aim to minimize meridional and inter-hemispheric gradient perturbations that reshape seasonal Hadley responses; and that local and seasonal monsoon impacts need further investigation to understand Northern versus Southern Hemisphere and regional contrasts, including South Asia and South America. A follow-on keeps the material lever — sulfur versus alumina, calcite, and diamond — but changes strategy and regional diagnostics. It does not treat the tropical-only ranking as strategy-complete, and it does not claim UKESM/GLOMAP already hosts this matrix. An exact off-equatorial matrix in SOCOLv4, or a UKESM/GLOMAP reprise under non-tropical injection, is (inferred).</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Research directions</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">How those hooks could become modelling or process work. Grant-agnostic — no call names. The paper’s host is SOCOLv4.</p>
+      <div class="ideas">
+        <article>
+          <p class="label">Direction A · from Idea 1</p>
+          <h3>Constrain plume microphysics and solid-particle heterogeneous chemistry</h3>
+          <p>Less longwave-absorptive solid particles reduce apparent hydrological sensitivity and lower-stratospheric and circulation side effects in Geurts’s idealized SOCOLv4 runs, but the particles are injected monodisperse at ideal sizes, sub-grid plume microphysics are neglected, and sulfuric-acid interactions and heterogeneous surface chemistry are omitted. The authors call for laboratory and process-level constraints (author documented).</p>
+          <ul>
+            <li>Keep the sulfur / alumina / calcite / diamond material matrix. Ask how forcing, apparent hydrological sensitivity, lower-stratospheric warming, and Hadley and ITCZ metrics change when plume agglomeration or non-ideal size distributions, or heterogeneous chemistry plus sulfuric-acid interactions, are represented with stated kinetic ranges. That experiment design is (inferred), on SOCOL-class solid-particle schemes already adjacent to this paper.</li>
+            <li>Deliverable: sensitivity of the hydrological and lower-stratospheric-warming ranking to constrained plume and chemistry assumptions. A stress test, not a declaration that the benefit survives.</li>
+            <li>Report ozone and lower-stratospheric-warming responses under coupled solid-particle chemistry as uncertainty ranges drawn from cited kinetics, not as evidence that lower-absorptivity materials are ozone-safer. Prior work can modify ozone and warming; Geurts did not couple that chemistry.</li>
+          </ul>
+          <p>A UKESM/GLOMAP track is (inferred) and gated. Only after a written readiness check on GLOMAP solid-particle modes and UKCA solid-surface kinetics, ask whether a G6-style material comparison in UKESM reproduces or overturns Geurts’s hydrological hierarchy. Do not call Geurts GLOMAP-ready. This is a constraint call, not survival proof.</p>
+        </article>
+        <article>
+          <p class="label">Direction B · from Idea 2</p>
+          <h3>Quantify aerosol–cloud interactions with SAI materials</h3>
+          <p>The model omits aerosol–cloud interactions. The authors say cloud–aerosol interactions with SAI materials need to be studied further to understand material benefits fully. “Could offset” high-cloud thickening is an example, not a finding (author documented).</p>
+          <ul>
+            <li>Add an explicit cloud-aware versus cloud-off comparison, or a clear-sky diagnostic, across the same four materials under the G6 temperature target. The scheme choice is (inferred).</li>
+            <li>Ask whether aerosol–cloud interactions change the ranking of apparent hydrological sensitivity among sulfur, alumina, calcite, and diamond — without assuming the answer is that clouds erase the benefit.</li>
+            <li>Separate upper-tropospheric and cirrus pathways from the stratospheric longwave-absorptivity lever, so this direction does not collapse into Direction A’s plume and chemistry constraint.</li>
+          </ul>
+          <p>A UKESM track is (inferred), and only if solid-particle cloud pathways are available and documented. Otherwise keep the study in a host that already carries solid-particle microphysics and a cloud-interaction option. Do not claim Geurts found that clouds offset the ranking.</p>
+        </article>
+        <article>
+          <p class="label">Direction C · from Idea 3</p>
+          <h3>Alternative injection strategies and local or seasonal monsoon diagnosis</h3>
+          <p>The paper is tropical-injection only. The authors state that assessing less-absorptive solid-particle benefits requires alternative injection strategies, that those studies should minimize gradient perturbations that affect seasonal Hadley responses, and that local and seasonal monsoon impacts need further work (author documented).</p>
+          <ul>
+            <li>Hold materials fixed — sulfur versus alumina, calcite, and diamond — and vary injection latitude or altitude, for example off-equatorial or multi-latitude designs that reduce tropical overcooling, in a SOCOLv4-class setup. The exact matrix is (inferred).</li>
+            <li>Diagnose Northern versus Southern Hemisphere summer monsoon precipitation, the ITCZ, and Hadley strength on seasonal and regional masks, including the South Asia and South America deviations the paper flags.</li>
+            <li>Ask whether the low-absorptivity hydrological advantage shrinks, grows, or reorders when tropical overcooling and equator-to-pole gradient forcing are reduced. That is strategy dependence of the material ranking, not a restatement of Ideas 1 and 2.</li>
+          </ul>
+          <p>A UKESM/GLOMAP reprise of solid-particle materials under non-tropical injection remains (inferred) and readiness-gated. Do not present it as Geurts’s host. The tropical G6 ranking is not strategy-complete. Do not inflate this into a new community GeoMIP as the only deliverable.</p>
+        </article>
+      </div>
+      <div class="fence">
+        <strong>The Devil’s fences that must hold:</strong>
+        <ul>
+          <li>Idea 1 / Direction A: constraint call only. Never “the benefit survives once constrained.” Chemistry that can modify ozone or lower-stratospheric warming is uncertainty context, not an ozone-safer verdict for low-absorptivity materials.</li>
+          <li>Idea 2 / Direction B: study aerosol–cloud interactions further. Never “clouds offset the ranking.” The high-cloud “could offset” line stays an example.</li>
+          <li>Idea 3 / Direction C: this changes strategy and monsoon scope. It is not a rebadge of plume chemistry or of clouds. The tropical-only limit stays explicit.</li>
+          <li>The host is SOCOLv4, with monodisperse injection, no solid-particle heterogeneous chemistry, and no aerosol–cloud interactions. Any UKESM/GLOMAP path stays (inferred) and readiness-gated. Do not frame lower-absorptivity materials as ozone-safer or GLOMAP-ready.</li>
+        </ul>
+      </div>
+      <p class="joint"><strong>Joint note from Mrs. Lantern and The Devil.</strong> Mrs. Lantern maps three open calls in Geurts: constrain plumes and surface chemistry, study clouds, and leave the tropics. The Devil maps where a ranking would be over-read. Between them: the low-absorptivity hydrological result stays a SOCOLv4 question under stated limits, not a proof, not an ozone verdict, and not a GLOMAP result.</p>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="2026-10-01.html">Back to 1 October</a>
+    </footer>
+  </div>
+</body>
+</html>
