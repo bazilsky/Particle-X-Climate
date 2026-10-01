@@ -177,7 +177,7 @@
 
     .team {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 0;
       border-top: 1px solid var(--line);
     }
@@ -190,6 +190,7 @@
     .person:nth-child(1) { border-top: 3px solid var(--teal); }
     .person:nth-child(2) { border-top: 3px solid var(--gold); }
     .person:nth-child(3) { border-top: 3px solid var(--rust); }
+    .person:nth-child(4) { border-top: 3px solid var(--ink); }
 
     .person + .person {
       padding-left: 1.3rem;
@@ -207,6 +208,7 @@
     .person:nth-child(1) .role { color: var(--teal); }
     .person:nth-child(2) .role { color: var(--gold); }
     .person:nth-child(3) .role { color: var(--rust); }
+    .person:nth-child(4) .role { color: var(--ink); }
 
     .person h3 {
       margin: 0 0 0.4rem;
@@ -318,6 +320,11 @@
           <p class="role">Attack</p>
           <h3>The Devil</h3>
           <p>Passes or kills the nomination, then passes or fails the document. Does not co-author.</p>
+        </div>
+        <div class="person">
+          <p class="role">Publish</p>
+          <h3>Dr. Pulse</h3>
+          <p>Ships approved Paper and Idea Path pages to the live site after a clear pass.</p>
         </div>
       </div>
     </section>
