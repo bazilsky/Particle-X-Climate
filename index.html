@@ -246,8 +246,57 @@
       font-size: 0.9rem;
     }
 
+    .menu-toggle {
+      display: none;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
     @media (max-width: 800px) {
-      header { flex-direction: column; align-items: flex-start; }
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      .menu-toggle { display: inline-flex; align-items: center; }
+
+      nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.35rem 0 0.6rem;
+      }
+
+      header:has(#nav-toggle:checked) nav,
+      header.nav-open nav {
+        display: flex;
+      }
+
+      nav a {
+        padding: 0.65rem 0.2rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav a:last-child { border-bottom: 0; }
+
       .hero, .cards, .team { grid-template-columns: 1fr; }
       .person + .person {
         padding-left: 0;
@@ -261,7 +310,9 @@
   <div class="wrap">
     <header>
       <div class="mark">Particle X Climate</div>
-      <nav>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
         <a href="#products">Products</a>
         <a href="grant/index.html">Grant path</a>
         <a href="paper/index.html">Paper path</a>
