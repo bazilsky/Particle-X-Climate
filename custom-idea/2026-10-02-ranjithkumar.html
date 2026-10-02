@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom idea path — Ranjithkumar et al. — 2 October 2026</title>
+  <meta name="description" content="Chosen paper, takeaways, ideas, and research directions for Ranjithkumar et al. on 2 October 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      header { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../index.html">Particle X Climate</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Custom idea path</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">2 October 2026 · Custom</p>
+      <h1>Ranjithkumar et al.</h1>
+      <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
+    </section>
+
+    <section>
+      <h2>Chosen paper</h2>
+      <div class="picked">
+        <h3>Nuclear Conflict in Eastern Europe: Climate disruption and Radiological fallout</h3>
+        <p class="meta">Ranjithkumar, A., Mayne, N., Jones, A.C., Haywood, J.M. (2026): Nuclear Conflict in Eastern Europe: Climate disruption and Radiological fallout. npj Clean Air.</p>
+        <p class="url"><a href="https://doi.org/10.1038/s44407-026-00064-7" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s44407-026-00064-7</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Paper takeaways</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Ranjithkumar et al. (2026) give a UKESM1.1 assessment of a hypothetical 5 Tg black-carbon nuclear conflict on the Ukraine–Russia border, pairing hemispheric climate disruption with near-term and long-term radiological fallout in one scenario-specific package. Using a six-member N96L85 ensemble with UKCA–GLOMAP, they show Northern Hemisphere year-1 cooling of about 1 °C, with land extremes near −5 °C over Russia and about −4 °C over the United States, surface solar reductions reaching roughly −30 W m−2 over the US, mid-latitude cropland precipitation cuts of order 20–40%, and a 2–6° southward ITCZ shift, with near-surface climate metrics returning toward baseline around year 6 as BC is removed (e-folding about 3.5 years). An identical-setup India–Pakistan twin shows that source latitude matters: UKRRUS keeps more aerosol and cooling over northern mid and high latitudes, while INDPAK disperses more through the tropics into the Southern Hemisphere. Near-term fallout is estimated with Glasstone–Dolan for 100 × 15 kt surface bursts; long-lived Cs-137 and Sr-90 are tracked with BC deposition, yielding about 40% of BC (and associated long-lived contamination) deposited in the Southern Hemisphere by year 10, while 50-year cumulative effective doses under their assumptions stay well below natural background. The paper also reports Northern Hemisphere net primary productivity reductions and frames the climate–radiological fields as a benchmark for food-security and humanitarian assessments, alongside a qualitative warning that compounding climate, food, and radiological stress may amplify health risk beyond dose metrics alone.</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>The study is a single Earth System Model, and the authors themselves place a comprehensive multi-model comparison of both UKRRUS and INDPAK beyond this paper’s scope even while suggesting their INDPAK magnitudes look similar to prior work. Climate forcing is BC-only: organic-carbon co-emission is acknowledged as a key uncertainty and is not examined. Stratospheric coagulation is turned off, the fire plume is not resolved at N96, and BC is injected directly into 9–13 km. Near-term fallout remains a simplified Glasstone–Dolan empirical estimate sensitive to winds, precipitation, and conflict geometry rather than a fully coupled radiological transport simulation. Long-term Cs-137/Sr-90 maps assume adherence to BC and are stated as an idealised upper-bound for soot-borne distribution, so the “low long-term dose” headline is conditional on those idealizations. Food-security and humanitarian impacts are positioned as a benchmark and supported with NPP and climate stress, not delivered as a crop, trade, or famine assessment; compounding morbidity is argued, not quantified.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): Similarity of UKESM INDPAK climate magnitudes to prior multi-model literature does not by itself close structural uncertainty for the new UKRRUS mid-latitude scenario.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): Calling the results a robust food-security benchmark does not mean food-security outcomes have already been modelled; impact chains still need to be run with the upstream BC-only, single-model, and idealised-fallout fences carried forward.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): Idealised upper-bound radionuclide-on-BC deposition is not a full multi-pathway radiological risk assessment, and Glasstone–Dolan 48-hour maps are not ESM-validated plume forecasts.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
+      <div class="ideas">
+        <article>
+          <p class="label">Idea 1</p>
+          <h3>UKESM1.1 / GLOMAP sensitivity of UKRRUS 5 Tg nuclear-winter climate to organic-carbon co-emission with black carbon</h3>
+          <p>Ranjithkumar et al. inject pure BC and explicitly leave OC co-emission unexamined, while acknowledging Pausata-style composition sensitivity as a <strong>key uncertainty</strong> for nuclear-conflict climate. A UKESM/UKCA–GLOMAP follow-on that co-emits OC with BC (composition matrix, lifetime and optical-property diagnostics) would rank how much of the published UKRRUS NH cooling, solar dimming, ITCZ shift, and ~3.5-year e-folding deposition depends on the BC-only assumption <strong>(inferred)</strong> experiment design.</p>
+        </article>
+        <article>
+          <p class="label">Idea 2</p>
+          <h3>Turn coagulation on in UKCA–GLOMAP for UKRRUS 5 Tg BC: size evolution, lifetime, and climate-recovery sensitivity</h3>
+          <p>The published UKRRUS ensemble emits 150 nm-mean BC into the accumulation soluble mode <strong>with coagulation turned off in the stratosphere</strong>, then reports ~3.5-year e-folding BC removal and ~6-year near-surface climate recovery. That microphysical switch is an author-documented design choice, not a demonstrated negligible process. A paired coagulation-on / coagulation-off UKESM run (same 5 Tg UKRRUS injection) would test whether coagulation-driven growth, optical depth, lofting, and deposition timescale reshape the climate and long-term fallout maps <strong>(inferred)</strong> diagnostic architecture.</p>
+        </article>
+        <article>
+          <p class="label">Idea 3</p>
+          <h3>Multi-model comparison of 5 Tg UKRRUS vs INDPAK nuclear-BC climate — UKESM contribution to the paper’s own “ongoing work”</h3>
+          <p>The paper is single-model UKESM1.1 (N96L85, 6-member ensemble) with an in-model INDPAK twin. Authors argue INDPAK climate magnitudes look qualitatively similar to prior multi-model literature, <strong>yet</strong> state that inter-model spread remains important and that a comprehensive multi-model comparison of <strong>both</strong> INDPAK and UKRRUS is ongoing work beyond this paper’s scope. A UKESM-anchored multi-model protocol (shared 5 Tg injection specs, common diagnostics for AOD, surface T/precip, ITCZ, stratospheric winds, BC deposition) fills that author-documented gap without pretending the published UKESM INDPAK twin already closed structural uncertainty <strong>(inferred)</strong> community/protocol design; primary UKESM deliverable stays the published twin plus exportable diagnostics.</p>
+        </article>
+        <article>
+          <p class="label">Idea 4</p>
+          <h3>Beyond empirical 48-h Glasstone–Dolan and idealised radionuclide-on-BC adherence: UKESM-consistent radiological fallout sensitivities for UKRRUS</h3>
+          <p>Near-term (48 h) fallout uses the simplified Glasstone–Dolan empirical model under mean regional winds; long-term Cs-137/Sr-90 maps assume radionuclides adhere to BC and are an <strong>idealised upper-bound</strong> for stratospheric soot-borne distribution. Neither pathway is an ESM-coupled radiological transport simulation. A methods follow-on would (a) stress-test short-term contaminated-area / dose maps to UKESM wind and precipitation ensembles, and (b) relax adherence / lofting-fraction assumptions for long-lived isotopes on GLOMAP BC deposition fields — ranking how much of the published “low long-term dose / ~40% SH deposition” story survives those idealizations <strong>(inferred)</strong> sensitivity design.</p>
+        </article>
+        <article>
+          <p class="label">Idea 5</p>
+          <h3>Quantitative food-security and humanitarian-impact assessment driven by UKRRUS UKESM climate (and radiological) fields</h3>
+          <p>The abstract and Discussions position the climate–radiological results as a <strong>robust benchmark for food-security and humanitarian-impact assessments</strong>, report NH NPP reductions (Supplementary), and argue that compounding climate cooling, food insecurity, and radiological exposure may amplify health risks beyond dose metrics alone — but the paper does <strong>not</strong> deliver a crop, livestock, fishery, or famine model. An impact-chain follow-on would drive established food-security frameworks (e.g. Xia / Jägermeyr-class) with the published UKESM UKRRUS anomalies (and optional fallout overlays), making the benchmark claim operational <strong>(inferred)</strong> impact modelling; climate fields remain the author-documented input.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Research directions</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Ranjithkumar et al. Directions (below) are how those hooks could become actual UKESM / GLOMAP / impact work.</p>
+      <div class="ideas">
+        <article>
+          <h3>Direction A ↔ Idea 1 — BC vs OC co-emission sensitivity <em>(author documented core)</em></h3>
+          <p><strong>Hook:</strong> Paper is BC-only; authors acknowledge OC co-emission as a <strong>key uncertainty</strong> that <strong>is not examined</strong>, citing Pausata-style composition effects on BC lifetime <em>(author documented)</em>.</p>
+          <p><strong>UKESM / GLOMAP next steps:</strong></p>
+          <ul>
+            <li>Reuse UKRRUS 5 Tg injection geometry (9–13 km, Jan 1–7 2015 start, SSP126 background, 6-member ensemble protocol) as control.</li>
+            <li>Add OC co-emission members spanning literature-relevant OC:BC mixes (e.g. Pausata-like and wildfire-like end-members) <em>(inferred)</em> exact ratios.</li>
+            <li>Diagnose: BC/OC burden, AOD, stratospheric heating, NH/SH surface T and precip, ITCZ latitude, BC e-folding time, hemispheric deposition fractions.</li>
+            <li>Optional: identical composition matrix on the published INDPAK twin to separate composition from source-latitude effects <em>(inferred)</em>.</li>
+            <li>Deliverable shape: how much of UKRRUS climate severity and recovery timescale is locked to the BC-only assumption; updated uncertainty range for food-security-relevant mid-latitude cooling/dimming.</li>
+          </ul>
+          <p>Do not treat “BC is the primary driver” or Supplementary Section 1’s other-pollutant note as a completed OC experiment — authors say the OC aspect was not examined.</p>
+        </article>
+        <article>
+          <h3>Direction B ↔ Idea 2 — Stratospheric coagulation-on <em>(author documented switch; inferred experiment)</em></h3>
+          <p><strong>Hook:</strong> Coagulation is turned off in the stratosphere for the 150 nm accumulation-soluble BC injection; climate recovery (~6 years) and BC e-folding (~3.5 years) are reported under that setting <em>(author documented)</em>.</p>
+          <p><strong>UKESM / GLOMAP next steps:</strong></p>
+          <ul>
+            <li>Pair coagulation-off (published) vs coagulation-on UKRRUS members with identical emissions and optics defaults.</li>
+            <li>Budget size distribution, effective radius, absorption AOD, lofting, wet/dry deposition, and year-1–10 climate metrics.</li>
+            <li>Keep fire-plume resolution as a <strong>separate</strong> readiness item: N96L85 “does not explicitly simulate the fire plume”; any LES/offline plume → UTLS injection map is <em>(inferred)</em> and gated.</li>
+            <li>Deliverable shape: whether coagulation-off systematically biases lifetime, hemispheric SH deposition (~40%), and recovery; clear statement of remaining plume-injection uncertainty.</li>
+          </ul>
+          <p>Keep distinct from Direction A: change microphysical process switch, not OC:BC mix. Do not claim coagulation-off was shown to be harmless.</p>
+        </article>
+        <article>
+          <h3>Direction C ↔ Idea 3 — Multi-model UKRRUS + INDPAK <em>(author documented ongoing work)</em></h3>
+          <p><strong>Hook:</strong> Single ESM; authors place a comprehensive multi-model comparison of <strong>both</strong> INDPAK and UKRRUS beyond this paper’s scope while noting inter-model spread remains important <em>(author documented)</em>.</p>
+          <p><strong>UKESM next steps (UKESM-anchored, not vapourware MIP):</strong></p>
+          <ul>
+            <li>Package published UKESM UKRRUS and INDPAK fields (Zenodo DOIs) into a citable diagnostic suite: AOD, surface T/precip, solar, ITCZ, 40 km winds, BC deposition, NPP.</li>
+            <li>Define a minimum multi-model protocol matching the paper’s 5 Tg / standardised altitude nuclear-winter conventions <em>(inferred)</em> partner matrix.</li>
+            <li>Interpret UKESM vs literature wind-anomaly disagreements with the paper’s own language (injection latitude, soot heating, structural inter-model differences) — do not flatten them.</li>
+            <li>Deliverable shape: UKESM contribution that enables the author-stated ongoing multi-model comparison; UKESM-only depth that remains publishable if partners lag.</li>
+          </ul>
+          <p><strong>Keep distinct from A/B:</strong> structural inter-model / source-latitude protocol, not composition or coagulation. Do not re-read “not strongly model-dependent” as closed structural uncertainty.</p>
+        </article>
+        <article>
+          <h3>Direction D ↔ Idea 4 — Radiological methods: Glasstone near-term + adherence long-term <em>(author documented idealizations)</em></h3>
+          <p><strong>Hook:</strong> 48-h fallout is simplified Glasstone–Dolan under mean winds; long-term Cs-137/Sr-90 on BC is an <strong>idealised upper-bound</strong> for soot-borne distribution <em>(author documented)</em>.</p>
+          <p><strong>Next steps:</strong></p>
+          <ul>
+            <li><strong>Near-term <em>(inferred)</em>:</strong> Drive Glasstone plume geometry with UKESM ensemble wind (and, where relevant, precip) fields over the detonation region; map contaminated-area / acute-dose sensitivity vs the published mean-wind case.</li>
+            <li><strong>Long-term <em>(inferred)</em>:</strong> Apply adherence / lofting-fraction sensitivities to published BC deposition (Zenodo); recompute country-mean and collective dose rankings under lower stratospheric attachment fractions.</li>
+            <li>Keep U-235 fission yield and Supplementary Section 4 parameters as baselines; tag any new isotope pathways <em>(inferred)</em>.</li>
+            <li>Deliverable shape: which headline radiological results (48-h km² / people exposed; ~40% SH long-term deposition; ≤~0.9 mSv 50-year peak) are robust to method idealizations, and which move.</li>
+          </ul>
+          <p><strong>Hard fences:</strong> Do not claim the published long-term doses are observationally validated. Upper-bound is for radionuclide <em>distribution with soot</em>, not a full multi-pathway risk assessment. Do not invent food-chain dose as already done.</p>
+        </article>
+        <article>
+          <h3>Direction E ↔ Idea 5 — Food-security / humanitarian impact chain <em>(author documented benchmark framing)</em></h3>
+          <p><strong>Hook:</strong> Abstract offers a robust food-security and humanitarian-impact <strong>benchmark</strong>; paper shows mid-latitude solar/precip stress and NH NPP cuts; Discussions hypothesise compounding climate–food–radiological health stress without quantifying famine or morbidity <em>(author documented)</em>.</p>
+          <p><strong>Next steps:</strong></p>
+          <ul>
+            <li>Feed published UKESM UKRRUS climate anomalies (and optional NPP) into an established crop / food-security framework (Xia / Jägermeyr-class or equivalent) <em>(inferred)</em> model choice.</li>
+            <li>Optional second track: overlay long-term fallout maps only after Direction D adherence sensitivities exist — do not treat idealised Cs/Sr doses as settled impact inputs.</li>
+            <li>Scenario labels must carry upstream fences: single-model, BC-only, coagulation-off, unresolved plume, Glasstone short-term, idealised long-term adherence.</li>
+            <li>Deliverable shape: quantitative yield / calorie / population-at-risk estimates that make the paper’s benchmark claim operational; separate qualitative compounding-health discussion from quantified results.</li>
+          </ul>
+          <p><strong>Keep distinct from Direction D:</strong> this is impact-chain application of climate (and optionally fallout) fields, not radiological method development.</p>
+        </article>
+      </div>
+      <div class="fence">
+        <strong>Dr. Doubt’s fences that must hold:</strong>
+        <ul>
+          <li>Idea 1 / Direction A: OC co-emission remains an author-documented unexamined key uncertainty — do not claim the paper closed it via “BC primary driver” language.</li>
+          <li>Idea 2 / Direction B: Coagulation-off is a design switch, not a demonstrated null; fire-plume resolution stays gated and <strong>(inferred)</strong>.</li>
+          <li>Idea 3 / Direction C: Single-model limit stands; UKESM INDPAK twin ≠ comprehensive multi-model UKRRUS+INDPAK; “not strongly model-dependent” is a suggestion, not a proof.</li>
+          <li>Idea 4 / Direction D: Glasstone is empirical/simplified; long-term Cs/Sr-on-BC is idealised upper-bound — no overclaim of validated radiological risk.</li>
+          <li>Idea 5 / Direction E: “Robust benchmark” ≠ completed food-security assessment; compounding morbidity is author hypothesis, not a quantified result.</li>
+          <li>Document-wide: Authorship (Ananth lead) does not soften critiques or fences. No email / Drive share / site edit from this stage — Mrs. Vanguard pushes site after Dr. Doubt PASS + Ananth go.</li>
+        </ul>
+      </div>
+      <p class="signoff">Pulse</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Custom idea path</a>
+    </footer>
+  </div>
+</body>
+</html>
