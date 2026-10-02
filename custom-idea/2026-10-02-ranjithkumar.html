@@ -74,6 +74,26 @@
 
     nav a:hover { color: var(--ink); }
 
+
+    .menu-toggle {
+      display: none;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
     .hero { padding: 3rem 0 2rem; }
 
     .kicker {
@@ -267,7 +287,36 @@
     }
 
     @media (max-width: 800px) {
-      header { flex-direction: column; align-items: flex-start; }
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      .menu-toggle { display: inline-flex; align-items: center; }
+
+      header #site-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.35rem 0 0.6rem;
+      }
+
+      header:has(#nav-toggle:checked) #site-nav {
+        display: flex;
+      }
+
+      header #site-nav a {
+        padding: 0.65rem 0.2rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      header #site-nav a:last-child { border-bottom: 0; }
+
       footer { flex-direction: column; }
     }
   </style>
@@ -276,9 +325,16 @@
   <div class="wrap">
     <header>
       <a class="mark" href="../index.html">Particle X Climate</a>
-      <nav>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
         <a href="../index.html">Home</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="../idea/index.html">Idea path</a>
         <a href="index.html">Custom idea path</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#remit">Remit</a>
       </nav>
     </header>
 
