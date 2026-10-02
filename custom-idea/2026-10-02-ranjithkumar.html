@@ -216,6 +216,56 @@
       font-size: 0.9rem;
     }
 
+
+    /* Mobile-only sticky TOC */
+    .sticky-toc {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .sticky-toc {
+        display: flex;
+        gap: 0.15rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -1.25rem;
+        padding: 0 0.75rem;
+        min-height: 44px;
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      }
+
+      .sticky-toc a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 0.7rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sticky-toc a:hover,
+      .sticky-toc a:focus {
+        color: var(--ink);
+        border-bottom-color: var(--rust);
+      }
+
+      #chosen, #takeaways, #ideas, #directions, #fences,
+      [id^="idea-"] {
+        scroll-margin-top: 52px;
+      }
+    }
+
     @media (max-width: 800px) {
       header { flex-direction: column; align-items: flex-start; }
       footer { flex-direction: column; }
@@ -232,13 +282,22 @@
       </nav>
     </header>
 
+    <nav class="sticky-toc" aria-label="On this page">
+      <a href="#chosen">Chosen</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#directions">Directions</a>
+      <a href="#fences">Fences</a>
+    </nav>
+
+
     <section class="hero">
       <p class="kicker">2 October 2026 · Custom</p>
       <h1>Ranjithkumar et al.</h1>
       <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
     </section>
 
-    <section>
+    <section id="chosen">
       <h2>Chosen paper</h2>
       <div class="picked">
         <h3>Nuclear Conflict in Eastern Europe: Climate disruption and Radiological fallout</h3>
@@ -247,7 +306,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="takeaways">
       <h2>Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
@@ -261,31 +320,31 @@
       </div>
     </section>
 
-    <section>
+    <section id="ideas">
       <h2>Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
-        <article>
+        <article id="idea-1">
           <p class="label">Idea 1</p>
           <h3>UKESM1.1 / GLOMAP sensitivity of UKRRUS 5 Tg nuclear-winter climate to organic-carbon co-emission with black carbon</h3>
           <p>Ranjithkumar et al. inject pure BC and explicitly leave OC co-emission unexamined, while acknowledging Pausata-style composition sensitivity as a <strong>key uncertainty</strong> for nuclear-conflict climate. A UKESM/UKCA–GLOMAP follow-on that co-emits OC with BC (composition matrix, lifetime and optical-property diagnostics) would rank how much of the published UKRRUS NH cooling, solar dimming, ITCZ shift, and ~3.5-year e-folding deposition depends on the BC-only assumption <strong>(inferred)</strong> experiment design.</p>
         </article>
-        <article>
+        <article id="idea-2">
           <p class="label">Idea 2</p>
           <h3>Turn coagulation on in UKCA–GLOMAP for UKRRUS 5 Tg BC: size evolution, lifetime, and climate-recovery sensitivity</h3>
           <p>The published UKRRUS ensemble emits 150 nm-mean BC into the accumulation soluble mode <strong>with coagulation turned off in the stratosphere</strong>, then reports ~3.5-year e-folding BC removal and ~6-year near-surface climate recovery. That microphysical switch is an author-documented design choice, not a demonstrated negligible process. A paired coagulation-on / coagulation-off UKESM run (same 5 Tg UKRRUS injection) would test whether coagulation-driven growth, optical depth, lofting, and deposition timescale reshape the climate and long-term fallout maps <strong>(inferred)</strong> diagnostic architecture.</p>
         </article>
-        <article>
+        <article id="idea-3">
           <p class="label">Idea 3</p>
           <h3>Multi-model comparison of 5 Tg UKRRUS vs INDPAK nuclear-BC climate — UKESM contribution to the paper’s own “ongoing work”</h3>
           <p>The paper is single-model UKESM1.1 (N96L85, 6-member ensemble) with an in-model INDPAK twin. Authors argue INDPAK climate magnitudes look qualitatively similar to prior multi-model literature, <strong>yet</strong> state that inter-model spread remains important and that a comprehensive multi-model comparison of <strong>both</strong> INDPAK and UKRRUS is ongoing work beyond this paper’s scope. A UKESM-anchored multi-model protocol (shared 5 Tg injection specs, common diagnostics for AOD, surface T/precip, ITCZ, stratospheric winds, BC deposition) fills that author-documented gap without pretending the published UKESM INDPAK twin already closed structural uncertainty <strong>(inferred)</strong> community/protocol design; primary UKESM deliverable stays the published twin plus exportable diagnostics.</p>
         </article>
-        <article>
+        <article id="idea-4">
           <p class="label">Idea 4</p>
           <h3>Beyond empirical 48-h Glasstone–Dolan and idealised radionuclide-on-BC adherence: UKESM-consistent radiological fallout sensitivities for UKRRUS</h3>
           <p>Near-term (48 h) fallout uses the simplified Glasstone–Dolan empirical model under mean regional winds; long-term Cs-137/Sr-90 maps assume radionuclides adhere to BC and are an <strong>idealised upper-bound</strong> for stratospheric soot-borne distribution. Neither pathway is an ESM-coupled radiological transport simulation. A methods follow-on would (a) stress-test short-term contaminated-area / dose maps to UKESM wind and precipitation ensembles, and (b) relax adherence / lofting-fraction assumptions for long-lived isotopes on GLOMAP BC deposition fields — ranking how much of the published “low long-term dose / ~40% SH deposition” story survives those idealizations <strong>(inferred)</strong> sensitivity design.</p>
         </article>
-        <article>
+        <article id="idea-5">
           <p class="label">Idea 5</p>
           <h3>Quantitative food-security and humanitarian-impact assessment driven by UKRRUS UKESM climate (and radiological) fields</h3>
           <p>The abstract and Discussions position the climate–radiological results as a <strong>robust benchmark for food-security and humanitarian-impact assessments</strong>, report NH NPP reductions (Supplementary), and argue that compounding climate cooling, food insecurity, and radiological exposure may amplify health risks beyond dose metrics alone — but the paper does <strong>not</strong> deliver a crop, livestock, fishery, or famine model. An impact-chain follow-on would drive established food-security frameworks (e.g. Xia / Jägermeyr-class) with the published UKESM UKRRUS anomalies (and optional fallout overlays), making the benchmark claim operational <strong>(inferred)</strong> impact modelling; climate fields remain the author-documented input.</p>
@@ -293,7 +352,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="directions">
       <h2>Research directions</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Ranjithkumar et al. Directions (below) are how those hooks could become actual UKESM / GLOMAP / impact work.</p>
       <div class="ideas">
@@ -359,7 +418,7 @@
           <p><strong>Keep distinct from Direction D:</strong> this is impact-chain application of climate (and optionally fallout) fields, not radiological method development.</p>
         </article>
       </div>
-      <div class="fence">
+      <div class="fence" id="fences">
         <strong>Dr. Doubt’s fences that must hold:</strong>
         <ul>
           <li>Idea 1 / Direction A: OC co-emission remains an author-documented unexamined key uncertainty — do not claim the paper closed it via “BC primary driver” language.</li>
