@@ -121,7 +121,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
     }
 
@@ -153,6 +153,11 @@
     article:nth-child(3) .day {
       background: #f3ead4;
       color: var(--gold);
+    }
+
+    article:nth-child(4) .day {
+      background: #e8e4f0;
+      color: #4a3f6b;
     }
 
     article h3 {
@@ -297,6 +302,9 @@
 
       nav a:last-child { border-bottom: 0; }
 
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
       .hero, .cards, .team { grid-template-columns: 1fr; }
       .person + .person {
         padding-left: 0;
@@ -317,6 +325,7 @@
         <a href="grant/index.html">Grant path</a>
         <a href="paper/index.html">Paper path</a>
         <a href="idea/index.html">Idea path</a>
+        <a href="custom-idea/index.html">Custom idea path</a>
         <a href="#team">Team</a>
         <a href="#remit">Remit</a>
       </nav>
@@ -331,7 +340,7 @@
     </section>
 
     <section id="products">
-      <h2>Three products</h2>
+      <h2>Four products</h2>
       <div class="cards">
         <article>
           <span class="day">Monday</span>
@@ -350,6 +359,12 @@
           <h3>Idea path</h3>
           <p>Nominated papers are used to generate 3 ideas and propose personalised research paths to move forward.</p>
           <a class="card-link" href="idea/index.html">Open Idea path →</a>
+        </article>
+        <article>
+          <span class="day">On request</span>
+          <h3>Custom idea path</h3>
+          <p>Selected papers, chosen by our creator, Mr. A.</p>
+          <a class="card-link" href="custom-idea/index.html">Open Custom idea path →</a>
         </article>
       </div>
     </section>
