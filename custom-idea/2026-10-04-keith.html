@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom idea path — Keith — 4 October 2026</title>
+  <meta name="description" content="Chosen paper, takeaways, ideas, and research directions for Keith (2010) on 4 October 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+
+    /* Mobile-only sticky TOC */
+    .sticky-toc {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .sticky-toc {
+        display: flex;
+        gap: 0.15rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -1.25rem;
+        padding: 0 0.75rem;
+        min-height: 44px;
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      }
+
+      .sticky-toc a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 0.7rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sticky-toc a:hover,
+      .sticky-toc a:focus {
+        color: var(--ink);
+        border-bottom-color: var(--rust);
+      }
+
+      #chosen, #takeaways, #ideas, #directions, #fences,
+      [id^="idea-"] {
+        scroll-margin-top: 52px;
+      }
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../index.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="../idea/index.html">Idea path</a>
+        <a href="index.html">Custom idea path</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#remit">Remit</a>
+      </nav>
+    </header>
+
+    <nav class="sticky-toc" aria-label="On this page">
+      <a href="#chosen">Chosen</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#directions">Directions</a>
+      <a href="#fences">Fences</a>
+    </nav>
+
+    <section class="hero">
+      <p class="kicker">4 October 2026 · Custom</p>
+      <h1>Keith</h1>
+      <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
+    </section>
+
+    <section id="chosen">
+      <h2>Chosen paper</h2>
+      <div class="picked">
+        <h3>Photophoretic levitation of engineered aerosols for geoengineering</h3>
+        <p class="meta">Keith, D.W. (2010). Photophoretic levitation of engineered aerosols for geoengineering. Proc. Natl. Acad. Sci. U.S.A. 107, 16428–16431 (2010).</p>
+        <p class="url"><a href="https://doi.org/10.1073/pnas.1009519107" target="_blank" rel="noopener noreferrer">https://doi.org/10.1073/pnas.1009519107</a></p>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <h2>Paper takeaways</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Keith (2010) is a single-author analytical proposal, not a climate-model experiment, and it is sharp about why sulfate is a blunt tool for solar radiation management. He argues from prior work that sulfate size distributions grown by continuous SO₂ injection are hard to hold near the ∼0.3 μm scattering peak, that the Pinatubo aerosol more than doubled clear-sky diffuse sunlight at the surface, and that lower-stratospheric sulfate surfaces can speed catalytic ozone loss. Against that, he works out a class of forces nature does not provide: electro- or magnetophotophoresis, in which an electric or magnetic torque aligns a particle so that a body-fixed difference in thermal accommodation coefficient (Δα) gives a time-averaged lift. The concrete disk is about 5 μm in radius and 50 nm thick, stacked as 5 nm aluminum oxide, 30 nm aluminum, and 15 nm barium titanate, with the aluminum meant to reflect sunlight and stay nearly transparent in the thermal infrared. Under a difference in accommodation coefficient he calls relatively small and therefore conservative (15%), the photophoretic force would exceed twice the disk’s weight in the middle stratosphere or mesosphere if the disk absorbed only 10% of the solar flux, on a diurnally averaged energy balance using the 1976 Standard Atmosphere (Fig. 2 and the SI). The SI also does the unglamorous settling arithmetic: a plate of 0.15 g m⁻² falls at 0.18 km/day at the stratopause and would take tens of years to reach the tropopause, so advection rather than settling would dominate in the lower stratosphere, and winter darkness removes the solar drive for levitation. He is equally direct about what is not solved. Fabrication and deployment at reasonable cost, prediction of the distribution under photophoresis plus settling plus winds, and prediction of effectiveness and risks are listed as unresolved. There is no volcanic analog, so unknown side effects deserve more concern, not less. Long lifetimes make the intervention harder to reverse. The mass sketch — about 10⁹ kg to offset a CO₂ doubling, and 10⁸ kg/yr if the lifetime is 10 years, with an allowable manufacture cost of 60/kg under his stated GDP assumptions — is offered only as a reason not to dismiss the possibility, and he writes that the scaling calculations do not prove manufacture or deployment. The closing limit is the right one for any SAI scheme, sulfate or disk: reducing insolation can compensate global-mean temperature and will still produce a climate with less precipitation and less evaporation than preindustrial, and it cannot retire the CO₂ burden.</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>Nothing in the paper is an observed particle, a laboratory levitation, or an Earth-system-model integration, so the traps drawn as “A” under the stratopause and “B” under the mesopause are crossings of an idealized force ratio, and the prose says only that it might be possible to tailor particles into those traps. Stable levitation is defined as photophoretic force equal to weight, which is a different statement from the force exceeding twice the weight under averaged sunlight, 10% absorption, and δα = 0.15. The force formula is for the free-molecular regime, and the SI’s own warning that the force falls off once the mean free path is smaller than the particle is given for a 1 μm particle near 10 km, not for this ∼5 μm-radius disk. Ozone and diffuse-light benefits are written as what lofting could or might do; no ozone column and no radiative-transfer diffuse fraction are computed, and the Pinatubo factor of two is a citation. The poleward-drift section prints velocities of order 10² m/s beneath the stratopause and speeds that can exceed 10 m/s near the mesopause, then says the stratopause tilted-disk velocities appear slower than Brewer–Dobson transport and that a mesopause time average is hard because altitude, particle velocity, and winds all cycle diurnally. The SI, which that velocity sentence cites, does not evaluate those metre-per-second figures; it says horizontal drift equals settling speed when lift balances weight, and the settling speeds on the page are 0.18 km/day at the stratopause and about 30 km/day at 85 km. The 10-year lifetime that produces 10⁸ kg/yr is an assumption in the cost paragraph, not the SI sink time, and coagulation of the disks is simply absent. Zeeospheres bought in bulk for less than 0.3/kg are a hollow-microsphere price analog, not this multilayer disk.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): “Would reduce the most significant impact on ozone chemistry” and “might avoid” the lower-stratospheric reactive surface are proposals. They are not a finding that an engineered disk is ozone-safer than sulfate, and the paper’s own lack of a volcanic analog points the other way.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): The printed order-of-10² m/s stratopause drift should not be silently rewritten as 0.1 m/s or as the SI’s 0.18 km/day. Those are different claims. The packet leaves the disagreement visible rather than choosing a corrected speed the author did not print.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): An allowable manufacture cost of 60/kg, and a Zeeospheres price below 0.3/kg, are not evidence that the disks can be made or deployed. Keith says the scaling argument does not prove that.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): A scheme that matches global-mean temperature by cutting insolation has not, on this paper’s own account, restored preindustrial precipitation and evaporation, and it has not addressed the CO₂ burden.</p>
+      </div>
+    </section>
+
+    <section id="ideas">
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
+      <div class="ideas">
+        <article id="idea-1">
+          <p class="label">Idea 1</p>
+          <h3>Stress-test the Fig. 2 disk levitation traps (stratopause “A”, mesopause “B”) against the SI free-molecular energy balance and the paper’s own optical assumptions</h3>
+          <p>Keith’s idealized disk (radius ∼5 μm, thickness 50 nm: 5 nm Al₂O₃, 30 nm Al, 15 nm BaTiO₃) is claimed to feel an upward Δα force exceeding twice its weight under diurnally averaged light if it absorbs only 10% of the solar flux, and “might” be trappable below the stratopause or the mesopause. Those curves are solutions of the SI energy-balance equation, not an atmospheric simulation. A process follow-on would recompute F_P/F_G for the stated disk (h = 50 nm, ρ = 3,000 kg m⁻³, ᾱ = 0.7, δα = 0.15, T_E = 255 K, 1976 Standard Atmosphere) and then relax diurnal averaging, the ε_S/ε_T pairs, and the free-molecular assumption for a ∼5 μm-radius disk <strong>(inferred)</strong> sensitivity design. UKESM does not represent photophoresis; it is not the first tool for this idea.</p>
+        </article>
+        <article id="idea-2">
+          <p class="label">Idea 2</p>
+          <h3>Predict disk distribution under photophoresis, gravitational settling, and middle-atmosphere winds — and test whether a 10-year lifetime, and thus 10⁸ kg/yr, survives winter and coagulation</h3>
+          <p>Keith lists prediction of the particle distribution, given photophoretic motion, gravitational settling, and winds, as unresolved. The SI, neglecting photophoresis, gives a 0.15 g m⁻² plate a fall speed of 0.18 km/day at the stratopause and “tens of years” to reach the tropopause, and states that particles need not settle out in winter when they are not illuminated. The cost section separately <strong>assumes</strong> a 10-year lifetime to turn ∼10⁹ kg into 10⁸ kg/yr. Those are not the same calculation. A follow-on would budget settling versus lofting versus advection, including the documented winter shutdown of the solar drive, and only then ask whether an assumed decade-scale lifetime still sets the replenishment rate <strong>(inferred)</strong> once solid-particle coagulation and non-spherical drag are added. GLOMAP can speak to insoluble-sphere coagulation and sedimentation; it cannot, as configured for sulfate SAI, represent this disk or Δα levitation.</p>
+        </article>
+        <article id="idea-3">
+          <p class="label">Idea 3</p>
+          <h3>UKCA heterogeneous-chemistry comparison of lower-stratospheric sulfate surface area versus a solid disk that only partly escapes the ozone layer</h3>
+          <p>Keith argues that photophoretic lofting would reduce the most significant ozone impact by moving reactive surface out of the lower stratosphere, and that disks “might avoid” the diffuse-light and ozone disadvantages of sulfates. No ozone column, no SAD, and no heterogeneous rate is computed. The sulfate ozone case is cited prior literature. The same paper says particles are not illuminated in winter, so the photophoretic drive is off, and that there is no volcanic analog for the engineered particles, so unknown side effects should be a greater concern. A UKESM/UKCA experiment would compare a sulfate SAI surface-area perturbation with a prescribed solid-particle surface (Al/Al₂O₃/BaTiO₃, optional magnetite) whose altitude follows trap A, trap B, or winter descent — and would report how much of any ozone difference survives those prescriptions <strong>(inferred)</strong> experimental design. It would not show that Keith has already found an ozone-safer aerosol.</p>
+        </article>
+        <article id="idea-4">
+          <p class="label">Idea 4</p>
+          <h3>Separate Brewer–Dobson poleward transport of a stratopause-trapped tracer from the tilted-disk drift, and do not reconcile 10² m/s with 0.18 km/day by hand</h3>
+          <p>Keith offers two different latitudinal mechanisms. “Most simply,” particles confined near the stratopause would be carried poleward by the Brewer–Dobson circulation. Alternatively, a weak magnetic moment would tilt the disk and add a meridional Δα component, with printed poleward velocities “of order 10² m/s” beneath the stratopause and speeds that “can exceed 10 m/s” near the mesopause. He then says the stratopause tilted-disk velocities appear <strong>slower</strong> than average Brewer–Dobson transport, and that mesopause time-average transport is hard because altitude, velocity, and winds all have strong diurnal cycles. The SI does not evaluate those m/s figures. It says that, when vertical photophoretic and gravitational forces balance, the horizontal drift speed of a slightly tilted plate <strong>equals the settling velocity</strong>, and it gives 0.18 km/day at the stratopause and ∼30 km/day at 85 km. A UKESM tracer experiment can test only the Brewer–Dobson sentence (passive particles held near the stratopause versus a sulfate-like lower-stratospheric injection). It cannot confirm 10² m/s. Closing the numerical gap is a process calculation <strong>(inferred)</strong>, and until it is closed the active-drift pathway stays unusable as a forcing scenario.</p>
+        </article>
+        <article id="idea-5">
+          <p class="label">Idea 5</p>
+          <h3>UKESM radiative comparison of a thin-disk scatterer with sulfate SAI, without treating the 60/kg sketch or Zeeospheres as a deployment demonstration</h3>
+          <p>The paper’s case against sulfate is size control, forward scatter (Pinatubo more than doubled clear-sky diffuse sunlight), and ozone-relevant surface area, and its case for the disk is minimal forward scatter once the radius is large compared with the wavelength, plus a mass-specific cooling design attributed to Teller et al. None of that is a radiative-transfer or ESM result in this paper. Separately, the cost section is an order-of-magnitude argument under explicit GDP assumptions, and Keith says any definitive manufacturability answer would require a sustained research effort. A UKESM/SOCRATES (or equivalent) comparison can prescribe the disk’s stated solar and thermal properties against a sulfate SAI case and report diffuse-to-direct ratio, top-of-atmosphere forcing per unit mass, and surface temperature versus precipitation <strong>(inferred)</strong> diagnostics. It must carry Keith’s own SRM limit: insolation reduction can match global-mean temperature and still leave a climate with less precipitation and less evaporation than preindustrial, and it does not retire the CO₂ burden. Manufacture at 60/kg is not a result of that comparison.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="directions">
+      <h2>Research directions</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Keith. Directions (below) are how those hooks could become process calculations and, only where the paper’s claim is actually a transport, chemistry, or radiation question, UKESM / UKCA / GLOMAP work.</p>
+      <div class="ideas">
+        <article>
+          <h3>Direction A ↔ Idea 1 — Recompute the disk levitation traps <em>(author documented calculation; inferred sensitivities)</em></h3>
+          <p><strong>Hook:</strong> For the stated disk, Keith reports F_P greater than twice the weight under diurnally averaged illumination if absorption is only 10%, with δα = 0.15 called conservative, and says particles might be trapped below the stratopause (“A”) or below the mesopause (“B”). Fig. 2 is the SI energy balance on a 1976 Standard Atmosphere <em>(author documented)</em>.</p>
+          <p><strong>Next steps:</strong></p>
+          <ul>
+            <li>Rebuild the SI plate calculation first: free-molecular F ∝ Δα (ΔT/T) p, with ΔT from the printed energy balance, at h = 50 nm, ρ = 3,000 kg m⁻³, ᾱ = 0.7, δα = 0.15, T_E = 255 K <em>(author documented)</em> inputs.</li>
+            <li>Map the three solar/thermal emissivity combinations in Fig. 2 onto the prose rule: large ε_S/ε_T lofted toward the mesopause; smaller ε_S/ε_T confined below about 45 km <em>(author documented)</em>. Do not assign a curve to “A” or “B” beyond that sentence.</li>
+            <li>Sensitivity layer <em>(inferred)</em>: drop diurnal averaging; vary δα around 0.15; test whether a radius ∼5 μm disk is still inside the free-molecular regime the SI assumes (the SI’s own mean-free-path cutoff is illustrated for a 1 μm particle near 10 km).</li>
+            <li>Deliverable shape: altitudes where F_P/F_G actually crosses 1, and which stated assumptions move or destroy traps A and B. “Exceeds 2× weight” is not the success metric. Stable levitation in the paper is F_P/F_G = 1.</li>
+          </ul>
+          <p>UKESM is the wrong first instrument. It has no photophoretic force. Do not add a toy lofting term inside the ESM and call it Fig. 2.</p>
+        </article>
+        <article>
+          <h3>Direction B ↔ Idea 2 — Distribution, winter, lifetime, replenishment <em>(author documented gap)</em></h3>
+          <p><strong>Hook:</strong> Unresolved issue (ii) is to predict the distribution under photophoretic motion, gravitational settling, and middle-atmosphere winds. Neglecting photophoresis, the SI gives 0.18 km/day at the stratopause and tens of years to the tropopause, and says particles need not settle out in winter when they are not illuminated. The cost section assumes a 10-year life to turn ∼10⁹ kg into 10⁸ kg/yr <em>(author documented)</em>.</p>
+          <p><strong>Next steps:</strong></p>
+          <ul>
+            <li>Keep three numbers distinct: SI gravitational fall time (“tens of years” from stratopause to tropopause), mesopause passive settling (∼30 km/day at 85 km), and the assumed 10-year lifetime used only in the mass-flux sketch.</li>
+            <li>Column or trajectory budget <em>(inferred)</em>: lofting from Direction A when illuminated, gravitational settling when not, and advection. Winter is a documented off-switch for the solar drive, not a footnote.</li>
+            <li>GLOMAP insoluble-mode coagulation and sedimentation <em>(inferred)</em> as a <strong>sphere</strong> sensitivity around the 0.15 g m⁻² mass loading. Label it as not a disk and not Δα. Coagulation is not an author-listed process for these particles.</li>
+            <li>Only after a lifetime exists, revisit 10⁸ kg/yr. Do not start from 10⁸ kg/yr as an emission inventory.</li>
+            <li>Reversibility stays in the design: Keith says long life makes geoengineering less easily reversible, and that short-lived particles should be the testing and initial-deployment choice <em>(author documented)</em>.</li>
+          </ul>
+          <p><strong>Keep distinct from Direction A:</strong> A asks whether F_P/F_G = 1 anywhere. B asks where particles go over seasons and what lifetime that implies.</p>
+        </article>
+        <article>
+          <h3>Direction C ↔ Idea 3 — Ozone surface area, including winter <em>(author documented argument; inferred UKCA test)</em></h3>
+          <p><strong>Hook:</strong> Lofting “could” or “would” reduce interference with ozone chemistry by getting particles out of the lower stratosphere. The wording in the results section is “might avoid” the reactive-surface disadvantage. No ozone diagnostic is calculated. There is no volcanic analog, which Keith treats as a reason for more concern about unexpected side effects <em>(author documented)</em>.</p>
+          <p><strong>UKESM / UKCA next steps:</strong></p>
+          <ul>
+            <li>Baseline is sulfate SAI heterogeneous chemistry as in existing UKESM SAI work. That baseline is <strong>not</strong> a result of this paper; Keith points at Crutzen, Tilmes, and related literature for the sulfate problem.</li>
+            <li>Prescribed solid-particle surface-area scenarios <em>(inferred)</em>: held near trap A, held near trap B, and a winter case with the photophoretic drive off so particles can enter the lower stratosphere. Compositions limited to those named: Al₂O₃, Al, BaTiO₃, and the optional ∼0.5 μm magnetite grain.</li>
+            <li>Do not invent uptake coefficients and then hide them. Any UKCA rate for these solids is <em>(inferred)</em> and must be varied, not fitted to a preferred “ozone-safer” answer.</li>
+            <li>Deliverable shape: column and lower-stratospheric ozone differences that survive the altitude prescription and the rate uncertainty. A null ozone difference is an allowed result.</li>
+          </ul>
+          <p><strong>Keep distinct from Direction E:</strong> diffuse sunlight is not an ozone metric. <strong>Keep distinct from Direction B:</strong> winter here is a chemistry-exposure question, not the lifetime question.</p>
+        </article>
+        <article>
+          <h3>Direction D ↔ Idea 4 — Brewer–Dobson tracer versus unresolved drift speed <em>(author documented split)</em></h3>
+          <p><strong>Hook:</strong> Two mechanisms. Stratopause-confined particles “would be transported poleward by the Brewer–Dobson circulation.” A tilted disk is separately assigned printed speeds of order 10² m/s (stratopause) and possibly above 10 m/s (mesopause), while the same section says the stratopause tilted-disk velocities appear slower than Brewer–Dobson transport and that the mesopause time average is difficult because of diurnal cycles. The SI equates balanced-state horizontal drift to settling speed and never evaluates 10² m/s <em>(author documented)</em>.</p>
+          <p><strong>Next steps:</strong></p>
+          <ul>
+            <li>Process step, before any ESM nudge <em>(inferred)</em>: compute drift from the SI identity (drift speed = settling speed when F_P balances weight) using 0.18 km/day and ∼30 km/day, and state the factor by which those speeds disagree with the printed 10² m/s and &gt;10 m/s. Do not insert a silent minus sign on the superscript.</li>
+            <li>UKESM tracer that <strong>is</strong> allowed now: passive particles constrained near the stratopause versus a lower-stratospheric sulfate-like injection, to test only the sentence about Brewer–Dobson poleward transport. Report latitude of aerosol optical depth and top-of-atmosphere forcing. This does not test magnetophotophoresis.</li>
+            <li>Mesopause diurnal phasing stays closed until Direction A says a particle can actually reside there. Keith says the time-average transport depends on the relative phase of altitude, velocity, and winds <em>(author documented)</em>.</li>
+            <li>No polar-rescue scenario. “Might allow” concentration of forcing near the poles is not a GeoMIP protocol.</li>
+          </ul>
+          <p><strong>Keep distinct from Direction A:</strong> vertical trap versus horizontal speed. A trap at “A” does not imply the 10² m/s drift.</p>
+        </article>
+        <article>
+          <h3>Direction E ↔ Idea 5 — Disk versus sulfate radiation, under Keith’s own SRM limit <em>(author documented design claim; inferred ESM)</em></h3>
+          <p><strong>Hook:</strong> Sulfate is called a blunt instrument because of size, forward scatter, and ozone surface. The disk “would produce minimal forward scattering” when its radius is large compared with the wavelength. Pinatubo’s diffuse-light increase (more than a factor of 2) is a citation, not a measurement in this paper. The cost arithmetic is offered only to suggest the possibility cannot be discounted, and “do not prove” manufacture and deployment <em>(author documented)</em>.</p>
+          <p><strong>UKESM next steps:</strong></p>
+          <ul>
+            <li>Prescribe shortwave and longwave properties consistent with the paper’s design intent: high solar reflectivity, near-transparency in the thermal infrared, radius ∼5 μm, thickness 50 nm <em>(author documented)</em> targets. Optical constants for Al / Al₂O₃ / BaTiO₃ that the paper does not supply are <em>(inferred)</em> and must be labeled.</li>
+            <li>Compare with a sulfate SAI case on diffuse-to-direct surface irradiance, forcing per unit mass, global-mean temperature, and precipitation/evaporation. The precipitation comparison is mandatory because Keith states that insolation reduction matched to global-mean temperature still yields less precipitation and less evaporation than preindustrial <em>(author documented)</em>.</li>
+            <li>Do not score success as global-mean temperature alone. Do not claim the run solves CO₂.</li>
+            <li>Cost stays off the scientific success metric. If a cost line is reported at all, print Keith’s conditions in the same sentence: 10⁻⁴ of ∼60 × 10¹² global GDP, allowable manufacture 60/kg, Zeeospheres &lt;0.3/kg as a bulk hollow-microsphere analog, and the sentence that the scaling calculations do not prove manufacture and deployment. No currency symbol was printed.</li>
+          </ul>
+          <p><strong>Keep distinct from Direction C:</strong> this is scattering and the hydrological SRM limit, not heterogeneous chemistry.</p>
+        </article>
+      </div>
+      <div class="fence" id="fences">
+        <strong>Dr. Doubt’s fences that must hold:</strong>
+        <ul>
+          <li><strong>Idea 1 / Direction A:</strong> F_P/F_G = 1 is the paper’s stability definition. “Exceed 2 times its weight” under diurnally averaged light, 10% absorption, and δα = 0.15 is not a field demonstration. Free-molecular regime is stated, not shown for this disk at every altitude plotted.</li>
+          <li><strong>Idea 2 / Direction B:</strong> Assumed 10-year life ≠ SI “tens of years” sink time ≠ mesopause ∼30 km/day. Coagulation is (inferred). GLOMAP spheres are not this disk. Winter without illumination is in the SI.</li>
+          <li><strong>Idea 3 / Direction C:</strong> Ozone benefit is not calculated. “Might avoid” and “would reduce” do not survive as findings. No volcanic analog cuts against overconfidence, not against doing the chemistry. No solids-are-ozone-safer bridge.</li>
+          <li><strong>Idea 4 / Direction D:</strong> Do not rewrite 10² m/s as 10⁻² m/s or as 0.18 km/day. The SI drift formula and the printed m/s lines disagree; leave the disagreement in the result. A Brewer–Dobson tracer does not validate the tilted disk.</li>
+          <li><strong>Idea 5 / Direction E:</strong> Minimal forward scatter is a design sentence. Pinatubo’s factor of two is literature. 60/kg and Zeeospheres do not prove deployment. Global-mean temperature compensation does not restore preindustrial precipitation or evaporation and does not solve CO₂.</li>
+          <li><strong>Document-wide:</strong> No UKESM photophoresis pretence. No email, Drive share, or site edit from this stage. Mrs. Vanguard pushes the site only after Dr. Doubt PASS and Ananth’s go.</li>
+        </ul>
+      </div>
+      <p class="signoff">Pulse</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Custom idea path</a>
+    </footer>
+  </div>
+</body>
+</html>
