@@ -10,74 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: #f6f1e7;
-      background:
-        radial-gradient(700px 400px at 70% 20%, #3a2a22 0%, transparent 60%),
-        #1c1915;
-      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+    html, body { margin: 0; height: 100%; }
+    body { font-family: "Source Sans 3", "Segoe UI", sans-serif; color: #f3ead7; background: #14120e; }
+    .split { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+    a.half {
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 36px 40px 32px; text-decoration: none; color: #f3ead7; min-height: 100vh;
     }
-    .frame {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      padding: 36px 28px 28px;
-    }
-    .top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
-    .mark { font-family: Fraunces, Georgia, serif; font-size: 22px; }
-    .choose { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; color: #a89880; }
-    .rule { height: 1px; background: #3a342c; margin: 22px 0 0; }
-    h1 {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 500;
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: .9;
-      letter-spacing: -.04em;
-      margin: 36px 0 0;
-      max-width: 12ch;
-    }
-    .row {
-      margin-top: auto;
-      padding-top: 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    a.door {
-      border: 1px solid #3a342c;
-      border-radius: 16px;
-      padding: 22px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      background: rgba(255,253,248,.03);
-      color: inherit;
-      text-decoration: none;
-    }
-    a.door strong { font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: clamp(20px, 2.4vw, 28px); }
-    a.door span { color: #e7b5a4; font-weight: 600; white-space: nowrap; }
-    a.play { background: #1f4d45; border-color: #1f4d45; }
+    a.play { background: #1f4d45; }
+    a.watch { background: #14120e; }
+    .mark, h1 { font-family: Fraunces, Georgia, serif; font-weight: 500; }
+    .mark { font-size: 18px; }
+    h1 { font-size: clamp(40px, 5vw, 64px); line-height: .95; letter-spacing: -.03em; margin: 0; max-width: 10ch; }
+    .go { color: #e7b5a4; font-weight: 600; }
     @media (max-width: 700px) {
-      .row { grid-template-columns: 1fr; }
-      .choose { display: none; }
+      .split { grid-template-columns: 1fr; }
+      a.half { min-height: 50vh; }
     }
   </style>
 </head>
 <body>
-  <div class="frame">
-    <div class="top">
+  <div class="split">
+    <a class="half play" href="playground.html">
       <div class="mark">Particle X Climate</div>
-      <div class="choose">Choose a door</div>
-    </div>
-    <div class="rule"></div>
-    <h1>Two ways in.</h1>
-    <div class="row">
-      <a class="door play" href="playground.html"><strong>Research Playground</strong><span>Open →</span></a>
-      <a class="door" href="overwatch.html"><strong>Research Overwatch</strong><span>Open →</span></a>
-    </div>
+      <h1>Research Playground</h1>
+      <div class="go">Open →</div>
+    </a>
+    <a class="half watch" href="overwatch.html">
+      <div class="mark"></div>
+      <h1>Research Overwatch</h1>
+      <div class="go">Open →</div>
+    </a>
   </div>
 </body>
 </html>
