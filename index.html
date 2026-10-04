@@ -10,37 +10,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; height: 100%; }
-    body { font-family: "Source Sans 3", "Segoe UI", sans-serif; color: #f3ead7; background: #14120e; }
-    .split { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
-    a.half {
-      display: flex; flex-direction: column; justify-content: space-between;
-      padding: 36px 40px 32px; text-decoration: none; color: #f3ead7; min-height: 100vh;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #1c1915;
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        #f6f1e7;
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      padding: 32px 20px;
     }
-    a.play { background: #1f4d45; }
-    a.watch { background: #14120e; }
-    .mark, h1 { font-family: Fraunces, Georgia, serif; font-weight: 500; }
-    .mark { font-size: 18px; }
-    h1 { font-size: clamp(40px, 5vw, 64px); line-height: .95; letter-spacing: -.03em; margin: 0; max-width: 10ch; }
-    .go { color: #e7b5a4; font-weight: 600; }
-    @media (max-width: 700px) {
-      .split { grid-template-columns: 1fr; }
-      a.half { min-height: 50vh; }
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      font-size: clamp(40px, 6vw, 72px);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin: 0 0 18px;
     }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(22px, 2.4vw, 32px);
+      letter-spacing: -0.02em;
+      margin: 0 0 32px;
+    }
+    .doors { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    a.door {
+      min-width: 240px;
+      border-radius: 999px;
+      padding: 16px 28px;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 22px;
+      text-decoration: none;
+      color: #1c1915;
+      border: 1px solid #e2d8c8;
+      background: #fffdf8;
+    }
+    a.play { background: #1f4d45; border-color: #1f4d45; color: #f6f1e7; }
   </style>
 </head>
 <body>
-  <div class="split">
-    <a class="half play" href="playground.html">
-      <div class="mark">Particle X Climate</div>
-      <h1>Research Playground</h1>
-      <div class="go">Open →</div>
-    </a>
-    <a class="half watch" href="overwatch.html">
-      <div class="mark"></div>
-      <h1>Research Overwatch</h1>
-      <div class="go">Open →</div>
-    </a>
+  <div>
+    <p class="mark">Particle X Climate</p>
+    <h1>Two ways in.</h1>
+    <div class="doors">
+      <a class="door play" href="playground.html">Research Playground</a>
+      <a class="door" href="overwatch.html">Research Overwatch</a>
+    </div>
   </div>
 </body>
 </html>
