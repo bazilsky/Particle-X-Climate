@@ -1,365 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Particle X Climate</title>
-<meta name="description" content="Particle X Climate. The Studio, Research Playground, and Research Overwatch.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  @font-face {
-    font-family: "Fraunces";
-    src: url(fonts/fraunces-latin.woff2) format("woff2");
-    font-weight: 100 900;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Source Sans 3";
-    src: url(fonts/sourcesans3-latin.woff2) format("woff2");
-    font-weight: 200 900;
-    font-display: swap;
-  }
-
-  :root {
-    --cream: #f6f1e7;
-    --ink: #1a1714;
-    --gold: #8a6a2f;
-    --teal: #1f4d45;
-    --rust: #9a3b24;
-    --navy: #1a2e3a;
-    --coral: #c46a4a;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: #2a1f18;
-    color: var(--cream);
-    font-family: "Source Sans 3", "Segoe UI", sans-serif;
-  }
-
-  /* Full-bleed abstract art layer */
-  .art {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .art svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  /* Soft vignette so text stays readable */
-  .veil {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 70% 55% at 28% 42%, rgba(26, 23, 20, 0.28) 0%, transparent 70%),
-      linear-gradient(180deg, rgba(26, 23, 20, 0.22) 0%, transparent 28%, transparent 68%, rgba(26, 23, 20, 0.35) 100%);
-  }
-
-  .ui {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    padding: clamp(28px, 4.5vh, 48px) clamp(28px, 5.5vw, 72px) clamp(36px, 6vh, 64px);
-  }
-
-  .mark {
-    font-family: Fraunces, Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(14px, 1.35vw, 17px);
-    letter-spacing: 0.02em;
-    color: var(--cream);
-    text-shadow: 0 1px 12px rgba(26, 23, 20, 0.45), 0 0 1px rgba(26, 23, 20, 0.6);
-  }
-
-  .hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 920px;
-    padding-top: clamp(12px, 3vh, 40px);
-  }
-
-  h1 {
-    font-family: Fraunces, Georgia, serif;
-    font-weight: 620;
-    font-optical-sizing: auto;
-    font-size: clamp(52px, 9.2vw, 108px);
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-    color: var(--cream);
-    text-shadow:
-      0 2px 28px rgba(26, 23, 20, 0.55),
-      0 1px 2px rgba(26, 23, 20, 0.4);
-    margin-bottom: clamp(28px, 4.5vh, 48px);
-  }
-
-  .doors {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(12px, 1.8vw, 20px);
-    align-items: stretch;
-  }
-
-  .door {
-    flex: 1 1 180px;
-    max-width: 280px;
-    display: block;
-    text-decoration: none;
-    color: var(--cream);
-    background: rgba(246, 241, 231, 0.12);
-    border: 1px solid rgba(246, 241, 231, 0.28);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 14px;
-    padding: clamp(16px, 2.2vh, 22px) clamp(18px, 2vw, 24px);
-    box-shadow: 0 8px 28px rgba(26, 23, 20, 0.22);
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  }
-  .door:hover {
-    background: rgba(246, 241, 231, 0.22);
-    border-color: rgba(246, 241, 231, 0.5);
-    transform: translateY(-2px);
-  }
-  .door .label {
-    font-family: Fraunces, Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(17px, 1.7vw, 21px);
-    letter-spacing: -0.015em;
-    line-height: 1.25;
-    text-shadow: 0 1px 8px rgba(26, 23, 20, 0.4);
-  }
-  .door .hint {
-    display: block;
-    margin-top: 6px;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    opacity: 0.72;
-    color: var(--cream);
-  }
-
-  @media (max-width: 520px) {
-    .doors { flex-direction: column; }
-    .door { max-width: none; }
-    h1 { font-size: clamp(44px, 12vw, 64px); }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Particle X Climate</title>
+  <meta name="description" content="Particle X Climate. The Studio, Research Playground, and Research Overwatch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #1c1915;
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        #f6f1e7;
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      padding: 32px 20px;
+    }
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      font-size: clamp(40px, 6vw, 72px);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin: 0 0 18px;
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(22px, 2.4vw, 32px);
+      letter-spacing: -0.02em;
+      margin: 0 0 32px;
+    }
+    .doors { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    a.door {
+      min-width: 240px;
+      border-radius: 999px;
+      padding: 16px 28px;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 22px;
+      text-decoration: none;
+      color: #1c1915;
+      border: 1px solid #e2d8c8;
+      background: #fffdf8;
+    }
+    a.play { background: #1f4d45; border-color: #1f4d45; color: #f6f1e7; }
+    a.watch { background: #9a3b24; border-color: #9a3b24; color: #f6f1e7; }
+    a.test { background: #8a6a2f; border-color: #8a6a2f; color: #f6f1e7; }
+  </style>
 </head>
 <body>
-
-  <div class="art" aria-hidden="true">
-    <svg viewBox="0 0 1280 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <!-- Soft liquid gradients -->
-        <linearGradient id="gCream" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#f6f1e7"/>
-          <stop offset="55%" stop-color="#e8d9bc"/>
-          <stop offset="100%" stop-color="#d4b888"/>
-        </linearGradient>
-        <linearGradient id="gGold" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#8a6a2f" stop-opacity="0.95"/>
-          <stop offset="45%" stop-color="#c4a05a" stop-opacity="0.85"/>
-          <stop offset="100%" stop-color="#e8d4a8" stop-opacity="0.7"/>
-        </linearGradient>
-        <linearGradient id="gTeal" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#1f4d45"/>
-          <stop offset="40%" stop-color="#2d6b5f"/>
-          <stop offset="100%" stop-color="#4a8f82" stop-opacity="0.75"/>
-        </linearGradient>
-        <linearGradient id="gRust" x1="0%" y1="0%" x2="80%" y2="100%">
-          <stop offset="0%" stop-color="#9a3b24"/>
-          <stop offset="50%" stop-color="#c46a4a"/>
-          <stop offset="100%" stop-color="#e8a888" stop-opacity="0.8"/>
-        </linearGradient>
-        <linearGradient id="gNavy" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stop-color="#1a2e3a"/>
-          <stop offset="100%" stop-color="#2a4a55" stop-opacity="0.85"/>
-        </linearGradient>
-        <linearGradient id="gCoral" x1="0%" y1="50%" x2="100%" y2="50%">
-          <stop offset="0%" stop-color="#c46a4a" stop-opacity="0.9"/>
-          <stop offset="100%" stop-color="#e8b090" stop-opacity="0.55"/>
-        </linearGradient>
-        <radialGradient id="gGlowGold" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#e8d4a8" stop-opacity="0.85"/>
-          <stop offset="60%" stop-color="#8a6a2f" stop-opacity="0.45"/>
-          <stop offset="100%" stop-color="#8a6a2f" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="gGlowTeal" cx="40%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="#5a9a8c" stop-opacity="0.7"/>
-          <stop offset="100%" stop-color="#1f4d45" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="gGlowRust" cx="55%" cy="45%" r="55%">
-          <stop offset="0%" stop-color="#e08a6a" stop-opacity="0.75"/>
-          <stop offset="100%" stop-color="#9a3b24" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="18"/>
-        </filter>
-        <filter id="softBlurSm" x="-15%" y="-15%" width="130%" height="130%">
-          <feGaussianBlur stdDeviation="10"/>
-        </filter>
-        <filter id="softBlurLg" x="-25%" y="-25%" width="150%" height="150%">
-          <feGaussianBlur stdDeviation="28"/>
-        </filter>
-      </defs>
-
-      <!-- Base wash: warm cream → peach → soft navy corner -->
-      <rect width="1280" height="800" fill="url(#gCream)"/>
-      <rect width="1280" height="800" fill="url(#gNavy)" opacity="0.35"/>
-
-      <!-- Large soft glow blobs (liquid depth) -->
-      <ellipse cx="180" cy="120" rx="420" ry="280" fill="url(#gGlowGold)" filter="url(#softBlurLg)" opacity="0.9"/>
-      <ellipse cx="1100" cy="160" rx="380" ry="320" fill="url(#gGlowTeal)" filter="url(#softBlurLg)" opacity="0.85"/>
-      <ellipse cx="980" cy="680" rx="460" ry="300" fill="url(#gGlowRust)" filter="url(#softBlurLg)" opacity="0.9"/>
-      <ellipse cx="200" cy="700" rx="360" ry="260" fill="url(#gGlowTeal)" filter="url(#softBlurLg)" opacity="0.55"/>
-      <ellipse cx="640" cy="400" rx="300" ry="220" fill="url(#gGlowGold)" filter="url(#softBlur)" opacity="0.4"/>
-
-      <!-- Flowing ribbon 1 — teal sine across mid -->
-      <path fill="url(#gTeal)" opacity="0.72" filter="url(#softBlurSm)"
-        d="M-80,280
-           C120,200 220,360 380,310
-           C540,260 620,180 780,220
-           C940,260 1060,340 1220,280
-           C1320,250 1380,300 1380,300
-           L1380,480
-           C1200,540 1080,420 920,460
-           C760,500 640,580 480,520
-           C320,460 180,520 -80,460
-           Z"/>
-
-      <!-- Flowing ribbon 2 — gold undulating band -->
-      <path fill="url(#gGold)" opacity="0.68" filter="url(#softBlurSm)"
-        d="M-60,420
-           C80,360 200,500 360,460
-           C520,420 600,340 760,380
-           C920,420 1040,500 1200,440
-           C1300,410 1360,450 1360,450
-           L1360,620
-           C1180,680 1040,560 880,600
-           C720,640 580,700 420,640
-           C260,580 120,640 -60,580
-           Z"/>
-
-      <!-- Flowing ribbon 3 — rust wave lower -->
-      <path fill="url(#gRust)" opacity="0.7" filter="url(#softBlurSm)"
-        d="M-100,560
-           C60,500 180,640 340,600
-           C500,560 620,500 780,540
-           C940,580 1080,660 1260,600
-           C1340,575 1400,610 1400,610
-           L1400,860
-           L-100,860
-           Z"/>
-
-      <!-- Upper cream/peach fluid shape -->
-      <path fill="#f6f1e7" opacity="0.55" filter="url(#softBlur)"
-        d="M-40,-40
-           L700,-40
-           C820,40 760,140 640,160
-           C480,190 400,80 280,100
-           C160,120 80,200 -40,160
-           Z"/>
-
-      <!-- Coral accent blob top-right -->
-      <path fill="url(#gCoral)" opacity="0.55" filter="url(#softBlur)"
-        d="M900,40
-           C1020,-20 1180,60 1240,140
-           C1300,220 1260,320 1160,340
-           C1040,365 960,280 900,200
-           C860,150 840,80 900,40
-           Z"/>
-
-      <!-- Teal organic blob left mid -->
-      <path fill="url(#gTeal)" opacity="0.5" filter="url(#softBlur)"
-        d="M-60,180
-           C40,100 160,140 200,240
-           C240,340 140,420 40,400
-           C-40,380 -100,280 -60,180
-           Z"/>
-
-      <!-- Gold ribbon swirl mid-right -->
-      <path fill="url(#gGold)" opacity="0.55" filter="url(#softBlurSm)"
-        d="M720,140
-           C860,80 980,160 1040,260
-           C1100,360 1020,460 900,480
-           C780,500 700,400 680,300
-           C665,230 650,180 720,140
-           Z"/>
-
-      <!-- Soft navy depth pocket bottom-left -->
-      <path fill="url(#gNavy)" opacity="0.45" filter="url(#softBlur)"
-        d="M-80,640
-           C80,580 200,720 320,760
-           C200,820 60,840 -80,800
-           Z"/>
-
-      <!-- Thin luminous ribbon highlights (translucent cream strokes as filled thin shapes) -->
-      <path fill="#f6f1e7" opacity="0.28" filter="url(#softBlurSm)"
-        d="M100,200
-           C280,140 420,260 580,220
-           C740,180 880,100 1040,140
-           C1060,148 1055,168 1035,165
-           C880,130 740,205 585,240
-           C425,275 285,160 115,215
-           C95,220 90,208 100,200
-           Z"/>
-
-      <path fill="#e8d4a8" opacity="0.35" filter="url(#softBlurSm)"
-        d="M200,480
-           C380,420 520,540 700,500
-           C880,460 1020,380 1180,420
-           C1200,428 1195,448 1175,445
-           C1020,410 880,485 705,520
-           C525,555 385,440 215,495
-           C195,500 190,488 200,480
-           Z"/>
-
-      <!-- Extra overlapping blobs for richness -->
-      <ellipse cx="540" cy="100" rx="220" ry="90" fill="#c46a4a" opacity="0.25" filter="url(#softBlur)"/>
-      <ellipse cx="860" cy="520" rx="260" ry="110" fill="#1f4d45" opacity="0.3" filter="url(#softBlur)"/>
-      <ellipse cx="400" cy="620" rx="200" ry="100" fill="#8a6a2f" opacity="0.35" filter="url(#softBlur)"/>
-      <ellipse cx="1100" cy="400" rx="180" ry="140" fill="#9a3b24" opacity="0.28" filter="url(#softBlur)"/>
-    </svg>
-  </div>
-
-  <div class="veil" aria-hidden="true"></div>
-
-  <main class="ui">
-        <div class="hero">
-      <h1>Particle X Climate</h1>
-      <nav class="doors" aria-label="Entrances">
-        <a class="door" href="studio.html">
-          <span class="label">The Studio</span>
-          <span class="hint">Make</span>
-        </a>
-        <a class="door" href="playground/">
-          <span class="label">Research Playground</span>
-          <span class="hint">Explore</span>
-        </a>
-        <a class="door" href="overwatch.html">
-          <span class="label">Research Overwatch</span>
-          <span class="hint">Watch</span>
-        </a>
-      </nav>
+  <div>
+    <p class="mark">Particle X Climate</p>
+    <h1>Three ways in.</h1>
+    <div class="doors">
+      <a class="door test" href="studio.html">The Studio</a>
+      <a class="door play" href="playground/">Research Playground</a>
+      <a class="door watch" href="overwatch.html">Research Overwatch</a>
     </div>
-  </main>
-
+  </div>
 </body>
 </html>
