@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paper path — Particle X Climate</title>
-  <meta name="description" content="Weekly Thursday paper digests for independent research on solar geoengineering, climate modelling, and nuclear-war climate effects.">
+  <title>Thursday paper path — 8 October 2026</title>
+  <meta name="description" content="Thursday paper path for 8 October 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -60,8 +60,6 @@
       text-decoration: none;
     }
 
-    .mark span { color: var(--rust); }
-
     nav {
       display: flex;
       gap: 1.25rem;
@@ -98,7 +96,7 @@
     }
 
     .hero {
-      padding: 3.2rem 0 2.4rem;
+      padding: 3rem 0 2rem;
     }
 
     .kicker {
@@ -114,19 +112,19 @@
       margin: 0;
       font-family: Fraunces, Georgia, serif;
       font-weight: 500;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      line-height: 1.02;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
       letter-spacing: -0.03em;
     }
 
     .lede {
       margin: 1.1rem 0 0;
-      max-width: 38rem;
+      max-width: 42rem;
       color: var(--muted);
-      font-size: 1.12rem;
+      font-size: 1.08rem;
     }
 
-    section { padding: 0.5rem 0 3rem; }
+    section { padding: 0.5rem 0 2.5rem; }
 
     h2 {
       margin: 0 0 1.1rem;
@@ -136,51 +134,66 @@
       letter-spacing: -0.02em;
     }
 
-    .week-list {
+    .papers {
       display: grid;
       gap: 1rem;
-      max-width: 28rem;
     }
 
-    .week-btn {
-      display: block;
+    article {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 1.25rem 1.35rem;
-      color: inherit;
-      text-decoration: none;
-      transition: border-color 0.15s ease, transform 0.15s ease;
+      padding: 1.25rem 1.3rem 1.35rem;
     }
 
-    .week-btn:hover {
-      border-color: var(--rust);
-      transform: translateY(-1px);
-    }
-
-    .week-btn .day {
-      display: inline-block;
-      margin-bottom: 0.55rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      background: var(--teal-soft);
-      color: var(--teal);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .week-btn h3 {
-      margin: 0;
+    article h3 {
+      margin: 0 0 0.65rem;
       font-family: Fraunces, Georgia, serif;
       font-weight: 500;
-      font-size: 1.35rem;
-      color: var(--ink);
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
     }
 
-    .week-btn p {
-      margin: 0.4rem 0 0;
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+      background: var(--rust-soft);
+      color: var(--rust);
+    }
+
+    .note {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .devil {
+      margin: 0.75rem 0 0;
+      color: var(--rust);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .signoff {
+      margin: 0;
       color: var(--muted);
       font-size: 0.95rem;
     }
@@ -230,6 +243,20 @@
 
       footer { flex-direction: column; }
     }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid #0d47a1;
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
   </style>
 </head>
 <body>
@@ -250,29 +277,60 @@
     </header>
 
     <section class="hero">
-      <p class="kicker">Thursday</p>
+      <p class="kicker">8 October 2026</p>
       <h1>Thursday paper path</h1>
-      <p class="lede">Two separate searches each week. The six newest remit matches go on the page, each with a bare link. Pick a week to read it.</p>
+      <p class="lede">Six most recent remit matches from two blind searches (by publication date), listed newest to oldest. Self-authored papers omitted from the six. Preprints allowed. Older matches held for later weeks; papers already on this site are not repeated. Preprints are marked.</p>
+      <div class="tip joke">
+        <p>A walk is not a meeting. — Pulse</p>
+      </div>
     </section>
 
     <section>
-      <h2>Weeks</h2>
-      <div class="week-list">
-        <a class="week-btn" href="2026-10-08.html">
-          <span class="day">8 October 2026</span>
-          <h3>Paper path</h3>
-          <p>6 paper weekly highlight — six remit matches from two blind searches.</p>
-        </a>
-        <a class="week-btn" href="2026-10-01.html">
-          <span class="day">1 October 2026</span>
-          <h3>Paper path</h3>
-          <p>6 paper weekly highlight — six remit matches from two blind searches.</p>
-        </a>
+      <h2>6 paper weekly highlight</h2>
+      <div class="papers">
+        <article>
+          <h3>Spatially uneven impacts of stratospheric aerosol injection on compound dry-heat wave events in the GeoMIP G6sulfur experiment <span class="tag">Preprint</span></h3>
+          <p class="meta">Qi et al. (2026-10-07). EGUsphere.</p>
+          <p class="url"><a href="https://doi.org/10.5194/egusphere-2026-5613" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/egusphere-2026-5613</a></p>
+        </article>
+
+        <article>
+          <h3>Modulation of quasi-biennial oscillation by volcanic sulfate aerosols</h3>
+          <p class="meta">Chavan et al. (2026-10-02). Frontiers in Environmental Science.</p>
+          <p class="url"><a href="https://doi.org/10.3389/fenvs.2026.1831183" target="_blank" rel="noopener noreferrer">https://doi.org/10.3389/fenvs.2026.1831183</a></p>
+        </article>
+
+        <article>
+          <h3>Reduced Longwave Absorption of Magnesium Sulfate Aerosol as an Alternative to Sulfuric Acid for Stratospheric Aerosol Injection</h3>
+          <p class="meta">Odelskii et al. (2026-09-30). Geophysical Research Letters.</p>
+          <p class="url"><a href="https://doi.org/10.1029/2026gl124986" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2026gl124986</a></p>
+        </article>
+
+        <article>
+          <h3>Redistributing Risk: Air-Quality Mortality under Two Stratospheric Aerosol Injection Strategies <span class="tag">Preprint</span></h3>
+          <p class="meta">Wells et al. (2026-09-29). ESS Open Archive.</p>
+          <p class="url"><a href="https://doi.org/10.22541/essoar.15009636/v1" target="_blank" rel="noopener noreferrer">https://doi.org/10.22541/essoar.15009636/v1</a></p>
+        </article>
+
+        <article>
+          <h3>Persistent contribution of biogenic emissions to lower stratospheric aerosols via global monsoon convections</h3>
+          <p class="meta">Qie et al. (2026-09-25). Nature Geoscience.</p>
+          <p class="url"><a href="https://doi.org/10.1038/s41561-026-02115-w" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41561-026-02115-w</a></p>
+        </article>
+
+        <article>
+          <h3>The Role of Particle Size Distribution in Simulating Aerosol Transport, Radiative Effects and Surface Area of the 2019/20 Australian pyroCb Plume <span class="tag">Preprint</span></h3>
+          <p class="meta">Das et al. (2026-09-25). EGUsphere.</p>
+          <p class="url"><a href="https://doi.org/10.5194/egusphere-2026-5642" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/egusphere-2026-5642</a></p>
+        </article>
       </div>
+      <p class="note">Thursday paper path of 8 October 2026. Preprints have not finished peer review.</p>
+      <p class="signoff">Mrs. Vanguard</p>
     </section>
 
     <footer>
       <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Paper path</a>
     </footer>
   </div>
 </body>
