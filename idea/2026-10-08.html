@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idea path — 8 October 2026 · Qi et al.</title>
+  <meta name="description" content="Idea path for 8 October 2026: Qi et al. (2026), compound dry-heat waves in the GeoMIP G6sulfur experiment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+
+    /* Mobile-only sticky TOC */
+    .sticky-toc {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .sticky-toc {
+        display: flex;
+        gap: 0.15rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -1.25rem;
+        padding: 0 0.75rem;
+        min-height: 44px;
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      }
+
+      .sticky-toc a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 0.7rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sticky-toc a:hover,
+      .sticky-toc a:focus {
+        color: var(--ink);
+        border-bottom-color: var(--rust);
+      }
+
+      #chosen, #takeaways, #ideas, #directions,
+      [id^="idea-"] {
+        scroll-margin-top: 52px;
+      }
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+      background: var(--rust-soft);
+      color: var(--rust);
+    }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid #0d47a1;
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="index.html">Idea path</a>
+        <a href="../custom-idea/index.html">Custom idea path</a>
+        <a href="../overwatch.html#team">Team</a>
+        <a href="../overwatch.html#remit">Remit</a>
+      </nav>
+    </header>
+
+    <nav class="sticky-toc" aria-label="On this page">
+      <a href="#chosen">Chosen</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#directions">Directions</a>
+    </nav>
+
+
+    <section class="hero">
+      <p class="kicker">8 October 2026</p>
+      <h1>Qi et al.</h1>
+      <p class="lede">Takeaways, five ideas, and research directions.</p>
+      <div class="tip joke">
+        <p>A deadline is a forecast with better error bars. — Mrs. V</p>
+      </div>
+    </section>
+
+    <section id="chosen">
+      <h2>Chosen paper</h2>
+      <div class="picked">
+        <h3>Spatially uneven impacts of stratospheric aerosol injection on compound dry-heat wave events in the GeoMIP G6sulfur experiment <span class="tag">Preprint</span></h3>
+        <p class="meta">Cuini Qi, Chloe Yuchao Gao, Ben Kravitz, Hyemi Kim, Xiaohan Sally Li, and Lili Xia</p>
+        <p class="meta">Year / venue: 2026, EGUsphere (preprint)</p>
+        <p class="meta">Dates: received 16 September 2026; discussion started 7 October 2026</p>
+        <p class="meta">Status: <strong>preprint, not peer reviewed.</strong> Open for discussion and under review for Atmospheric Chemistry and Physics. Three Earth system models (CNRM-ESM2-1, IPSL-CM6A-LR, MPI-ESM1-2-LR), one ensemble member each. A surface-extremes impacts analysis of existing CMIP6/GeoMIP output; it contains no aerosol microphysics of its own.</p>
+        <p class="meta">Licence: CC BY 4.0</p>
+        <p class="url">DOI: <a href="https://doi.org/10.5194/egusphere-2026-5613" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/egusphere-2026-5613</a></p>
+        <p class="url">HTML: <a href="https://egusphere.copernicus.org/preprints/2026/egusphere-2026-5613/" target="_blank" rel="noopener noreferrer">https://egusphere.copernicus.org/preprints/2026/egusphere-2026-5613/</a></p>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <h2>Site takeaways</h2>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Qi and colleagues ask a question that most studies of stratospheric aerosol injection skip: what happens to days that are both very hot and very dry at the same time? They work with the GeoMIP G6sulfur experiment, in which sulfate aerosol in the stratosphere is used to pull the climate of a high-emission future (SSP5-8.5) back towards the forcing level of a middle-of-the-road one (SSP2-4.5), and they compare it with the unmodified high-emission run over the summer season. This is a preprint that has not yet been peer reviewed, it rests on three Earth system models with one simulation each, and it studies surface weather extremes rather than the aerosol itself, so it contains no aerosol microphysics.</p>
+        <p>Over land as a whole the picture is the one most readers would expect. The aerosol layer slows warming of summer maximum temperature over global land from +0.71 °C per decade to +0.33 °C per decade, and the rise in how often compound dry-heat waves occur slows from 0.178 to 0.097 events per year per decade. The paper's more interesting finding is that this benefit is not shared evenly. In a box over Central Africa (15°–30°E, 5°S–5°N), compound dry-heat waves become more persistent in all three models, and the number of hot-and-dry days per summer rises by 0.7, 2.1 and 5.7 days in CNRM-ESM2-1, IPSL-CM6A-LR and MPI-ESM1-2-LR. The authors note that this increase is statistically significant at the 5% level only in MPI-ESM1-2-LR, and only marginally significant in IPSL-CM6A-LR. This happens even though summer maximum temperature over the region falls, by 0.79 °C on average. The authors are careful about what this signal is. Heat waves there become more numerous but shorter, and they show that this is largely a matter of one long hot spell being broken into several, not of more hot days: total heat wave days fall from 52.6 to 36.5 per summer in CNRM-ESM2-1 and from 85.8 to 76.0 in IPSL-CM6A-LR, and only MPI-ESM1-2-LR shows more (18.0 to 25.6). What grows is the dry side: dry days rise in all three models, and the compound signal is carried by dryness rather than heat.</p>
+        <p>The most useful step in the paper is a comparison with the middle-of-the-road run itself, which has a similar global forcing but no aerosol layer. Over Central Africa, cutting greenhouse gases alone changes summer compound dry-heat days by −1.0 day, while the aerosol-specific part adds 3.9 days, for a net 2.9 extra days. Over the Amazon, the greenhouse-gas part removes 7.8 days and the aerosol part adds 2.4, for a net fall of 5.3 days. Under matched forcing the aerosol layer is associated with less net surface radiation over Central Africa (−8 W m⁻²), 0.6 mm per day less rain and 4.0 more dry days per summer. Alongside this the authors describe sinking air in the mid-troposphere, less cloud, drier soils and a shift of surface energy from evaporation to sensible heating, and they offer this chain, in their own words, as "a physically consistent interpretation rather than a formal causal attribution". Their wider point stands on firm ground: judging an intervention only by how much it lowers temperature can miss regional changes in combined hazards.</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>The study rests on three models with a single run each, so the authors cannot cleanly separate differences between models from natural year-to-year variability, and the models agree on the sign of the regional change at only 39% (frequency) and 51% (duration) of Central African grid cells. UKESM1-0-LL had the required output but was not included. The models also bring the aerosol in differently: IPSL-CM6A-LR forms it from injected sulfur dioxide, while the other two impose a ready-made aerosol optical depth. The rise in event counts depends on how a "dry day" is defined: with alternative definitions the regional frequency increase shrinks from +0.39 to between +0.06 and +0.09 events per year, while the duration increase (+0.66 to +0.72 days per event) holds. In IPSL-CM6A-LR precipitation is exactly zero on 24% of local summer days, which leaves a zero dry-day threshold over 63% of land area. Most importantly, the design cannot tell whether the extra drying belongs to stratospheric aerosol specifically, through effects such as stratospheric heating and more diffuse sunlight, or would follow from any way of dimming the Sun; the authors say a parallel analysis of the G6solar experiment would be needed. G6sulfur is also one idealised, sustained tropical injection strategy, so the regional pattern should not be read across to other strategies.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): fewer and milder heat extremes over most land in this experiment is not a finding that stratospheric aerosol injection is safe or beneficial overall.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): the Central African result is a model projection for one idealised scenario, from a preprint that has not yet been peer reviewed.</p>
+      </div>
+    </section>
+
+    <section id="ideas">
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Five ideas, each tied to a limitation the authors document.</p>
+      <div class="ideas">
+        <article id="idea-1">
+          <p class="label">Idea 1</p>
+          <h3>Bring UKESM1-0-LL into the compound dry-heat analysis, with its full G6sulfur ensemble</h3>
+          <p><strong>What it would do.</strong> Repeat the paper's compound dry-heat wave (CDHW) analysis (local-summer 95th-percentile Tmax and 10th-percentile precipitation, events of at least three consecutive days, 1985–2014 baseline, Central Africa box 15°–30°E, 5°S–5°N) on UKESM1-0-LL G6sulfur and SSP5-8.5. Use every available G6sulfur member rather than one, and report CDHW days, dry days and duration alongside event counts, with the paper's alternative dry-day definitions applied from the start. The goal is to test whether the Central African persistence signal holds in a fourth model and how much of it survives once internal variability can be estimated within one model. What UKESM shows is not assumed.</p>
+          <p><strong>Why it is new.</strong> The authors document that UKESM1-0-LL output was available and not analysed, and that a single member per model prevents separating structural differences from internal variability <strong>(author documented)</strong>. A G6sulfur drought study using the SPEI index already reports enhanced drought over tropical Africa (Liu, Lang and Jiang, 2024), so drying in that region is not itself new. What would be new is the event-based compound hot-and-dry framing in UKESM, with a within-model ensemble spread <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> High. No new simulations are needed. CEDA lists UKESM1-0-LL G6sulfur output with a daily (<code>day</code>) table for members r1i1p1f2, r4i1p1f2 and r8i1p1f2 (CEDA dataset record). Qi et al. state that daily Tmax, precipitation and the monthly mechanism variables are available for UKESM1-0-LL <strong>(author documented)</strong>. Matching SSP5-8.5 and historical members still need checking. Access through JASMIN/CEDA is assumed, not verified <strong>(inferred)</strong>. Ananth's UKESM familiarity matters for reading the output, but this is mainly an analysis project, a few weeks of work <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Sect. 2.1 (p. 7): "… are available for these three models and for UKESM1-0-LL, which was not included in the present analysis"</li>
+            <li><strong>(author documented)</strong> Sect. 3.1 (p. 14): "Therefore, structural model differences and internal variability cannot be cleanly separated."</li>
+            <li><strong>(author documented)</strong> Sect. 3.4 (p. 35): "Additionally, relying on a single member per model inevitably introduces internal climate variability between the analyzed time periods."</li>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 38): "Our analysis is based on three models that simulated G6sulfur, and although the principal circulation response is broadly consistent across models, differences in magnitude remain."</li>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 38–39): "The Central African enhancement of CDHW persistence is therefore robust to the dry-day definition, while the frequency component of the regional signal should be regarded as criterion-dependent."</li>
+            <li><strong>(author documented)</strong> Sect. 2.1 (p. 7, paraphrased, no quote): CNRM-ESM2-1 and MPI-ESM1-2-LR provide two and three G6sulfur members with daily output and IPSL-CM6A-LR provides one; the authors used one per model to weight the models equally.</li>
+            <li><strong>(inferred)</strong> Whether UKESM reproduces, weakens or reverses the Central African signal is the question, not a claim.</li>
+            <li><strong>Related work checked:</strong> Liu, Lang and Jiang (2024), <a href="https://doi.org/10.1029/2023JD039988" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2023JD039988</a> (G6sulfur SPEI drought; tropical Africa). CEDA UKESM1-0-LL G6sulfur record, <a href="https://catalogue.ceda.ac.uk/uuid/671fe1d8d2584c7a87dd6b268c671d34/" target="_blank" rel="noopener noreferrer">https://catalogue.ceda.ac.uk/uuid/671fe1d8d2584c7a87dd6b268c671d34/</a></li>
+          </ul>
+        </article>
+        <article id="idea-2">
+          <p class="label">Idea 2</p>
+          <h3>Separate aerosol-specific effects from generic dimming: G6solar against G6sulfur for Central African compound extremes</h3>
+          <p><strong>What it would do.</strong> Run the same CDHW and surface-energy analysis on G6solar (the same forcing target met by turning down the Sun) beside G6sulfur, starting with UKESM1-0-LL, which has both. The G6sulfur minus G6solar difference isolates what belongs to the stratospheric aerosol layer, such as stratospheric heating and a larger diffuse fraction, rather than to dimming as such. Repeat for any other model with both experiments and daily output.</p>
+          <p><strong>Why it is new.</strong> The authors state that their design cannot tell aerosol-specific drying from the response to any solar radiation modification, and that a parallel G6solar analysis would be required <strong>(author documented)</strong>. G6solar against G6sulfur comparisons exist for global means and inter-model spread (Visioni et al., 2021), for the winter North Atlantic Oscillation in UKESM1 and CESM2-WACCM6 (Jones et al., 2021), and for precipitation extremes over Southeast Asia (Feng et al., 2025). I did not find a G6solar against G6sulfur study of compound hot-and-dry extremes, or of Central Africa specifically, in this search; that is a search result, not proof of absence <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> High for UKESM. CEDA lists UKESM1-0-LL G6solar with a <code>day</code> table for members r1i1p1f2, r4i1p1f2 and r8i1p1f2, the same member labels as its G6sulfur record (CEDA dataset records). Whether daily tasmax and pr are in that table was not checked here <strong>(inferred)</strong>. Visioni et al. (2021) give the G6 protocol and model set to choose further models from. Moderate effort, analysis only <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 39): "Relatedly, the SSP2-4.5 comparison in Sect. 3.4 separates the effect of the reduced greenhouse-gas forcing from the response to SAI at matched forcing, but the latter still combines the spatial pattern of the cooling with aerosol-specific effects such as stratospheric heating and an increased diffuse radiation fraction."</li>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 39): "The present design therefore cannot determine whether the residual drying would arise under any form of solar radiation modification or is specific to the aerosol layer."</li>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 39): "A parallel analysis of the G6solar experiment, in which the same forcing target is met by reducing solar irradiance instead, would be required to separate these contributions."</li>
+            <li><strong>(author documented)</strong> Sect. 3.4 (p. 35): "First, G6sulfur is designed to achieve a global-mean radiative forcing comparable to that of SSP2-4.5, rather than to reproduce its regional temperature response."</li>
+            <li><strong>(inferred)</strong> G6sulfur minus G6solar as the aerosol-specific term, and the use of UKESM as the first test bed.</li>
+            <li><strong>Related work checked:</strong> Visioni et al. (2021), <a href="https://doi.org/10.5194/acp-21-10039-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-10039-2021</a>. Jones et al. (2021), <a href="https://doi.org/10.5194/acp-21-1287-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-1287-2021</a>. Feng et al. (2025), <a href="https://doi.org/10.1016/j.accre.2025.04.009" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.accre.2025.04.009</a>. CEDA UKESM1-0-LL G6solar record, <a href="https://catalogue.ceda.ac.uk/uuid/66da82565f3549779682cef03d68e609/" target="_blank" rel="noopener noreferrer">https://catalogue.ceda.ac.uk/uuid/66da82565f3549779682cef03d68e609/</a></li>
+          </ul>
+        </article>
+        <article id="idea-3">
+          <p class="label">Idea 3</p>
+          <h3>Does how the aerosol is put into the model matter? Interactive versus prescribed aerosol and the regional signal</h3>
+          <p><strong>What it would do.</strong> Characterise the stratospheric aerosol each model actually carries in G6sulfur (latitudinal spread of optical depth, stratospheric heating, surface diffuse fraction where archived) and set it against each model's Central African CDHW and drying response. IPSL-CM6A-LR forms aerosol from injected SO2; CNRM-ESM2-1 and MPI-ESM1-2-LR prescribe optical depth fields; UKESM1-0-LL would add a second interactive model. The aim is to ask which aerosol property tracks the regional response, not to rank the labels.</p>
+          <p><strong>Why it is new.</strong> Qi et al. document the split but do not divide their results by it <strong>(author documented design; split analysis inferred)</strong>. One nuance tempers the interactive-versus-prescribed framing: Visioni et al. (2021, Sect. 2) state that the prescribed aerosols are fully integrated in radiative transfer, so surface direct and diffuse radiation and local stratospheric heating are consistent with the interactive models. The useful contrast is therefore likely the aerosol's distribution and its evolution with load, not whether heating is present <strong>(inferred)</strong>. Visioni et al. (2021) also report that UKESM1-0-LL, like IPSL-CM6A-LR, injected SO2 uniformly between 10°N and 10°S at 18–20 km along a single longitude band.</p>
+          <p><strong>Feasibility for Ananth.</strong> Moderate. Monthly aerosol and radiation diagnostics are archived for the CMIP6 models, but which variables each model archived, and whether the prescribed input fields can be obtained, needs checking <strong>(inferred)</strong>. With four models this is a diagnostic comparison, not a statistical test <strong>(inferred)</strong>. Ananth's GLOMAP-mode background is directly useful for interpreting the UKESM aerosol fields (UKESM1 aerosol description: Mulcahy et al., 2020) <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Sect. 2.1 (p. 7): "Specifically, IPSL-CM6A-LR simulated the complete gas-to-aerosol conversion interactively by injecting SO2 along the Greenwich meridian (10°N–10°S) at altitudes of 18–20 km."</li>
+            <li><strong>(author documented)</strong> Sect. 2.1 (p. 7): "In contrast, the remaining two models relied on prescribed aerosol optical depth (AOD) forcing fields."</li>
+            <li><strong>(author documented)</strong> Sect. 3.1 (p. 17, paraphrased with printed values): regional-mean CDHW changes are +0.89, +0.23 and +0.07 events yr⁻¹ (frequency) and +0.95, +1.01 and +0.24 days event⁻¹ (duration) for MPI-ESM1-2-LR, IPSL-CM6A-LR and CNRM-ESM2-1 respectively.</li>
+            <li><strong>(inferred)</strong> Any link between aerosol treatment and regional response; the paper offers none.</li>
+            <li><strong>Related work checked:</strong> Visioni et al. (2021), <a href="https://doi.org/10.5194/acp-21-10039-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-10039-2021</a> (Sect. 2, model implementations and the radiative-transfer note). Mulcahy et al. (2020), <a href="https://doi.org/10.5194/gmd-13-6383-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-13-6383-2020</a> (UKESM1 GLOMAP-mode aerosol).</li>
+          </ul>
+        </article>
+        <article id="idea-4">
+          <p class="label">Idea 4</p>
+          <h3>Lower-absorption and solid-particle materials: does the aerosol-specific part of the drying track stratospheric heating?</h3>
+          <p><strong>What it would do.</strong> Test whether the aerosol-specific residual over Central Africa (the G6sulfur minus SSP2-4.5 part, and the G6sulfur minus G6solar part from Idea 2) shrinks when the injected material absorbs less longwave and near-infrared radiation. Two routes: (a) apply the paper's CDHW metric to existing G6-style material runs, such as the SOCOLv4 G6sulfur, G6alumina, G6calcite and G6diamond ensemble of Geurts et al. (2026), if daily output can be shared; (b) in UKESM, run a G6sulfur-style sensitivity in which only the sulfate longwave absorption is reduced, as a cheap stand-in for a less absorbing material before any full solid-particle scheme.</p>
+          <p><strong>Why it is new.</strong> The paper itself links sulfate's longwave and near-infrared absorption to stratospheric warming, to tropical circulation and to interest in solid particles, and lists stratospheric heating among the aerosol-specific effects it could not separate <strong>(author documented)</strong>. Geurts et al. (2026) followed the G6sulfur set-up with alumina, calcite and diamond in SOCOLv4 and report the strongest global drying for G6sulfur and weaker reductions for calcite and diamond. That is a global and monsoon-scale result, not a compound-extreme or Central African one. Carrying the material question down to regional compound hot-and-dry extremes is the new step <strong>(inferred)</strong>. This is a sulfur paper, so every solid-particle element here is <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> Mixed. Route (a) depends on collaboration and on daily output existing for the SOCOLv4 runs (not checked) <strong>(inferred)</strong>. Route (b) needs coupled UKESM runs, which are costly; a reduced-absorption optical-property change is far simpler than a solid-particle microphysics scheme. I did not find a published UKESM/GLOMAP solid-particle SAI scheme in this search; the published coupled solid-particle microphysics scheme I found is in SOCOL-AERv2 (Vattioni et al., 2024) <strong>(inferred)</strong>. Ananth's solid-particle background is the main asset here <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Sect. 1 Introduction (p. 5): "Sulfate is not a purely scattering aerosol, however. It also absorbs longwave and near-infrared radiation and thereby warms the lower stratosphere, an effect that is one of the pathways by which SAI alters the tropical circulation (Visioni et al., 2021) and one motivation for the continuing interest in more reflective solid particles (Keith et al., 2016)."</li>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 39): "Relatedly, the SSP2-4.5 comparison in Sect. 3.4 separates the effect of the reduced greenhouse-gas forcing from the response to SAI at matched forcing, but the latter still combines the spatial pattern of the cooling with aerosol-specific effects such as stratospheric heating and an increased diffuse radiation fraction."</li>
+            <li><strong>(inferred)</strong> That less absorbing materials would reduce the regional residual is a hypothesis to test, not an expectation stated by the paper.</li>
+            <li><strong>Related work checked:</strong> Geurts et al. (2026), <a href="https://doi.org/10.1088/1748-9326/ae7e0d" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/1748-9326/ae7e0d</a> (G6-style alumina, calcite, diamond in SOCOLv4). Vattioni et al. (2024), <a href="https://doi.org/10.5194/gmd-17-7767-2024" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-17-7767-2024</a>. Keith et al. (2016), <a href="https://doi.org/10.1073/pnas.1615572113" target="_blank" rel="noopener noreferrer">https://doi.org/10.1073/pnas.1615572113</a> (cited by Qi et al. for solid-particle interest).</li>
+          </ul>
+        </article>
+        <article id="idea-5">
+          <p class="label">Idea 5</p>
+          <h3>Test the circulation, drying and land-surface interpretation with targeted sensitivity experiments</h3>
+          <p><strong>What it would do.</strong> Design experiments that can test, rather than describe, the pathway the authors propose. The candidate design is soil-moisture-prescribed pairs in the GLACE-CMIP5 and LS3MIP tradition, run in UKESM or its atmosphere component under G6sulfur-like forcing, so that land-atmosphere feedback can be switched off while the stratospheric aerosol stays. A complementary step uses the G6sulfur minus G6solar contrast from Idea 2 to see whether mid-tropospheric subsidence over Central Africa belongs to the aerosol-specific term.</p>
+          <p><strong>Why it is new.</strong> The authors say their pathway is a physically consistent interpretation, not a formal one, and that targeted sensitivity experiments will be required to quantify circulation against land-atmosphere contributions <strong>(author documented)</strong>. Soil-moisture-prescribed designs exist for greenhouse-gas projections (Seneviratne et al., 2013; van den Hurk et al., 2016); applying one under stratospheric aerosol forcing for compound extremes would be the new element <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> Lowest of the five. Coupled UKESM runs with prescribed soil moisture need set-up and compute, and whether a UKESM LS3MIP-style configuration is ready to reuse was not checked <strong>(inferred)</strong>. Best treated as the second stage, after Ideas 1–2 show whether the signal survives in UKESM <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 39): "Finally, the circulation-drying-land-surface pathway identified here represents a physically consistent interpretation rather than a formal causal attribution."</li>
+            <li><strong>(author documented)</strong> Sect. 4 (p. 39): "Larger multi-model ensembles and targeted sensitivity experiments will be required to quantify the relative contributions of circulation changes and land-atmosphere feedbacks."</li>
+            <li><strong>(author documented)</strong> Sect. 3.3 (p. 31, paraphrased with printed values): the warm-season Bowen ratio over Central Africa rises in all three models (0.74 to 0.81 in CNRM-ESM2-1, 0.31 to 0.34 in IPSL-CM6A-LR, 0.17 to 0.26 in MPI-ESM1-2-LR), while the models agree on the sign of the latent and sensible heat flux changes over less than half of the region.</li>
+            <li><strong>(inferred)</strong> The prescribed-soil-moisture design and its use under SAI forcing.</li>
+            <li><strong>Related work checked:</strong> Seneviratne et al. (2013), <a href="https://doi.org/10.1002/grl.50956" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/grl.50956</a> (GLACE-CMIP5). van den Hurk et al. (2016), <a href="https://doi.org/10.5194/gmd-9-2809-2016" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-9-2809-2016</a> (LS3MIP).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="directions">
+      <h2>Research directions</h2>
+      <div class="takeaways">
+        <p>Taken together, the five ideas make one programme with a simple logic: first find out whether the Central African signal is real in more than three single runs, then find out what part of it belongs to the stratospheric aerosol, and only then ask what an aerosol designer could change. The first stage costs almost nothing in compute. UKESM1-0-LL already has G6sulfur and G6solar output on CEDA with daily tables and three members each, and the authors themselves document that UKESM had the required output but was not included (Sect. 2.1). Ideas 1 and 2 can therefore run side by side on the same downloads and share one analysis code that reproduces the paper's event definitions, its alternative dry-day criteria and its exposure measures (CDHW days and dry days as well as event counts, following the authors' warning that event frequency alone is not exposure). If UKESM's ensemble shows a Central African persistence signal outside its own internal spread, the G6sulfur minus G6solar contrast says how much of it is specific to the aerosol layer, which is exactly the separation the authors say their design could not make (Sect. 4, p. 39). If UKESM does not show the signal, that is equally worth reporting as a fourth-model check on a three-model preprint, and the programme narrows to Idea 3.</p>
+        <p>Idea 3 is the bridge between the impacts question and Ananth's aerosol expertise. It does not stop at labelling models as interactive or prescribed. It asks which property of the simulated aerosol layer travels with the regional response, keeping in mind the protocol paper's note that prescribed aerosols in G6 are fully integrated in the radiative transfer, so heating and diffuse light are present in both groups (Visioni et al., 2021). Here a GLOMAP-mode modeller has an edge: reading how UKESM's interactive aerosol is distributed and how that differs from the prescribed fields is routine work for him and unusual in the impacts literature.</p>
+        <p>The second stage carries the question into materials and mechanisms. Idea 4 follows the paper's own remark that sulfate's longwave and near-infrared absorption warms the lower stratosphere and motivates interest in solid particles (Sect. 1, p. 5), and asks whether the aerosol-specific part of the drying is smaller for a less absorbing material. This is the step that joins Ananth's solid-particle background to a regional impacts result, but it stays a hypothesis: it can start cheaply, with a reduced-absorption sensitivity in UKESM or a shared analysis of existing G6-style material runs (Geurts et al., 2026), well before any full solid-particle scheme. Idea 5 tests the authors' circulation, drying and land-surface interpretation directly, with land-atmosphere feedback switched off by prescribed soil moisture, and is the most expensive part. It is worth doing only once stages one and two show a robust, aerosol-specific signal to explain.</p>
+        <p>Across all of it, the guard-rails stay the same. The paper is a three-model preprint about surface extremes; it says nothing about aerosol microphysics; its pathway is an interpretation; G6sulfur is one idealised strategy. The programme's value is that each step either strengthens or retires a specific claim in the paper, using model output that is already archived for the first half of the work.</p>
+      </div>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Idea path</a>
+    </footer>
+  </div>
+</body>
+</html>
