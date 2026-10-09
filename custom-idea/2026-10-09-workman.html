@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom idea path — Workman et al. — 9 October 2026</title>
+  <meta name="description" content="Chosen paper, takeaways, ideas, and research directions for Workman et al. (2024) on 9 October 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+
+    /* Mobile-only sticky TOC */
+    .sticky-toc {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .sticky-toc {
+        display: flex;
+        gap: 0.15rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -1.25rem;
+        padding: 0 0.75rem;
+        min-height: 44px;
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      }
+
+      .sticky-toc a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 0.7rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sticky-toc a:hover,
+      .sticky-toc a:focus {
+        color: var(--ink);
+        border-bottom-color: var(--rust);
+      }
+
+      #chosen, #takeaways, #ideas, #directions, #references,
+      [id^="idea-"] {
+        scroll-margin-top: 52px;
+      }
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+  
+    article ol {
+      margin: 0.75rem 0 0;
+      padding-left: 1.4rem;
+      text-align: left;
+    }
+    article ol li { margin: 0.35rem 0; color: var(--muted); font-size: 0.95rem; }
+    article code { font-size: 0.9em; }
+
+    .table-wrap { overflow-x: auto; margin-top: 0.5rem; }
+    .table-wrap table { border-collapse: collapse; width: 100%; font-size: 0.95rem; text-align: left; }
+    .table-wrap th, .table-wrap td { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem; vertical-align: top; color: var(--muted); }
+    .table-wrap th { color: var(--ink); font-weight: 600; }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid #0d47a1;
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="../idea/index.html">Idea path</a>
+        <a href="index.html">Custom idea path</a>
+        <a href="../overwatch.html#team">Team</a>
+        <a href="../overwatch.html#remit">Remit</a>
+      </nav>
+    </header>
+
+    <nav class="sticky-toc" aria-label="On this page">
+      <a href="#chosen">Chosen</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#directions">Directions</a>
+      <a href="#references">References</a>
+    </nav>
+
+    <section class="hero">
+      <p class="kicker">9 October 2026 · Custom</p>
+      <h1>Workman et al.</h1>
+      <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
+      <div class="tip joke">
+        <p>I asked the climate model for a straight answer. It gave me an ensemble. — Dr. D</p>
+      </div>
+    </section>
+
+    <section id="chosen">
+      <h2>Chosen paper</h2>
+      <div class="picked">
+        <h3>Methane Emissions From Seabed to Atmosphere in Polar Oceans Revealed by Direct Methane Flux Measurements</h3>
+        <p class="meta">Authors: Evelyn Workman, Rebecca E. Fisher, James L. France, Katrin Linse, Mingxi Yang, Thomas Bell, Yuanxu Dong, and Anna E. Jones</p>
+        <p class="meta">Journal: Journal of Geophysical Research: Atmospheres, 129(14), e2023JD040632 (2024)</p>
+        <p class="meta">Dates: received 20 December 2023; accepted 14 July 2024; published 26 July 2024 (Crossref)</p>
+        <p class="meta">Status: peer-reviewed research article; open access under CC BY 4.0</p>
+        <p class="meta">Full text used: publisher version of record (21 pages) from the NERC Open Research Archive, <a href="https://nora.nerc.ac.uk/id/eprint/536451/" target="_blank" rel="noopener noreferrer">https://nora.nerc.ac.uk/id/eprint/536451/</a> (found through the Unpaywall API). The Wiley pdfdirect route returned a Cloudflare challenge and was not used.</p>
+        <p class="meta">Data: two-hourly eddy-covariance fluxes at the UK Polar Data Centre, <a href="https://doi.org/10.5285/c9ed4746-f104-4117-ba60-174c5275e2fe" target="_blank" rel="noopener noreferrer">https://doi.org/10.5285/c9ed4746-f104-4117-ba60-174c5275e2fe</a> (DataCite record checked). The Supporting Information (Texts S1–S2, Tables S1–S3) sits on the Wiley site and was not retrieved.</p>
+        <p class="url"><a href="https://doi.org/10.1029/2023JD040632" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2023JD040632</a></p>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <h2>Paper takeaways</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Workman and colleagues tackle a question that is easy to ask and hard to measure: does methane leaking from the polar seabed actually reach the air? Most earlier estimates infer the sea-to-air flux from water samples and a wind-speed formula, which only captures gas that diffuses across the surface. This team instead used eddy covariance, which measures the turbulent methane flux in the air above the sea and so also includes gas carried up by bubbles. A fast Picarro analyser on the foremast of RRS James Clark Ross sampled at 10 times a second across roughly 60,000 km of Arctic and Antarctic cruising between January 2019 and March 2021, and the fluxes were averaged to two-hour blocks with a detection limit set separately for each cruise. To the authors' knowledge this is the first use of the method for sea-air methane in both polar oceans, with one earlier Arctic study and none in the Southern Ocean.</p>
+        <p>The broad pattern is clear and fits what is known about coastal oceans. Shallow shelf waters were methane sources in both regions, at 9.17 ± 2.91 μmol m⁻² d⁻¹ in the Arctic study area and 8.98 ± 0.91 μmol m⁻² d⁻¹ in the Southern Ocean study area (errors are standard errors of the mean), and the authors note that these are the same within error. Away from the shelf the two oceans differ: the Arctic off-shelf area was still a small source (2.39 ± 0.68 μmol m⁻² d⁻¹), while the Southern Ocean off-shelf area was a small sink (−0.77 ± 0.37 μmol m⁻² d⁻¹), which the authors suggest may reflect strong upwelling of methane-poor deep water, as earlier studies reported. Grouped by depth, the source weakens steadily from near-shore waters (13.65 ± 1.35 μmol m⁻² d⁻¹) through the outer shelf and slope to the open ocean, which acts as a sink (−1.34 ± 0.32 μmol m⁻² d⁻¹).</p>
+        <p>The most interesting signals are local. The flux readings that stand clear of the detection limit cluster off west Svalbard, around South Georgia, and around the South Shetland Islands and Bransfield Strait, all places where gas flares rising from the seabed have been seen before. The team also re-examined ship echosounder records and found a flare in Stromness Bay, South Georgia, close to an elevated flux, a flare in the flooded volcanic caldera of Deception Island, and streams of single bubbles in Admiralty Bay, King George Island. The authors read this carefully: the study "may provide evidence" that seabed methane reaches the atmosphere in both polar regions. Around the South Shetland Islands and Bransfield Strait the on-shelf flux (34.13 ± 7.45 μmol m⁻² d⁻¹) is one to two orders of magnitude above a late-1980s estimate of 0.69 μmol m⁻² d⁻¹. The authors judge that method differences are unlikely to explain all of that gap, while also saying the role of method is unclear. In budget terms the numbers are small: the three Arctic seas together emit about 7.5 ± 1.8 Gg of methane per summer month, about 0.01% of the global methane budget if scaled to a year, which the authors treat as an upper limit. The data are openly archived, which makes the follow-up work below possible.</p>
+        <h3>What they didn't quite nail</h3>
+        <p>The authors are frank that the eddy-covariance record is noisy and that relatively few two-hour fluxes lie above the detection limit, and that the analyser became noisier over the later cruises. The method measures the total flux but cannot say whether the methane arrived as bubbles or by diffusion, so the link to seabed seeps rests on location and on echosounder evidence. That evidence is qualitative and was available for only two of the eight cruises. Off west Svalbard the elevated fluxes sit nearer the coast than the known flares, and the authors say a seabed origin cannot be determined from their measurements; methane-rich fresh water from land is an alternative they consider, supported by lower surface salinity. Their totals assume that the stretches of sea the ship crossed represent each whole sea, and they leave sea ice out of scope, so a yearly figure is an upper limit for the Arctic and probably an overestimate of the Southern Ocean uptake. The apparent rise around the South Shetland Islands compares two studies that used different techniques, and the authors add that seeps can be episodic, so continuous observations are needed before a trend can be claimed.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): "may provide evidence" is the authors' wording. The paper does not show that a given seep's methane reached the air, and it does not separate seep methane from methane carried in glacial or river water.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): the late-1980s comparison is two snapshots taken with different methods, not a measured trend. It is not evidence that polar seabed methane is responding to warming, and the authors do not claim that it is.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): the budget fractions the authors print (about 0.01% for the Arctic seas and about 0.003% for the Southern Ocean uptake) are tiny. These measurements do not show a methane feedback of climate significance.</p>
+        <p class="caveat">Our observation (not flagged by the authors in this paper): a 2025 study by the same group, using water samples and the bulk-flux method on a later cruise, found the open Scotia and Weddell seas to be a small source rather than a sink (Workman et al., 2025). The group's 2025 conference abstract says parallel measurements with both methods are needed to tell method differences from real change.</p>
+      </div>
+    </section>
+
+    <section id="ideas">
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Five ideas, each tied to a limit the authors document. Distinctness table at the end.</p>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Claim lines use <strong>(author documented)</strong> for statements grounded verbatim in Workman et al. (2024) and <strong>(inferred)</strong> for our extensions. Every UKESM, UKCA, GLOMAP or solid-particle extension is <strong>(inferred)</strong>. Page numbers are the article's own (the n of 21 footer).</p>
+      <div class="ideas">
+        <article id="idea-1">
+          <p class="label">Idea 1</p>
+          <h3>Bubbles or diffusion? Same-ship eddy covariance, water sampling and acoustics over the seep hotspots</h3>
+          <p><strong>What it would do.</strong> Run eddy covariance, underway and profile dissolved-methane sampling, and calibrated echosounder flare surveys at the same time over the South Georgia, South Shetland and west Svalbard hotspots. The bulk (diffusive) flux from the water samples, subtracted from the eddy-covariance total, gives an estimate of the bubble contribution; the acoustics give flare positions and, with post-processing, a rough bubble-flux estimate.</p>
+          <p><strong>Why it is new.</strong> The authors state that eddy covariance cannot tell bubbles from diffusion and that a different set-up could, and they name the combined design as future work <strong>(author documented)</strong>. The novelty is therefore limited: the group's own 2025 conference abstract calls for a dedicated parallel campaign (Workman et al., 2025, EGU25-10513). A project here would join or build on that plan rather than claim it <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> Low as a lead project. This is ship-based observational work that needs cruise time and partners with the instruments, such as the groups on the author list (British Antarctic Survey, Royal Holloway, Plymouth Marine Laboratory) <strong>(inferred)</strong>. Ananth's realistic role is the analysis and modelling side, for example flux-footprint or bubble-dissolution calculations <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul><li><strong>(author documented)</strong> Sect. 4.3.2 (p. 17): "Using eddy‐covariance method it is not possible to distinguish the process by which CH4 reaches the atmosphere ‐ eddy‐covariance can't discriminate between direct emission (e.g., ebullition) or diffusion of dissolved CH4, although this could be achieved with a different experimental set up."</li><li><strong>(author documented)</strong> Sect. 5 (p. 18): "Future work pairing water column data (dissolved CH4 concentration, salinity, temperature, acoustics) together with eddy‐covariance data would allow a more comprehensive study of the sources of CH4 in this region and the pathways to the atmosphere."</li><li><strong>(author documented)</strong> Sect. 4.2.1 (p. 14): "To establish the exact source of CH4 contributing to these elevated fluxes, a more comprehensive study would be need to be carried out in this area which simultaneously measured EC sea‐air CH4 fluxes, dissolved CH4 concentration in water and presence of flares measured using acoustics."</li><li><strong>(author documented)</strong> Sect. 2.8 (p. 6): "In this study, the EK data is only used to identify, qualitatively, whether flares are present in areas of interest." and "Further analysis to reveal more subtle signals is planned for a follow‐up study."</li><li><strong>(inferred)</strong> The subtraction design (eddy-covariance total minus bulk diffusive flux) and its use as a bubble estimate.</li><li><strong>Related work checked:</strong> Workman et al. (2025) EGU25-10513, <a href="https://doi.org/10.5194/egusphere-egu25-10513" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/egusphere-egu25-10513</a> ("As these measurements techniques were not deployed simultaneously, a dedicated measurement campaign is necessary to collect parallel data and better understand whether the observed differences reflect measurement technique variability or potential changes in the Southern Ocean system."). Thornton et al. (2020), <a href="https://doi.org/10.1126/sciadv.aay7934" target="_blank" rel="noopener noreferrer">https://doi.org/10.1126/sciadv.aay7934</a> (shipborne eddy-covariance methane in the eastern Arctic). Römer et al. (2014), <a href="https://doi.org/10.1016/j.epsl.2014.06.036" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.epsl.2014.06.036</a> (seepage off South Georgia).</li></ul>
+        </article>
+        <article id="idea-2">
+          <p class="label">Idea 2</p>
+          <h3>Has the South Shetland flux really risen? A method-matched revisit</h3>
+          <p><strong>What it would do.</strong> Test the authors' suggestion of an increase since the late 1980s by repeating, in the western Bransfield Strait and South Shetland Islands, the measurement type used in 1986/87 (dissolved methane and a bulk flux), alongside eddy covariance, and with dissolved-methane analysis tied to an inter-laboratory standard. Repeat across more than one season to address the episodic nature of seeps.</p>
+          <p><strong>Why it is new.</strong> The authors suggest an increase of one to two orders of magnitude but also say the role of the measurement method is unclear and that seeps can be episodic <strong>(author documented)</strong>. A method-matched repeat at the same sites, with intercalibrated analysis, is the test that separates technique from change. Whether such a repeat has been done since 2021 was not found in this search <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> Low as a lead; observational and cruise-dependent <strong>(inferred)</strong>. A desk-based first step is feasible: compile all published Bransfield Strait methane data and their methods into one table, with the inter-laboratory spreads reported by Wilson et al. (2018) as an error floor <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul><li><strong>(author documented)</strong> Sect. 4.3.2 (p. 16): "While we note the these two studies use different observational techniques, the on‐shelf and off‐shelf fluxes we calculate here are one to two orders of magnitude greater than that found by Tilbrook and Karl (1994) in the late 1980s (Tables 2 and 4), which would unlikely be accounted for by different observational approaches."</li><li><strong>(author documented)</strong> Sect. 4.3.2 (p. 16): "This suggests that the discrepancies between these two studies is due to a physical phenomena."</li><li><strong>(author documented)</strong> Sect. 4.3.2 (p. 17): "However, it is unclear what impact the measurement method plays in the discrepancies between this study and (Tilbrook &amp; Karl, 1994)."</li><li><strong>(author documented)</strong> Sect. 4.3.2 (p. 16): "However, CH4 fluxes/seabed seeps can occur episodically, so continuous observations are needed to monitor how this flux has evolved and will evolve in the future."</li><li><strong>(inferred)</strong> That a method-matched, intercalibrated repeat is the decisive test, and the desk-compilation first step.</li><li><strong>Related work checked:</strong> Tilbrook and Karl (1994), <a href="https://doi.org/10.1029/94JC01043" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/94JC01043</a> (the 1986/87 Bransfield Strait study the authors compare against). Wilson et al. (2018), <a href="https://doi.org/10.5194/bg-15-5891-2018" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/bg-15-5891-2018</a> (intercomparison of oceanic methane measurements between laboratories).</li></ul>
+        </article>
+        <article id="idea-3">
+          <p class="label">Idea 3</p>
+          <h3>Season- and sea-ice-aware upscaling of the archived fluxes</h3>
+          <p><strong>What it would do.</strong> Re-derive the regional totals from the archived two-hour fluxes with three changes: on-shelf and off-shelf fractions from bathymetry for each sea (as the authors did) plus an explicit test of how representative the ship track is; open-water fraction from satellite sea-ice concentration for each month instead of a summer-only year; and a full uncertainty budget that carries the per-cruise detection limits through. The output is a range for each sea rather than a single summer value scaled to a year.</p>
+          <p><strong>Why it is new.</strong> The authors state the two assumptions behind their totals (representative survey areas, and no sea ice) and call the yearly figure an upper limit or an overestimate <strong>(author documented)</strong>. Replacing those assumptions with sea-ice and bathymetry data is a natural next step that the paper does not take <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> High. It is desk work on an open dataset (UK Polar Data Centre) with public sea-ice and bathymetry products, and needs no cruise time <strong>(inferred)</strong>. The main risk is that most two-hour fluxes are below the detection limit, so ranges may stay wide <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul><li><strong>(author documented)</strong> Sect. 4.2 (p. 13): "In scaling up fluxes to calculate emissions we assume that the areas surveyed by the JCR in each sea are representative of that entire sea."</li><li><strong>(author documented)</strong> Sect. 4.2 (p. 13): "While we recognize that there is a small amount of sea‐ice coverage (primarily in the northern Greenland Sea) in the summer, we do not consider the impact of sea‐ice as it is beyond the scope of this study."</li><li><strong>(author documented)</strong> Sect. 4.2 (p. 13): "Therefore, we assume that scaling up the amount of CH4 released to compare with global yearly emissions gives the upper limit of yearly emissions from this area."</li><li><strong>(author documented)</strong> Sect. 4.3 (p. 15): "meaning that the ∼0.003% estimation of the global methane budget is likely an overestimate."</li><li><strong>(author documented)</strong> Sect. 5 (p. 17): "The sea‐air CH4 eddy‐covariance flux data set is noisy, and relatively few fluxes lie above LoD."</li><li><strong>(inferred)</strong> The sea-ice weighting, the representativeness test and the uncertainty budget.</li><li><strong>Related work checked:</strong> UK Polar Data Centre dataset, <a href="https://doi.org/10.5285/c9ed4746-f104-4117-ba60-174c5275e2fe" target="_blank" rel="noopener noreferrer">https://doi.org/10.5285/c9ed4746-f104-4117-ba60-174c5275e2fe</a>. Dong et al. (2021), <a href="https://doi.org/10.5194/acp-21-8089-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-8089-2021</a> (the eddy-covariance processing and uncertainty method the authors follow).</li></ul>
+        </article>
+        <article id="idea-4">
+          <p class="label">Idea 4</p>
+          <h3>Where did the west Svalbard and South Shetland methane come from? Footprint and back-trajectory screening</h3>
+          <p><strong>What it would do.</strong> For every two-hour flux above the detection limit, compute the flux footprint and short back-trajectories (for example with HYSPLIT or the Met Office NAME model) and set them against flare locations, coastline and glacier-front positions, surface salinity from the ship's underway system, and wind direction. The aim is a ranked screening of candidate source types (offshore seeps, coastal fresh water, glacial outflow) for each cluster, not a proof of origin.</p>
+          <p><strong>Why it is new.</strong> The authors say a seabed origin off west Svalbard cannot be determined from their measurements, and they point to lower salinity and landward winds during the high-flux period as hints of a freshwater source; for Marian Cove and Deception Island they keep both seep and glacial outflow open <strong>(author documented)</strong>. A systematic footprint screening of all above-detection fluxes is not in the paper <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> Moderate. Lagrangian transport modelling is close to an atmospheric modeller's skill set and NAME is a Met Office model, but this was not checked against his actual experience <strong>(inferred)</strong>. Footprints for a ship-mounted system 20 m above the sea are short, so the method can rule sources out more easily than it can confirm them <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul><li><strong>(author documented)</strong> Sect. 4.2.1 (p. 14): "Hence, while the elevated CH4 fluxes observed off the coast of Svalbard may not conclusively point to a seabed origin, it is impossible to determine this from the measurements we have."</li><li><strong>(author documented)</strong> Sect. 4.2.1 (p. 14): "To establish the exact source of CH4 contributing to these elevated fluxes, a more comprehensive study would be need to be carried out in this area which simultaneously measured EC sea‐air CH4 fluxes, dissolved CH4 concentration in water and presence of flares measured using acoustics."</li><li><strong>(author documented)</strong> Sect. 5 (p. 17): "Previous studies have found that seeps off the west coast of Svalbard do not have an impact on the atmospheric CH4 concentration."</li><li><strong>(inferred)</strong> The footprint and back-trajectory screening design and its ranking output.</li><li><strong>Related work checked:</strong> Jones et al. (2007), <a href="https://doi.org/10.1007/978-0-387-68854-1_62" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/978-0-387-68854-1_62</a> (NAME III). Stein et al. (2015), <a href="https://doi.org/10.1175/BAMS-D-14-00110.1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1175/BAMS-D-14-00110.1</a> (HYSPLIT).</li></ul>
+        </article>
+        <article id="idea-5">
+          <p class="label">Idea 5</p>
+          <h3>Are polar shelf methane sources visible in UKESM's methane cycle? An evaluation and sensitivity check</h3>
+          <p><strong>What it would do.</strong> Compare the ocean methane emissions used in the emission-driven UKESM1 methane configuration (Folberth et al., 2022) with the shelf versus off-shelf contrast and the regional values in this paper and in the global ocean map of Weber et al. (2019). Then run a small sensitivity experiment in which polar shelf emissions are scaled within the range the observations allow, and ask whether Southern Hemisphere surface methane at background stations changes by more than model noise. A null result is a likely and useful answer, given the authors' own tiny budget fractions.</p>
+          <p><strong>Why it is new.</strong> The paper itself does no modelling. It places its totals at about 0.01% and about 0.003% of the global budget and calls for continued monitoring <strong>(author documented)</strong>. Whether UKESM represents a shelf-dependent ocean source, and how, was not checked here; that check is the first task <strong>(inferred)</strong>. Every UKESM and UKCA element of this idea is <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> Moderate for the evaluation, which needs only the model's emission files and published maps <strong>(inferred)</strong>. The sensitivity runs need access to the emission-driven UKESM configuration and its UKCA chemistry (Archibald et al., 2020), which was not checked <strong>(inferred)</strong>. The link to aerosol work is indirect: methane affects tropospheric oxidants that UKCA shares with its aerosol chemistry, but no aerosol result should be promised from this idea <strong>(inferred)</strong>.</p>
+          <p><strong>Evidence base.</strong></p>
+          <ul><li><strong>(author documented)</strong> Sect. 4.2 (p. 13): "7.5 ± 1.8 Gg per month of CH4 accounts for ∼0.01% of the global methane budget (Saunois et al., 2020) if we scale up to 1 year."</li><li><strong>(author documented)</strong> Sect. 4.3 (p. 15): "meaning that the ∼0.003% estimation of the global methane budget is likely an overestimate."</li><li><strong>(author documented)</strong> Sect. 4.3 (p. 14): "The on‐shelf sea‐air mean CH4 flux in the Southern Ocean is the same as the on‐shelf flux in the Arctic Ocean, within error."</li><li><strong>(author documented)</strong> Sect. 5 (p. 18): "This work demonstrates the feasibility of using eddy‐covariance to measure sea‐air CH4 fluxes over the oceans, and continued ship based monitoring in the polar regions is important to allow enough data so that robust trends can be elucidated."</li><li><strong>(inferred)</strong> All of the UKESM evaluation and sensitivity design.</li><li><strong>Related work checked:</strong> Folberth et al. (2022), <a href="https://doi.org/10.1029/2021MS002982" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2021MS002982</a> (emission-driven methane cycle in UKESM1; abstract read, ocean-source treatment not checked). Archibald et al. (2020), <a href="https://doi.org/10.5194/gmd-13-1223-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-13-1223-2020</a> (UKCA StratTrop chemistry in UKESM1). Weber et al. (2019), <a href="https://doi.org/10.1038/s41467-019-12541-7" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41467-019-12541-7</a> (global ocean methane emissions dominated by shallow coastal waters). Saunois et al. (2025), <a href="https://doi.org/10.5194/essd-17-1873-2025" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/essd-17-1873-2025</a> (Global Methane Budget 2000–2020).</li></ul>
+        </article>
+        <article>
+          <h3>Idea distinctness check</h3>
+          <div class="table-wrap"><table><thead><tr><th>Idea</th><th>Core lever</th><th>Ownership</th><th>Cost</th></tr></thead><tbody><tr><td>1</td><td>Bubbles versus diffusion: paired methods on one ship</td><td>(author documented) call; group already plans it</td><td>High, cruise time</td></tr><tr><td>2</td><td>Is the rise real? Method-matched, intercalibrated repeat</td><td>(author documented) uncertainty; design (inferred)</td><td>High (cruise); low (desk compilation)</td></tr><tr><td>3</td><td>Better totals: sea ice, bathymetry, uncertainty</td><td>(author documented) assumptions; method (inferred)</td><td>Low, open data</td></tr><tr><td>4</td><td>Source screening with footprints and trajectories</td><td>(author documented) open question; method (inferred)</td><td>Moderate, modelling</td></tr><tr><td>5</td><td>Do these sources register in UKESM's methane cycle?</td><td>(inferred) throughout, anchored on (author documented) budget fractions</td><td>Moderate, model access</td></tr></tbody></table></div>
+        </article>
+        <article id="references">
+          <h3>External citations used (all checked against Crossref, or DataCite for datasets, on 2026-10-09)</h3>
+          <ol><li>Workman, E., Jones, A. E., Fisher, R. E., France, J. L., Linse, K., Delille, B., &amp; Squires, F. A. (2025). Methane Emissions and Dynamics in the Weddell and Scotia Seas. <em>Global Biogeochemical Cycles</em>, 39, e2024GB008425. <a href="https://doi.org/10.1029/2024GB008425" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2024GB008425</a></li><li>Workman, E., et al. (2025). Evaluating Methane Emissions and Sea-Air Fluxes in the Southern Ocean. EGU General Assembly 2025, EGU25-10513. <a href="https://doi.org/10.5194/egusphere-egu25-10513" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/egusphere-egu25-10513</a></li><li>Thornton, B. F., et al. (2020). Shipborne eddy covariance observations of methane fluxes constrain Arctic sea emissions. <em>Science Advances</em>, 6, eaay7934. <a href="https://doi.org/10.1126/sciadv.aay7934" target="_blank" rel="noopener noreferrer">https://doi.org/10.1126/sciadv.aay7934</a></li><li>Römer, M., et al. (2014). First evidence of widespread active methane seepage in the Southern Ocean, off the sub-Antarctic island of South Georgia. <em>Earth and Planetary Science Letters</em>, 403, 166–177. <a href="https://doi.org/10.1016/j.epsl.2014.06.036" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.epsl.2014.06.036</a></li><li>Tilbrook, B. D., &amp; Karl, D. M. (1994). Dissolved methane distributions, sources, and sinks in the western Bransfield Strait, Antarctica. <em>Journal of Geophysical Research: Oceans</em>, 99, 16383–16393. <a href="https://doi.org/10.1029/94JC01043" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/94JC01043</a></li><li>Wilson, S. T., et al. (2018). An intercomparison of oceanic methane and nitrous oxide measurements. <em>Biogeosciences</em>, 15, 5891–5907. <a href="https://doi.org/10.5194/bg-15-5891-2018" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/bg-15-5891-2018</a></li><li>Dong, Y., et al. (2021). Uncertainties in eddy covariance air–sea CO2 flux measurements and implications for gas transfer velocity parameterisations. <em>Atmospheric Chemistry and Physics</em>, 21, 8089–8110. <a href="https://doi.org/10.5194/acp-21-8089-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-8089-2021</a></li><li>Workman, E., et al. (2024). Sea-air methane fluxes measured using an eddy-covariance technique on RRS James Clark Ross from January 2019 to March 2021 (dataset). UK Polar Data Centre. <a href="https://doi.org/10.5285/c9ed4746-f104-4117-ba60-174c5275e2fe" target="_blank" rel="noopener noreferrer">https://doi.org/10.5285/c9ed4746-f104-4117-ba60-174c5275e2fe</a></li><li>Jones, A., Thomson, D., Hort, M., &amp; Devenish, B. (2007). The U.K. Met Office's Next-Generation Atmospheric Dispersion Model, NAME III. In <em>Air Pollution Modeling and Its Application XVII</em>, 580–589. <a href="https://doi.org/10.1007/978-0-387-68854-1_62" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/978-0-387-68854-1_62</a></li><li>Stein, A. F., et al. (2015). NOAA's HYSPLIT Atmospheric Transport and Dispersion Modeling System. <em>Bulletin of the American Meteorological Society</em>, 96, 2059–2077. <a href="https://doi.org/10.1175/BAMS-D-14-00110.1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1175/BAMS-D-14-00110.1</a></li><li>Folberth, G. A., et al. (2022). Description and Evaluation of an Emission-Driven and Fully Coupled Methane Cycle in UKESM1. <em>Journal of Advances in Modeling Earth Systems</em>, 14, e2021MS002982. <a href="https://doi.org/10.1029/2021MS002982" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2021MS002982</a></li><li>Archibald, A. T., et al. (2020). Description and evaluation of the UKCA stratosphere–troposphere chemistry scheme (StratTrop vn 1.0) implemented in UKESM1. <em>Geoscientific Model Development</em>, 13, 1223–1266. <a href="https://doi.org/10.5194/gmd-13-1223-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-13-1223-2020</a></li><li>Weber, T., Wiseman, N. A., &amp; Kock, A. (2019). Global ocean methane emissions dominated by shallow coastal waters. <em>Nature Communications</em>, 10, 4584. <a href="https://doi.org/10.1038/s41467-019-12541-7" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41467-019-12541-7</a></li><li>Saunois, M., et al. (2025). Global Methane Budget 2000–2020. <em>Earth System Science Data</em>, 17, 1873–1958. <a href="https://doi.org/10.5194/essd-17-1873-2025" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/essd-17-1873-2025</a></li></ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="directions">
+      <h2>Research directions</h2>
+      <div class="takeaways">
+        <p>Read as a programme, the five ideas follow the order in which the paper's own open questions can be closed: first make the numbers firmer with what is already archived, then find out where the methane comes from, and only then ask whether any of it matters at the scale an Earth system model can see. The cheapest step is Idea 3. The two-hour fluxes are public at the UK Polar Data Centre, and the authors state plainly the assumptions behind their totals: that the stretches of sea the ship crossed stand for the whole of each sea, and that sea ice can be left aside, which makes a yearly figure an upper limit (Sect. 4.2, p. 13). Weighting by monthly open water and by bathymetry, and carrying the per-cruise detection limits through, turns one summer value into an honest range. Idea 4 can share the same code. Footprints and back-trajectories for the fluxes above the detection limit set each hotspot against flares, coastline, glacier fronts and salinity, which is the question the authors leave open off west Svalbard ("it is impossible to determine this from the measurements we have", p. 14). Both steps are desk work, and the second is the part closest to an atmospheric modeller's skills <em>(inferred)</em>.</p>
+        <p>The observational core, Ideas 1 and 2, is where the paper's most quotable claims would be tested, and it cannot be done from a desk. Separating bubbles from diffusion needs eddy covariance, water sampling and acoustics on the same ship at the same time, which the authors name as future work and which their 2025 conference abstract describes as a dedicated campaign. Any project here should join that effort rather than present it as new. The apparent rise around the South Shetland Islands needs a revisit that matches the 1980s method and ties its laboratory analysis to an inter-laboratory standard, because the authors themselves say the role of method is unclear and that seeps can be episodic (p. 16–17). A desk compilation of every published Bransfield Strait value and method is a reasonable first step that does not need a ship.</p>
+        <p>Idea 5 is the bridge to Ananth's modelling background, and it is the one most likely to return a small answer. The authors place their Arctic total at about 0.01% of the global methane budget and the Southern Ocean uptake at about 0.003%, so the right first question is not what polar seeps do to climate but whether the ocean methane source in the emission-driven UKESM1 configuration has the shelf-versus-open-ocean shape these measurements show, and whether scaling the polar shelf source within observed limits moves Southern Hemisphere background methane beyond model noise. How UKESM represents the ocean source was not checked for this packet, so that check comes first <em>(inferred)</em>. There is no aerosol or solid-particle result to promise here; the link to the Particle X Climate remit is through methane as a forcer and through shared UKCA chemistry <em>(inferred)</em>, and should be described that way.</p>
+        <p>Across all five ideas the guard-rails stay the same. The seep-to-air link is the authors' "may provide evidence", not a demonstration; the late-1980s comparison is two snapshots with different methods; and the budget fractions are tiny.</p>
+      </div>
+      <p class="signoff">Pulse</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Custom idea path</a>
+    </footer>
+  </div>
+</body>
+</html>
