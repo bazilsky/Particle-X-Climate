@@ -22,7 +22,15 @@
     input[type="range"] { width:100%; accent-color: #1f4d45; }
     label.row.stack { row-gap: 4px; }
     label.row.stack span.name { grid-column: 1 / -1; }
-    label.row.stack input { grid-column: 2; }
+    label.row.stack .tau-control { grid-column: 2; }
+    [hidden] { display:none !important; }
+    .tau-control { min-width:0; }
+    .tau-control input { display:block; margin:0; }
+    .tau-ticks { position:relative; height:1.5em; margin:4px 8px 0; color:var(--muted); font-size:14px; line-height:1.5; }
+    .tau-ticks > span { position:absolute; top:0; transform:translateX(-50%); white-space:nowrap; }
+    .tau-ticks > span:first-child { transform:translateX(-8px); }
+    .tau-ticks > span:last-child { transform:translateX(calc(-100% + 8px)); }
+    @media (max-width: 700px) { .tau-ticks { font-size:12px; } .tau-ticks .tp { display:none; } }
     select { font: inherit; font-size: 16px; font-weight: 600; color: var(--ink); background: #fffdf8; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; width: 100%; max-width: 100%; min-height: 44px; cursor: pointer; }
     select:focus-visible { outline: 2px solid #1f4d45; outline-offset: 2px; }
     .readout { min-height: 2.8em; margin: 4px 0 18px; font-size: 16px; }
@@ -128,8 +136,9 @@
       <label class="row">
         <span class="name">View</span>
         <select id="view" aria-label="View">
-          <option value="index.html">BC versus vis441</option>
-          <option value="altitude.html" selected>Altitude profiles</option>
+          <option value="comparison">BC versus vis441 · 10–12 km</option>
+          <option value="vis441">vis441 · three injection altitudes</option>
+          <option value="altitude" selected>Altitude profiles</option>
         </select>
       </label>
       <label class="row">
@@ -138,7 +147,10 @@
       </label>
       <label class="row stack">
         <span class="name" id="tau-name">e-folding time (τ)</span>
-        <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="e-folding time (τ)">
+        <div class="tau-control">
+          <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="e-folding time (τ), Xlight to Xdark">
+          <div class="tau-ticks" id="tau-ticks" aria-hidden="true"><span style="left:0%">Xlight</span><span style="left:20%"><span class="tp">τ = </span>1 d</span><span style="left:40%"><span class="tp">τ = </span>10 d</span><span style="left:60%"><span class="tp">τ = </span>30 d</span><span style="left:80%"><span class="tp">τ = </span>100 d</span><span style="left:100%">Xdark</span></div>
+        </div>
       </label>
     </div>
     <p class="readout" id="readout"></p>
@@ -175,6 +187,7 @@
     const queryTau = Number(query.get("tau"));
     if (queryMonth >= 1 && queryMonth <= 12) MONTH.value = String(queryMonth);
     if (query.has("tau") && query.get("tau") !== "" && Number.isFinite(queryTau) && queryTau >= 0 && queryTau <= 5) TAU.value = String(queryTau);
+    VIEW.value = "altitude";
 
     const legend = document.getElementById("legend");
     LINES.forEach((line) => {
@@ -241,13 +254,22 @@
     }
 
     function tauLabel(tauDays) {
-      if (!Number.isFinite(tauDays)) return "X_dark";
-      if (tauDays <= NODES[0] * 1.001) return "X_light";
-      if (tauDays < 10) return tauDays.toPrecision(2) + " days";
-      if (tauDays < 1000) return tauDays.toPrecision(3) + " days";
+      if (!Number.isFinite(tauDays)) return "Xdark";
+      if (tauDays <= NODES[0] * 1.001) return "Xlight";
+      if (tauDays < 10) return "τ = " + Number(tauDays.toPrecision(2)) + " days";
+      if (tauDays < 1000) return "τ = " + Number(tauDays.toPrecision(3)) + " days";
       const exp = Math.floor(Math.log10(tauDays));
       const mant = tauDays / 10 ** exp;
-      return mant.toFixed(1) + "×10^" + exp + " days";
+      return "τ = " + mant.toFixed(1) + "×10^" + exp + " days";
+    }
+
+    function tauText(tauDays) {
+      const label = tauLabel(tauDays);
+      return label.startsWith("τ = ") ? "e-folding time (τ) = " + label.slice(4) : "e-folding time (τ): " + label;
+    }
+
+    function caseLabel(label) {
+      return label === "X_light" ? "Xlight" : label === "X_dark" ? "Xdark" : label;
     }
 
     function monthRange(monthIndex) {
@@ -363,8 +385,9 @@
       const w = weights(tauDays);
       const monthName = DATA.months[monthIndex];
       MONTH_NAME.textContent = monthName;
-      const tauText = "e-folding time (τ) = " + tauLabel(tauDays);
-      TAU_NAME.textContent = tauText;
+      const tauLine = tauText(tauDays);
+      TAU_NAME.textContent = tauLine;
+      TAU.setAttribute("aria-valuetext", tauLine);
       const parts = CASES
         .map((c, i) => ({ label: c.label, w: w[i] }))
         .filter((p) => p.w > 0.005);
@@ -372,11 +395,12 @@
       const series = FAMILIES.map((family) => mix(family.profiles, w, monthIndex));
       const peaks = series.map((line, i) => LINES[i].label + " " + peakKm(line) + " km").join(", ");
       READOUT.textContent = (exact
-        ? monthName + " · " + tauText + " · UKESM monthly mean."
-        : monthName + " · " + tauText + " · " + parts.map((p) => p.w.toFixed(2) + " × " + p.label).join(" + ") + ". Not a UKESM run at this τ.")
+        ? monthName + " · " + tauLine + " · UKESM monthly mean."
+        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ". Not a UKESM run at this τ.")
         + " Heating peak: " + peaks + ".";
       drawLines(setup(document.getElementById("profile")), series, monthRange(monthIndex));
       const next = new URLSearchParams(location.search);
+      next.set("view", "altitude");
       next.set("month", MONTH.value);
       next.set("tau", TAU.value);
       history.replaceState(null, "", "?" + next.toString());
@@ -384,9 +408,11 @@
 
     VIEW.addEventListener("change", () => {
       const next = new URLSearchParams();
+      next.set("view", VIEW.value);
       next.set("month", MONTH.value);
       next.set("tau", TAU.value);
-      location.href = VIEW.value + "?" + next.toString();
+      // "./" is the clean /playground/ URL (index.html), so no redirect is needed.
+      if (VIEW.value !== "altitude") location.href = "./?" + next.toString();
     });
     MONTH.addEventListener("input", render);
     TAU.addEventListener("input", render);

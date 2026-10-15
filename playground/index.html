@@ -22,7 +22,15 @@
     input[type="range"] { width:100%; accent-color: #1f4d45; }
     label.row.stack { row-gap: 4px; }
     label.row.stack span.name { grid-column: 1 / -1; }
-    label.row.stack input { grid-column: 2; }
+    label.row.stack .tau-control { grid-column: 2; }
+    [hidden] { display:none !important; }
+    .tau-control { min-width:0; }
+    .tau-control input { display:block; margin:0; }
+    .tau-ticks { position:relative; height:1.5em; margin:4px 8px 0; color:var(--muted); font-size:14px; line-height:1.5; }
+    .tau-ticks > span { position:absolute; top:0; transform:translateX(-50%); white-space:nowrap; }
+    .tau-ticks > span:first-child { transform:translateX(-8px); }
+    .tau-ticks > span:last-child { transform:translateX(calc(-100% + 8px)); }
+    @media (max-width: 700px) { .tau-ticks { font-size:12px; } .tau-ticks .tp { display:none; } }
     select { font: inherit; font-size: 16px; font-weight: 600; color: var(--ink); background: #fffdf8; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; width: 100%; max-width: 100%; min-height: 44px; cursor: pointer; }
     select:focus-visible { outline: 2px solid #1f4d45; outline-offset: 2px; }
     .readout { min-height: 2.8em; margin: 4px 0 18px; font-size: 16px; }
@@ -128,8 +136,9 @@
       <label class="row">
         <span class="name">View</span>
         <select id="view" aria-label="View">
-          <option value="index.html" selected>BC versus vis441</option>
-          <option value="altitude.html">Altitude profiles</option>
+          <option value="comparison" selected>BC versus vis441 · 10–12 km</option>
+          <option value="vis441">vis441 · three injection altitudes</option>
+          <option value="altitude">Altitude profiles</option>
         </select>
       </label>
       <label class="row">
@@ -138,11 +147,15 @@
       </label>
       <label class="row stack">
         <span class="name" id="tau-name">e-folding time (τ)</span>
-        <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="e-folding time (τ)">
+        <div class="tau-control">
+          <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="e-folding time (τ), Xlight to Xdark">
+          <div class="tau-ticks" id="tau-ticks" aria-hidden="true"><span style="left:0%">Xlight</span><span style="left:20%"><span class="tp">τ = </span>1 d</span><span style="left:40%"><span class="tp">τ = </span>10 d</span><span style="left:60%"><span class="tp">τ = </span>30 d</span><span style="left:80%"><span class="tp">τ = </span>100 d</span><span style="left:100%">Xdark</span></div>
+        </div>
       </label>
     </div>
     <p class="readout" id="readout"></p>
 
+    <section id="row-bc">
     <h2 class="family">Black carbon, 10–12 km</h2>
     <div class="panels">
       <figure>
@@ -159,17 +172,19 @@
           <div class="bar" role="img" aria-label="Heating colour scale, blue negative, white zero, orange positive"></div>
           <span class="scale-hi"></span>
         </div>
-        <p class="scale-caption">Fill colour is Δ heating in K day⁻¹, on the scale shared by all four rows. The purple line is the slider τ.</p>
+        <p class="scale-caption">Fill colour is Δ heating in K day⁻¹, on the scale shared by the visible rows. The purple line is the slider τ.</p>
       </figure>
     </div>
+    </section>
 
+    <section id="row-vis">
     <h2 class="family">vis441, 10–12 km</h2>
     <div class="panels">
       <figure>
         <figcaption>Vertical profile</figcaption>
         <canvas id="profile-vis" width="640" height="760"></canvas>
         <div class="legend" id="legend-vis"></div>
-        <p class="legend-caption">Same colours as the black-carbon row. <code>X_light</code> is <code>u-ec950</code>.</p>
+        <p class="legend-caption">Line colours identify the experiments. <code>X_light</code> is <code>u-ec950</code>.</p>
       </figure>
       <figure>
         <figcaption>Same blend across τ, this month</figcaption>
@@ -182,7 +197,9 @@
         <p class="scale-caption">Same shared colour scale. A paler fill is a smaller heating anomaly.</p>
       </figure>
     </div>
+    </section>
 
+    <section id="row-vis1214">
     <h2 class="family">vis441, 12–14 km</h2>
     <div class="panels">
       <figure>
@@ -202,7 +219,9 @@
         <p class="scale-caption">Same shared colour scale. A paler fill is a smaller heating anomaly.</p>
       </figure>
     </div>
+    </section>
 
+    <section id="row-vis1416">
     <h2 class="family">vis441, 14–16 km</h2>
     <div class="panels">
       <figure>
@@ -222,6 +241,7 @@
         <p class="scale-caption">Same shared colour scale. A paler fill is a smaller heating anomaly.</p>
       </figure>
     </div>
+    </section>
   </main>
   <script src="data.js?v=4rows"></script>
   <script>
@@ -242,6 +262,8 @@
     const queryTau = Number(query.get("tau"));
     if (queryMonth >= 1 && queryMonth <= 12) MONTH.value = String(queryMonth);
     if (query.has("tau") && query.get("tau") !== "" && Number.isFinite(queryTau) && queryTau >= 0 && queryTau <= 5) TAU.value = String(queryTau);
+    if (query.get("view") === "altitude") location.replace("altitude.html?" + query.toString());
+    VIEW.value = query.get("view") === "vis441" ? "vis441" : "comparison";
 
     function fillLegend(id) {
       const legend = document.getElementById(id);
@@ -321,13 +343,22 @@
     }
 
     function tauLabel(tauDays) {
-      if (!Number.isFinite(tauDays)) return "X_dark";
-      if (tauDays <= NODES[0] * 1.001) return "X_light";
-      if (tauDays < 10) return tauDays.toPrecision(2) + " days";
-      if (tauDays < 1000) return tauDays.toPrecision(3) + " days";
+      if (!Number.isFinite(tauDays)) return "Xdark";
+      if (tauDays <= NODES[0] * 1.001) return "Xlight";
+      if (tauDays < 10) return "τ = " + Number(tauDays.toPrecision(2)) + " days";
+      if (tauDays < 1000) return "τ = " + Number(tauDays.toPrecision(3)) + " days";
       const exp = Math.floor(Math.log10(tauDays));
       const mant = tauDays / 10 ** exp;
-      return mant.toFixed(1) + "×10^" + exp + " days";
+      return "τ = " + mant.toFixed(1) + "×10^" + exp + " days";
+    }
+
+    function tauText(tauDays) {
+      const label = tauLabel(tauDays);
+      return label.startsWith("τ = ") ? "e-folding time (τ) = " + label.slice(4) : "e-folding time (τ): " + label;
+    }
+
+    function caseLabel(label) {
+      return label === "X_light" ? "Xlight" : label === "X_dark" ? "Xdark" : label;
     }
 
     function monthRange(monthIndex) {
@@ -373,7 +404,7 @@
     function setup(canvas) {
       const dpr = window.devicePixelRatio || 1;
       const width = canvas.clientWidth || canvas.width;
-      let ratio = canvas.height / canvas.width;
+      let ratio = Number(canvas.dataset.ratio || (canvas.dataset.ratio = canvas.height / canvas.width));
       if (width < 700) ratio = Math.min(ratio, 1.05);
       const height = Math.round(width * ratio);
       canvas.style.height = height + "px";
@@ -388,7 +419,7 @@
       return top + (1 - (z - ZMIN) / (ZMAX - ZMIN)) * height;
     }
 
-    function drawProfile(view, series, scale, blend) {
+    function drawProfile(view, series, scale, blend, injection) {
       const { ctx, width, height } = view;
       const box = frame(width);
       const left = box.left;
@@ -399,7 +430,7 @@
       const ph = height - top - bottom;
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = "#f2f2f2";
-      ctx.fillRect(left, yOf(12, top, ph), pw, yOf(10, top, ph) - yOf(12, top, ph));
+      ctx.fillRect(left, yOf(injection[1], top, ph), pw, yOf(injection[0], top, ph) - yOf(injection[1], top, ph));
       const xOf = (v) => left + ((v - scale.lo) / (scale.hi - scale.lo)) * pw;
       ctx.strokeStyle = "#9a9a9a";
       ctx.lineWidth = 1;
@@ -491,7 +522,7 @@
       ctx.fillStyle = "#333";
       ctx.font = box.font;
       ctx.textAlign = "center";
-      const ticks = ["light", "1 d", "10 d", "30 d", "100 d", "dark"];
+      const ticks = ["Xlight", "1 d", "10 d", "30 d", "100 d", "Xdark"];
       ticks.forEach((label, i) => {
         const tickX = left + (i / 5) * pw;
         ctx.textAlign = i === 0 ? "left" : i === ticks.length - 1 ? "right" : "center";
@@ -512,32 +543,43 @@
     }
 
     function render() {
+      const visibleIds = VIEW.value === "vis441" ? ["vis", "vis1214", "vis1416"] : ["bc", "vis"];
+      for (const id of ["bc", "vis", "vis1214", "vis1416"]) document.getElementById("row-" + id).hidden = !visibleIds.includes(id);
       const monthIndex = Number(MONTH.value) - 1;
       const sliderU = Number(TAU.value);
       const tauDays = tauFromSlider(sliderU);
       const w = weights(tauDays);
       const monthName = DATA.months[monthIndex];
       MONTH_NAME.textContent = monthName;
-      const tauText = "e-folding time (τ) = " + tauLabel(tauDays);
-      TAU_NAME.textContent = tauText;
+      const tauLine = tauText(tauDays);
+      TAU_NAME.textContent = tauLine;
+      TAU.setAttribute("aria-valuetext", tauLine);
       const parts = CASES
         .map((c, i) => ({ label: c.label, w: w[i] }))
         .filter((p) => p.w > 0.005);
       const exact = parts.length === 1 && parts[0].w > 0.999;
       READOUT.textContent = exact
-        ? monthName + " · " + tauText + " · UKESM monthly mean on every row."
-        : monthName + " · " + tauText + " · " + parts.map((p) => p.w.toFixed(2) + " × " + p.label).join(" + ") + ". Same mix on every row. Not a UKESM run at this τ.";
+        ? monthName + " · " + tauLine + " · UKESM monthly mean on every row."
+        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ". Same mix on every row. Not a UKESM run at this τ.";
       const scale = monthRange(monthIndex);
-      const span = Math.max(Math.abs(scale.lo), Math.abs(scale.hi), 1e-6);
+      const contourScale = VIEW.value === "vis441" ? { lo: -0.5, hi: 0.5 } : scale;
+      const span = Math.max(Math.abs(contourScale.lo), Math.abs(contourScale.hi), 1e-6);
       document.querySelectorAll(".scale-lo").forEach((el) => { el.textContent = (-span).toFixed(2); });
       document.querySelectorAll(".scale-hi").forEach((el) => { el.textContent = span.toFixed(2); });
+      document.querySelectorAll(".scale-caption").forEach((el) => {
+        el.textContent = VIEW.value === "vis441"
+          ? "Δ heating in K day⁻¹. Fixed scale: −0.5 to +0.5 across all three injection altitudes and months. The purple line is the slider τ."
+          : "Δ heating in K day⁻¹, on a shared colour scale for this month. The purple line is the slider τ.";
+      });
       for (const family of DATA.families) {
         const suffix = { black_carbon: "bc", vis441: "vis", vis441_12_14: "vis1214", vis441_14_16: "vis1416" }[family.id];
+        if (!visibleIds.includes(suffix)) continue;
         const series = family.profiles.map((profile) => profile[monthIndex]);
-        drawProfile(setup(document.getElementById("profile-" + suffix)), series, scale, mix(family.profiles, w, monthIndex));
-        drawContour(setup(document.getElementById("contour-" + suffix)), family.profiles, monthIndex, sliderU, scale);
+        drawProfile(setup(document.getElementById("profile-" + suffix)), series, scale, mix(family.profiles, w, monthIndex), { bc: [10, 12], vis: [10, 12], vis1214: [12, 14], vis1416: [14, 16] }[suffix]);
+        drawContour(setup(document.getElementById("contour-" + suffix)), family.profiles, monthIndex, sliderU, contourScale);
       }
       const next = new URLSearchParams(location.search);
+      next.set("view", VIEW.value);
       next.set("month", MONTH.value);
       next.set("tau", TAU.value);
       history.replaceState(null, "", "?" + next.toString());
@@ -550,9 +592,12 @@
 
     VIEW.addEventListener("change", () => {
       const next = new URLSearchParams();
+      next.set("view", VIEW.value);
       next.set("month", MONTH.value);
       next.set("tau", TAU.value);
-      location.href = VIEW.value + "?" + next.toString();
+      // altitude.html redirects to the clean /playground/altitude URL and keeps the query.
+      if (VIEW.value === "altitude") location.href = "altitude.html?" + next.toString();
+      else render();
     });
   </script>
 </body>
