@@ -20,6 +20,8 @@
     label.row { display:grid; grid-template-columns: 110px 1fr; gap:12px; align-items:center; }
     label.row span.name { font-size: 14px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
     input[type="range"] { width:100%; accent-color: #1f4d45; }
+    select { font: inherit; font-size: 16px; font-weight: 600; color: var(--ink); background: #fffdf8; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; width: 100%; max-width: 100%; min-height: 44px; cursor: pointer; }
+    select:focus-visible { outline: 2px solid #1f4d45; outline-offset: 2px; }
     .readout { min-height: 2.8em; margin: 4px 0 18px; font-size: 16px; }
     .panels { display:grid; grid-template-columns: minmax(280px,.9fr) minmax(320px,1.1fr); gap:18px; }
     figure { margin:0; background:#fffdf8; border:1px solid var(--line); border-radius:18px; padding:14px 12px 8px; }
@@ -119,6 +121,13 @@
       Between the marked τ values the purple line is a mix of the two neighbours, the same mix at every height, and not a UKESM run.
     </p>
     <div class="controls">
+      <label class="row">
+        <span class="name">View</span>
+        <select id="view" aria-label="View">
+          <option value="index.html" selected>BC versus vis441</option>
+          <option value="altitude.html">Altitude profiles</option>
+        </select>
+      </label>
       <label class="row">
         <span class="name" id="month-name">Month</span>
         <input id="month" type="range" min="1" max="12" step="1" value="2" aria-label="Month">
@@ -223,6 +232,12 @@
     const READOUT = document.getElementById("readout");
     const MONTH_NAME = document.getElementById("month-name");
     const TAU_NAME = document.getElementById("tau-name");
+    const VIEW = document.getElementById("view");
+    const query = new URLSearchParams(location.search);
+    const queryMonth = Number(query.get("month"));
+    const queryTau = Number(query.get("tau"));
+    if (queryMonth >= 1 && queryMonth <= 12) MONTH.value = String(queryMonth);
+    if (query.has("tau") && query.get("tau") !== "" && Number.isFinite(queryTau) && queryTau >= 0 && queryTau <= 5) TAU.value = String(queryTau);
 
     function fillLegend(id) {
       const legend = document.getElementById(id);
@@ -517,12 +532,23 @@
         drawProfile(setup(document.getElementById("profile-" + suffix)), series, scale, mix(family.profiles, w, monthIndex));
         drawContour(setup(document.getElementById("contour-" + suffix)), family.profiles, monthIndex, sliderU, scale);
       }
+      const next = new URLSearchParams(location.search);
+      next.set("month", MONTH.value);
+      next.set("tau", TAU.value);
+      history.replaceState(null, "", "?" + next.toString());
     }
 
     MONTH.addEventListener("input", render);
     TAU.addEventListener("input", render);
     window.addEventListener("resize", render);
     render();
+
+    VIEW.addEventListener("change", () => {
+      const next = new URLSearchParams();
+      next.set("month", MONTH.value);
+      next.set("tau", TAU.value);
+      location.href = VIEW.value + "?" + next.toString();
+    });
   </script>
 </body>
 </html>
