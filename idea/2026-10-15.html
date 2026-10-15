@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idea path — 15 October 2026 · Brunelli &amp; Diamond</title>
+  <meta name="description" content="Idea path for 15 October 2026: Brunelli &amp; Diamond (2026), climate-zone changes under GeoMIP G6sulfur stratospheric aerosol injection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+
+    /* Mobile-only sticky TOC */
+    .sticky-toc {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .sticky-toc {
+        display: flex;
+        gap: 0.15rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -1.25rem;
+        padding: 0 0.75rem;
+        min-height: 44px;
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      }
+
+      .sticky-toc a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 0.7rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sticky-toc a:hover,
+      .sticky-toc a:focus {
+        color: var(--ink);
+        border-bottom-color: var(--rust);
+      }
+
+      #chosen, #takeaways, #ideas, #directions,
+      [id^="idea-"] {
+        scroll-margin-top: 52px;
+      }
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+      background: var(--rust-soft);
+      color: var(--rust);
+    }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid #0d47a1;
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="index.html">Idea path</a>
+        <a href="../custom-idea/index.html">Custom idea path</a>
+        <a href="../overwatch.html#team">Team</a>
+        <a href="../overwatch.html#remit">Remit</a>
+      </nav>
+    </header>
+
+    <nav class="sticky-toc" aria-label="On this page">
+      <a href="#chosen">Chosen</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#directions">Directions</a>
+    </nav>
+
+
+    <section class="hero">
+      <p class="kicker">15 October 2026</p>
+      <h1>Brunelli &amp; Diamond</h1>
+      <p class="lede">Takeaways, three ideas, and research directions.</p>
+      <div class="tip joke">
+        <p>I asked a stratospheric aerosol how it was feeling. It said, &lsquo;Honestly? A bit scattered.&rsquo; — Dr. D</p>
+      </div>
+    </section>
+
+    <section id="chosen">
+      <h2>Chosen paper</h2>
+      <div class="picked">
+        <h3>Reductions in Climate Zone Changes Under Stratospheric Aerosol Injection Compared to Unabated Warming</h3>
+        <p class="meta">Jaylynn M. Brunelli and Michael S. Diamond (Florida State University)</p>
+        <p class="meta">Year / venue: 2026, Earth's Future (AGU/Wiley), vol. 14 (Crossref)</p>
+        <p class="meta">Dates: first published 14 October 2026</p>
+        <p class="meta">Status: peer-reviewed version of record. An earlier ESSOAr version (<a href="https://doi.org/10.22541/essoar.15003407/v1" target="_blank" rel="noopener noreferrer">https://doi.org/10.22541/essoar.15003407/v1</a>) was not used.</p>
+        <p class="meta">Design: GeoMIP G6sulfur, compared with SSP5-8.5 and SSP2-4.5; Six models with one member each: CESM2-WACCM, CNRM-ESM2-1, IPSL-CM6A-LR, MPI-ESM1-2-LR, MPI-ESM1-2-HR, UKESM1-0-LL; Historical baseline 1985–2014; future period 2085–2099; Significance tested against five-member SSP2-4.5 ensembles, none for MPI-ESM1-2-HR; A modified Köppen-Trewartha classification.</p>
+        <p class="meta">Licence: CC BY-NC 4.0</p>
+        <p class="meta">Open data and code (printed in the Availability Statement; Zenodo records checked as open on 15 Oct): Processed climate-classification files for all six models, e.g. <code>UKESM1-0-LL_G6sulfur_KTC_2085_2099_revised.nc</code> (<a href="https://doi.org/10.5281/zenodo.21745068" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21745068</a>); Code (<a href="https://doi.org/10.5281/zenodo.21746102" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21746102</a>)</p>
+        <p class="url">DOI: <a href="https://doi.org/10.1029/2026ef008937" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2026ef008937</a></p>
+        <p class="url">HTML: <a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2026EF008937" target="_blank" rel="noopener noreferrer">https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2026EF008937</a></p>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <h2>Site takeaways</h2>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Brunelli and Diamond ask: if stratospheric aerosol injection held global temperature down, how much of the world would still see its climate zone change? They sort every land grid cell into a modified Köppen-Trewartha class (tropical, arid, subtropical, temperate, subpolar, polar, plus "novel tropical" classes for unprecedented heat) and call the land that changes class an "adaptation burden". They then compare the GeoMIP G6sulfur experiment, in which sulfate aerosol holds a high-emission world (SSP5-8.5) at the global temperature of a middle-of-the-road one (SSP2-4.5), against both of those scenarios. The comparison runs from 1985–2014 to 2085–2099, using six Earth system models with one simulation each. The study works with surface temperature and rainfall classes, not with the aerosol itself.</p>
+        <p>The headline is clear. Under SSP5-8.5, almost 40% of global land on average changes climate regime in each model, against only around a quarter under SSP2-4.5 and G6sulfur. The authors test these differences against the spread of five-member SSP2-4.5 ensembles. Every shift under SSP5-8.5 stands out from that internal variability. Under G6sulfur, most transitions are not distinguishable from internal variability at the 95% confidence level. Some are significant (major shifts in CNRM-ESM2-1, and major and minor shifts in MPI-ESM1-2-LR and UKESM1-0-LL), but their magnitudes are considerably less than under SSP5-8.5. In the multi-model mean, subpolar land shrinks by 8.6% of global land under SSP5-8.5, about double the 4.5% under G6sulfur and 4.1% under SSP2-4.5. The authors also find that on average 3% of global land transitions under G6sulfur but not under SSP2-4.5, so the aerosol case is close to, but not identical to, the mitigation case.</p>
+        <p>The most surprising result is about deserts. One might expect drier conditions under SAI to spread arid land, but in all models except IPSL-CM6A-LR, G6sulfur prevents shifts into arid desert climates better than mitigation does. The effect is largely over Australia: in three models, including UKESM1-0-LL, historically hot desert moderates to hot semi-arid under G6sulfur. The flip side is that SAI looks "seemingly counterproductive in regard to semi-arid (BS) regions". The authors' conclusion is worded carefully. They say SAI is effective at reducing adaptation burdens "under the very specific metric of global change in climate regimes", and that it is still not quite as effective as cutting emissions. Their data and code are archived on Zenodo (Availability Statement).</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>The models agree that the aerosol case beats unabated warming, but they disagree on magnitudes and regional patterns. The authors list several possible sources of that spread: interactive aerosol microphysics (present in only three of the six models), climate sensitivity, and the use of a feedback controller. They note that exactly how aerosol will evolve in the stratosphere, and how this will affect the climate, remains highly uncertain. The Australian result is not explained. The authors write that it requires further investigation into precipitation dynamics and circulation, and that the positive Australian rainfall anomaly seen in all G6sulfur models merits additional investigation. G6sulfur is a simple, idealised injection; the authors say asymmetric strategies may produce greater transitions and optimised ones fewer. The analysis does not include the direct effects of higher carbon dioxide on vegetation or ocean acidification. Climate classes have hard borders that real transitions lack, and those borders can shift from year to year. The 40°C novel-tropics threshold is deliberately conservative and may underestimate risk for some plants, although the authors report that a 37°C test does not alter their main conclusions.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): fewer climate-zone shifts in this experiment is not a finding that stratospheric aerosol injection is safe or desirable overall. The study looks at one surface-climate metric only.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): G6sulfur uses sulfate only, under one idealised scenario, and each model is represented by a single simulation.</p>
+      </div>
+    </section>
+
+    <section id="ideas">
+      <h2>Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Three ideas, each tied to a limitation the authors document.</p>
+      <div class="ideas">
+        <article id="idea-1">
+          <p class="label">Idea 1</p>
+          <h3>What drives the G6sulfur Australian rainfall anomaly in UKESM1-0-LL? An ensemble and G6solar diagnosis</h3>
+          <p><strong>What it would do.</strong></p>
+          <ul>
+            <li>Take UKESM1-0-LL G6sulfur, G6solar, SSP5-8.5 and SSP2-4.5 monthly temperature and precipitation over Australia.</li>
+            <li>Recompute the authors' climate classes from their published code, for every available member rather than one.</li>
+            <li>Diagnose the Australian rainfall anomaly: its seasonality, the circulation and moisture transport, and lower-stratospheric temperature.</li>
+            <li>Contrast G6sulfur with G6solar to see whether the anomaly belongs to the aerosol layer specifically (for example through stratospheric heating) or appears under any uniform dimming. Heating is one candidate, not the default: Visioni et al. (2021) note "Interestingly, the model with the highest AOD in the tropics, UKESM1-0-LL, is also one of the models showing the least amount of stratospheric heating" (p. 10047).</li>
+          </ul>
+          <p>The goal is a UKESM-specific mechanism for a feature the authors report in all models but leave unexplained. What UKESM shows is not assumed.</p>
+          <p><strong>Why it is new.</strong> The authors document the open problem <strong>(author documented)</strong>. The anomaly is not their own diagnostic: they cite it to Fig. 10 of Visioni et al. (2021). Two published results use different baselines:</p>
+          <ul>
+            <li><strong>Visioni et al. (2021), Fig. 10 (p. 10054), cited by Brunelli &amp; Diamond:</strong> "Precipitation changes (mm/day) in the period 2081–2100 in G6sulfur compared to the same period for SSP2-4.5". This is a same-period G6sulfur minus SSP2-4.5 difference. The UKESM1-0-LL panel was read visually only (positive shading over Australia at 300 dpi, Dr. Doubt, 15 Oct), with no number. Visioni's text does not mention Australia.</li>
+            <li><strong>Haywood et al. (2023), UKESM1:</strong> changes for 2081–2100 relative to a nominal present day, "this is taken as the mean over 2015– 2034 from the ssp245 experiment." (p. 15309). Results are seasonal (JJA and DJF) and "Unless otherwise stated, all results are ensemble means." (p. 15309), from three-member ensembles (p. 15308). For Australia: "In both cases G6sulfur shows changes very similar to ssp245 and ssp585, while G6MCB is significantly different." (p. 15312), next to G6MCB changes where "The simulations presented here show changes over northern Australia in JJA that exceed 500 %." (p. 15312).</li>
+          </ul>
+          <p>These are not in conflict; they measure different things <strong>(inferred)</strong>. Adding the G6solar contrast and a member spread is not something either paper does <strong>(inferred)</strong>. Our search (WebSearch tool, 15 Oct 2026, ~08:15–08:20 BST; queries "G6sulfur Australia precipitation increase mechanism UKESM stratospheric aerosol injection" and "Köppen climate classification stratospheric aerosol injection ARISE-SAI climate zone shifts") found no paper diagnosing this anomaly in UKESM. This is a limit of that search, not a finding.</p>
+          <p><strong>Feasibility for Ananth.</strong> High, and no new simulations are needed <strong>(inferred)</strong>.</p>
+          <ul>
+            <li>The CEDA records for UKESM1-0-LL G6sulfur and G6solar (checked 15 Oct) both list Amon tables, the variables tas and pr, and members r1i1p1f2, r4i1p1f2 and r8i1p1f2.</li>
+            <li>ESGF search (esgf.ceda.ac.uk, Dr. Doubt, 15 Oct ~08:20 BST): MOHC UKESM1-0-LL Amon tas and pr exist for r1i1p1f2, r4i1p1f2 and r8i1p1f2 in G6sulfur, G6solar, ssp245, ssp585 and historical, all held at esgf.ceda.ac.uk. This is a dataset-listing check only; file time coverage (2085–2099), versions and JASMIN access were not checked.</li>
+            <li>The authors' own UKESM members are listed in SI Table S1, which could not be read (Wiley returns 403 on open routes; not bypassed). Their data references cite a NIMS-KMA UKESM ssp245 dataset, whose only ESGF member is r13i1p1f2. Their published code (GitHub/Zenodo, commit 96f720a) loads UKESM tas and pr files named r1i1p1f2 for G6sulfur, ssp245, ssp585 and historical in the scatterplot notebooks, but the notebook that builds the class files uses placeholder paths, and the class files on Zenodo carry no member metadata. The members behind the published classes are therefore unconfirmed, and must be matched to SI Table S1 before claiming an exact reproduction.</li>
+            <li>The authors' code and processed UKESM class files are open on Zenodo.</li>
+            <li>JASMIN/CEDA access is assumed, not verified <strong>(inferred)</strong>.</li>
+          </ul>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Sect. 3.3: "This result likely requires further investigation into the precipitation dynamics of G6sulfur within each model and how SAI implementation affects both regional and global circulation (see Figures S13–S15 in Supporting Information S1 for individual model results)."</li>
+            <li><strong>(author documented)</strong> Sect. 3.4: "A positive precipitation anomaly occurs over Australia in all models running G6sulfur (see Fig. 10 in Visioni et al., 2021); this regional feature over Oceania merits additional investigation."</li>
+            <li><strong>(author documented)</strong> Sect. 3.4: "In CNRM-ESM2-1, MPI-ESM1-2-LR, and UKESM1-0-LL, land that is classified as hot arid desert (BWh) historically moderates to a hot semiarid (BSh) classification under G6sulfur; in CESM2-WACCM and IPSL-CM6A-LR, land that is historically hot semiarid transitions to hot arid desert under SSP2-4.5 and SSP5-8.5 but not under G6sulfur."</li>
+            <li><strong>(author documented)</strong> Sect. 2.1: "This study uses one ensemble member from the six global climate models (GCMs) that participated inthe GeoMIP G6sulfur experiment" (the "inthe" is printed so).</li>
+            <li><strong>(inferred)</strong> That the G6solar contrast can separate an aerosol-specific part of the anomaly is a design choice; the paper does not use G6solar.</li>
+            <li><strong>Related work checked:</strong>
+              <ul>
+                <li>Haywood et al. (2023), ACP 23, 15305–15324, <a href="https://doi.org/10.5194/acp-23-15305-2023" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-23-15305-2023</a> (open PDF in <code>sources/related/</code>): "In both cases G6sulfur shows changes very similar to ssp245 and ssp585, while G6MCB is significantly different."</li>
+                <li>Visioni et al. (2021), ACP 21, 10039–10063, <a href="https://doi.org/10.5194/acp-21-10039-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-10039-2021</a> (open PDF in <code>sources/related/</code>; cited by the authors for the anomaly, Fig. 10, p. 10054; UKESM heating remark, p. 10047).</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <article id="idea-2">
+          <p class="label">Idea 2</p>
+          <h3>Does how the aerosol is represented explain the model spread in climate-zone burdens?</h3>
+          <p><strong>What it would do.</strong></p>
+          <ul>
+            <li>For each of the six models, take the authors' normalised efficiency numbers (zone-shift difference per degree of averted warming, their Fig. 7).</li>
+            <li>Set them against properties of each model's stratospheric aerosol layer under G6sulfur: interactive microphysics versus scaled aerosol optical depth, the latitude spread of stratospheric aerosol optical depth, and tropical lower-stratospheric warming.</li>
+            <li>Use climate sensitivity and the feedback controller, both named by the authors, as competing explanations.</li>
+            <li>In UKESM1-0-LL, use the three G6sulfur members to estimate how much of a single-member efficiency value is internal variability.</li>
+          </ul>
+          <p>With six models this is a diagnostic, not a statistical test.</p>
+          <p><strong>Why it is new.</strong> The authors list interactive microphysics, climate sensitivity and the controller as possible sources of spread, but do not separate them <strong>(author documented)</strong>. In this design the three factors are partly tangled <strong>(inferred)</strong>:</p>
+          <ul>
+            <li>CESM2-WACCM is the only model with a controller and the only quasi-equatorial injection.</li>
+            <li>UKESM1-0-LL is singled out as high-sensitivity.</li>
+          </ul>
+          <p>A within-UKESM member spread, combined with aerosol-layer diagnostics, is the step that could start to untangle them <strong>(inferred)</strong>. Ananth's GLOMAP-mode background is relevant to reading UKESM's interactive aerosol fields <strong>(inferred)</strong>.</p>
+          <p><strong>Feasibility for Ananth.</strong> Moderate <strong>(inferred)</strong>.</p>
+          <ul>
+            <li>The class data and code are open.</li>
+            <li>Stratospheric aerosol optical depth and temperature for all six models would come from ESGF/CEDA (not checked for every model).</li>
+            <li>The protocol paper notes that prescribed aerosols in G6 still enter the radiative transfer: "In both cases, the prescribed aerosols are fully integrated in the radiative transfer calculations." (Visioni et al., 2021, p. 10041). Interactive versus prescribed is therefore not a clean on/off switch for heating <strong>(inferred)</strong>.</li>
+            <li><strong>(author documented, Visioni et al., 2021, p. 10041)</strong> The same paragraph names what does differ for prescribed aerosols (microphysical growth and dynamical non-linearities at higher loads): "If the same aerosol distribution is simply scaled up, these effect would not be present in those models." (quoted as printed, sic).</li>
+            <li><strong>(author documented, Visioni et al., 2021, p. 10047)</strong> "Interestingly, the model with the highest AOD in the tropics, UKESM1-0-LL, is also one of the models showing the least amount of stratospheric heating". This is one reason aerosol-layer diagnostics may not line up with the interactive/prescribed split <strong>(inferred)</strong>.</li>
+          </ul>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Abstract: "While all models analyzed agree that SAI reduces adaptation burdens in comparison to a high emissions scenario, they disagree on magnitudes and regional distributions, indicating differing model responses to aerosol and greenhouse gas forcings."</li>
+            <li><strong>(author documented)</strong> Sect. 4: "CESM2-WACCM, IPSL-CM6A-LR, and UKESM1-0-LL are the only models out of the six that possess interactive aerosol microphysics, which may influence their stratospheric circulation changes; exactly how aerosol will evolve in the stratosphere and how this will affect the climate remain highly uncertain, however."</li>
+            <li><strong>(author documented)</strong> Sect. 4: "Of course, models with notably high climate sensitivities (e.g., UKESM1-0-LL) experience more total climate zone shifts under a given greenhouse gas emissions pathway. Differences may also arise from the use (or not) of a feedback controller algorithm."</li>
+            <li><strong>(author documented)</strong> Sect. 2.1: "All models, except CESM2-WACCM, deploy a multi-latitude off-equatorial injection strategy where aerosols are injected between 10°N and 10°S. CESM2-WACCM is the only model that uses a quasi-equatorial injection strategy."</li>
+            <li><strong>(author documented)</strong> Sect. 3.2: "Models MPI-ESM1-2-HR and UKESM1-0-LL, which have unusually low and high aerosol optical depth and transient climate sensitivity values, respectively (Visioni et al., 2021), are shown in Figure 6a as examples"</li>
+            <li><strong>(inferred)</strong> That aerosol-layer properties explain any part of the spread is the hypothesis to test.</li>
+            <li><strong>Related work checked:</strong> Visioni et al. (2021), <a href="https://doi.org/10.5194/acp-21-10039-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-10039-2021</a> (open PDF in <code>sources/related/</code>, pp. 10041 and 10047).</li>
+          </ul>
+        </article>
+        <article id="idea-3">
+          <p class="label">Idea 3</p>
+          <h3>Climate-zone burdens beyond idealised G6sulfur: injection latitude in UKESM1</h3>
+          <p><strong>What it would do.</strong></p>
+          <ul>
+            <li>Apply the authors' open classification code to UKESM1 SAI runs that differ only in where SO2 is injected:
+              <ul>
+                <li>Henry et al. (2024): Equator, 15°N+15°S, 30°N+30°S and 60°N+60°S, all at the same global-mean temperature target.</li>
+                <li>Wells et al. (2024): quasi-equatorial versus multi-latitude off-equatorial injection.</li>
+              </ul>
+            </li>
+            <li>Ask whether injection latitude changes how much land shifts climate zone, and which zones are affected (for example subpolar and Australian arid classes).</li>
+            <li>The comparison differs from Brunelli &amp; Diamond's. Henry et al.'s runs are SAI on an SSP2-4.5 background: "The baseline set of simulations follows the middle-of-the-road greenhouse gas emission scenario, the Shared Socioeconomic Pathway 2-4.5 (SSP2-4.5)" (p. 13254), with changes "in 2050–2069 relative to the reference period (2014–2033)" (p. 13256). So the comparison would be SAI vs SSP2-4.5 at matched times, a different question from G6sulfur vs SSP2-4.5 vs SSP5-8.5. Wells et al. use a G6-type set (G6sulfur, G6controller, ssp245, ssp585), which Henry et al. note "had a different background scenario and target state" (p. 13255).</li>
+          </ul>
+          <p><strong>Why it is new.</strong> The authors state that non-idealised strategies may produce greater transitions and optimised ones could minimise them, but they test only G6sulfur <strong>(author documented)</strong>. UKESM1 strategy runs exist and report different regional temperature and precipitation outcomes by injection latitude (Henry et al., 2024; Wells et al., 2024). Our search (WebSearch tool, 15 Oct 2026, ~08:15–08:20 BST; query "Köppen climate classification stratospheric aerosol injection ARISE-SAI climate zone shifts") found none put through a climate-zone burden metric. This is a limit of that search, not a finding. Solid-particle or other-material versions of the same question would be a later, separate step and are <strong>(inferred)</strong> only.</p>
+          <p><strong>Feasibility for Ananth.</strong> Moderate, and it depends on data <strong>(inferred)</strong>.</p>
+          <ul>
+            <li>Henry et al. (2024) state their SAI data are on Zenodo (<a href="https://doi.org/10.5281/zenodo.11281900" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.11281900</a>; record open, 26 files named <code>ukesm_u-*_small.nc</code>). Dr. Doubt's header read of 6 of 26 files (15 Oct; the other 20 not read; the record says each file holds the same variables) shows monthly 1.5 m <code>air_temperature</code> and <code>precipitation_flux</code>, 444 months from Jan 2034 to Dec 2070 on a 360-day calendar, grid 289 × 384 as stored. The deposit holds no SSP2-4.5 runs; "The data for the SSP2-4.5 simulations are available on the Earth System Grid Federation database" (Henry et al., 2024, p. 13266). So there is no 2085–2099 window. Henry et al. analyse 2050–2069.</li>
+            <li>The Wells et al. (2024) Zenodo record (<a href="https://doi.org/10.5281/zenodo.10302574" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.10302574</a>) lists monthly precipitation but only annual temperature. A Köppen-type class needs monthly temperature, so full output would have to come from the authors or the Met Office <strong>(inferred)</strong>.</li>
+            <li>Ananth's Exeter UKESM setting is relevant to that access, but access is not assumed <strong>(inferred)</strong>.</li>
+          </ul>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> Sect. 4: "G6sulfur represents a relatively simple and idealized implementation of SAI; nonideal scenarios like hemispherically asymmetric SAI (Haywood et al., 2013) may produce greater climate zone transitions, whereas more optimized scenarios (MacMartin et al., 2017) could further minimize transitions."</li>
+            <li><strong>(author documented)</strong> Sect. 1: "Although not all models distribute sulfate aerosols at or near the equator, there is still a general consensus that SAI would tend to undercool the Arctic latitudes unless the injections were heavily weighted toward the poles (Duffey et al., 2026; Lee et al., 2023), as aerosols injected at or around the equator experience relatively little dispersion toward the mid-latitudes (Wells et al., 2024)."</li>
+            <li><strong>(author documented)</strong> Availability Statement: "Code to reproduce the figures in this paper is available at GitHub and archived on Zenodo (Brunelli, 2026)."</li>
+            <li><strong>(inferred)</strong> Using UKESM injection-latitude runs as the test bed is our design choice.</li>
+            <li><strong>Related work checked:</strong>
+              <ul>
+                <li>Henry, Bednarz and Haywood (2024), ACP 24, 13253–13268, <a href="https://doi.org/10.5194/acp-24-13253-2024" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-24-13253-2024</a> (open PDF in <code>sources/related/</code>). Abstract: "We show that injection at the Equator leads to a substantial undercooling of the Arctic, a significant reduction in tropical precipitation, reductions in high-latitude ozone, heating in the tropical lower-stratosphere, and strengthening of the stratospheric jets in both hemispheres."</li>
+                <li>Wells et al. (2024), Earth's Future 12, e2023EF004358, <a href="https://doi.org/10.1029/2023ef004358" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2023ef004358</a> (Crossref abstract checked).</li>
+                <li>Duffey et al. (2026), ESD 17, 353–385, <a href="https://doi.org/10.5194/esd-17-353-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/esd-17-353-2026</a> (Crossref checked).</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="directions">
+      <h2>Research directions</h2>
+      <div class="takeaways">
+        <p>Taken together, the three ideas make one programme. First, explain the paper's most surprising regional result in the model Ananth knows best. Second, ask whether the way aerosol is represented accounts for the spread between models. Third, ask whether the answer survives a change of injection strategy. The first stage is cheap. UKESM1-0-LL already has monthly tas and pr on ESGF/CEDA for members r1i1p1f2, r4i1p1f2 and r8i1p1f2 in G6sulfur, G6solar, ssp245, ssp585 and historical (dataset listings, 15 Oct), and the authors have published both their climate-class files and their code, so the classification can be reproduced, once the authors' member choices in SI Table S1 are matched, before anything new is added. Idea 1 asks a narrow question of that data. The authors report a positive Australian rainfall anomaly in every G6sulfur model and call it worth further investigation. That anomaly is cited to Visioni et al. (2021) Fig. 10, a same-period G6sulfur minus SSP2-4.5 difference for 2081–2100. A UKESM1 study measuring change for 2081–2100 against a 2015–2034 ssp245 present day, as seasonal ensemble means, describes G6sulfur over Australia as very similar to the emission scenarios (Haywood et al., 2023). These are not in conflict; they measure different things (inferred). Sorting out what the anomaly is, and whether it belongs to the aerosol layer or to dimming in general, is a self-contained piece of work. Whatever UKESM shows is worth reporting; nothing here assumes the answer.</p>
+        <p>Idea 2 is the bridge to Ananth's aerosol expertise. The authors name interactive microphysics, climate sensitivity and the feedback controller as possible sources of spread, and in this six-model set those factors overlap. The useful contribution is not a two-group label but a careful reading of each model's stratospheric aerosol layer next to its climate-zone efficiency, with UKESM's own members showing how much a single-run value can move. This stays a diagnostic. Six models cannot carry a statistical test, and heating is present whether aerosols are interactive or prescribed.</p>
+        <p>Idea 3 carries the metric to injection strategy, which the authors themselves flag: they expect asymmetric strategies may produce greater transitions and optimised ones fewer. UKESM1 already has runs that vary only injection latitude, but the Henry et al. runs end in 2070 and the Wells et al. deposit lacks monthly temperature. A Brunelli-style 2085–2099 analysis therefore needs fuller output from the Met Office or the authors (access not assumed), or a redefined window, with that change stated. Questions about other injected materials, including solid particles, would come only after that and are (inferred) extensions, not something this paper addresses.</p>
+        <p>The guard-rails stay the same throughout. This is one sulfate scenario, scored with one surface-climate metric, using one simulation per model. The authors' conclusion holds only "under the very specific metric of global change in climate regimes". The value of the programme is that each step tests a specific statement in the paper using archived output where it exists (Idea 3 needs more; see above).</p>
+      </div>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Idea path</a>
+    </footer>
+  </div>
+</body>
+</html>
