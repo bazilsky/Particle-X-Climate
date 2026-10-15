@@ -20,6 +20,9 @@
     label.row { display:grid; grid-template-columns: 110px 1fr; gap:12px; align-items:center; }
     label.row span.name { font-size: 14px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
     input[type="range"] { width:100%; accent-color: #1f4d45; }
+    label.row.stack { row-gap: 4px; }
+    label.row.stack span.name { grid-column: 1 / -1; }
+    label.row.stack input { grid-column: 2; }
     select { font: inherit; font-size: 16px; font-weight: 600; color: var(--ink); background: #fffdf8; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; width: 100%; max-width: 100%; min-height: 44px; cursor: pointer; }
     select:focus-visible { outline: 2px solid #1f4d45; outline-offset: 2px; }
     .readout { min-height: 2.8em; margin: 4px 0 18px; font-size: 16px; }
@@ -96,6 +99,7 @@
     }
     #site-nav a:last-child { border-bottom: 0; }
     h2.family { margin: 30px 0 12px; }
+    .swatch.thick { height:4px; }
     code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: #efe7d8; color: var(--ink); padding: 0 .25em; border-radius: 4px; }
     figure code { background: #f3ede2; }
 
@@ -132,9 +136,9 @@
         <span class="name" id="month-name">Month</span>
         <input id="month" type="range" min="1" max="12" step="1" value="2" aria-label="Month">
       </label>
-      <label class="row">
-        <span class="name" id="tau-name">τ</span>
-        <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="Bleaching time">
+      <label class="row stack">
+        <span class="name" id="tau-name">e-folding time (τ)</span>
+        <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="e-folding time (τ)">
       </label>
     </div>
     <p class="readout" id="readout"></p>
@@ -514,14 +518,15 @@
       const w = weights(tauDays);
       const monthName = DATA.months[monthIndex];
       MONTH_NAME.textContent = monthName;
-      TAU_NAME.textContent = tauLabel(tauDays);
+      const tauText = "e-folding time (τ) = " + tauLabel(tauDays);
+      TAU_NAME.textContent = tauText;
       const parts = CASES
         .map((c, i) => ({ label: c.label, w: w[i] }))
         .filter((p) => p.w > 0.005);
       const exact = parts.length === 1 && parts[0].w > 0.999;
       READOUT.textContent = exact
-        ? monthName + " · " + parts[0].label + " · UKESM monthly mean on every row."
-        : monthName + " · " + parts.map((p) => p.w.toFixed(2) + " × " + p.label).join(" + ") + ". Same mix on every row. Not a UKESM run at this τ.";
+        ? monthName + " · " + tauText + " · UKESM monthly mean on every row."
+        : monthName + " · " + tauText + " · " + parts.map((p) => p.w.toFixed(2) + " × " + p.label).join(" + ") + ". Same mix on every row. Not a UKESM run at this τ.";
       const scale = monthRange(monthIndex);
       const span = Math.max(Math.abs(scale.lo), Math.abs(scale.hi), 1e-6);
       document.querySelectorAll(".scale-lo").forEach((el) => { el.textContent = (-span).toFixed(2); });
