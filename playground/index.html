@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Northern Hemisphere shortwave heating</title>
+  <title>Northern Hemisphere shortwave heating, black carbon and vis441</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -18,7 +18,7 @@
     p.note { margin: 0 0 22px; color: var(--muted); max-width: 68ch; }
     .controls { display:grid; gap:14px; margin-bottom:8px; }
     label.row { display:grid; grid-template-columns: 110px 1fr; gap:12px; align-items:center; }
-    label.row span.name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    label.row span.name { font-size: 14px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
     input[type="range"] { width:100%; accent-color: #1f4d45; }
     .readout { min-height: 2.8em; margin: 4px 0 18px; font-size: 16px; }
     .panels { display:grid; grid-template-columns: minmax(280px,.9fr) minmax(320px,1.1fr); gap:18px; }
@@ -93,6 +93,9 @@
       font-weight: 600;
     }
     #site-nav a:last-child { border-bottom: 0; }
+    h2.family { margin: 30px 0 12px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: #efe7d8; color: var(--ink); padding: 0 .25em; border-radius: 4px; }
+    figure code { background: #f3ede2; }
 
   </style>
 </head>
@@ -107,72 +110,142 @@
         <a href="./">Xdark = Black carbon</a>
       </nav>
     </header>
-    <h1>Northern Hemisphere shortwave heating</h1>
-    <h2>X<sub>dark</sub> → X<sub>light</sub></h2>
+    <h1>Northern Hemisphere shortwave heating, black carbon and vis441</h1>
     <p class="note">
-      Monthly-mean 2015 Δ shortwave heating, 0–90°N, compared to baseline, in K day⁻¹.
-      UKESM run. Between training values it is a mix of the two neighbours, the same mix at every height.
+      Monthly-mean 2015 Δ shortwave heating, 0–90°N, compared with <code>u-ec983</code>, in K day⁻¹.
+      Black carbon and vis441 at 10–12 km share the <code>X_light</code> run <code>u-ec950</code>.
+      vis441 at 12–14 km uses <code>u-ed576</code>, and vis441 at 14–16 km uses <code>u-ed582</code>.
+      One month slider and one τ slider drive every panel. The colour scale is shared, so a faint panel is a smaller heating rate.
+      Between the marked τ values the purple line is a mix of the two neighbours, the same mix at every height, and not a UKESM run.
     </p>
     <div class="controls">
       <label class="row">
         <span class="name" id="month-name">Month</span>
-        <input id="month" type="range" min="1" max="12" step="1" value="3" aria-label="Month">
+        <input id="month" type="range" min="1" max="12" step="1" value="2" aria-label="Month">
       </label>
       <label class="row">
         <span class="name" id="tau-name">τ</span>
-        <input id="tau" type="range" min="0" max="5" step="0.001" value="2.631" aria-label="Bleaching time">
+        <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="Bleaching time">
       </label>
     </div>
     <p class="readout" id="readout"></p>
+
+    <h2 class="family">Black carbon, 10–12 km</h2>
     <div class="panels">
       <figure>
         <figcaption>Vertical profile</figcaption>
-        <canvas id="profile" width="640" height="760"></canvas>
-        <div class="legend" id="line-legend"></div>
+        <canvas id="profile-bc" width="640" height="760"></canvas>
+        <div class="legend" id="legend-bc"></div>
         <p class="legend-caption">Line colour is which experiment. The purple line is the τ on the slider.</p>
       </figure>
       <figure>
         <figcaption>Same blend across τ, this month</figcaption>
-        <canvas id="contour" width="760" height="760"></canvas>
+        <canvas id="contour-bc" width="760" height="760"></canvas>
         <div class="scale">
-          <span id="scale-lo"></span>
+          <span class="scale-lo"></span>
           <div class="bar" role="img" aria-label="Heating colour scale, blue negative, white zero, orange positive"></div>
-          <span id="scale-hi"></span>
+          <span class="scale-hi"></span>
         </div>
-        <p class="scale-caption">Fill colour is Δ heating in K day⁻¹. Blue is negative, white is zero, orange is positive. The purple line is the slider τ.</p>
+        <p class="scale-caption">Fill colour is Δ heating in K day⁻¹, on the scale shared by all four rows. The purple line is the slider τ.</p>
+      </figure>
+    </div>
+
+    <h2 class="family">vis441, 10–12 km</h2>
+    <div class="panels">
+      <figure>
+        <figcaption>Vertical profile</figcaption>
+        <canvas id="profile-vis" width="640" height="760"></canvas>
+        <div class="legend" id="legend-vis"></div>
+        <p class="legend-caption">Same colours as the black-carbon row. <code>X_light</code> is <code>u-ec950</code>.</p>
+      </figure>
+      <figure>
+        <figcaption>Same blend across τ, this month</figcaption>
+        <canvas id="contour-vis" width="760" height="760"></canvas>
+        <div class="scale">
+          <span class="scale-lo"></span>
+          <div class="bar" role="img" aria-label="Heating colour scale, blue negative, white zero, orange positive"></div>
+          <span class="scale-hi"></span>
+        </div>
+        <p class="scale-caption">Same shared colour scale. A paler fill is a smaller heating anomaly.</p>
+      </figure>
+    </div>
+
+    <h2 class="family">vis441, 12–14 km</h2>
+    <div class="panels">
+      <figure>
+        <figcaption>Vertical profile</figcaption>
+        <canvas id="profile-vis1214" width="640" height="760"></canvas>
+        <div class="legend" id="legend-vis1214"></div>
+        <p class="legend-caption">Same colours. <code>X_light</code> is <code>u-ed576</code>.</p>
+      </figure>
+      <figure>
+        <figcaption>Same blend across τ, this month</figcaption>
+        <canvas id="contour-vis1214" width="760" height="760"></canvas>
+        <div class="scale">
+          <span class="scale-lo"></span>
+          <div class="bar" role="img" aria-label="Heating colour scale, blue negative, white zero, orange positive"></div>
+          <span class="scale-hi"></span>
+        </div>
+        <p class="scale-caption">Same shared colour scale. A paler fill is a smaller heating anomaly.</p>
+      </figure>
+    </div>
+
+    <h2 class="family">vis441, 14–16 km</h2>
+    <div class="panels">
+      <figure>
+        <figcaption>Vertical profile</figcaption>
+        <canvas id="profile-vis1416" width="640" height="760"></canvas>
+        <div class="legend" id="legend-vis1416"></div>
+        <p class="legend-caption">Same colours. <code>X_light</code> is <code>u-ed582</code>.</p>
+      </figure>
+      <figure>
+        <figcaption>Same blend across τ, this month</figcaption>
+        <canvas id="contour-vis1416" width="760" height="760"></canvas>
+        <div class="scale">
+          <span class="scale-lo"></span>
+          <div class="bar" role="img" aria-label="Heating colour scale, blue negative, white zero, orange positive"></div>
+          <span class="scale-hi"></span>
+        </div>
+        <p class="scale-caption">Same shared colour scale. A paler fill is a smaller heating anomaly.</p>
       </figure>
     </div>
   </main>
-  <script src="data.js"></script>
+  <script src="data.js?v=4rows"></script>
   <script>
     const DATA = window.HEATING;
     const Z = DATA.height_km;
     const ZMIN = 8;
     const ZMAX = 20;
-    const NODES = DATA.cases.slice(0, 5).map((c) => c.tau_days);
+    const CASES = DATA.families[0].cases;
+    const NODES = CASES.slice(0, 5).map((c) => c.tau_days);
     const MONTH = document.getElementById("month");
     const TAU = document.getElementById("tau");
     const READOUT = document.getElementById("readout");
-    const LINE_LEGEND = document.getElementById("line-legend");
-    const SCALE_LO = document.getElementById("scale-lo");
-    const SCALE_HI = document.getElementById("scale-hi");
-    DATA.cases.forEach((c) => {
-      const item = document.createElement("span");
-      const swatch = document.createElement("i");
-      swatch.className = "swatch faint";
-      swatch.style.background = c.color;
-      item.append(swatch, document.createTextNode(c.label));
-      LINE_LEGEND.append(item);
-    });
-    const blendItem = document.createElement("span");
-    const blendSwatch = document.createElement("i");
-    blendSwatch.className = "swatch";
-    blendSwatch.style.background = "#542788";
-    blendSwatch.style.height = "4px";
-    blendItem.append(blendSwatch, document.createTextNode("slider τ"));
-    LINE_LEGEND.append(blendItem);
     const MONTH_NAME = document.getElementById("month-name");
     const TAU_NAME = document.getElementById("tau-name");
+
+    function fillLegend(id) {
+      const legend = document.getElementById(id);
+      CASES.forEach((c) => {
+        const item = document.createElement("span");
+        const swatch = document.createElement("i");
+        swatch.className = "swatch faint";
+        swatch.style.background = c.color;
+        item.append(swatch, document.createTextNode(c.label));
+        legend.append(item);
+      });
+      const blendItem = document.createElement("span");
+      const blendSwatch = document.createElement("i");
+      blendSwatch.className = "swatch";
+      blendSwatch.style.background = "#542788";
+      blendSwatch.style.height = "4px";
+      blendItem.append(blendSwatch, document.createTextNode("slider τ"));
+      legend.append(blendItem);
+    }
+    fillLegend("legend-bc");
+    fillLegend("legend-vis");
+    fillLegend("legend-vis1214");
+    fillLegend("legend-vis1416");
 
     function tauFromSlider(u) {
       if (u <= 0) return NODES[0];
@@ -217,12 +290,12 @@
       return w;
     }
 
-    function mix(w, monthIndex) {
+    function mix(profiles, w, monthIndex) {
       const n = Z.length;
       const out = new Array(n).fill(0);
       for (let i = 0; i < 6; i += 1) {
         if (w[i] === 0) continue;
-        const col = DATA.profiles[i][monthIndex];
+        const col = profiles[i][monthIndex];
         for (let k = 0; k < n; k += 1) out[k] += w[i] * col[k];
       }
       return out;
@@ -241,10 +314,12 @@
     function monthRange(monthIndex) {
       let lo = Infinity;
       let hi = -Infinity;
-      for (let i = 0; i < 6; i += 1) {
-        for (const v of DATA.profiles[i][monthIndex]) {
-          if (v < lo) lo = v;
-          if (v > hi) hi = v;
+      for (const family of DATA.families) {
+        for (const profile of family.profiles) {
+          for (const v of profile[monthIndex]) {
+            if (v < lo) lo = v;
+            if (v > hi) hi = v;
+          }
         }
       }
       const pad = 0.06 * Math.max(hi - lo, 0.05);
@@ -261,7 +336,6 @@
       const u = -t;
       return [Math.round(255 - u * (255 - 0)), Math.round(255 - u * (255 - 114)), Math.round(255 - u * (255 - 178))];
     }
-
 
     function frame(width) {
       const narrow = width < 700;
@@ -314,7 +388,7 @@
       ctx.moveTo(xOf(0), top);
       ctx.lineTo(xOf(0), top + ph);
       ctx.stroke();
-      DATA.cases.forEach((c, i) => {
+      CASES.forEach((c, i) => {
         ctx.beginPath();
         series[i].forEach((v, k) => {
           const x = xOf(v);
@@ -361,7 +435,7 @@
       }
     }
 
-    function drawContour(view, monthIndex, sliderU, scale) {
+    function drawContour(view, profiles, monthIndex, sliderU, scale) {
       const { ctx, width, height } = view;
       const box = frame(width);
       const left = box.left;
@@ -377,7 +451,7 @@
       ctx.clearRect(0, 0, width, height);
       for (let col = 0; col < cols; col += 1) {
         const u = (col / (cols - 1)) * 5;
-        const column = mix(weights(tauFromSlider(u)), monthIndex);
+        const column = mix(profiles, weights(tauFromSlider(u)), monthIndex);
         const x0 = left + (col / cols) * pw;
         const x1 = left + ((col + 1) / cols) * pw;
         for (let k = 0; k < Z.length; k += 1) {
@@ -400,9 +474,9 @@
       ctx.textAlign = "center";
       const ticks = ["light", "1 d", "10 d", "30 d", "100 d", "dark"];
       ticks.forEach((label, i) => {
-        const x = left + (i / 5) * pw;
+        const tickX = left + (i / 5) * pw;
         ctx.textAlign = i === 0 ? "left" : i === ticks.length - 1 ? "right" : "center";
-        ctx.fillText(label, x, top + ph + box.labelDy);
+        ctx.fillText(label, tickX, top + ph + box.labelDy);
       });
       ctx.textAlign = "center";
       ctx.fillText("τ", left + pw / 2, height - box.titleDy);
@@ -426,20 +500,23 @@
       const monthName = DATA.months[monthIndex];
       MONTH_NAME.textContent = monthName;
       TAU_NAME.textContent = tauLabel(tauDays);
-      const parts = DATA.cases
+      const parts = CASES
         .map((c, i) => ({ label: c.label, w: w[i] }))
         .filter((p) => p.w > 0.005);
       const exact = parts.length === 1 && parts[0].w > 0.999;
       READOUT.textContent = exact
-        ? monthName + " · " + parts[0].label + " · this is the UKESM monthly mean."
-        : monthName + " · " + parts.map((p) => p.w.toFixed(2) + " × " + p.label).join(" + ") + ". Mix of those monthly means, not a UKESM run at this τ.";
+        ? monthName + " · " + parts[0].label + " · UKESM monthly mean on every row."
+        : monthName + " · " + parts.map((p) => p.w.toFixed(2) + " × " + p.label).join(" + ") + ". Same mix on every row. Not a UKESM run at this τ.";
       const scale = monthRange(monthIndex);
       const span = Math.max(Math.abs(scale.lo), Math.abs(scale.hi), 1e-6);
-      SCALE_LO.textContent = (-span).toFixed(2);
-      SCALE_HI.textContent = span.toFixed(2);
-      const series = DATA.cases.map((_, i) => DATA.profiles[i][monthIndex]);
-      drawProfile(setup(document.getElementById("profile")), series, scale, mix(w, monthIndex));
-      drawContour(setup(document.getElementById("contour")), monthIndex, sliderU, scale);
+      document.querySelectorAll(".scale-lo").forEach((el) => { el.textContent = (-span).toFixed(2); });
+      document.querySelectorAll(".scale-hi").forEach((el) => { el.textContent = span.toFixed(2); });
+      for (const family of DATA.families) {
+        const suffix = { black_carbon: "bc", vis441: "vis", vis441_12_14: "vis1214", vis441_14_16: "vis1416" }[family.id];
+        const series = family.profiles.map((profile) => profile[monthIndex]);
+        drawProfile(setup(document.getElementById("profile-" + suffix)), series, scale, mix(family.profiles, w, monthIndex));
+        drawContour(setup(document.getElementById("contour-" + suffix)), family.profiles, monthIndex, sliderU, scale);
+      }
     }
 
     MONTH.addEventListener("input", render);
