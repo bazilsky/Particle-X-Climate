@@ -170,10 +170,10 @@
     const NODES = DATA.families[0].cases.slice(0, 5).map((c) => c.tau_days);
     const CASES = DATA.families[0].cases;
     const LINES = [
-      { id: "black_carbon", label: "BC, 10–12 km", color: "#000000" },
-      { id: "vis441", label: "vis441, 10–12 km", color: "#0072B2" },
-      { id: "vis441_12_14", label: "vis441, 12–14 km", color: "#009E73" },
-      { id: "vis441_14_16", label: "vis441, 14–16 km", color: "#D55E00" },
+      { id: "black_carbon", label: "BC, 10–12 km", legend: "Xdark = BC, 10–12 km", color: "#000000" },
+      { id: "vis441", label: "vis441, 10–12 km", legend: "Xdark = VIS441, 10–12 km", color: "#0072B2" },
+      { id: "vis441_12_14", label: "vis441, 12–14 km", legend: "Xdark = VIS441, 12–14 km", color: "#009E73" },
+      { id: "vis441_14_16", label: "vis441, 14–16 km", legend: "Xdark = VIS441, 14–16 km", color: "#D55E00" },
     ];
     const FAMILIES = LINES.map((line) => DATA.families.find((family) => family.id === line.id));
     const MONTH = document.getElementById("month");
@@ -195,7 +195,7 @@
       const swatch = document.createElement("i");
       swatch.className = "swatch thick";
       swatch.style.background = line.color;
-      item.append(swatch, document.createTextNode(line.label));
+      item.append(swatch, document.createTextNode(line.legend));
       legend.append(item);
     });
 
