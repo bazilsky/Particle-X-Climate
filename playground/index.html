@@ -24,6 +24,7 @@
     label.row.stack span.name { grid-column: 1 / -1; }
     label.row.stack .tau-control { grid-column: 2; }
     [hidden] { display:none !important; }
+    sub { font-size: .7em; line-height: 0; vertical-align: -0.25em; }
     .tau-control { min-width:0; }
     .tau-control input { display:block; margin:0; }
     .tau-ticks { position:relative; height:1.5em; margin:4px 8px 0; color:var(--muted); font-size:14px; line-height:1.5; }
@@ -40,6 +41,7 @@
     canvas { width:100%; height:auto; display:block; }
     .legend { display:flex; flex-wrap:wrap; gap:6px 14px; margin:8px 4px 2px; font-size:17px; color:#333; }
     .legend span { display:inline-flex; align-items:center; gap:6px; }
+    .legend span.lbl { display:inline; }
     .swatch { width:18px; height:3px; border-radius:1px; display:inline-block; }
     .swatch.faint { opacity:.55; }
     .scale { display:grid; grid-template-columns: auto minmax(80px,1fr) auto; gap:8px; align-items:center; margin:8px 4px 2px; font-size:17px; color:#333; }
@@ -121,13 +123,13 @@
       <input type="checkbox" id="nav-toggle" hidden>
       <label for="nav-toggle" class="menu-toggle">Menu</label>
       <nav id="site-nav">
-        <a href="./">Xdark = Black carbon</a>
+        <a href="./">X<sub>dark</sub> = Black carbon</a>
       </nav>
     </header>
     <h1>Northern Hemisphere shortwave heating, black carbon and vis441</h1>
     <p class="note">
       Monthly-mean 2015 Δ shortwave heating, 0–90°N, compared with <code>u-ec983</code>, in K day⁻¹.
-      Black carbon and vis441 at 10–12 km share the <code>X_light</code> run <code>u-ec950</code>.
+      Black carbon and vis441 at 10–12 km share the X<sub>light</sub> run <code>u-ec950</code>.
       vis441 at 12–14 km uses <code>u-ed576</code>, and vis441 at 14–16 km uses <code>u-ed582</code>.
       One month slider and one τ slider drive every panel. The colour scale is shared, so a faint panel is a smaller heating rate.
       Between the marked τ values the purple line is a mix of the two neighbours, the same mix at every height.
@@ -148,24 +150,24 @@
       <label class="row stack">
         <span class="name" id="tau-name">e-folding time (τ)</span>
         <div class="tau-control">
-          <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="e-folding time (τ), Xlight to Xdark">
-          <div class="tau-ticks" id="tau-ticks" aria-hidden="true"><span style="left:0%">Xlight</span><span style="left:20%"><span class="tp">τ = </span>1 d</span><span style="left:40%"><span class="tp">τ = </span>10 d</span><span style="left:60%"><span class="tp">τ = </span>30 d</span><span style="left:80%"><span class="tp">τ = </span>100 d</span><span style="left:100%">Xdark</span></div>
+          <input id="tau" type="range" min="0" max="5" step="0.001" value="2" aria-label="e-folding time (τ), X light to X dark">
+          <div class="tau-ticks" id="tau-ticks" aria-hidden="true"><span style="left:0%">X<sub>light</sub></span><span style="left:20%"><span class="tp">τ = </span>1 d</span><span style="left:40%"><span class="tp">τ = </span>10 d</span><span style="left:60%"><span class="tp">τ = </span>30 d</span><span style="left:80%"><span class="tp">τ = </span>100 d</span><span style="left:100%">X<sub>dark</sub></span></div>
         </div>
       </label>
     </div>
     <p class="readout" id="readout"></p>
 
     <section id="row-bc">
-    <h2 class="family">Xdark = BC, 10–12 km</h2>
+    <h2 class="family">X<sub>dark</sub> = BC, 10–12 km</h2>
     <div class="panels">
       <figure>
-        <figcaption>Vertical profile · Xdark = BC, 10–12 km</figcaption>
+        <figcaption>Vertical profile · X<sub>dark</sub> = BC, 10–12 km</figcaption>
         <canvas id="profile-bc" width="640" height="760"></canvas>
         <div class="legend" id="legend-bc"></div>
         <p class="legend-caption">Line colour is which experiment. The purple line is the τ on the slider.</p>
       </figure>
       <figure>
-        <figcaption>Same blend across τ, this month · Xdark = BC, 10–12 km</figcaption>
+        <figcaption>Same blend across τ, this month · X<sub>dark</sub> = BC, 10–12 km</figcaption>
         <canvas id="contour-bc" width="760" height="760"></canvas>
         <div class="scale">
           <span class="scale-lo"></span>
@@ -178,16 +180,16 @@
     </section>
 
     <section id="row-vis">
-    <h2 class="family">Xdark = VIS441, 10–12 km</h2>
+    <h2 class="family">X<sub>dark</sub> = VIS441, 10–12 km</h2>
     <div class="panels">
       <figure>
-        <figcaption>Vertical profile · Xdark = VIS441, 10–12 km</figcaption>
+        <figcaption>Vertical profile · X<sub>dark</sub> = VIS441, 10–12 km</figcaption>
         <canvas id="profile-vis" width="640" height="760"></canvas>
         <div class="legend" id="legend-vis"></div>
-        <p class="legend-caption">Line colours identify the experiments. <code>X_light</code> is <code>u-ec950</code>.</p>
+        <p class="legend-caption">Line colours identify the experiments. X<sub>light</sub> is <code>u-ec950</code>.</p>
       </figure>
       <figure>
-        <figcaption>Same blend across τ, this month · Xdark = VIS441, 10–12 km</figcaption>
+        <figcaption>Same blend across τ, this month · X<sub>dark</sub> = VIS441, 10–12 km</figcaption>
         <canvas id="contour-vis" width="760" height="760"></canvas>
         <div class="scale">
           <span class="scale-lo"></span>
@@ -200,16 +202,16 @@
     </section>
 
     <section id="row-vis1214">
-    <h2 class="family">Xdark = VIS441, 12–14 km</h2>
+    <h2 class="family">X<sub>dark</sub> = VIS441, 12–14 km</h2>
     <div class="panels">
       <figure>
-        <figcaption>Vertical profile · Xdark = VIS441, 12–14 km</figcaption>
+        <figcaption>Vertical profile · X<sub>dark</sub> = VIS441, 12–14 km</figcaption>
         <canvas id="profile-vis1214" width="640" height="760"></canvas>
         <div class="legend" id="legend-vis1214"></div>
-        <p class="legend-caption">Same colours. <code>X_light</code> is <code>u-ed576</code>.</p>
+        <p class="legend-caption">Same colours. X<sub>light</sub> is <code>u-ed576</code>.</p>
       </figure>
       <figure>
-        <figcaption>Same blend across τ, this month · Xdark = VIS441, 12–14 km</figcaption>
+        <figcaption>Same blend across τ, this month · X<sub>dark</sub> = VIS441, 12–14 km</figcaption>
         <canvas id="contour-vis1214" width="760" height="760"></canvas>
         <div class="scale">
           <span class="scale-lo"></span>
@@ -222,16 +224,16 @@
     </section>
 
     <section id="row-vis1416">
-    <h2 class="family">Xdark = VIS441, 14–16 km</h2>
+    <h2 class="family">X<sub>dark</sub> = VIS441, 14–16 km</h2>
     <div class="panels">
       <figure>
-        <figcaption>Vertical profile · Xdark = VIS441, 14–16 km</figcaption>
+        <figcaption>Vertical profile · X<sub>dark</sub> = VIS441, 14–16 km</figcaption>
         <canvas id="profile-vis1416" width="640" height="760"></canvas>
         <div class="legend" id="legend-vis1416"></div>
-        <p class="legend-caption">Same colours. <code>X_light</code> is <code>u-ed582</code>.</p>
+        <p class="legend-caption">Same colours. X<sub>light</sub> is <code>u-ed582</code>.</p>
       </figure>
       <figure>
-        <figcaption>Same blend across τ, this month · Xdark = VIS441, 14–16 km</figcaption>
+        <figcaption>Same blend across τ, this month · X<sub>dark</sub> = VIS441, 14–16 km</figcaption>
         <canvas id="contour-vis1416" width="760" height="760"></canvas>
         <div class="scale">
           <span class="scale-lo"></span>
@@ -272,7 +274,7 @@
         const swatch = document.createElement("i");
         swatch.className = "swatch faint";
         swatch.style.background = c.color;
-        item.append(swatch, document.createTextNode(c.label));
+        item.append(swatch, inlineLabel(caseLabel(c.label)));
         legend.append(item);
       });
       const blendItem = document.createElement("span");
@@ -343,13 +345,57 @@
     }
 
     function tauLabel(tauDays) {
-      if (!Number.isFinite(tauDays)) return "Xdark";
-      if (tauDays <= NODES[0] * 1.001) return "Xlight";
+      if (!Number.isFinite(tauDays)) return "X dark";
+      if (tauDays <= NODES[0] * 1.001) return "X light";
       if (tauDays < 10) return "τ = " + Number(tauDays.toPrecision(2)) + " days";
       if (tauDays < 1000) return "τ = " + Number(tauDays.toPrecision(3)) + " days";
       const exp = Math.floor(Math.log10(tauDays));
       const mant = tauDays / 10 ** exp;
       return "τ = " + mant.toFixed(1) + "×10^" + exp + " days";
+    }
+
+    // "X dark" / "X light" are the plain-text forms (used for aria); these helpers show them as X with a subscript.
+    function richLabel(text) {
+      const frag = document.createDocumentFragment();
+      String(text).split(/(X (?:dark|light))/).forEach((part) => {
+        const m = /^X (dark|light)$/.exec(part);
+        if (m) {
+          const sub = document.createElement("sub");
+          sub.textContent = m[1];
+          frag.append("X", sub);
+        } else if (part) {
+          frag.append(part);
+        }
+      });
+      return frag;
+    }
+
+    function inlineLabel(text) {
+      const span = document.createElement("span");
+      span.className = "lbl";
+      span.append(richLabel(text));
+      return span;
+    }
+
+    function drawLabel(ctx, text, x, y) {
+      const m = /^X (dark|light)$/.exec(text);
+      if (!m) { ctx.fillText(text, x, y); return; }
+      const font = ctx.font;
+      const size = parseFloat(font) || 12;
+      const subFont = font.replace(/^[\d.]+px/, (size * 0.7).toFixed(1) + "px");
+      const align = ctx.textAlign;
+      const wX = ctx.measureText("X").width;
+      ctx.font = subFont;
+      const wSub = ctx.measureText(m[1]).width;
+      ctx.font = font;
+      const total = wX + wSub;
+      const x0 = align === "center" ? x - total / 2 : align === "right" || align === "end" ? x - total : x;
+      ctx.textAlign = "left";
+      ctx.fillText("X", x0, y);
+      ctx.font = subFont;
+      ctx.fillText(m[1], x0 + wX, y + size * 0.25);
+      ctx.font = font;
+      ctx.textAlign = align;
     }
 
     function tauText(tauDays) {
@@ -358,7 +404,7 @@
     }
 
     function caseLabel(label) {
-      return label === "X_light" ? "Xlight" : label === "X_dark" ? "Xdark" : label;
+      return label === "X_light" ? "X light" : label === "X_dark" ? "X dark" : label;
     }
 
     function monthRange(monthIndex) {
@@ -522,11 +568,11 @@
       ctx.fillStyle = "#333";
       ctx.font = box.font;
       ctx.textAlign = "center";
-      const ticks = ["Xlight", "1 d", "10 d", "30 d", "100 d", "Xdark"];
+      const ticks = ["X light", "1 d", "10 d", "30 d", "100 d", "X dark"];
       ticks.forEach((label, i) => {
         const tickX = left + (i / 5) * pw;
         ctx.textAlign = i === 0 ? "left" : i === ticks.length - 1 ? "right" : "center";
-        ctx.fillText(label, tickX, top + ph + box.labelDy);
+        drawLabel(ctx, label, tickX, top + ph + box.labelDy);
       });
       ctx.textAlign = "center";
       ctx.fillText("τ", left + pw / 2, height - box.titleDy);
@@ -552,15 +598,15 @@
       const monthName = DATA.months[monthIndex];
       MONTH_NAME.textContent = monthName;
       const tauLine = tauText(tauDays);
-      TAU_NAME.textContent = tauLine;
+      TAU_NAME.replaceChildren(richLabel(tauLine));
       TAU.setAttribute("aria-valuetext", tauLine);
       const parts = CASES
         .map((c, i) => ({ label: c.label, w: w[i] }))
         .filter((p) => p.w > 0.005);
       const exact = parts.length === 1 && parts[0].w > 0.999;
-      READOUT.textContent = exact
+      READOUT.replaceChildren(richLabel(exact
         ? monthName + " · " + tauLine + " · UKESM monthly mean on every row."
-        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ". Same mix on every row.";
+        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ". Same mix on every row."));
       const scale = monthRange(monthIndex);
       const contourScale = VIEW.value === "vis441" ? { lo: -0.5, hi: 0.5 } : scale;
       const span = Math.max(Math.abs(contourScale.lo), Math.abs(contourScale.hi), 1e-6);
