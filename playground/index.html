@@ -130,7 +130,7 @@
       Black carbon and vis441 at 10–12 km share the <code>X_light</code> run <code>u-ec950</code>.
       vis441 at 12–14 km uses <code>u-ed576</code>, and vis441 at 14–16 km uses <code>u-ed582</code>.
       One month slider and one τ slider drive every panel. The colour scale is shared, so a faint panel is a smaller heating rate.
-      Between the marked τ values the purple line is a mix of the two neighbours, the same mix at every height, and not a UKESM run.
+      Between the marked τ values the purple line is a mix of the two neighbours, the same mix at every height.
     </p>
     <div class="controls">
       <label class="row">
@@ -560,7 +560,7 @@
       const exact = parts.length === 1 && parts[0].w > 0.999;
       READOUT.textContent = exact
         ? monthName + " · " + tauLine + " · UKESM monthly mean on every row."
-        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ". Same mix on every row. Not a UKESM run at this τ.";
+        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ". Same mix on every row.";
       const scale = monthRange(monthIndex);
       const contourScale = VIEW.value === "vis441" ? { lo: -0.5, hi: 0.5 } : scale;
       const span = Math.max(Math.abs(contourScale.lo), Math.abs(contourScale.hi), 1e-6);

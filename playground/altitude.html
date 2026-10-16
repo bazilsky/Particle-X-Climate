@@ -129,7 +129,7 @@
       One vertical profile of the interpolator at the slider τ.
       The four lines are black carbon at 10–12 km, and vis441 at 10–12, 12–14, and 14–16 km.
       Monthly-mean 2015 Δ shortwave heating, 0–90°N, compared with <code>u-ec983</code>, in K day⁻¹.
-      Between the marked τ values each line is a mix of its two neighbours, the same mix at every height, and not a UKESM run.
+      Between the marked τ values each line is a mix of its two neighbours, the same mix at every height.
       vis441 at 10–12 km uses <code>u-ec950</code> at the light end.
     </p>
     <div class="controls">
@@ -396,7 +396,7 @@
       const peaks = series.map((line, i) => LINES[i].label + " " + peakKm(line) + " km").join(", ");
       READOUT.textContent = (exact
         ? monthName + " · " + tauLine + " · UKESM monthly mean."
-        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ". Not a UKESM run at this τ.")
+        : monthName + " · " + tauLine + " · " + parts.map((p) => p.w.toFixed(2) + " × " + caseLabel(p.label)).join(" + ") + ".")
         + " Heating peak: " + peaks + ".";
       drawLines(setup(document.getElementById("profile")), series, monthRange(monthIndex));
       const next = new URLSearchParams(location.search);
