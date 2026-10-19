@@ -3,6 +3,7 @@
 <head>
   <script>document.documentElement.classList.add('js-ready');</script>
   <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Particle X Climate</title>
@@ -58,16 +59,23 @@
     a.test { background: #8a6a2f; border-color: #8a6a2f; color: #f6f1e7; }
   </style>
 </head>
-<body>
-  <div>
-    <p class="mark motion-line"><span>Particle X Climate</span></p>
-    <h1 class="motion-enter">Three ways in.</h1>
-    <div class="doors motion-stagger">
-      <a class="door test motion-enter" href="studio.html">The Studio</a>
-      <a class="door play motion-enter" href="playground/">Research Playground</a>
-      <a class="door watch motion-enter" href="overwatch.html">Research Overwatch</a>
+<body class="landing">
+  <header class="lp-head">
+    <a class="mark-sm" href="./">Particle X Climate</a>
+  </header>
+  <main class="lp">
+    <div class="lp-hero">
+      <p class="mark motion-line"><span>Particle X Climate</span></p>
+      <h1 class="motion-enter">Three ways in.</h1>
     </div>
-  </div>
+    <div class="doors motion-stagger">
+      <a class="door test motion-enter" href="studio.html"><span class="n">01</span><span class="t">The Studio</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="door play motion-enter" href="playground/"><span class="n">02</span><span class="t">Research Playground</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="door watch motion-enter" href="overwatch.html"><span class="n">03</span><span class="t">Research Overwatch</span><span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </main>
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div></div>
   <script src="/assets/motion.js" defer></script>
+  <script src="/assets/studio.js" defer></script>
 </body>
 </html>

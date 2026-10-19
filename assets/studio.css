@@ -1,0 +1,116 @@
+/* Particle X Climate — "Studio cinematic" interface layer.
+   Fonts, type scale and palette are unchanged; this only adds layout/shell.
+   Landing (body.landing) and Research Overwatch (body.overwatch) get the full treatment;
+   every other page opts into the shared shell with body.pxc-shell. */
+:root{--ink:#1c1915;--muted:#5c564c;--paper:#f6f1e7;--card:#fffdf8;--line:#e2d8c8;--rust:#9a3b24;--teal:#1f4d45;--gold:#8a6a2f;--ease:cubic-bezier(.2,.7,.2,1)}
+html,body{overflow-x:clip}
+
+/* research-theme strip */
+.marquee .track{display:inline-flex;gap:1.2rem;padding-right:1.2rem;white-space:nowrap;animation:pxc-marq 38s linear infinite}
+.marquee i{font-style:normal;opacity:.5}
+@keyframes pxc-marq{to{transform:translateX(-50%)}}
+
+/* =============== B · STUDIO CINEMATIC =============== */
+html:root{--band:#1c1915}
+html:root .hero-bg,html:root .lp-hero::before{display:block;position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(60% 80% at 20% 30%,rgba(31,77,69,.85),transparent 70%),
+    radial-gradient(45% 60% at 95% 95%,rgba(154,59,36,.5),transparent 70%),
+    radial-gradient(40% 60% at 60% 10%,rgba(138,106,47,.45),transparent 70%),
+    var(--band);
+  background-size:180px 180px,160% 160%,160% 160%,160% 160%,auto;
+  animation:pxc-drift 22s ease-in-out infinite alternate}
+@keyframes pxc-drift{0%{background-position:0 0,0% 0%,100% 100%,50% 0%,0 0}100%{background-position:0 0,40% 30%,60% 70%,20% 40%,0 0}}
+html:root body.landing{display:block;padding:0;text-align:left;background:var(--paper)}
+html:root .landing .lp-head{display:flex;position:fixed;top:0;left:0;right:0;z-index:40;padding:1.2rem clamp(1.25rem,4vw,3rem);transition:background .4s,color .4s,box-shadow .4s}
+html:root .mark-sm{font-family:Fraunces,Georgia,serif;font-weight:620;font-size:1.15rem;letter-spacing:-.02em;color:var(--paper);text-decoration:none}
+html:root .landing .lp{display:block}
+html:root .landing .lp-hero{position:relative;isolation:isolate;min-height:62vh;display:flex;flex-direction:column;justify-content:flex-end;padding:7rem clamp(1.25rem,4vw,3rem) 4rem;color:var(--paper);overflow:hidden}
+html:root .landing .lp-hero::before{content:""}
+html:root .landing .mark{max-width:12ch}
+html:root .landing h1{margin:0;color:#e9dfcd}
+html:root .landing .doors{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+html:root a.door{min-width:0;border-radius:0;border:0;display:flex;flex-direction:column;justify-content:space-between;min-height:26vh;padding:1.4rem clamp(1.25rem,3vw,2.2rem);position:relative;overflow:hidden;box-shadow:none!important}
+html:root a.door .n,html:root a.door .arr{display:block}
+html:root a.door .n{font:600 .78rem/1 "Source Sans 3",sans-serif;letter-spacing:.16em;opacity:.7}
+html:root a.door .arr{position:absolute;right:1.6rem;bottom:1.3rem;transition:transform .5s var(--ease)}
+html:root a.door::before{content:"";position:absolute;inset:0;background:rgba(255,253,248,.08);transform:translateY(101%);transition:transform .6s var(--ease)}
+html:root a.door:hover{transform:none}
+html:root a.door:hover::before{transform:none}
+html:root a.door:hover .arr{transform:translateX(8px)}
+html:root a.door .t{position:relative}
+html:root .marquee{display:block;overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);padding:1rem 0;font-family:Fraunces,Georgia,serif;font-size:1.35rem;color:var(--ink);background:var(--paper)}
+html:root .head-solid{background:rgba(246,241,231,.94)!important;box-shadow:0 1px 0 var(--line)}
+html:root .head-solid .mark-sm,html:root .head-solid .mark{color:var(--ink)!important}
+/* B overwatch */
+html:root .overwatch .wrap{width:auto;margin:0}
+html:root .overwatch .wrap>*:not(.hero):not(.marquee){width:min(1080px,calc(100% - 2.5rem));margin-left:auto;margin-right:auto}
+html:root .overwatch header{position:fixed;top:0;left:0;right:0;width:auto!important;margin:0!important;z-index:40;border-bottom:0;padding:1.1rem max(1.25rem,calc((100% - 1080px)/2)) .9rem;transition:background .4s,box-shadow .4s}
+html:root .overwatch header .mark{color:var(--paper)!important;transition:color .4s}
+html:root .overwatch .menu-toggle{background:transparent;color:var(--paper);border-color:rgba(246,241,231,.4);transition:color .4s,border-color .4s}
+html:root .overwatch .head-solid .menu-toggle,html:root .overwatch header.nav-open .menu-toggle,html:root .overwatch header:has(#nav-toggle:checked) .menu-toggle{color:var(--ink);border-color:var(--line)}
+html:root .overwatch header:has(#nav-toggle:checked),html:root .overwatch header.nav-open{background:var(--paper);box-shadow:0 12px 30px rgba(28,25,21,.12);transition:none}
+html:root .overwatch header:has(#nav-toggle:checked) .mark{color:var(--ink)!important}
+html:root .overwatch .hero{position:relative;isolation:isolate;overflow:hidden;min-height:72vh;display:flex;align-items:flex-end;padding:8rem max(1.25rem,calc((100% - 1080px)/2)) 4.5rem;color:var(--paper)}
+html:root .overwatch .hero .lede{color:#e3d9c7}
+html:root .overwatch .hero .kicker{color:#d9bf8a}
+html:root .overwatch .marquee{margin-bottom:3rem}
+html:root .overwatch section{padding:2rem 0 4rem}
+html:root .overwatch h2{font-size:1.8rem}
+html:root .overwatch .cards{grid-template-columns:repeat(2,1fr);gap:0;border-radius:0}
+html:root .overwatch article{border:0;border-radius:0;min-height:250px;display:flex;flex-direction:column;padding:1.8rem 2rem;color:var(--paper);position:relative;overflow:hidden;box-shadow:none!important}
+html:root .overwatch article:nth-child(1){background:var(--teal)}
+html:root .overwatch article:nth-child(2){background:var(--rust)}
+html:root .overwatch article:nth-child(3){background:var(--gold)}
+html:root .overwatch article:nth-child(4){background:var(--ink)}
+html:root .overwatch article p{color:rgba(246,241,231,.82);max-width:30rem}
+html:root .overwatch article .day{margin-bottom:1rem;background:rgba(246,241,231,.14)!important;color:var(--paper)!important;align-self:flex-start}
+html:root .overwatch article a.card-link{color:var(--paper);margin-top:auto;padding-top:1.2rem}
+html:root .overwatch article:hover{transform:none}
+html:root .overwatch article::before{content:"";position:absolute;inset:0;background:rgba(255,253,248,.07);transform:translateY(101%);transition:transform .6s var(--ease);pointer-events:none}
+html:root .overwatch article:hover::before{transform:none}
+html:root .overwatch article .px{will-change:transform}
+html:root .overwatch .team{border-top:1px solid var(--ink)}
+html:root .overwatch .person h3{font-size:1.45rem}
+html:root .overwatch .remit li{background:transparent;border-color:var(--ink)}
+@media (max-width:760px){
+  html:root .landing .doors{grid-template-columns:1fr}
+  html:root a.door{min-height:92px;flex-direction:row;align-items:center;justify-content:flex-start;gap:1rem}
+  html:root .landing .lp-hero{min-height:52vh;padding-bottom:2.6rem}
+  html:root .overwatch .hero{min-height:64vh;padding-bottom:3rem}
+  html:root .overwatch .cards{grid-template-columns:1fr}
+  html:root .overwatch article{min-height:200px;padding:1.5rem}
+  html:root .marquee{font-size:1.15rem}
+}
+
+
+/* motion.js marks header .pxc-header-scrolled at 12px; on the dark hero keep it clear until .head-solid */
+html:root .landing .lp-head.pxc-header-scrolled:not(.head-solid),
+html:root .overwatch header.pxc-header-scrolled:not(.head-solid):not(.nav-open){background:transparent;box-shadow:none}
+html:root .overwatch header:has(#nav-toggle:checked){box-shadow:0 12px 30px rgba(28,25,21,.12)}
+html:root .overwatch footer{margin-top:1rem}
+
+/* ---------- shared shell for every other page ---------- */
+body.pxc-shell > .wrap > header,
+body.pxc-shell header.top{position:sticky;top:0;z-index:40;isolation:isolate;background:transparent!important;box-shadow:none!important}
+body.pxc-shell > .wrap > header::before,
+body.pxc-shell header.top::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:rgba(246,241,231,.96);box-shadow:0 1px 0 var(--line),0 10px 26px rgba(28,25,21,.06);opacity:0;transition:opacity .4s var(--ease);pointer-events:none}
+body.pxc-shell header.pxc-header-scrolled::before,
+body.pxc-shell header:has(#nav-toggle:checked)::before,
+body.pxc-shell header.nav-open::before{opacity:1}
+body.pxc-shell header:has(#nav-toggle:checked)::before,
+body.pxc-shell header.nav-open::before{background:var(--paper)}
+body.pxc-shell header .menu-toggle{transition:border-color .3s,background .3s,transform .12s}
+body.pxc-shell header .menu-toggle:hover{border-color:var(--ink)}
+body.pxc-shell header .menu-toggle:active{transform:scale(.96)}
+body.pxc-shell header #site-nav a{transition:color .25s,padding-left .35s var(--ease)}
+body.pxc-shell header #site-nav a:hover{padding-left:.6rem}
+
+@media (prefers-reduced-motion:reduce){
+  .marquee .track,.hero-bg,.lp-hero::before{animation:none!important}
+  a.door,a.door *,.overwatch article,.overwatch article *,body.pxc-shell header::before,body.pxc-shell header #site-nav a{transition:none!important}
+}
+
+/* Playground header sits at the top of <main>; give the stuck bar a little headroom without moving layout */
+body.pxc-shell header.top{padding-top:.7rem;margin-top:-.7rem}
