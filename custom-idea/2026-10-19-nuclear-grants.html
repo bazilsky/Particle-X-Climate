@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom Grant Path: nuclear war research — 19 October 2026</title>
+  <meta name="description" content="Custom Grant Path: funding for nuclear war climate research, 19 October 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+      --go: #1f4d45;
+      --go-soft: #e4eeeb;
+      --maybe: #8a6a2f;
+      --maybe-soft: #f3ead4;
+      --nogo: #9a3b24;
+      --nogo-soft: #f3e4dc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid var(--rust);
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    .tip small {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .grants {
+      display: grid;
+      gap: 1rem;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta li {
+      margin: 0 0 0.35rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .meta li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+    }
+
+    .tag.go {
+      background: var(--go-soft);
+      color: var(--go);
+    }
+
+    .tag.maybe {
+      background: var(--maybe-soft);
+      color: var(--maybe);
+    }
+
+    .tag.nogo {
+      background: var(--nogo-soft);
+      color: var(--nogo);
+    }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    .url a {
+      color: var(--rust);
+      text-decoration: none;
+    }
+
+    .url a:hover { text-decoration: underline; }
+
+    .note {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .signoff {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+
+    .tip.joke { border-left-color: #0d47a1; }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
+    .tag.new { background: #e3ecf8; color: #0d47a1; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="../idea/index.html">Idea path</a>
+        <a href="index.html">Custom idea path</a>
+        <a href="../overwatch.html#team">Team</a>
+        <a href="../overwatch.html#remit">Remit</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <p class="kicker">19 October 2026</p>
+      <h1>Custom Grant Path: nuclear war research</h1>
+      <p class="lede">A quick targeted scan for funding that fits Ananth’s nuclear war climate research: nuclear winter, soot and smoke lofted into the stratosphere, and the impacts on climate, crops and food security. The best nuclear-war fits come first, and policy-only funds are labelled as such. 21 entries. Eligibility tags assume Ananth as Applicant PI or project lead (PhD December 2022, fixed-term postdoc at Exeter). <span class="tag go">GO</span> only when the call text allows it, <span class="tag maybe">MAYBE</span> when the text or his contract still needs confirming. Companion to the <a href="../grant/2026-10-19.html">19 October Grant Path</a>.</p>
+      <div class="tip joke">
+        <p>A literature review is just a polite argument with people who aren&#x27;t in the room. — Pulse</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Nuclear-war funders</h2>
+      <div class="grants">
+        <article>
+          <h3>Nuclear Weapons Policy Fund</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Longview Philanthropy</li>
+            <li><strong>Deadline:</strong> No dated round — no open application form on the fund page; contact the nuclear grantmaking team (info@longview.org)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — the fund page does not say who may apply or how, so eligibility for a UK university postdoc is not stated; it would be a direct approach.</li>
+            <li><strong>Why it might fit:</strong> Strong on topic. Besides deterrence and arms control, the page lists “consequences of nuclear use” and “civilizational resilience” among the other areas it considers. It is the only nuclear funder found today that names consequences.</li>
+            <li><strong>Why it might not fit:</strong> Policy-led: its three mechanisms are applied policy research, Track 1.5/2 dialogues and talent for government roles. A pure nuclear-winter modelling project would need a clear decision-maker use.</li>
+          </ul>
+          <p class="url"><a href="https://www.longview.org/fund/nuclear-weapons-policy-fund/" target="_blank" rel="noopener noreferrer">https://www.longview.org/fund/nuclear-weapons-policy-fund/</a></p>
+        </article>
+        <article>
+          <h3>NATO Science for Peace and Security: call 2027-1</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> NATO SPS Programme</li>
+            <li><strong>Deadline:</strong> Full proposals by Sunday 15 November 2026, 23:59 CET (22:59 UK); funding decisions can take up to nine months</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — no career-stage rule, and academic co-directors are allowed, but every bid needs a NATO-country Project Director (he could be the UK one) and a Partner-country Project Director employed in an eligible partner country, such as Australia, New Zealand, Japan, Switzerland, Ireland or Austria. Co-directors are limited to one proposal per call.</li>
+            <li><strong>Why it might fit:</strong> Partial. A Multi-Year Project (typically about €400k over 36 months) or an Event (Advanced Research Workshop) on the security consequences of a nuclear war, for example food and energy resilience under sunlight loss. This call’s topics include protecting critical infrastructure and supplies, and keeping facilities running through prolonged disruption.</li>
+            <li><strong>Why it might not fit:</strong> The call needs a clear security link and expects projects to reach Technology Readiness Levels 3–6 with end-user letters, which fits applied tools better than climate science. An Event is the more realistic route, and the partner co-director must be found in four weeks.</li>
+          </ul>
+          <p class="url"><a href="https://www.nato.int/content/dam/nato/webready/documents/sps/grants/SPS-Call4proposals-2027-1.pdf" target="_blank" rel="noopener noreferrer">https://www.nato.int/content/dam/nato/webready/documents/sps/grants/SPS-Call4proposals-2027-1.pdf</a></p>
+        </article>
+        <article>
+          <h3>Consortium to Reduce Nuclear Dangers (second call)</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Carnegie Corporation of New York (host), with Longview, Founders Pledge, Global Challenges Foundation, PAX sapiens and Global Risks Fund</li>
+            <li><strong>Deadline:</strong> Closed 29 May 2026 (decisions late autumn/winter 2026); a third call has not been announced</li>
+            <li><strong>Eligibility:</strong> <span class="tag go">GO</span> — the call text accepts individual researchers and university centres, inside and outside the US, and encourages early- and mid-career applicants, especially on the small-grant tier. A nonprofit (501(c)(3) or equivalent) base is “strongly preferred”, and indirect costs are capped at 15%.</li>
+            <li><strong>Why it might fit:</strong> Partial. Small grants of $50k–$200k for up to two years. Focus area 2, “Verification, Monitoring, and Risk Transparency”, names “modeling and simulation tools” and forecasting, which is the nearest door for consequences modelling. Watch for a third call.</li>
+            <li><strong>Why it might not fit:</strong> Policy-only in practice: projects need a theory of change that reduces nuclear risk, and “academic publishing … without a defined uptake strategy” is not prioritised. There is no open window now.</li>
+          </ul>
+          <p class="url"><a href="https://carnegie.org/article/second-call-for-proposals-grants-to-support-reducing-nuclear-dangers/" target="_blank" rel="noopener noreferrer">https://carnegie.org/article/second-call-for-proposals-grants-to-support-reducing-nuclear-dangers/</a></p>
+        </article>
+        <article>
+          <h3>Ploughshares Fund grants</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Ploughshares Fund</li>
+            <li><strong>Deadline:</strong> Fall 2026 cycle closed; next cycle dates “will likely be posted in January 2027”. Discretionary grants of up to $50,000 between board meetings, by inquiry</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — Ploughshares makes grants to individuals and international organisations, but it “does not cover overhead costs at academic institutions”, so Exeter would have to accept a no-overhead award.</li>
+            <li><strong>Why it might fit:</strong> Partial. Nuclear threat reduction is its whole remit; a short evidence piece on the humanitarian and climate consequences of nuclear use for a policy audience could fit a discretionary grant.</li>
+            <li><strong>Why it might not fit:</strong> An advocacy and policy funder, not a science funder; it does not fund dissertations or books, and the no-overhead rule may block a university award.</li>
+          </ul>
+          <p class="url"><a href="https://ploughshares.org/grants/apply/" target="_blank" rel="noopener noreferrer">https://ploughshares.org/grants/apply/</a></p>
+        </article>
+        <article>
+          <h3>Nuclear Deterrence Fund (Knowledge Accelerator Pathway)</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Ministry of Defence</li>
+            <li><strong>Deadline:</strong> No dated open round on GOV.UK; applications and research areas via Contracts Finder; all current projects must finish by March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — the Knowledge Accelerator Pathway is written for doctoral and postdoctoral researchers wanting to be PI on a short project (typically under a year), so his career stage fits. Today’s Grant Path tagged it NO-GO on remit; it is MAYBE here only on eligibility.</li>
+            <li><strong>Why it might fit:</strong> Weak to partial. The fund wants nuclear-deterrence policy evidence. A project on how climate and food consequences bear on UK deterrence policy, or how they are perceived, is the only bridge.</li>
+            <li><strong>Why it might not fit:</strong> Policy-only: every funded project listed is strategy, perceptions or escalation, with no physical-science or climate-effects work. With projects ending by March 2027, a new award would run under five months.</li>
+          </ul>
+          <p class="url"><a href="https://www.gov.uk/guidance/nuclear-deterrence-fund" target="_blank" rel="noopener noreferrer">https://www.gov.uk/guidance/nuclear-deterrence-fund</a></p>
+        </article>
+        <article>
+          <h3>Survival and Flourishing Fund (rolling application and Speculation Grants)</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Survival and Flourishing Fund</li>
+            <li><strong>Deadline:</strong> SFF-2026 main and theme rounds closed; the rolling application stays open, and late applications are still eligible for Speculation Grants and the next round (not yet announced)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — SFF recommends funding to organisations and charities; an individual needs a fiscal sponsor (Exeter could act as the host). Whether a university project is welcome was not confirmed today.</li>
+            <li><strong>Why it might fit:</strong> Partial. A catastrophic-risk funder with $20–40M a year across rounds; nuclear-war consequences and resilience research has the right shape for it.</li>
+            <li><strong>Why it might not fit:</strong> Nuclear war is not named on the 2026 round page, the next round has no date, and the S-Process takes six to eight months.</li>
+          </ul>
+          <p class="url"><a href="https://survivalandflourishing.fund/2026/application" target="_blank" rel="noopener noreferrer">https://survivalandflourishing.fund/2026/application</a></p>
+        </article>
+        <article>
+          <h3>Global Catastrophic Risks Opportunities fund [unverified]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Coefficient Giving (formerly Open Philanthropy)</li>
+            <li><strong>Deadline:</strong> No dated round; a general application form exists (found by search; not confirmed open from the fund page today)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — the fund lists “academic research and research fellowships” among its grant types; the page sets no career-stage rule.</li>
+            <li><strong>Why it might fit:</strong> Partial. It funds catastrophic-risk work that falls outside its AI and biosecurity funds, which is where nuclear-war consequences would sit.</li>
+            <li><strong>Why it might not fit:</strong> The page says Coefficient primarily focuses on AI and bio, nuclear is not named, and recent calls are AI-led.</li>
+          </ul>
+          <p class="url"><a href="https://coefficientgiving.org/funds/global-catastrophic-risks-opportunities/" target="_blank" rel="noopener noreferrer">https://coefficientgiving.org/funds/global-catastrophic-risks-opportunities/</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Other nuclear and security leads</h2>
+      <div class="grants">
+        <article>
+          <h3>Independent Scientific Panel on the Effects of Nuclear War (not a funder) — United Nations (UNODA)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Report due to the UN General Assembly in 2027 (82nd session)</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — no funding. The 21-member panel is appointed (the public call for experts closed in 2025), but it is mandated to receive inputs from a wide range of stakeholders; climate, agriculture and atmospheric sciences are among its seven areas. Contact nweffectspanel@un.org. Worth a direct offer of evidence, and a citation hook for every bid above.</li>
+          </ul>
+          <p class="url"><a href="https://disarmament.unoda.org/en/panel-effects-nuclear-war/home" target="_blank" rel="noopener noreferrer">https://disarmament.unoda.org/en/panel-effects-nuclear-war/home</a></p>
+        </article>
+        <article>
+          <h3>ESRC Connect (pilot) [unverified] — ESRC (UKRI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Pilot launched spring 2026 (six-month awards, £50k–£150k); end date not stated on the ESRC page</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — social-science remit, so only as co-investigator with a social-science lead on societal or food-security consequences of nuclear war; UKRI fixed-term contract rules apply. Grow (£100k–£500k) and Explore launch in November 2026.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/types-of-funding-we-offer/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/councils/esrc/guidance-for-applicants/types-of-funding-we-offer/</a></p>
+        </article>
+        <article>
+          <h3>Fundamental Research to Counter Weapons of Mass Destruction (BAA) [unverified] — US Defense Threat Reduction Agency (DTRA)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Umbrella BAA runs to 30 September 2034; the 2026 topic white-paper window closed 2 March 2026</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — nuclear-effects science is in DTRA’s remit, but search summaries list eligible applicants as US-type universities, firms and nonprofits, and foreign eligibility is not stated. Not read in full today; check the current amendment and go via a US partner.</li>
+          </ul>
+          <p class="url"><a href="https://simpler.grants.gov/opportunity/8faea2b6-4c0b-4e8d-ba24-f637ba6e7bcc" target="_blank" rel="noopener noreferrer">https://simpler.grants.gov/opportunity/8faea2b6-4c0b-4e8d-ba24-f637ba6e7bcc</a></p>
+        </article>
+        <article>
+          <h3>ALLFED research collaboration (not a funder) [unverified] — Alliance to Feed the Earth in Disasters</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> No call; ALLFED is running a 2026 fundraising appeal, not a grant round</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — no grants to outside researchers found. A search summary of its research page says it invites researchers to get in touch about projects on food resilience after nuclear winter (that page did not load today). Useful as a partner on any bid above.</li>
+          </ul>
+          <p class="url"><a href="https://allfed.info/" target="_blank" rel="noopener noreferrer">https://allfed.info/</a></p>
+        </article>
+        <article>
+          <h3>Nuclear War Research grants — Future of Life Institute</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Closed — “funds allocated” (letters of intent were due 15 November 2022)</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — no open round. It is the closest-fit programme ever run (climate model simulations, fuel loads and urban fires, humanitarian impacts); watch for a repeat.</li>
+          </ul>
+          <p class="url"><a href="https://futureoflife.org/grant-program/nuclear-war-research/" target="_blank" rel="noopener noreferrer">https://futureoflife.org/grant-program/nuclear-war-research/</a></p>
+        </article>
+        <article>
+          <h3>Nuclear Futures Fellowship (third cohort) [unverified] — Ploughshares Fund and Horizon 2045</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Closed 27 April 2026 (date from Ploughshares’ LinkedIn post; not confirmed on the fellowship page)</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — closed; an early-career nuclear-policy fellowship. Watch for a fourth cohort.</li>
+          </ul>
+          <p class="url"><a href="https://www.horizon2045.org/nuclear-futures-fellowship" target="_blank" rel="noopener noreferrer">https://www.horizon2045.org/nuclear-futures-fellowship</a></p>
+        </article>
+        <article>
+          <h3>Join us (research vacancies) — Centre for the Study of Existential Risk, Cambridge</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> No open nuclear post; the environmental catastrophic-risk Research Associate closed 9 August 2026</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — a job, not a grant, and none open for nuclear war now.</li>
+          </ul>
+          <p class="url"><a href="https://www.cser.ac.uk/people/join-us/" target="_blank" rel="noopener noreferrer">https://www.cser.ac.uk/people/join-us/</a></p>
+        </article>
+        <article>
+          <h3>NABS+ commissioning call 2026 — NABS+ (CREST, Lancaster)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Tuesday 20 October 2026, 17:00</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — security behavioural-science topics (resilience, online trust, decision-making, hackers and AI, surveillance); no nuclear or climate topic, and it closes tomorrow.</li>
+          </ul>
+          <p class="url"><a href="https://crestresearch.ac.uk/nabs/commissioning/" target="_blank" rel="noopener noreferrer">https://crestresearch.ac.uk/nabs/commissioning/</a></p>
+        </article>
+        <article>
+          <h3>Security Open Call 2026 Cycle 2 — UK Defence Innovation (formerly DASA)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Stage 1: 29 October 2026, 12:00 GMT</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — Home Office, NPSA and transport-security challenges; nothing on nuclear-war effects.</li>
+          </ul>
+          <p class="url"><a href="https://www.gov.uk/government/publications/competition-document-ukdi-security-open-call-2026-cycle-2/competition-document-security-open-call-2026-cycle-2" target="_blank" rel="noopener noreferrer">https://www.gov.uk/government/publications/competition-document-ukdi-security-open-call-2026-cycle-2/competition-document-security-open-call-2026-cycle-2</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Science routes for nuclear-winter modelling</h2>
+      <div class="grants">
+        <article>
+          <h3>Pushing the frontiers of environmental research — NERC (UKRI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Open — no closing date</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — any career stage, but Exeter must confirm his fixed-term contract covers the award. The best open science route for a nuclear-war soot, climate and crops project framed as Earth-system science.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/pushing-the-frontiers-of-environmental-research/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/pushing-the-frontiers-of-environmental-research/</a></p>
+        </article>
+        <article>
+          <h3>Exploring the frontiers of environmental research 2026 — NERC (UKRI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 12 November 2026, 16:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — £100k–£200k for a truly novel idea, for example self-lofting soot microphysics or pyroCb plumes as nuclear-fire analogues; Exeter contract confirmation needed.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/exploring-the-frontiers-of-environmental-research-2026/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/exploring-the-frontiers-of-environmental-research-2026/</a></p>
+        </article>
+        <article>
+          <h3>Research Project Grants — Leverhulme Trust</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Outline: rolling; invited detailed applications next due 1 December 2026</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — contract staff may apply if their contract covers the award. Research aiming to influence current policy is excluded, so frame it as fundamental soot-lofting or crop-response science.</li>
+          </ul>
+          <p class="url"><a href="https://www.leverhulme.ac.uk/research-project-grants" target="_blank" rel="noopener noreferrer">https://www.leverhulme.ac.uk/research-project-grants</a></p>
+        </article>
+        <article>
+          <h3>COST Open Call OC-2026-1 (new COST Actions) — COST Association</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Wednesday 28 October 2026, 12:00 CET (11:00 UK)</li>
+            <li><strong>Eligibility:</strong> <span class="tag go">GO</span> — any career stage. Networking money only, enough for a European nuclear-war consequences network (climate, crops, fallout), but the proposer network is needed in nine days.</li>
+          </ul>
+          <p class="url"><a href="https://www.cost.eu/funding/open-call-a-simple-one-step-application-process/" target="_blank" rel="noopener noreferrer">https://www.cost.eu/funding/open-call-a-simple-one-step-application-process/</a></p>
+        </article>
+        <article>
+          <h3>British Academy/Leverhulme Small Research Grants 2026–27 — British Academy</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 4 November 2026, 17:00 GMT</li>
+            <li><strong>Eligibility:</strong> <span class="tag go">GO</span> — open to UK postdocs, but humanities and social sciences only (up to £10,000), so only a nuclear-risk society or food-security angle with an HSS lead.</li>
+          </ul>
+          <p class="url"><a href="https://www.thebritishacademy.ac.uk/funding/schemes/ba-leverhulme-small-research-grants/" target="_blank" rel="noopener noreferrer">https://www.thebritishacademy.ac.uk/funding/schemes/ba-leverhulme-small-research-grants/</a></p>
+        </article>
+      </div>
+      <p class="note">Checked and closed, absent or out of scope: MacArthur Foundation Nuclear Challenges (programme ended in 2024), EA Funds Long-Term Future Fund (closed; its successor, the Transformative AI Fund, takes nuclear only where it meets AI), Council on Strategic Risks AIxNuclear and Nuclear Risk Reduction fellowships (no 2026 intake open), Schmidt Sciences (2026 climate calls are carbon cycle and modelling, now closed), Reflective’s SAI tipping-points RFP (closed 2 March 2026), the US Joint Fire Science smoke call (closed 17 September 2026; US focus), and Global Challenges Foundation (its 2026 nuclear call was the Consortium call above). No open call anywhere is titled for nuclear winter, stratospheric soot, or pyroCb smoke.</p>
+      <p class="note">Quick targeted web scan on 19 October 2026, single pass, so every card is single-source. Funder pages read directly today: Longview, NATO SPS call 2027-1, Carnegie (Consortium), Ploughshares, GOV.UK (Nuclear Deterrence Fund), SFF 2026 round, Coefficient Giving, UNODA, ESRC. Marked [unverified]: Coefficient Giving (whether its general form is open now), ESRC Connect (pilot end date), the DTRA BAA (not read in full), the Nuclear Futures Fellowship (date from a LinkedIn post), and ALLFED (research page did not load). The five science routes are carried over from the 19 October Grant Path.</p>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="../grant/2026-10-19.html">Back to the 19 October Grant Path</a>
+    </footer>
+  </div>
+</body>
+</html>
