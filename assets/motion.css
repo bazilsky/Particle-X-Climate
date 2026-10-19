@@ -1,0 +1,160 @@
+/* Particle X Climate — motion layer (preview). Fonts/colours/layout unchanged. */
+
+/* Cross-document page transitions (Chromium / Safari 18+) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: pxc-vt-out 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+::view-transition-new(root) {
+  animation: pxc-vt-in 0.48s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes pxc-vt-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pxc-vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Enter / scroll reveal — only when JS marked the document ready */
+html.js-ready .motion-enter,
+html.js-ready .motion-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+html.js-ready .motion-enter.is-in,
+html.js-ready .motion-reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* Optional line-mask reveal for a hero title (clip slide-up) */
+html.js-ready .motion-line {
+  display: block;
+  overflow: hidden;
+}
+
+html.js-ready .motion-line > span {
+  display: block;
+  opacity: 0;
+  transform: translateY(110%);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html.js-ready .motion-line.is-in > span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger helpers (delay applied when .is-in is set via inline style from JS,
+   or via these nth-child fallbacks for simple groups) */
+html.js-ready .motion-stagger > .motion-enter:nth-child(1),
+html.js-ready .motion-stagger > .motion-reveal:nth-child(1) { transition-delay: 0ms; }
+html.js-ready .motion-stagger > .motion-enter:nth-child(2),
+html.js-ready .motion-stagger > .motion-reveal:nth-child(2) { transition-delay: 90ms; }
+html.js-ready .motion-stagger > .motion-enter:nth-child(3),
+html.js-ready .motion-stagger > .motion-reveal:nth-child(3) { transition-delay: 180ms; }
+html.js-ready .motion-stagger > .motion-enter:nth-child(4),
+html.js-ready .motion-stagger > .motion-reveal:nth-child(4) { transition-delay: 270ms; }
+html.js-ready .motion-stagger > .motion-enter:nth-child(5),
+html.js-ready .motion-stagger > .motion-reveal:nth-child(5) { transition-delay: 360ms; }
+html.js-ready .motion-stagger > .motion-enter:nth-child(6),
+html.js-ready .motion-stagger > .motion-reveal:nth-child(6) { transition-delay: 450ms; }
+
+/* Soft hover lift on pill doors / primary cards — colours untouched */
+a.door {
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.28s ease,
+    background-color 0.28s ease,
+    color 0.28s ease;
+}
+
+a.door:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(28, 25, 21, 0.1);
+}
+
+article a.card-link,
+.mark {
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+
+article {
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(28, 25, 21, 0.06);
+}
+
+/* Header gains a soft solid/shadow once scrolled (no position change) */
+header.pxc-header-scrolled {
+  background: rgba(246, 241, 231, 0.96);
+  box-shadow: 0 8px 24px rgba(28, 25, 21, 0.05);
+}
+
+/* JS fallback for browsers without View Transitions: fade body out before nav */
+html.pxc-leaving body {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Reduced motion: no sliding; content visible immediately */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  html.js-ready .motion-enter,
+  html.js-ready .motion-reveal,
+  html.js-ready .motion-line > span {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  a.door,
+  article {
+    transition: none !important;
+  }
+
+  a.door:hover,
+  article:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  html.pxc-leaving body {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

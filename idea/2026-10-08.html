@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idea path — 8 October 2026 · Qi et al.</title>
@@ -377,16 +379,16 @@
 
 
     <section class="hero">
-      <p class="kicker">8 October 2026</p>
-      <h1>Qi et al.</h1>
-      <p class="lede">Takeaways, five ideas, and research directions.</p>
-      <div class="tip joke">
+      <p class="kicker motion-enter">8 October 2026</p>
+      <h1 class="motion-line"><span>Qi et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, five ideas, and research directions.</p>
+      <div class="tip joke motion-enter">
         <p>A deadline is a forecast with better error bars. — Mrs. V</p>
       </div>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Spatially uneven impacts of stratospheric aerosol injection on compound dry-heat wave events in the GeoMIP G6sulfur experiment <span class="tag">Preprint</span></h3>
         <p class="meta">Cuini Qi, Chloe Yuchao Gao, Ben Kravitz, Hyemi Kim, Xiaohan Sally Li, and Lili Xia</p>
@@ -400,7 +402,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Site takeaways</h2>
+      <h2 class="motion-reveal">Site takeaways</h2>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
         <p>Qi and colleagues ask a question that most studies of stratospheric aerosol injection skip: what happens to days that are both very hot and very dry at the same time? They work with the GeoMIP G6sulfur experiment, in which sulfate aerosol in the stratosphere is used to pull the climate of a high-emission future (SSP5-8.5) back towards the forcing level of a middle-of-the-road one (SSP2-4.5), and they compare it with the unmodified high-emission run over the summer season. This is a preprint that has not yet been peer reviewed, it rests on three Earth system models with one simulation each, and it studies surface weather extremes rather than the aerosol itself, so it contains no aerosol microphysics.</p>
@@ -414,7 +416,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Five ideas, each tied to a limitation the authors document.</p>
       <div class="ideas">
         <article id="idea-1">
@@ -499,7 +501,7 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <div class="takeaways">
         <p>Taken together, the five ideas make one programme with a simple logic: first find out whether the Central African signal is real in more than three single runs, then find out what part of it belongs to the stratospheric aerosol, and only then ask what an aerosol designer could change. The first stage costs almost nothing in compute. UKESM1-0-LL already has G6sulfur and G6solar output on CEDA with daily tables and three members each, and the authors themselves document that UKESM had the required output but was not included (Sect. 2.1). Ideas 1 and 2 can therefore run side by side on the same downloads and share one analysis code that reproduces the paper's event definitions, its alternative dry-day criteria and its exposure measures (CDHW days and dry days as well as event counts, following the authors' warning that event frequency alone is not exposure). If UKESM's ensemble shows a Central African persistence signal outside its own internal spread, the G6sulfur minus G6solar contrast says how much of it is specific to the aerosol layer, which is exactly the separation the authors say their design could not make (Sect. 4, p. 39). If UKESM does not show the signal, that is equally worth reporting as a fourth-model check on a three-model preprint, and the programme narrows to Idea 3.</p>
         <p>Idea 3 is the bridge between the impacts question and Ananth's aerosol expertise. It does not stop at labelling models as interactive or prescribed. It asks which property of the simulated aerosol layer travels with the regional response, keeping in mind the protocol paper's note that prescribed aerosols in G6 are fully integrated in the radiative transfer, so heating and diffuse light are present in both groups (Visioni et al., 2021). Here a GLOMAP-mode modeller has an edge: reading how UKESM's interactive aerosol is distributed and how that differs from the prescribed fields is routine work for him and unusual in the impacts literature.</p>
@@ -514,5 +516,6 @@
       <a href="index.html">Back to Idea path</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

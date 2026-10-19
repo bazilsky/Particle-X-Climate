@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idea path — 15 October 2026 · Brunelli &amp; Diamond</title>
@@ -377,16 +379,16 @@
 
 
     <section class="hero">
-      <p class="kicker">15 October 2026</p>
-      <h1>Brunelli &amp; Diamond</h1>
-      <p class="lede">Takeaways, three ideas, and research directions.</p>
-      <div class="tip joke">
+      <p class="kicker motion-enter">15 October 2026</p>
+      <h1 class="motion-line"><span>Brunelli &amp; Diamond</span></h1>
+      <p class="lede motion-enter">Takeaways, three ideas, and research directions.</p>
+      <div class="tip joke motion-enter">
         <p>I asked a stratospheric aerosol how it was feeling. It said, &lsquo;Honestly? A bit scattered.&rsquo; — Dr. D</p>
       </div>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Reductions in Climate Zone Changes Under Stratospheric Aerosol Injection Compared to Unabated Warming</h3>
         <p class="meta">Jaylynn M. Brunelli and Michael S. Diamond (Florida State University)</p>
@@ -402,7 +404,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Site takeaways</h2>
+      <h2 class="motion-reveal">Site takeaways</h2>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
         <p>Brunelli and Diamond ask: if stratospheric aerosol injection held global temperature down, how much of the world would still see its climate zone change? They sort every land grid cell into a modified Köppen-Trewartha class (tropical, arid, subtropical, temperate, subpolar, polar, plus "novel tropical" classes for unprecedented heat) and call the land that changes class an "adaptation burden". They then compare the GeoMIP G6sulfur experiment, in which sulfate aerosol holds a high-emission world (SSP5-8.5) at the global temperature of a middle-of-the-road one (SSP2-4.5), against both of those scenarios. The comparison runs from 1985–2014 to 2085–2099, using six Earth system models with one simulation each. The study works with surface temperature and rainfall classes, not with the aerosol itself.</p>
@@ -416,7 +418,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Three ideas, each tied to a limitation the authors document.</p>
       <div class="ideas">
         <article id="idea-1">
@@ -535,7 +537,7 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <div class="takeaways">
         <p>Taken together, the three ideas make one programme. First, explain the paper's most surprising regional result in the model Ananth knows best. Second, ask whether the way aerosol is represented accounts for the spread between models. Third, ask whether the answer survives a change of injection strategy. The first stage is cheap. UKESM1-0-LL already has monthly tas and pr on ESGF/CEDA for members r1i1p1f2, r4i1p1f2 and r8i1p1f2 in G6sulfur, G6solar, ssp245, ssp585 and historical (dataset listings, 15 Oct), and the authors have published both their climate-class files and their code, so the classification can be reproduced, once the authors' member choices in SI Table S1 are matched, before anything new is added. Idea 1 asks a narrow question of that data. The authors report a positive Australian rainfall anomaly in every G6sulfur model and call it worth further investigation. That anomaly is cited to Visioni et al. (2021) Fig. 10, a same-period G6sulfur minus SSP2-4.5 difference for 2081–2100. A UKESM1 study measuring change for 2081–2100 against a 2015–2034 ssp245 present day, as seasonal ensemble means, describes G6sulfur over Australia as very similar to the emission scenarios (Haywood et al., 2023). These are not in conflict; they measure different things (inferred). Sorting out what the anomaly is, and whether it belongs to the aerosol layer or to dimming in general, is a self-contained piece of work. Whatever UKESM shows is worth reporting; nothing here assumes the answer.</p>
         <p>Idea 2 is the bridge to Ananth's aerosol expertise. The authors name interactive microphysics, climate sensitivity and the feedback controller as possible sources of spread, and in this six-model set those factors overlap. The useful contribution is not a two-group label but a careful reading of each model's stratospheric aerosol layer next to its climate-zone efficiency, with UKESM's own members showing how much a single-run value can move. This stays a diagnostic. Six models cannot carry a statistical test, and heating is present whether aerosols are interactive or prescribed.</p>
@@ -550,5 +552,6 @@
       <a href="index.html">Back to Idea path</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idea path — Bednarz et al. — 1 October 2026</title>
@@ -351,13 +353,13 @@
 
 
     <section class="hero">
-      <p class="kicker">1 October 2026 · Paper 1</p>
-      <h1>Bednarz et al.</h1>
-      <p class="lede">Takeaways, three ideas, and research directions. Sulfur SAI only. Grant-agnostic — no call names.</p>
+      <p class="kicker motion-enter">1 October 2026 · Paper 1</p>
+      <h1 class="motion-line"><span>Bednarz et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, three ideas, and research directions. Sulfur SAI only. Grant-agnostic — no call names.</p>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Stratospheric ozone projections under sulfur-based stratospheric aerosol injection: Insights from the multi-model G6-1.5K-SAI experiment</h3>
         <p class="meta">Bednarz, E. M., et al. (2026): Stratospheric ozone projections under sulfur-based stratospheric aerosol injection: Insights from the multi-model G6-1.5K-SAI experiment. Atmos. Chem. Phys., 26, 12751–12770.</p>
@@ -366,7 +368,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Paper takeaways</h2>
+      <h2 class="motion-reveal">Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
@@ -377,7 +379,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
         <article id="idea-1">
@@ -399,24 +401,24 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Bednarz. Directions (below) are how those hooks could become actual UKESM work for you.</p>
       <div class="ideas">
-        <article>
+        <article class="motion-reveal">
           <h3>Direction A ↔ Idea 1 — UKESM stratospheric H₂O process attribution <em>(author documented core; Q1 experiment)</em></h3>
           <p><strong>Hook:</strong> UKESM dries the stratosphere under G6-1.5K-SAI (up to ~−10% H₂O) while CESM/MIROC moisten; Bednarz lists four candidate processes beyond cold-point warming and calls for follow-up to disentangle them <em>(author documented)</em>.</p>
           <p><strong>UKESM next steps:</strong></p>
           <ul><li>Reuse existing UKESM G6-1.5K-SAI vs SSP2-4.5 ensembles (WITH_HET as in Bednarz).</li><li>Tag / budget: tropical tropopause pressure; overshooting convection; extratropical cross-tropopause flux; CH₄→H₂O chemical production <em>(inferred)</em> diagnostic package.</li><li>Optional nudged or process-switched members if budgets alone cannot rank the four factors <em>(inferred)</em>.</li><li>Deliverable shape: ranked process contributions; whether UKESM’s dry stratosphere is a structural feature under subtropical SAI; implications for humidity-sensitive ozone chemistry <strong>within sulfur SAI</strong>.</li></ul>
           <p>Do not treat the four factors as proven mechanisms — they are Bednarz’s candidate list. Experiments disentangle; they do not confirm a preferred story in advance.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction B ↔ Idea 2 — Residual circulation vs mixing for NH mid-latitude ozone <em>(author documented core; Q2 experiment)</em></h3>
           <p><strong>Hook:</strong> NH mid-latitude ozone <strong>sign</strong> disagrees across models (UKESM ~5–10 DU decrease throughout); WITH_HET vs NO_HET shows a transport residual; Bednarz flags residual circulation vs mixing as the open process uncertainty <em>(author documented)</em>.</p>
           <p><strong>UKESM next steps:</strong></p>
           <ul><li>Start from published WITH_HET / NO_HET differencing and age-of-air. That pair separates chemistry from transport — it does <strong>not</strong> already separate residual circulation from mixing.</li><li>Add TEM residual circulation (<em>w</em><em>, streamfunction) and mixing / effective-diffusivity (or equivalent) in 30–60° N lower stratosphere </em>(inferred)* metrics.</li><li>Partition UKESM NH mid-latitude ozone change into chemistry (WITH_HET−NO_HET) vs dynamical pathways (residual circulation vs mixing).</li><li>Interpret against published CESM/MIROC disagreement without claiming to close other models.</li></ul>
           <p>Keep Bednarz’s “and/or” open until UKESM diagnostics separate the two dynamical levers.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction C ↔ Idea 3 — Antarctic springtime halogen pathway + ozone–vortex constraint <em>(author documented core)</em></h3>
           <p><strong>Hook:</strong> Antarctic springtime ozone loss under G6-1.5K-SAI is robust in sign but not magnitude (UKESM ~−13 vs CESM ~−44 DU K⁻¹ early period); inter-model spread outweighs strategy uncertainty for Antarctic; polar ozone reductions disappear in UKESM NO_HET; Bednarz reports R ≈ −0.95 ozone–vortex correlation as a potential SAI constraint <em>(author documented)</em>.</p>
           <p><strong>UKESM next steps:</strong></p>
@@ -437,5 +439,6 @@
       <a href="2026-10-01.html">Back to 1 October</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Particle X Climate</title>
@@ -335,34 +337,34 @@
 
     <section class="hero">
       <div>
-        <p class="kicker">Independent research desk</p>
-        <h1>Research Overwatch</h1>
-        <p class="lede">A specialist self-critical AI agent team supporting independent research on solar geoengineering, Earth-system modelling, nuclear-war climate effects, and aerosol modelling.</p>
+        <p class="kicker motion-enter">Independent research desk</p>
+        <h1 class="motion-line"><span>Research Overwatch</span></h1>
+        <p class="lede motion-enter">A specialist self-critical AI agent team supporting independent research on solar geoengineering, Earth-system modelling, nuclear-war climate effects, and aerosol modelling.</p>
       </div>
     </section>
 
     <section id="products">
-      <h2>Four products</h2>
+      <h2 class="motion-reveal">Four products</h2>
       <div class="cards">
-        <article>
+        <article class="motion-reveal">
           <span class="day">Monday</span>
           <h3>Grant path</h3>
           <p>Two separate searches, then one mail. The grant path ends there.</p>
           <a class="card-link" href="grant/index.html">Open Grant path →</a>
         </article>
-        <article>
+        <article class="motion-reveal">
           <span class="day">Thursday</span>
           <h3>Paper path</h3>
           <p>The same two-search pattern for papers. If nothing clears the checklist, Thursday stops at the path.</p>
           <a class="card-link" href="paper/index.html">Open Paper path →</a>
         </article>
-        <article>
+        <article class="motion-reveal">
           <span class="day">When it clears</span>
           <h3>Idea path</h3>
           <p>Nominated papers are used to generate 3 ideas and propose personalised research paths to move forward.</p>
           <a class="card-link" href="idea/index.html">Open Idea path →</a>
         </article>
-        <article>
+        <article class="motion-reveal">
           <span class="day">On request</span>
           <h3>Custom idea path</h3>
           <p>Selected papers, chosen by our creator, Mr. A.</p>
@@ -372,24 +374,24 @@
     </section>
 
     <section id="team">
-      <h2>The desk</h2>
+      <h2 class="motion-reveal">The desk</h2>
       <div class="team">
-        <div class="person">
+        <div class="person motion-reveal">
           <p class="role">Search and send</p>
           <h3>Mrs. Vanguard</h3>
           <p>Leading from the front.</p>
         </div>
-        <div class="person">
+        <div class="person motion-reveal">
           <p class="role">Write</p>
           <h3>Mrs. Lantern</h3>
           <p>Visionary.</p>
         </div>
-        <div class="person">
+        <div class="person motion-reveal">
           <p class="role">Attack</p>
           <h3>Dr. Doubt</h3>
           <p>Team critic and pessimist.</p>
         </div>
-        <div class="person">
+        <div class="person motion-reveal">
           <p class="role">Publish</p>
           <h3>Pulse</h3>
           <p>Code designer and publisher.</p>
@@ -398,8 +400,8 @@
     </section>
 
     <section id="remit">
-      <h2>Remit</h2>
-      <ul class="remit">
+      <h2 class="motion-reveal">Remit</h2>
+      <ul class="remit motion-reveal">
         <li>Solar geoengineering / SRM</li>
         <li>Solid-particle geoengineering</li>
         <li>Stratospheric aerosol intervention</li>
@@ -416,5 +418,6 @@
       <span>Static page for Cloudflare Pages</span>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

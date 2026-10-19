@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Altitude profiles, shortwave heating</title>
@@ -119,14 +121,14 @@
   <main>
 
     <header class="top">
-      <a class="mark" href="../">Particle X Climate</a>
+      <a class="motion-enter mark" href="../">Particle X Climate</a>
       <input type="checkbox" id="nav-toggle" hidden>
       <label for="nav-toggle" class="menu-toggle">Menu</label>
       <nav id="site-nav">
         <a href="./">X<sub>dark</sub> = Black carbon</a>
       </nav>
     </header>
-    <h1>Altitude profiles, shortwave heating</h1>
+    <h1 class="motion-enter">Altitude profiles, shortwave heating</h1>
     <p class="note">
       One vertical profile of the interpolator at the slider τ.
       The four lines are black carbon at 10–12 km, and vis441 at 10–12, 12–14, and 14–16 km.
@@ -465,5 +467,6 @@
     window.addEventListener("resize", render);
     render();
   </script>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

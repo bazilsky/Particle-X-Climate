@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Custom idea path — Workman et al. (2025) — 9 October 2026</title>
@@ -377,16 +379,16 @@
     </nav>
 
     <section class="hero">
-      <p class="kicker">9 October 2026 · Custom</p>
-      <h1>Workman et al. (2025)</h1>
-      <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
-      <div class="tip joke">
+      <p class="kicker motion-enter">9 October 2026 · Custom</p>
+      <h1 class="motion-line"><span>Workman et al. (2025)</span></h1>
+      <p class="lede motion-enter">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
+      <div class="tip joke motion-enter">
         <p>Tip of the day: hope is allowed in the opener. It is not allowed in the evidence. — Mrs. L</p>
       </div>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Methane Emissions and Dynamics in the Weddell and Scotia Seas</h3>
         <p class="meta">Authors: Evelyn Workman, Anna E. Jones, Rebecca E. Fisher, James L. France, Katrin Linse, Bruno Delille, and Freya A. Squires</p>
@@ -400,7 +402,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Paper takeaways</h2>
+      <h2 class="motion-reveal">Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
@@ -416,7 +418,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Five ideas, each tied to a limit the authors document. Distinctness table at the end.</p>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Claim lines use <strong>(author documented)</strong> for statements grounded verbatim in Workman et al. (2025) and <strong>(inferred)</strong> for our extensions. Every UKESM, UKCA, GLOMAP or solid-particle extension is <strong>(inferred)</strong>. Page numbers are the article's own (the n of 22 footer).</p>
       <div class="ideas">
@@ -465,7 +467,7 @@
           <p><strong>Evidence base.</strong></p>
           <ul><li><strong>(author documented)</strong> Sect. 4.4 (p. 18): "It difficult within the scope of this study to identify the source of elevated CH4."</li><li><strong>(author documented)</strong> Sect. 4.4 (p. 18): "Also, it is important to note that the increase in atmospheric concentrations over the South Georgia shelf compared to over open ocean areas, are very small, corresponding to 3–5 ppb."</li><li><strong>(author documented)</strong> Sect. 4.4 (p. 18): "These sea animal colonies could be causing elevated CH4 concentrations detected by the greenhouse gas analyzer on RRS Discovery."</li><li><strong>(author documented)</strong> Sect. 4.4 (p. 17): "This elevated flux may not immediately translate into higher atmospheric concentrations directly above the water, as atmospheric CH4 levels are primarily influenced by transport processes."</li><li><strong>(inferred)</strong> The forward-modelling design and the isotope suggestion.</li><li><strong>Related work checked:</strong> Jones et al. (2007), <a href="https://doi.org/10.1007/978-0-387-68854-1_62" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/978-0-387-68854-1_62</a> (NAME III). Stein et al. (2015), <a href="https://doi.org/10.1175/BAMS-D-14-00110.1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1175/BAMS-D-14-00110.1</a> (HYSPLIT).</li></ul>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Idea distinctness check</h3>
           <div class="table-wrap"><table><thead><tr><th>Idea</th><th>Core lever</th><th>Ownership</th><th>Cost</th></tr></thead><tbody><tr><td>1</td><td>Bubble share by paired methods on the shelf</td><td>(author documented) gap; group already plans parallel campaign</td><td>High, cruise time</td></tr><tr><td>2</td><td>Sensitivity to gas-transfer formula and winds</td><td>(author documented) method choice; test (inferred)</td><td>Low, open data</td></tr><tr><td>3</td><td>Transparent seasonal re-upscaling and total check</td><td>(author documented) overestimate flag; method (inferred)</td><td>Low, desk</td></tr><tr><td>4</td><td>Intercalibrated deep-water comparison</td><td>(author documented) lab caveat; design (inferred)</td><td>High (lab); low (desk step)</td></tr><tr><td>5</td><td>Dispersion modelling of the 3–5 ppb enhancement</td><td>(author documented) open question; method (inferred)</td><td>Moderate, modelling</td></tr></tbody></table></div>
         </article>
@@ -477,7 +479,7 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <div class="takeaways">
         <p>The five ideas sort into three kinds of work, and the order matters. The first kind is desk work on what is already public. The surface concentrations, water-column profiles and atmospheric record are at the UK Polar Data Centre, so Idea 2 (how much the fluxes depend on the gas-transfer formula and the winds) and Idea 3 (a seasonal, bathymetry-based re-upscaling with a clear arithmetic trail) can start straight away. Both stay strictly inside what the paper measured: they bound the diffusive flux the authors calculated and make the yearly estimate honest about sea ice, which the authors already flag as a reason their summer-to-year figure is "likely an overestimate" (p. 17). Idea 3 also starts by reconciling the printed emission components with the printed total; any mismatch is a question for the authors, not a correction for the site.</p>
         <p>The second kind of work is the atmospheric side, and it is the closest fit to Ananth's modelling background <em>(inferred)</em>. The authors saw a rise of only 3–5 ppb in air over the South Georgia shelf and say they cannot tell whether it came from the shelf or from the nearby penguin and seal colonies (p. 18). Idea 5 asks a dispersion model to answer that question: release each candidate source in the model, follow it to the ship's track over 3–6 January 2023, and see which one matches the timing and size of the enhancement. The honest expectation is that the answer may be that the sources cannot be told apart, because the signal is small and colony emission factors are uncertain, but even that result tells a future cruise what to measure.</p>
@@ -492,5 +494,6 @@
       <a href="index.html">Back to Custom idea path</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Custom idea path — Workman et al. — 9 October 2026</title>
@@ -377,16 +379,16 @@
     </nav>
 
     <section class="hero">
-      <p class="kicker">9 October 2026 · Custom</p>
-      <h1>Workman et al.</h1>
-      <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
-      <div class="tip joke">
+      <p class="kicker motion-enter">9 October 2026 · Custom</p>
+      <h1 class="motion-line"><span>Workman et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
+      <div class="tip joke motion-enter">
         <p>I asked the climate model for a straight answer. It gave me an ensemble. — Dr. D</p>
       </div>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Methane Emissions From Seabed to Atmosphere in Polar Oceans Revealed by Direct Methane Flux Measurements</h3>
         <p class="meta">Authors: Evelyn Workman, Rebecca E. Fisher, James L. France, Katrin Linse, Mingxi Yang, Thomas Bell, Yuanxu Dong, and Anna E. Jones</p>
@@ -400,7 +402,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Paper takeaways</h2>
+      <h2 class="motion-reveal">Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
@@ -417,7 +419,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Five ideas, each tied to a limit the authors document. Distinctness table at the end.</p>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Claim lines use <strong>(author documented)</strong> for statements grounded verbatim in Workman et al. (2024) and <strong>(inferred)</strong> for our extensions. Every UKESM, UKCA, GLOMAP or solid-particle extension is <strong>(inferred)</strong>. Page numbers are the article's own (the n of 21 footer).</p>
       <div class="ideas">
@@ -466,7 +468,7 @@
           <p><strong>Evidence base.</strong></p>
           <ul><li><strong>(author documented)</strong> Sect. 4.2 (p. 13): "7.5 ± 1.8 Gg per month of CH4 accounts for ∼0.01% of the global methane budget (Saunois et al., 2020) if we scale up to 1 year."</li><li><strong>(author documented)</strong> Sect. 4.3 (p. 15): "meaning that the ∼0.003% estimation of the global methane budget is likely an overestimate."</li><li><strong>(author documented)</strong> Sect. 4.3 (p. 14): "The on‐shelf sea‐air mean CH4 flux in the Southern Ocean is the same as the on‐shelf flux in the Arctic Ocean, within error."</li><li><strong>(author documented)</strong> Sect. 5 (p. 18): "This work demonstrates the feasibility of using eddy‐covariance to measure sea‐air CH4 fluxes over the oceans, and continued ship based monitoring in the polar regions is important to allow enough data so that robust trends can be elucidated."</li><li><strong>(inferred)</strong> All of the UKESM evaluation and sensitivity design.</li><li><strong>Related work checked:</strong> Folberth et al. (2022), <a href="https://doi.org/10.1029/2021MS002982" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2021MS002982</a> (emission-driven methane cycle in UKESM1; abstract read, ocean-source treatment not checked). Archibald et al. (2020), <a href="https://doi.org/10.5194/gmd-13-1223-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-13-1223-2020</a> (UKCA StratTrop chemistry in UKESM1). Weber et al. (2019), <a href="https://doi.org/10.1038/s41467-019-12541-7" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41467-019-12541-7</a> (global ocean methane emissions dominated by shallow coastal waters). Saunois et al. (2025), <a href="https://doi.org/10.5194/essd-17-1873-2025" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/essd-17-1873-2025</a> (Global Methane Budget 2000–2020).</li></ul>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Idea distinctness check</h3>
           <div class="table-wrap"><table><thead><tr><th>Idea</th><th>Core lever</th><th>Ownership</th><th>Cost</th></tr></thead><tbody><tr><td>1</td><td>Bubbles versus diffusion: paired methods on one ship</td><td>(author documented) call; group already plans it</td><td>High, cruise time</td></tr><tr><td>2</td><td>Is the rise real? Method-matched, intercalibrated repeat</td><td>(author documented) uncertainty; design (inferred)</td><td>High (cruise); low (desk compilation)</td></tr><tr><td>3</td><td>Better totals: sea ice, bathymetry, uncertainty</td><td>(author documented) assumptions; method (inferred)</td><td>Low, open data</td></tr><tr><td>4</td><td>Source screening with footprints and trajectories</td><td>(author documented) open question; method (inferred)</td><td>Moderate, modelling</td></tr><tr><td>5</td><td>Do these sources register in UKESM's methane cycle?</td><td>(inferred) throughout, anchored on (author documented) budget fractions</td><td>Moderate, model access</td></tr></tbody></table></div>
         </article>
@@ -478,7 +480,7 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <div class="takeaways">
         <p>Read as a programme, the five ideas follow the order in which the paper's own open questions can be closed: first make the numbers firmer with what is already archived, then find out where the methane comes from, and only then ask whether any of it matters at the scale an Earth system model can see. The cheapest step is Idea 3. The two-hour fluxes are public at the UK Polar Data Centre, and the authors state plainly the assumptions behind their totals: that the stretches of sea the ship crossed stand for the whole of each sea, and that sea ice can be left aside, which makes a yearly figure an upper limit (Sect. 4.2, p. 13). Weighting by monthly open water and by bathymetry, and carrying the per-cruise detection limits through, turns one summer value into an honest range. Idea 4 can share the same code. Footprints and back-trajectories for the fluxes above the detection limit set each hotspot against flares, coastline, glacier fronts and salinity, which is the question the authors leave open off west Svalbard ("it is impossible to determine this from the measurements we have", p. 14). Both steps are desk work, and the second is the part closest to an atmospheric modeller's skills <em>(inferred)</em>.</p>
         <p>The observational core, Ideas 1 and 2, is where the paper's most quotable claims would be tested, and it cannot be done from a desk. Separating bubbles from diffusion needs eddy covariance, water sampling and acoustics on the same ship at the same time, which the authors name as future work and which their 2025 conference abstract describes as a dedicated campaign. Any project here should join that effort rather than present it as new. The apparent rise around the South Shetland Islands needs a revisit that matches the 1980s method and ties its laboratory analysis to an inter-laboratory standard, because the authors themselves say the role of method is unclear and that seeps can be episodic (p. 16–17). A desk compilation of every published Bransfield Strait value and method is a reasonable first step that does not need a ship.</p>
@@ -493,5 +495,6 @@
       <a href="index.html">Back to Custom idea path</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

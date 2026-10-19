@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idea path — Geurts et al. — 1 October 2026</title>
@@ -351,13 +353,13 @@
 
 
     <section class="hero">
-      <p class="kicker">1 October 2026 · Paper 3</p>
-      <h1>Geurts et al.</h1>
-      <p class="lede">Takeaways, three ideas, and research directions. Host model in the paper is SOCOLv4. Any UKESM/GLOMAP path stays (inferred). Grant-agnostic — no call names.</p>
+      <p class="kicker motion-enter">1 October 2026 · Paper 3</p>
+      <h1 class="motion-line"><span>Geurts et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, three ideas, and research directions. Host model in the paper is SOCOLv4. Any UKESM/GLOMAP path stays (inferred). Grant-agnostic — no call names.</p>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Materials with smaller absorptivity could reduce detrimental impacts of stratospheric aerosol injection on the hydrological cycle</h3>
         <p class="meta">Geurts, M., et al. (2026): Materials with smaller absorptivity could reduce detrimental impacts of stratospheric aerosol injection on the hydrological cycle. Environ. Res. Lett., 21, 134037.</p>
@@ -366,7 +368,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Paper takeaways</h2>
+      <h2 class="motion-reveal">Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
@@ -377,7 +379,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
         <article id="idea-1">
@@ -399,10 +401,10 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Geurts. Directions (below) are how those hooks could become actual modelling or process work. Grant-agnostic: no funding-call targeting.</p>
       <div class="ideas">
-        <article>
+        <article class="motion-reveal">
           <h3>Direction A ↔ Idea 1 — Constrain plume microphysics and SP heterogeneous chemistry <em>(author documented constraint call)</em></h3>
           <p><strong>Hook:</strong> Less LW-absorptive SPs reduce apparent hydrological sensitivity and LSW/circulation side effects in Geurts’s idealized SOCOLv4 G6-style runs, but SP injections are monodisperse at ideal sizes, sub-grid plume microphysics are neglected, and SP–H₂SO₄ / heterogeneous surface chemistry are omitted; authors call for lab and process-level constraints <em>(author documented)</em>.</p>
           <p><strong>Next steps (paper-owned host first):</strong></p>
@@ -410,7 +412,7 @@
           <p><strong>(inferred) UKESM/GLOMAP track (gated):</strong> Only after a written readiness check on GLOMAP solid-particle modes + UKCA solid-surface kinetics, ask whether a G6-style material comparison in UKESM reproduces or overturns Geurts’s Fa / hydrological hierarchy. Do not call Geurts GLOMAP-ready.</p>
           <p><strong>Hard fences:</strong> Q1 = constraint call, not survival proof; no ozone-safer framing; SOCOLv4 ≠ UKESM/GLOMAP without <strong>(inferred)</strong> tags.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction B ↔ Idea 2 — Quantify aerosol–cloud interactions with SAI materials <em>(author documented study call)</em></h3>
           <p><strong>Hook:</strong> Model omits ACI; authors say cloud–aerosol interactions with SAI materials need to be studied further to understand material benefits fully; “could offset” high-cloud thickening is an example, not a finding <em>(author documented)</em>.</p>
           <p><strong>Next steps:</strong></p>
@@ -418,7 +420,7 @@
           <p><strong>(inferred) UKESM track:</strong> Only if solid-particle ACI pathways are available and documented; otherwise keep the study in a host that already carries SP microphysics + an ACI option. Tag any UKESM/GLOMAP ACI path <strong>(inferred)</strong>.</p>
           <p><strong>Hard fences:</strong> Do not claim Geurts found that clouds offset the ranking; do not use ACI to smuggle ozone-safer or GLOMAP-ready claims.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction C ↔ Idea 3 — Alternative injection strategies + local/seasonal monsoon diagnosis <em>(author documented)</em></h3>
           <p><strong>Hook:</strong> Paper is tropical-injection only; authors state that assessing less-absorptive SP benefits requires alternative injection strategies, that SP-SAI studies should minimize gradient perturbations affecting seasonal Hadley responses, and that local/seasonal monsoon impacts need further work <em>(author documented)</em>.</p>
           <p><strong>Next steps:</strong></p>
@@ -440,5 +442,6 @@
       <a href="2026-10-01.html">Back to 1 October</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

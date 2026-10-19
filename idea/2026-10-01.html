@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idea path — 1 October 2026</title>
@@ -248,13 +250,13 @@
     </header>
 
     <section class="hero">
-      <p class="kicker">1 October 2026</p>
-      <h1>Idea path</h1>
-      <p class="lede">Three nominated papers. Each page has takeaways, three ideas, and research directions. Grant-agnostic — no call names.</p>
+      <p class="kicker motion-enter">1 October 2026</p>
+      <h1 class="motion-line"><span>Idea path</span></h1>
+      <p class="lede motion-enter">Three nominated papers. Each page has takeaways, three ideas, and research directions. Grant-agnostic — no call names.</p>
     </section>
 
     <section>
-      <h2>Papers</h2>
+      <h2 class="motion-reveal">Papers</h2>
       <div class="week-list">
         <a class="week-btn" href="2026-10-01-bednarz.html">
           <span class="day">Paper 1</span>
@@ -279,5 +281,6 @@
       <a href="index.html">Back to Idea path</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

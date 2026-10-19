@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Custom idea path — Keith — 4 October 2026</title>
@@ -350,13 +352,13 @@
     </nav>
 
     <section class="hero">
-      <p class="kicker">4 October 2026 · Custom</p>
-      <h1>Keith</h1>
-      <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
+      <p class="kicker motion-enter">4 October 2026 · Custom</p>
+      <h1 class="motion-line"><span>Keith</span></h1>
+      <p class="lede motion-enter">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Photophoretic levitation of engineered aerosols for geoengineering</h3>
         <p class="meta">Keith, D.W. (2010). Photophoretic levitation of engineered aerosols for geoengineering. Proc. Natl. Acad. Sci. U.S.A. 107, 16428–16431 (2010).</p>
@@ -365,7 +367,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Paper takeaways</h2>
+      <h2 class="motion-reveal">Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
@@ -380,7 +382,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
         <article id="idea-1">
@@ -412,10 +414,10 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Keith. Directions (below) are how those hooks could become process calculations and, only where the paper’s claim is actually a transport, chemistry, or radiation question, UKESM / UKCA / GLOMAP work.</p>
       <div class="ideas">
-        <article>
+        <article class="motion-reveal">
           <h3>Direction A ↔ Idea 1 — Recompute the disk levitation traps <em>(author documented calculation; inferred sensitivities)</em></h3>
           <p><strong>Hook:</strong> For the stated disk, Keith reports F_P greater than twice the weight under diurnally averaged illumination if absorption is only 10%, with δα = 0.15 called conservative, and says particles might be trapped below the stratopause (“A”) or below the mesopause (“B”). Fig. 2 is the SI energy balance on a 1976 Standard Atmosphere <em>(author documented)</em>.</p>
           <p><strong>Next steps:</strong></p>
@@ -427,7 +429,7 @@
           </ul>
           <p>UKESM is the wrong first instrument. It has no photophoretic force. Do not add a toy lofting term inside the ESM and call it Fig. 2.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction B ↔ Idea 2 — Distribution, winter, lifetime, replenishment <em>(author documented gap)</em></h3>
           <p><strong>Hook:</strong> Unresolved issue (ii) is to predict the distribution under photophoretic motion, gravitational settling, and middle-atmosphere winds. Neglecting photophoresis, the SI gives 0.18 km/day at the stratopause and tens of years to the tropopause, and says particles need not settle out in winter when they are not illuminated. The cost section assumes a 10-year life to turn ∼10⁹ kg into 10⁸ kg/yr <em>(author documented)</em>.</p>
           <p><strong>Next steps:</strong></p>
@@ -440,7 +442,7 @@
           </ul>
           <p><strong>Keep distinct from Direction A:</strong> A asks whether F_P/F_G = 1 anywhere. B asks where particles go over seasons and what lifetime that implies.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction C ↔ Idea 3 — Ozone surface area, including winter <em>(author documented argument; inferred UKCA test)</em></h3>
           <p><strong>Hook:</strong> Lofting “could” or “would” reduce interference with ozone chemistry by getting particles out of the lower stratosphere. The wording in the results section is “might avoid” the reactive-surface disadvantage. No ozone diagnostic is calculated. There is no volcanic analog, which Keith treats as a reason for more concern about unexpected side effects <em>(author documented)</em>.</p>
           <p><strong>UKESM / UKCA next steps:</strong></p>
@@ -452,7 +454,7 @@
           </ul>
           <p><strong>Keep distinct from Direction E:</strong> diffuse sunlight is not an ozone metric. <strong>Keep distinct from Direction B:</strong> winter here is a chemistry-exposure question, not the lifetime question.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction D ↔ Idea 4 — Brewer–Dobson tracer versus unresolved drift speed <em>(author documented split)</em></h3>
           <p><strong>Hook:</strong> Two mechanisms. Stratopause-confined particles “would be transported poleward by the Brewer–Dobson circulation.” A tilted disk is separately assigned printed speeds of order 10² m/s (stratopause) and possibly above 10 m/s (mesopause), while the same section says the stratopause tilted-disk velocities appear slower than Brewer–Dobson transport and that the mesopause time average is difficult because of diurnal cycles. The SI equates balanced-state horizontal drift to settling speed and never evaluates 10² m/s <em>(author documented)</em>.</p>
           <p><strong>Next steps:</strong></p>
@@ -464,7 +466,7 @@
           </ul>
           <p><strong>Keep distinct from Direction A:</strong> vertical trap versus horizontal speed. A trap at “A” does not imply the 10² m/s drift.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction E ↔ Idea 5 — Disk versus sulfate radiation, under Keith’s own SRM limit <em>(author documented design claim; inferred ESM)</em></h3>
           <p><strong>Hook:</strong> Sulfate is called a blunt instrument because of size, forward scatter, and ozone surface. The disk “would produce minimal forward scattering” when its radius is large compared with the wavelength. Pinatubo’s diffuse-light increase (more than a factor of 2) is a citation, not a measurement in this paper. The cost arithmetic is offered only to suggest the possibility cannot be discounted, and “do not prove” manufacture and deployment <em>(author documented)</em>.</p>
           <p><strong>UKESM next steps:</strong></p>
@@ -496,5 +498,6 @@
       <a href="index.html">Back to Custom idea path</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

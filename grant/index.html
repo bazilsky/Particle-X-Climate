@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Grant path — Particle X Climate</title>
@@ -250,30 +252,30 @@
     </header>
 
     <section class="hero">
-      <p class="kicker">Monday</p>
-      <h1>Monday grant path</h1>
-      <p class="lede">Two separate searches, merged into one page. Pick a week to read it.</p>
+      <p class="kicker motion-enter">Monday</p>
+      <h1 class="motion-line"><span>Monday grant path</span></h1>
+      <p class="lede motion-enter">Two separate searches, merged into one page. Pick a week to read it.</p>
     </section>
 
     <section>
-      <h2>Weeks</h2>
+      <h2 class="motion-reveal">Weeks</h2>
       <div class="week-list">
-        <a class="week-btn" href="2026-10-19.html">
+        <a class="week-btn motion-reveal" href="2026-10-19.html">
           <span class="day">19 October 2026</span>
           <h3>Grant path</h3>
           <p>COST Open Call closes Wednesday 28 October and the Dorothy Hodgkin Fellowship on 29 October. Reflective’s GeoMIP call is due 2 November.</p>
         </a>
-        <a class="week-btn" href="2026-10-12.html">
+        <a class="week-btn motion-reveal" href="2026-10-12.html">
           <span class="day">12 October 2026</span>
           <h3>Grant path</h3>
           <p>ERC Starting Grant closes this Wednesday, 14 October. The Horizon Europe SRM modelling topic is still open, to 16 February 2027.</p>
         </a>
-        <a class="week-btn" href="2026-10-05.html">
+        <a class="week-btn motion-reveal" href="2026-10-05.html">
           <span class="day">5 October 2026</span>
           <h3>Grant path</h3>
           <p>UK and EU/international passes merged. New: an EU SRM modelling topic and a Reflective GeoMIP call.</p>
         </a>
-        <a class="week-btn" href="2026-10-01.html">
+        <a class="week-btn motion-reveal" href="2026-10-01.html">
           <span class="day">1 October 2026</span>
           <h3>Grant path</h3>
           <p>UK/UKRI and EU/international passes merged.</p>
@@ -285,5 +287,6 @@
       <span>Static page for Cloudflare Pages</span>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

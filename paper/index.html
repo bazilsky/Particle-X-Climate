@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Paper path — Particle X Climate</title>
@@ -250,25 +252,25 @@
     </header>
 
     <section class="hero">
-      <p class="kicker">Thursday</p>
-      <h1>Thursday paper path</h1>
-      <p class="lede">Two separate searches each week. The six newest remit matches go on the page, each with a bare link. Pick a week to read it.</p>
+      <p class="kicker motion-enter">Thursday</p>
+      <h1 class="motion-line"><span>Thursday paper path</span></h1>
+      <p class="lede motion-enter">Two separate searches each week. The six newest remit matches go on the page, each with a bare link. Pick a week to read it.</p>
     </section>
 
     <section>
-      <h2>Weeks</h2>
+      <h2 class="motion-reveal">Weeks</h2>
       <div class="week-list">
-        <a class="week-btn" href="2026-10-15.html">
+        <a class="week-btn motion-reveal" href="2026-10-15.html">
           <span class="day">15 October 2026</span>
           <h3>Paper path</h3>
           <p>6 paper weekly highlight — six remit matches from two blind searches.</p>
         </a>
-        <a class="week-btn" href="2026-10-08.html">
+        <a class="week-btn motion-reveal" href="2026-10-08.html">
           <span class="day">8 October 2026</span>
           <h3>Paper path</h3>
           <p>6 paper weekly highlight — six remit matches from two blind searches.</p>
         </a>
-        <a class="week-btn" href="2026-10-01.html">
+        <a class="week-btn motion-reveal" href="2026-10-01.html">
           <span class="day">1 October 2026</span>
           <h3>Paper path</h3>
           <p>6 paper weekly highlight — six remit matches from two blind searches.</p>
@@ -280,5 +282,6 @@
       <span>Static page for Cloudflare Pages</span>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

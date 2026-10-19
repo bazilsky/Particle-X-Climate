@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Custom idea path — Ranjithkumar et al. — 2 October 2026</title>
@@ -351,13 +353,13 @@
 
 
     <section class="hero">
-      <p class="kicker">2 October 2026 · Custom</p>
-      <h1>Ranjithkumar et al.</h1>
-      <p class="lede">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
+      <p class="kicker motion-enter">2 October 2026 · Custom</p>
+      <h1 class="motion-line"><span>Ranjithkumar et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, five ideas, and research directions for a creator-nominated paper. Site only.</p>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Nuclear Conflict in Eastern Europe: Climate disruption and Radiological fallout</h3>
         <p class="meta">Ranjithkumar, A., Mayne, N., Jones, A.C., Haywood, J.M. (2026): Nuclear Conflict in Eastern Europe: Climate disruption and Radiological fallout. npj Clean Air.</p>
@@ -366,7 +368,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Paper takeaways</h2>
+      <h2 class="motion-reveal">Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
@@ -380,7 +382,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
         <article id="idea-1">
@@ -412,10 +414,10 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Ranjithkumar et al. Directions (below) are how those hooks could become actual UKESM / GLOMAP / impact work.</p>
       <div class="ideas">
-        <article>
+        <article class="motion-reveal">
           <h3>Direction A ↔ Idea 1 — BC vs OC co-emission sensitivity <em>(author documented core)</em></h3>
           <p><strong>Hook:</strong> Paper is BC-only; authors acknowledge OC co-emission as a <strong>key uncertainty</strong> that <strong>is not examined</strong>, citing Pausata-style composition effects on BC lifetime <em>(author documented)</em>.</p>
           <p><strong>UKESM / GLOMAP next steps:</strong></p>
@@ -428,7 +430,7 @@
           </ul>
           <p>Do not treat “BC is the primary driver” or Supplementary Section 1’s other-pollutant note as a completed OC experiment — authors say the OC aspect was not examined.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction B ↔ Idea 2 — Stratospheric coagulation-on <em>(author documented switch; inferred experiment)</em></h3>
           <p><strong>Hook:</strong> Coagulation is turned off in the stratosphere for the 150 nm accumulation-soluble BC injection; climate recovery (~6 years) and BC e-folding (~3.5 years) are reported under that setting <em>(author documented)</em>.</p>
           <p><strong>UKESM / GLOMAP next steps:</strong></p>
@@ -440,7 +442,7 @@
           </ul>
           <p>Keep distinct from Direction A: change microphysical process switch, not OC:BC mix. Do not claim coagulation-off was shown to be harmless.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction C ↔ Idea 3 — Multi-model UKRRUS + INDPAK <em>(author documented ongoing work)</em></h3>
           <p><strong>Hook:</strong> Single ESM; authors place a comprehensive multi-model comparison of <strong>both</strong> INDPAK and UKRRUS beyond this paper’s scope while noting inter-model spread remains important <em>(author documented)</em>.</p>
           <p><strong>UKESM next steps (UKESM-anchored, not vapourware MIP):</strong></p>
@@ -452,7 +454,7 @@
           </ul>
           <p><strong>Keep distinct from A/B:</strong> structural inter-model / source-latitude protocol, not composition or coagulation. Do not re-read “not strongly model-dependent” as closed structural uncertainty.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction D ↔ Idea 4 — Radiological methods: Glasstone near-term + adherence long-term <em>(author documented idealizations)</em></h3>
           <p><strong>Hook:</strong> 48-h fallout is simplified Glasstone–Dolan under mean winds; long-term Cs-137/Sr-90 on BC is an <strong>idealised upper-bound</strong> for soot-borne distribution <em>(author documented)</em>.</p>
           <p><strong>Next steps:</strong></p>
@@ -464,7 +466,7 @@
           </ul>
           <p><strong>Hard fences:</strong> Do not claim the published long-term doses are observationally validated. Upper-bound is for radionuclide <em>distribution with soot</em>, not a full multi-pathway risk assessment. Do not invent food-chain dose as already done.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction E ↔ Idea 5 — Food-security / humanitarian impact chain <em>(author documented benchmark framing)</em></h3>
           <p><strong>Hook:</strong> Abstract offers a robust food-security and humanitarian-impact <strong>benchmark</strong>; paper shows mid-latitude solar/precip stress and NH NPP cuts; Discussions hypothesise compounding climate–food–radiological health stress without quantifying famine or morbidity <em>(author documented)</em>.</p>
           <p><strong>Next steps:</strong></p>
@@ -496,5 +498,6 @@
       <a href="index.html">Back to Custom idea path</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

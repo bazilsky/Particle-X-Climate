@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idea path — Perny et al. — 1 October 2026</title>
@@ -351,13 +353,13 @@
 
 
     <section class="hero">
-      <p class="kicker">1 October 2026 · Paper 2</p>
-      <h1>Perny et al.</h1>
-      <p class="lede">Takeaways, three ideas, and research directions. Volcanic sulfate only. The participating UK configuration is GA4 UM-UKCA, not UKESM1.1. Grant-agnostic — no call names.</p>
+      <p class="kicker motion-enter">1 October 2026 · Paper 2</p>
+      <h1 class="motion-line"><span>Perny et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, three ideas, and research directions. Volcanic sulfate only. The participating UK configuration is GA4 UM-UKCA, not UKESM1.1. Grant-agnostic — no call names.</p>
     </section>
 
     <section id="chosen">
-      <h2>Chosen paper</h2>
+      <h2 class="motion-reveal">Chosen paper</h2>
       <div class="picked">
         <h3>Assessing the stratospheric temperature response to volcanic sulfate injections by Mt. Pinatubo: insights from the Interactive Stratospheric Aerosol Model Intercomparison Project</h3>
         <p class="meta">Perny, K., et al. (2026): Assessing the stratospheric temperature response to volcanic sulfate injections by Mt. Pinatubo: insights from the Interactive Stratospheric Aerosol Model Intercomparison Project. Atmos. Chem. Phys., 26, 10997–11025.</p>
@@ -366,7 +368,7 @@
     </section>
 
     <section id="takeaways">
-      <h2>Paper takeaways</h2>
+      <h2 class="motion-reveal">Paper takeaways</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Site-only notes on what the paper delivered.</p>
       <div class="takeaways">
         <h3>What they got right (main result)</h3>
@@ -377,7 +379,7 @@
     </section>
 
     <section id="ideas">
-      <h2>Ideas</h2>
+      <h2 class="motion-reveal">Ideas</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Scientific hooks: what questions are worth chasing.</p>
       <div class="ideas">
         <article id="idea-1">
@@ -399,24 +401,24 @@
     </section>
 
     <section id="directions">
-      <h2>Research directions</h2>
+      <h2 class="motion-reveal">Research directions</h2>
       <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Ideas (above) are the scientific hooks — what questions are worth chasing from Perny. Directions (below) are how those hooks could become actual UKESM / UKCA / GLOMAP work.</p>
       <div class="ideas">
-        <article>
+        <article class="motion-reveal">
           <h3>Direction A ↔ Idea 1 — Size distributions beyond effective radius <em>(author documented core)</em></h3>
           <p><strong>Hook:</strong> Perny recommend a detailed analysis of model size distributions and of whether effective radius represents them; they find size distribution “somewhat important” for the observed temperature response, while for most models Reff alone does not explain the spread <em>(author documented)</em>. UM-UKCA shows low tropical SO₄↔T sensitivity (~0.28 K per µg m⁻³) with weak warming despite well-reproduced SO₄ <em>(author documented)</em>.</p>
           <p><strong>UK / GLOMAP next steps:</strong></p>
           <ul><li>Start from published GA4 UM-UKCA HErSEA members (Med-22km core; Low/High injection variants as sensitivity).</li><li>Diagnose full GLOMAP modal moments (number, mass, width / mode radii) — not Reff alone — co-located with SO₄ mass and tropical temperature anomaly <em>(inferred)</em> diagnostic package.</li><li>Recompute Perny-style SO₄↔temperature regressions conditioned on size-distribution diagnostics to test whether UM-UKCA’s low sensitivity tracks modal shape, not just mass.</li><li>Only after the GA4 baseline: ask whether the same size–temperature relationship appears in <strong>(inferred)</strong> UKESM1.1/GLOMAP Pinatubo or continuous high-burden <strong>sulfate</strong> runs.</li></ul>
           <p>Do not claim Perny already closed the size-distribution question. Do not treat Reff as proven irrelevant. Keep GA4 → UKESM1.1 tagged <strong>(inferred)</strong>.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction B ↔ Idea 2 — Process isolation of radiative transfer, transport, sedimentation <em>(author documented core)</em></h3>
           <p><strong>Hook:</strong> Transport, radiative transfer, microphysics, and size-distribution characterisation interact too tightly under HErSEA to attribute inter-model temperature differences; Perny call for process-oriented MIPs on radiative transfer, transport, and sedimentation, plus within-family subroutine sensitivity tests <em>(author documented)</em>. UM-UKCA prefers deep-branch transport in the first post-eruption winter <em>(author documented)</em>.</p>
           <p><strong>UK / GLOMAP next steps (single-family — not a new community MIP as the deliverable):</strong></p>
           <ul><li>Hold HErSEA-like SO₂ injection fixed; isolate (i) aerosol heating / radiative transfer, (ii) tropical-pipe vs shallow/deep BDC transport, (iii) sedimentation / size-dependent removal <em>(inferred)</em> process switches or offline–online diagnostics.</li><li>Use GA4 UM-UKCA archives and Control-minus-eruption anomalies first; quantify how much of the low SO₄↔T sensitivity survives when transport or heating is constrained.</li><li>Tag any new community process-oriented MIP as <em>(inferred)</em> context only — primary deliverable is UK-family depth matching Perny’s direction (iii) “within model families and generations.”</li><li>Any UKESM1.1/ENDGAME re-implementation of those switches is <strong>(inferred)</strong> relative to the paper’s GA4 member.</li></ul>
           <p>Keep distinct from Direction A: A diagnoses size distributions; B isolates RT / transport / sedimentation as interacting process levers. Do not pretend HErSEA already separated them.</p>
         </article>
-        <article>
+        <article class="motion-reveal">
           <h3>Direction C ↔ Idea 3 — Caution-bound <strong>(inferred)</strong> UKESM1.1 / high-burden sulfate SO₄↔T bridge</h3>
           <p><strong>Hook:</strong> Perny argue for caution in attribution and in interpreting SAI temperature responses from individual or few models; model choice dominates magnitude and spread of temperature response even under a strict protocol <em>(author documented)</em>. Q3 is <strong>caution</strong>, not an experiment that asks whether caution fails.</p>
           <p><strong>UKESM next steps (interpretive + inferred bridge):</strong></p>
@@ -437,5 +439,6 @@
       <a href="2026-10-01.html">Back to 1 October</a>
     </footer>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

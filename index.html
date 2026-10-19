@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Particle X Climate</title>
@@ -58,13 +60,14 @@
 </head>
 <body>
   <div>
-    <p class="mark">Particle X Climate</p>
-    <h1>Three ways in.</h1>
-    <div class="doors">
-      <a class="door test" href="studio.html">The Studio</a>
-      <a class="door play" href="playground/">Research Playground</a>
-      <a class="door watch" href="overwatch.html">Research Overwatch</a>
+    <p class="mark motion-line"><span>Particle X Climate</span></p>
+    <h1 class="motion-enter">Three ways in.</h1>
+    <div class="doors motion-stagger">
+      <a class="door test motion-enter" href="studio.html">The Studio</a>
+      <a class="door play motion-enter" href="playground/">Research Playground</a>
+      <a class="door watch motion-enter" href="overwatch.html">Research Overwatch</a>
     </div>
   </div>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>

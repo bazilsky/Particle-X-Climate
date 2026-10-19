@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Northern Hemisphere shortwave heating, black carbon and vis441</title>
@@ -119,14 +121,14 @@
   <main>
 
     <header class="top">
-      <a class="mark" href="../">Particle X Climate</a>
+      <a class="motion-enter mark" href="../">Particle X Climate</a>
       <input type="checkbox" id="nav-toggle" hidden>
       <label for="nav-toggle" class="menu-toggle">Menu</label>
       <nav id="site-nav">
         <a href="./">X<sub>dark</sub> = Black carbon</a>
       </nav>
     </header>
-    <h1>Northern Hemisphere shortwave heating, black carbon and vis441</h1>
+    <h1 class="motion-enter">Northern Hemisphere shortwave heating, black carbon and vis441</h1>
     <p class="note">
       Monthly-mean 2015 Δ shortwave heating, 0–90°N, compared with <code>u-ec983</code>, in K day⁻¹.
       Black carbon and vis441 at 10–12 km share the X<sub>light</sub> run <code>u-ec950</code>.
@@ -646,5 +648,6 @@
       else render();
     });
   </script>
+  <script src="/assets/motion.js" defer></script>
 </body>
 </html>
