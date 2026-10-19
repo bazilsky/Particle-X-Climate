@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monday grant path — 19 October 2026</title>
+  <meta name="description" content="Monday grant path for 19 October 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+      --go: #1f4d45;
+      --go-soft: #e4eeeb;
+      --maybe: #8a6a2f;
+      --maybe-soft: #f3ead4;
+      --nogo: #9a3b24;
+      --nogo-soft: #f3e4dc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid var(--rust);
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    .tip small {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .grants {
+      display: grid;
+      gap: 1rem;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta li {
+      margin: 0 0 0.35rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .meta li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+    }
+
+    .tag.go {
+      background: var(--go-soft);
+      color: var(--go);
+    }
+
+    .tag.maybe {
+      background: var(--maybe-soft);
+      color: var(--maybe);
+    }
+
+    .tag.nogo {
+      background: var(--nogo-soft);
+      color: var(--nogo);
+    }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    .url a {
+      color: var(--rust);
+      text-decoration: none;
+    }
+
+    .url a:hover { text-decoration: underline; }
+
+    .note {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .signoff {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+
+    .tip.joke { border-left-color: #0d47a1; }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
+    .tag.new { background: #e3ecf8; color: #0d47a1; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="../idea/index.html">Idea path</a>
+        <a href="../custom-idea/index.html">Custom idea path</a>
+        <a href="../overwatch.html#team">Team</a>
+        <a href="../overwatch.html#remit">Remit</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <p class="kicker">19 October 2026</p>
+      <h1>Monday grant path</h1>
+      <p class="lede">Two blind search passes merged (UK funders, and EU/international by topic). Overlap between passes: none, so this is coverage, not corroboration. Eligibility tags assume Ananth as Applicant PI or project lead (PhD December 2022, postdoc at Exeter). <span class="tag go">GO</span> only when the call text allows a postdoc lead and nothing hinges on his Exeter contract. <span class="tag maybe">MAYBE</span> when the text or the contract still needs confirming. <span class="tag new">New</span> marks schemes not on the 12 October page.</p>
+      <div class="tip joke">
+        <p>A grant deadline is the one constant in climate science that never drifts. — Mrs. L</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Highlights</h2>
+      <div class="grants">
+        <article>
+          <h3>COST Open Call OC-2026-1 (new COST Actions) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> COST Association</li>
+            <li><strong>Scheme:</strong> OC-2026-1</li>
+            <li><strong>Deadline:</strong> Wednesday 28 October 2026, 12:00 CET (11:00 UK)</li>
+            <li><strong>Eligibility:</strong> <span class="tag go">GO</span> — the COST page says participants can apply at any stage of their career, and the UK is one of the 41 COST Full Members. A network of proposers from several COST countries is needed (last week’s run noted a minimum of seven; not re-checked today).</li>
+            <li><strong>Fit:</strong> Partial. Networking money only (about EUR 150k in year 1, then EUR 180k a year for three years); it would suit a COST Action on SAI, volcanic, wildfire or nuclear-war aerosol modelling.</li>
+            <li><strong>Why it might not fit:</strong> Pays meetings, short visits and training schools only, with no research salary, and the network has to be assembled in nine days.</li>
+          </ul>
+          <p class="url"><a href="https://www.cost.eu/funding/open-call-a-simple-one-step-application-process/" target="_blank" rel="noopener noreferrer">https://www.cost.eu/funding/open-call-a-simple-one-step-application-process/</a></p>
+        </article>
+        <article>
+          <h3>Dorothy Hodgkin Fellowship (2027 round) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Royal Society</li>
+            <li><strong>Deadline:</strong> Thursday 29 October 2026 (decision by 31 July 2027)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — the career-stage test fits (no more than six years of research since the PhD, no permanent post), but the scheme also requires a current and ongoing need for flexible support due to personal circumstances, such as being a primary carer or a clinically diagnosed health condition. Only Ananth can judge that.</li>
+            <li><strong>Fit:</strong> Strong. Eight-year fellowship worth up to £1,907,400.</li>
+            <li><strong>Why it might not fit:</strong> Applies only with a qualifying need for flexibility; very competitive, needs Exeter host support, and ten days are left.</li>
+          </ul>
+          <p class="url"><a href="https://royalsociety.org/grants/dorothy-hodgkin-fellowship/" target="_blank" rel="noopener noreferrer">https://royalsociety.org/grants/dorothy-hodgkin-fellowship/</a></p>
+        </article>
+        <article>
+          <h3>Increasing Model Participation in GeoMIP (RFP) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Reflective</li>
+            <li><strong>Scheme:</strong> RE-1003</li>
+            <li><strong>Deadline:</strong> Phase 1: Monday 2 November 2026; Phase 2: 18 January 2027 (time of day not stated; one USD 500k pool for 5–10 awards)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — open to academic institutions, non-profits and government-affiliated groups in any country, with individual or multi-PI teams. Only one application may be submitted by the same organisation or PI, so Exeter and the UKESM consortium must agree internally.</li>
+            <li><strong>Fit:</strong> Partial. GeoMIP (SAI) model participation, aimed at climate modelling centres. Up to USD 100k for up to 12 months.</li>
+            <li><strong>Why it might not fit:</strong> UKESM1-1 is already in the RFP’s appendix of GeoMIP models, Reflective favours models that have not contributed recently, and substantial model development is out of scope.</li>
+          </ul>
+          <p class="url"><a href="https://www.reflective.org/increasing-geomip-models-rfp" target="_blank" rel="noopener noreferrer">https://www.reflective.org/increasing-geomip-models-rfp</a></p>
+        </article>
+        <article>
+          <h3>Exploring the frontiers of environmental research 2026 [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> NERC (UKRI)</li>
+            <li><strong>Deadline:</strong> 12 November 2026, 16:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — all career stages welcome, but UKRI requires a fixed-term contract to last at least until the grant end date, so Exeter must confirm. At most two applications per person, as lead on only one.</li>
+            <li><strong>Fit:</strong> Strong. £100k–£200k FEC over up to two years, for a truly novel or exploratory idea.</li>
+            <li><strong>Why it might not fit:</strong> Must not be incremental UKESM/GLOMAP work; must start by 1 May 2027; applicants take part in distributed peer review between 6 and 27 January 2027.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/exploring-the-frontiers-of-environmental-research-2026/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/exploring-the-frontiers-of-environmental-research-2026/</a></p>
+        </article>
+        <article>
+          <h3>Humboldt Research Fellowship for postdocs (Germany-hosted) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> Alexander von Humboldt Foundation</li>
+            <li><strong>Deadline:</strong> Next call opens 15 November 2026; closes when 800 applications are received</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — the postdoc track needs a doctorate from the last four years, counted on the day Humboldt receives the application. His four-year mark falls in December 2026, so he must submit soon after 15 November; after that the experienced track asks for a leadership role. Needs a German host.</li>
+            <li><strong>Fit:</strong> Partial. 6–24 months with a German aerosol group (for example KIT, MPI-C or FZ Jülich).</li>
+            <li><strong>Why it might not fit:</strong> Means leaving Exeter for a German host; the submission window is narrow and may fill fast.</li>
+          </ul>
+          <p class="url"><a href="https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship" target="_blank" rel="noopener noreferrer">https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship</a></p>
+        </article>
+        <article>
+          <h3>Detection, monitoring, modelling and attribution capabilities for SRM activities (RIA) [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> European Commission (Horizon Europe Bridging call)</li>
+            <li><strong>Scheme:</strong> HORIZON-BRIDGING-2027-04-11</li>
+            <li><strong>Deadline:</strong> Open since 6 October 2026; closes 16 February 2027, 17:00 Brussels (16:00 UK)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — UK entities are eligible (Associated Country) and there is no career-stage rule, but it is one EUR 10M consortium grant, so the realistic role is a work package with Exeter as the beneficiary authorising it.</li>
+            <li><strong>Fit:</strong> Strong. SAI, MCB and CCT aerosol–cloud modelling for detection and attribution is in scope. It is the only SRM topic in the Portal keyword sweeps.</li>
+            <li><strong>Why it might not fit:</strong> Framed around detection, attribution and deterrence. Field experiments, “technical and operational SRM research”, and work that would “advocate, promote, or support the development of SRM” are out of scope.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-BRIDGING-2027-04-11" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-BRIDGING-2027-04-11</a></p>
+        </article>
+        <article>
+          <h3>Pushing the frontiers of environmental research [single-source]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> NERC (UKRI)</li>
+            <li><strong>Deadline:</strong> Open — no closing date (opened 23 September 2026)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — any career stage under UKRI rules, but the fixed-term contract must last to the end of the award (usually three to four years), so Exeter must confirm.</li>
+            <li><strong>Fit:</strong> Strong. Most bids are under £950k FEC.</li>
+            <li><strong>Why it might not fit:</strong> Large and competitive; a postdoc lead must show leadership capability.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/pushing-the-frontiers-of-environmental-research/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/pushing-the-frontiers-of-environmental-research/</a></p>
+        </article>
+        <article>
+          <h3>Future Leaders Fellowships: round 12 (timeline only) [single-source, unverified]</h3>
+          <ul class="meta">
+            <li><strong>Funder:</strong> UKRI</li>
+            <li><strong>Deadline:</strong> Not yet open — UKRI timeline lists an anticipated launch in February 2027; closing date TBC</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — no round-12 call text yet; Exeter would need to select him internally and commit to the fellowship post.</li>
+            <li><strong>Fit:</strong> Strong. About £110M in total.</li>
+            <li><strong>Why it might not fit:</strong> The launch month is anticipated, not confirmed: the only source is the UKRI timeline (dated September 2026, next update December 2026).</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/apply-for-funding/future-research-and-innovation-funding-opportunities/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/apply-for-funding/future-research-and-innovation-funding-opportunities/</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Other relevant</h2>
+      <div class="grants">
+        <article>
+          <h3>Advancing atmospheric and aerial autonomy [single-source] — NERC (UKRI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 21 October 2026, 16:00 UK time (two days)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — any career stage at NERC-eligible organisations; host contract check. Proof-of-concept autonomous atmospheric sensing and aerial platforms with industry collaboration (£300k–£1M FEC, 100% funded, start by 1 February 2027), not aerosol modelling.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/advancing-atmospheric-and-aerial-autonomy/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/advancing-atmospheric-and-aerial-autonomy/</a></p>
+        </article>
+        <article>
+          <h3>Resilient economy and security through ecosystem transitions (RESET) grants [single-source] — NERC (UKRI) with Defra <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 22 October 2026, 16:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — on remit: ecosystem transitions and economic resilience, not atmospheric aerosol or SRM.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/resilient-economy-and-security-through-ecosystem-transitions-grants/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/resilient-economy-and-security-through-ecosystem-transitions-grants/</a></p>
+        </article>
+        <article>
+          <h3>Security Open Call 2026 Cycle 2 [single-source] — UK Defence Innovation (UKDI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Stage 1: 29 October 2026, 12:00 GMT; Stage 2 (invited): 28 January 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — on remit, not eligibility: security technology for the Home Office, NPSA and DfT ending at TRL 6–7. No nuclear-winter or aerosol-climate scope.</li>
+          </ul>
+          <p class="url"><a href="https://www.gov.uk/government/publications/competition-document-ukdi-security-open-call-2026-cycle-2/competition-document-security-open-call-2026-cycle-2" target="_blank" rel="noopener noreferrer">https://www.gov.uk/government/publications/competition-document-ukdi-security-open-call-2026-cycle-2/competition-document-security-open-call-2026-cycle-2</a></p>
+        </article>
+        <article>
+          <h3>BA/Leverhulme Small Research Grants 2026–27 [single-source] — British Academy</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 4 November 2026, 17:00 GMT (independent scholars 28 October)</li>
+            <li><strong>Eligibility:</strong> <span class="tag go">GO</span> — open to UK-resident postdocs with employer approval. Weak fit: humanities and social sciences only, so just an SRM-governance or nuclear-risk society angle; up to £10,000, no salary.</li>
+          </ul>
+          <p class="url"><a href="https://www.thebritishacademy.ac.uk/funding/schemes/ba-leverhulme-small-research-grants/" target="_blank" rel="noopener noreferrer">https://www.thebritishacademy.ac.uk/funding/schemes/ba-leverhulme-small-research-grants/</a></p>
+        </article>
+        <article>
+          <h3>Future Leaders Fellowships round 11, business and non-academic [single-source] — UKRI (Innovate UK)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 4 November 2026, 11:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — business and non-academic hosts only; the academic route closed 16 June 2026.</li>
+          </ul>
+          <p class="url"><a href="https://apply-for-innovation-funding.service.gov.uk/competition/2499/overview/60da9000-d438-47fb-92aa-e8d9435a17ab" target="_blank" rel="noopener noreferrer">https://apply-for-innovation-funding.service.gov.uk/competition/2499/overview/60da9000-d438-47fb-92aa-e8d9435a17ab</a></p>
+        </article>
+        <article>
+          <h3>Research Fellowships (2027 round) [single-source] — The Leverhulme Trust</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 5 November 2026</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — requires a permanent member of the UK scholarly community and excludes staff in predominantly research posts or on short-term research contracts.</li>
+          </ul>
+          <p class="url"><a href="https://www.leverhulme.ac.uk/research-fellowships" target="_blank" rel="noopener noreferrer">https://www.leverhulme.ac.uk/research-fellowships</a></p>
+        </article>
+        <article>
+          <h3>Career Development Fellowship (2027 round) [single-source] — Royal Society</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 18 November 2026</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — a pilot for Black-heritage researchers with under 24 months of postdoctoral experience.</li>
+          </ul>
+          <p class="url"><a href="https://royalsociety.org/grants/career-development-fellowship/" target="_blank" rel="noopener noreferrer">https://royalsociety.org/grants/career-development-fellowship/</a></p>
+        </article>
+        <article>
+          <h3>Global Innovation Fellowships: Carnegie Endowment for International Peace 2026 [single-source] — British Academy <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 18 November 2026, 17:00 GMT (interviews 8 February 2027)</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — humanities and social sciences disciplines plus a long-term appointment covering the award; a physical-science postdoc on a fixed-term contract is very unlikely to qualify, even though the climate, geopolitics and security themes touch nuclear risk.</li>
+          </ul>
+          <p class="url"><a href="https://www.thebritishacademy.ac.uk/funding/global-innovation-fellowships-carnegie-endowment-for-international-peace/" target="_blank" rel="noopener noreferrer">https://www.thebritishacademy.ac.uk/funding/global-innovation-fellowships-carnegie-endowment-for-international-peace/</a></p>
+        </article>
+        <article>
+          <h3>Policy Fellowships (timeline only) [single-source, unverified] — UKRI <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Not yet open — UKRI timeline lists an anticipated launch in November 2026; closing date TBC</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — for early- and mid-career researchers embedded in a UK or devolved government department; no call text yet, so contract and eligibility rules are unknown. Weak fit: a placement, not a research grant, useful only if a department posts an SRM, climate-risk or atmospheric-hazard question.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/apply-for-funding/future-research-and-innovation-funding-opportunities/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/apply-for-funding/future-research-and-innovation-funding-opportunities/</a></p>
+        </article>
+        <article>
+          <h3>HALO Infrastructure Priority Programme (SPP 1294): call for proposals (HALO 2028) [single-source] — Deutsche Forschungsgemeinschaft (DFG)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 27 November 2026 (elan registration by 13 November)</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — DFG funds researchers based in Germany (general DFG rule, not stated on the call page), so only a collaborator role. The scope (aerosol, UTLS transport and composition, HALO aircraft data) is close to his work; projects start in 2028.</li>
+          </ul>
+          <p class="url"><a href="https://www.dfg.de/en/news/news-topics/announcements-proposals/2026/ifr-26-55" target="_blank" rel="noopener noreferrer">https://www.dfg.de/en/news/news-topics/announcements-proposals/2026/ifr-26-55</a></p>
+        </article>
+        <article>
+          <h3>UKRI Enabling AI adoption across science and engineering [single-source] — UKRI (IS8 AI Programme) <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 1 December 2026, 16:00 UK time</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — priority areas are engineering biology, advanced materials, quantum, medical research and fusion; climate and atmospheric science are not listed.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/ukri-enabling-ai-adoption-across-science-and-engineering/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/ukri-enabling-ai-adoption-across-science-and-engineering/</a></p>
+        </article>
+        <article>
+          <h3>Forecasting Tipping Points Phase 2 (full proposals) [single-source] — ARIA</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Full-proposal window opens 27 October 2026; closes 2 December 2026, 14:00 GMT</li>
+            <li><strong>Eligibility:</strong> <span class="tag go">GO</span> — ARIA welcomes early-career project leads and a concept paper was not required (the concept stage closed 9 October); more than half the work must be in the UK. Partial fit: a North Atlantic subpolar-gyre early-warning system, so aerosol forcing of the gyre or AMOC is the only angle.</li>
+          </ul>
+          <p class="url"><a href="https://aria.org.uk/opportunity-spaces/resilient-climate-and-ecosystems/forecasting-tipping-points/funding" target="_blank" rel="noopener noreferrer">https://aria.org.uk/opportunity-spaces/resilient-climate-and-ecosystems/forecasting-tipping-points/funding</a></p>
+        </article>
+        <article>
+          <h3>ISPF International Collaboration Awards (Brazil and South Africa, ODA) [single-source] — Royal Society <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 3 December 2026 (opened 13 October 2026)</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — needs a newly independent group leader with an independent partner in Brazil or South Africa, and ODA-eligible research.</li>
+          </ul>
+          <p class="url"><a href="https://royalsociety.org/grants/international-collaboration-awards-ispf/" target="_blank" rel="noopener noreferrer">https://royalsociety.org/grants/international-collaboration-awards-ispf/</a></p>
+        </article>
+        <article>
+          <h3>ERC Consolidator Grant 2027 (ERC-2027-COG) [single-source] — European Research Council</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 12 January 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — PhD must be defended between 1 January 2012 and 31 December 2021; his December 2022 PhD is too recent.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/ERC-2027-COG" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/ERC-2027-COG</a></p>
+        </article>
+        <article>
+          <h3>ISSI International Teams (2027 call) [single-source] — International Space Science Institute (ISSI Bern) <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Call to be released January 2027 (deadline not yet published)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — pipeline notice only. ISSI pays team meeting costs in Bern, not salaries, and every project must use data from space missions. Weak fit unless built as a volcanic, wildfire or SAI-analogue aerosol satellite-data team.</li>
+          </ul>
+          <p class="url"><a href="https://www.issibern.ch/scientific-opportunities/international-teams/apply-for-teams/" target="_blank" rel="noopener noreferrer">https://www.issibern.ch/scientific-opportunities/international-teams/apply-for-teams/</a></p>
+        </article>
+        <article>
+          <h3>Living Planet Fellowship (next call) [single-source] — European Space Agency <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> No active call; ESA says a new call comes in early 2027 (no date)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — pipeline notice only. Aimed at young researchers with a doctorate in ESA Member States (the UK is one); the 2027 career-stage window is not published. Partial fit with a clear satellite-EO element, such as stratospheric AOD for volcanic or wildfire plumes.</li>
+          </ul>
+          <p class="url"><a href="https://eo4society.esa.int/communities/scientists/living-planet-fellowship/" target="_blank" rel="noopener noreferrer">https://eo4society.esa.int/communities/scientists/living-planet-fellowship/</a></p>
+        </article>
+        <article>
+          <h3>Climate projections and data records (CSA, HORIZON-BRIDGING-2027-04-08) [single-source] — European Commission (Horizon Europe Bridging call)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Open since 6 October 2026; closes 16 February 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — consortium coordination and support action (EUR 5M, one grant), partner role only. Weak fit: climate-data infrastructure and records, not aerosol science.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-BRIDGING-2027-04-08" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-BRIDGING-2027-04-08</a></p>
+        </article>
+        <article>
+          <h3>Early Career Fellowships (2027 round) [single-source] — The Leverhulme Trust</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 18 February 2027, 16:00</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — a thesis submitted before 18 February 2023 is excluded unless there was a career break.</li>
+          </ul>
+          <p class="url"><a href="https://www.leverhulme.ac.uk/early-career-fellowships" target="_blank" rel="noopener noreferrer">https://www.leverhulme.ac.uk/early-career-fellowships</a></p>
+        </article>
+        <article>
+          <h3>Extreme events modelling (HORIZON-CL5-2027-01-D1-07) [single-source] — European Commission</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 17 November 2026; closes 4 March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — consortium work-package role (EUR 18M, about three grants), not a solo lead. Weak fit: the topic text never mentions aerosol, wildfire or volcanic, so an aerosol-driver angle would have to be argued in.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2027-01-D1-07" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2027-01-D1-07</a></p>
+        </article>
+        <article>
+          <h3>Palaeoclimate / Earth system dynamics (HORIZON-CL5-2027-01-D1-08) [single-source] — European Commission</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 17 November 2026; closes 4 March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — consortium partner role (EUR 14M, about two grants); no aerosol or volcanic wording, so a palaeo-volcanic forcing angle is marginal.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2027-01-D1-08" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2027-01-D1-08</a></p>
+        </article>
+        <article>
+          <h3>Research Fund (2027 round) [single-source, unverified] — Royal Society of Chemistry</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Reported: opens 30 November 2026, closes 15 March 2027, 14:00 GMT (search snippet only; the funder page could not be read)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — the 2026-round wording asks for RSC membership and a position that allows independent research, which may exclude a postdoc; up to £5,000 seed money. Re-check before relying on it.</li>
+          </ul>
+          <p class="url"><a href="https://www.rsc.org/funding-and-support/funding/research-fund" target="_blank" rel="noopener noreferrer">https://www.rsc.org/funding-and-support/funding/research-fund</a></p>
+        </article>
+        <article>
+          <h3>Research Grants (2027 round) [single-source] — Royal Society <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Closed now; 2027 round expected to open January 2027 and close by 31 March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — needs the first five years of an independent post, with own lab space and the ability to be primary PhD supervisor; a postdoc on someone else’s grant does not qualify.</li>
+          </ul>
+          <p class="url"><a href="https://royalsociety.org/grants/research-grants/" target="_blank" rel="noopener noreferrer">https://royalsociety.org/grants/research-grants/</a></p>
+        </article>
+        <article>
+          <h3>MSCA Staff Exchanges 2027 (HORIZON-MSCA-2027-SE-01-01) [single-source] — European Commission (MSCA)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 15 December 2026; closes 15 April 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — organisation-led consortium; he could be scientific lead only if Exeter applies or joins. Pays secondments, not research or salary.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-SE-01-01" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-SE-01-01</a></p>
+        </article>
+        <article>
+          <h3>ERC Synergy Grant 2027 [single-source] — European Research Council</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 17 February 2027; closes 11 May 2027 (ERC page; Portal topic not yet published)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — 2–4 PIs with no career-stage window, but each PI needs host-institution commitment, so a credible multi-PI team and Exeter backing.</li>
+          </ul>
+          <p class="url"><a href="https://erc.europa.eu/apply-grant/synergy-grant" target="_blank" rel="noopener noreferrer">https://erc.europa.eu/apply-grant/synergy-grant</a></p>
+        </article>
+        <article>
+          <h3>MSCA Postdoctoral Fellowships 2027 (Global Fellowship route) [single-source] — European Commission (MSCA)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 7 April 2027; closes 8 September 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — up to eight years after the PhD, which he meets, but the mobility rule blocks a UK-hosted European Fellowship; the Global route (12–24 months in a third country, then a return phase) is plausible. Fellow under a supervisor, not a PI. Rules are from the current MSCA page; the 2027 call text is not yet published.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-PF-01-01" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-PF-01-01</a></p>
+        </article>
+        <article>
+          <h3>Air-quality planning through multi-scale modelling (HORIZON-CL6-2027-01-ZEROPOLLUTION-02) [single-source] — European Commission</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Opens 20 April 2027; closes 22 September 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — consortium partner role (EUR 9.8M, about two grants). Weak fit: air-quality policy modelling, not climate or SRM aerosol.</li>
+          </ul>
+          <p class="url"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL6-2027-01-ZEROPOLLUTION-02" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL6-2027-01-ZEROPOLLUTION-02</a></p>
+        </article>
+        <article>
+          <h3>University Research Fellowship (2028 round) [single-source] — Royal Society <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> 2027 round closed 9 September 2026; 2028 round expected to open July 2027 and close by 30 September 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — needs 3–8 years of research since the PhD by the closing date (about 4.75 years for him in September 2027), no permanent post, and not already leading a group or holding an equivalent fellowship. Strong fit, but nearly a year away, the 2028 notes are not out, and it needs host support.</li>
+          </ul>
+          <p class="url"><a href="https://royalsociety.org/grants/university-research/" target="_blank" rel="noopener noreferrer">https://royalsociety.org/grants/university-research/</a></p>
+        </article>
+        <article>
+          <h3>Research Project Grants [single-source] — The Leverhulme Trust</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Outline rolling; invited detailed applications 1 April, 1 September, 1 December (next 1 December 2026)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — contract research staff can apply if the appointment lasts at least as long as the award (up to £500k, up to five years). Research aiming to influence current policy is excluded, so SRM needs a fundamental-science framing.</li>
+          </ul>
+          <p class="url"><a href="https://www.leverhulme.ac.uk/research-project-grants" target="_blank" rel="noopener noreferrer">https://www.leverhulme.ac.uk/research-project-grants</a></p>
+        </article>
+        <article>
+          <h3>NERC urgency funding [single-source] — NERC (UKRI)</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Rolling; outline within four weeks of the event start</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — host contract check. Only for early data on a genuinely unexpected event (up to £100k FEC, one year); expected or imminent eruptions are excluded, and it is a poor fit for pure modelling.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/nerc-urgency-funding-open/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/nerc-urgency-funding-open/</a></p>
+        </article>
+        <article>
+          <h3>Work with US-based researchers on environmental science: NERC–NSF lead agency [single-source] — NERC (UKRI) with NSF GEO/BIO <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Open — no closing date (follows NSF and NERC programme timelines)</li>
+            <li><strong>Eligibility:</strong> <span class="tag maybe">MAYBE</span> — UKRI host-contract check (fixed-term contract to the grant end). A route rather than a call: needs a US co-PI applying to an NSF GEO programme such as Atmospheric and Geospace Sciences; NERC funds the UK side at 80% FEC.</li>
+          </ul>
+          <p class="url"><a href="https://www.ukri.org/opportunity/work-with-us-based-researchers-on-environmental-science-research/" target="_blank" rel="noopener noreferrer">https://www.ukri.org/opportunity/work-with-us-based-researchers-on-environmental-science-research/</a></p>
+        </article>
+        <article>
+          <h3>Wellcome Discovery Awards [single-source] — Wellcome</h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Rolling</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — the lead needs international standing and a permanent or long-term contract, and the research must relate to human health.</li>
+          </ul>
+          <p class="url"><a href="https://wellcome.org/research-funding/schemes/wellcome-discovery-awards" target="_blank" rel="noopener noreferrer">https://wellcome.org/research-funding/schemes/wellcome-discovery-awards</a></p>
+        </article>
+        <article>
+          <h3>Wellcome Early-Career Awards [single-source] — Wellcome <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> Rolling</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — no more than three years of postdoctoral experience (he has about three years ten months), and the work must relate to human health.</li>
+          </ul>
+          <p class="url"><a href="https://wellcome.org/research-funding/schemes/wellcome-early-career-awards" target="_blank" rel="noopener noreferrer">https://wellcome.org/research-funding/schemes/wellcome-early-career-awards</a></p>
+        </article>
+        <article>
+          <h3>Nuclear Deterrence Fund [single-source] — Ministry of Defence <span class="tag new">New</span></h3>
+          <ul class="meta">
+            <li><strong>Deadline:</strong> No dated open round; applications via Contracts Finder; current projects must end by March 2027</li>
+            <li><strong>Eligibility:</strong> <span class="tag nogo">NO-GO</span> — deterrence-policy research (strategy, perceptions, escalation), not nuclear-war climate effects.</li>
+          </ul>
+          <p class="url"><a href="https://www.gov.uk/guidance/nuclear-deterrence-fund" target="_blank" rel="noopener noreferrer">https://www.gov.uk/guidance/nuclear-deterrence-fund</a></p>
+        </article>
+      </div>
+      <p class="note">No open call this week is titled for SRM other than the Horizon Europe topic above, and none for nuclear winter, volcanic aerosol, or wildfire smoke aerosol. Closed since last week: ERC Starting Grant 2027 (14 October 2026) and the UCAR CPAESS Climate and Global Change Postdoctoral Fellowship (16 October 2026). Checked and closed or absent: NERC SRM modelling programme (a single call for the 2025–2030 programme, closed 8 October 2024), ARIA Exploring Climate Cooling (22 teams funded, no open call), ARIA Resilient Climate and Ecosystems opportunity seeds (closed), Simons Foundation SRM 2027 programme (LOI closed 6 October 2026, now under review; full proposals by invitation), Exeter and ARIA SRM Sub-Saharan Africa RFP (closed 7 August 2026, under review), Degrees Initiative (no open calls), Future of Life Institute nuclear-war research (funds allocated), Consortium to Reduce Nuclear Dangers (closed 29 May 2026), UKRI wildfires in the wildland–urban interface (closed 1 October 2026), NERC Independent Research Fellowship 2026 (closed 16 June 2026), NASA ROSES A.14 (notice of intent closed; US organisations only), MSCA Postdoctoral Fellowships 2026 (closed 9 September 2026), and Royal Academy of Engineering Research Fellowships (expressions of interest closed 25 June 2026).</p>
+      <p class="note">Every item appeared in only one of the two blind passes and was kept. Marked unverified: the Royal Society of Chemistry Research Fund (the funder page could not be read; dates come from a search snippet), and Future Leaders Fellowships round 12 and UKRI Policy Fellowships (anticipated launch months from the UKRI timeline only; no call text yet). British Academy pages block simple bots but were read in full.</p>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Grant path</a>
+    </footer>
+  </div>
+</body>
+</html>
