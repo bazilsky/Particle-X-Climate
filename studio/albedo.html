@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Albedo Tap — The Studio — Particle X Climate</title>
+  <meta name="description" content="Drop reflective aerosol puffs to keep a warming planet inside its target band.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="games.css">
+  <style>
+    .stage{aspect-ratio:4/3;max-height:calc(100vh - 235px);margin:0 auto;background:#1c1915;border-color:#2e2923;cursor:crosshair}
+    @media (max-width:860px){.stage{aspect-ratio:1/1}}
+    .gauge-key{display:flex;gap:1rem;flex-wrap:wrap;font-size:.9rem;color:var(--muted);margin:.2rem 0 0}
+    .gauge-key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:.35rem;vertical-align:-1px}
+  </style>
+</head>
+<body class="pxc-shell">
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="../studio.html">The Studio</a>
+        <a href="snake.html">Aerosol Snake</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="../idea/index.html">Idea path</a>
+        <a href="../playground/index.html">Research playground</a>
+      </nav>
+    </header>
+
+    <section class="game-hero">
+      <p class="kicker motion-enter"><a class="crumb" href="../studio.html">← The Studio</a></p>
+      <h1 class="motion-line"><span>Albedo Tap</span></h1>
+      <p class="lede motion-enter">Tap to drop reflective puffs that cool a warming planet. Keep its temperature in the green band.</p>
+    </section>
+
+    <section class="game motion-enter">
+      <div class="stage" id="stage">
+        <canvas id="sky" aria-label="Albedo Tap globe and temperature gauge" role="img"></canvas>
+        <div class="overlay dark" id="startCard">
+          <div class="card">
+            <p class="kicker">Albedo Tap</p>
+            <h2>Hold the band</h2>
+            <p>Tap or click the planet to drop a cooling puff. Too many and it freezes.</p>
+            <button class="btn primary" id="startBtn">Start</button>
+          </div>
+        </div>
+        <div class="overlay dark" id="pauseCard" hidden>
+          <div class="card">
+            <h2>Paused</h2>
+            <p>Press P or tap Resume.</p>
+            <button class="btn primary" id="resumeBtn">Resume</button>
+          </div>
+        </div>
+        <div class="overlay dark" id="overCard" hidden>
+          <div class="card">
+            <p class="kicker" id="overKicker">Run over</p>
+            <h2 id="overReason">Runaway warming</h2>
+            <div class="big" id="overScore">0.0s</div>
+            <div class="sub" id="overBest">Best 0.0s in the band</div>
+            <button class="btn primary" id="againBtn">Play again</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="panel stats" aria-live="off">
+          <div class="stat"><b id="inband">0.0</b><span>In band (s)</span></div>
+          <div class="stat"><b id="best">0.0</b><span>Best (s)</span></div>
+          <div class="stat"><b id="puffs">0</b><span>Puffs live</span></div>
+        </div>
+        <div class="btns">
+          <button class="btn" id="pauseBtn" aria-pressed="false">Pause</button>
+          <button class="btn" id="restartBtn">Restart</button>
+        </div>
+        <div class="panel">
+          <h3>How it works</h3>
+          <p class="hint">Each puff brightens the planet and cools it, then fades away over about ten seconds. Warming speeds up, heat pulses arrive without warning and the band slowly narrows.</p>
+          <p class="gauge-key"><span><i style="background:#3f7d4e"></i>Target band</span><span><i style="background:#c9a24a"></i>Aerosol puff</span></p>
+          <p class="hint" style="margin-top:.6rem">Keyboard: Space drops a puff, P pauses.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>The Studio · Particle X Climate</span>
+      <a href="snake.html">Play Aerosol Snake →</a>
+    </footer>
+  </div>
+  <script src="/assets/motion.js" defer></script>
+  <script src="albedo.js" defer></script>
+</body>
+</html>

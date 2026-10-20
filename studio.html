@@ -3,41 +3,106 @@
 <head>
   <script>document.documentElement.classList.add('js-ready');</script>
   <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Studio — Particle X Climate</title>
+  <meta name="description" content="Small browser games about aerosols and climate.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/studio/games.css">
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-height: 100vh; color: #f6f1e7;
-      background: radial-gradient(700px 400px at 70% 20%, #3a2a22 0%, transparent 60%), #1c1915;
-      font-family: "Source Sans 3", "Segoe UI", sans-serif;
-    }
-    .frame { min-height: 100vh; display: flex; flex-direction: column; padding: 36px 28px; }
-    a.mark { color: inherit; text-decoration: none; font-family: Fraunces, Georgia, serif; font-size: 22px; }
-    .rule { height: 1px; background: #3a342c; margin: 22px 0 0; }
-    .kicker {
-      margin: 48px 0 0; color: #c4a35a; font-size: 13px; font-weight: 600;
-      letter-spacing: .16em; text-transform: uppercase;
-    }
-    h1 {
-      font-family: Fraunces, Georgia, serif; font-weight: 500;
-      font-size: clamp(48px, 8vw, 92px); line-height: .95; letter-spacing: -.04em;
-      margin: 12px 0 0;
-    }
-    p { margin-top: auto; }
-    p a { color: #e7b5a4; font-weight: 600; text-decoration: none; }
+    .band{position:relative;isolation:isolate;overflow:hidden;margin-top:1.4rem;border-radius:18px;color:var(--paper);padding:clamp(3rem,7vw,5rem) clamp(1.4rem,4vw,3rem) clamp(2rem,4vw,2.8rem);min-height:40vh;display:flex;flex-direction:column;justify-content:flex-end}
+    .band .kicker{color:#d9bf8a}
+    .band h1{color:#e9dfcd;font-size:clamp(2.4rem,6.4vw,4.6rem);max-width:14ch}
+    .band .lede{color:#e3d9c7}
+    .games{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:1.6rem;border-radius:18px;overflow:hidden}
+    .game-door{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:260px;padding:1.6rem 1.8rem;color:var(--paper);text-decoration:none}
+    .game-door.snake{background:var(--teal)}
+    .game-door.drift{background:var(--gold)}
+    .game-door.albedo{background:var(--rust)}
+    .game-door.pop{background:var(--ink)}
+    a.game-door::before{content:"";position:absolute;inset:0;background:rgba(255,253,248,.08);transform:translateY(101%);transition:transform .6s var(--ease);pointer-events:none}
+    a.game-door:hover::before{transform:none}
+    .game-door .n{font:600 .78rem/1 "Source Sans 3",sans-serif;letter-spacing:.16em;opacity:.75;text-transform:uppercase}
+    .game-door h2{margin:.9rem 0 .5rem;font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.05}
+    .game-door p{margin:0;max-width:26rem;color:rgba(246,241,231,.85)}
+    .game-door .play{margin-top:auto;padding-top:1.4rem;font-weight:600;display:inline-flex;gap:.5rem;align-items:center}
+    .game-door .play span{transition:transform .5s var(--ease)}
+    a.game-door:hover .play span{transform:translateX(8px)}
+    .game-door.soon{cursor:default}
+    .game-door.soon > *:not(.badge){opacity:.55}
+    .game-door .badge{align-self:flex-start;margin-top:auto;padding:.25rem .7rem;border-radius:999px;border:1px solid rgba(246,241,231,.45);font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+    .game-door .art{position:absolute;right:1.4rem;top:1.3rem;display:flex;gap:6px}
+    .art i{display:block;flex:none;width:16px;height:16px;border-radius:5px}
+    .art.globe i{width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#3a7d70,#1f4d45 60%,#14110e);box-shadow:0 0 0 6px rgba(246,241,231,.08),0 0 30px rgba(232,206,140,.35)}
+    .art.dot i{width:22px;height:22px;border-radius:50%;background:#f6f1e7;box-shadow:0 0 18px rgba(246,241,231,.6)}
+    .art.bubbles i{width:20px;height:20px;border-radius:50%;background:rgba(246,241,231,.75)}
+    .art.bubbles i:nth-child(2){width:28px;height:28px;background:rgba(201,205,208,.8)}
+    .note{color:var(--muted);font-size:.95rem;margin:1.2rem 0 0}
+    @media (max-width:760px){.games{grid-template-columns:1fr}.game-door{min-height:200px;padding:1.4rem}.band{min-height:34vh}}
+    @media (prefers-reduced-motion:reduce){a.game-door::before,.game-door .play span{transition:none}}
   </style>
 </head>
-<body>
-  <div class="frame">
-    <a class="motion-enter mark" href="index.html">Particle X Climate</a>
-    <div class="rule"></div>
-    <p class="kicker">The Studio</p>
-    <h1 class="motion-enter">Coming soon.</h1>
-    <p><a href="index.html">Back</a></p>
+<body class="pxc-shell">
+  <div class="wrap">
+    <header>
+      <a class="mark" href="overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="overwatch.html">Research Overwatch</a>
+        <a href="studio/snake.html">Aerosol Snake</a>
+        <a href="studio/albedo.html">Albedo Tap</a>
+        <a href="playground/index.html">Research playground</a>
+      </nav>
+    </header>
+
+    <section class="band">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <p class="kicker motion-enter">The Studio</p>
+      <h1 class="motion-line"><span>Small games about small particles.</span></h1>
+      <p class="lede motion-enter">Quick games built from the research we do every day. Play them on a laptop or a phone.</p>
+    </section>
+
+    <section class="games motion-stagger">
+      <a class="game-door snake motion-reveal" href="studio/snake.html">
+        <span class="art" aria-hidden="true"><i style="background:#1c1915"></i><i style="background:#c9a24a"></i><i style="background:#b4532f"></i><i style="background:#7fb5aa"></i></span>
+        <span class="n">Game 01</span>
+        <h2>Aerosol Snake</h2>
+        <p>Collect black carbon, sulphate, dust and sea salt to grow a glowing plume. Dodge the clouds or you get washed out.</p>
+        <span class="play">Play <span>→</span></span>
+      </a>
+      <div class="game-door drift soon motion-reveal" aria-disabled="true">
+        <span class="art dot" aria-hidden="true"><i></i></span>
+        <span class="n">Game 02</span>
+        <h2>Particle Drift</h2>
+        <p>Steer one aerosol particle up through the atmosphere, dodging rain and sticky neighbours.</p>
+        <span class="badge">Coming soon</span>
+      </div>
+      <a class="game-door albedo motion-reveal" href="studio/albedo.html">
+        <span class="art globe" aria-hidden="true"><i></i></span>
+        <span class="n">Game 03</span>
+        <h2>Albedo Tap</h2>
+        <p>Tap to release reflective puffs that cool a warming planet. Hold the temperature in the green band for as long as you can.</p>
+        <span class="play">Play <span>→</span></span>
+      </a>
+      <div class="game-door pop soon motion-reveal" aria-disabled="true">
+        <span class="art bubbles" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="n">Game 04</span>
+        <h2>Cloud Pop</h2>
+        <p>Match droplets, aerosol specks and ice crystals to grow clouds before the sky clears.</p>
+        <span class="badge">Coming soon</span>
+      </div>
+    </section>
+    <p class="note">Your best scores are saved in this browser.</p>
+
+    <footer>
+      <span>The Studio · Particle X Climate</span>
+      <a href="overwatch.html">Back to Research Overwatch</a>
+    </footer>
   </div>
   <script src="/assets/motion.js" defer></script>
 </body>

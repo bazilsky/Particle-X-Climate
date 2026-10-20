@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aerosol Snake — The Studio — Particle X Climate</title>
+  <meta name="description" content="Collect aerosol particles, grow a glowing trail, and dodge the clouds before you get washed out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="games.css">
+  <style>
+    .stage{aspect-ratio:1/1;max-width:min(600px,calc(100vh - 235px));min-width:min(100%,300px)}
+    .stage-wrap{display:flex;justify-content:center}
+    #pauseBtn[aria-pressed="true"]{background:var(--gold-soft)}
+  </style>
+</head>
+<body class="pxc-shell">
+  <div class="wrap">
+    <header>
+      <a class="mark" href="../overwatch.html">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="../studio.html">The Studio</a>
+        <a href="albedo.html">Albedo Tap</a>
+        <a href="../grant/index.html">Grant path</a>
+        <a href="../paper/index.html">Paper path</a>
+        <a href="../idea/index.html">Idea path</a>
+        <a href="../playground/index.html">Research playground</a>
+      </nav>
+    </header>
+
+    <section class="game-hero">
+      <p class="kicker motion-enter"><a class="crumb" href="../studio.html">← The Studio</a></p>
+      <h1 class="motion-line"><span>Aerosol Snake</span></h1>
+      <p class="lede motion-enter">Collect particles to grow a glowing plume. Dodge the drifting clouds, the edges and your own tail.</p>
+    </section>
+
+    <section class="game motion-enter">
+      <div class="stage-wrap">
+        <div class="stage" id="stage">
+          <canvas id="board" aria-label="Aerosol Snake board" role="img"></canvas>
+          <div class="overlay" id="startCard">
+            <div class="card">
+              <p class="kicker">Aerosol Snake</p>
+              <h2>Grow the plume</h2>
+              <p>Arrow keys or WASD on a keyboard. Swipe or use the pad on a phone.</p>
+              <button class="btn primary" id="startBtn">Start</button>
+            </div>
+          </div>
+          <div class="overlay" id="pauseCard" hidden>
+            <div class="card">
+              <h2>Paused</h2>
+              <p>Press Space or tap Resume.</p>
+              <button class="btn primary" id="resumeBtn">Resume</button>
+            </div>
+          </div>
+          <div class="overlay" id="overCard" hidden>
+            <div class="card">
+              <p class="kicker">Washout</p>
+              <h2 id="overReason">Rained out by a cloud</h2>
+              <div class="big" id="overScore">0</div>
+              <div class="sub" id="overBest">Best 0</div>
+              <button class="btn primary" id="againBtn">Play again</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="panel stats" aria-live="polite">
+          <div class="stat"><b id="score">0</b><span>Score</span></div>
+          <div class="stat"><b id="best">0</b><span>Best</span></div>
+          <div class="stat"><b id="len">3</b><span>Length</span></div>
+        </div>
+        <div class="dpad" id="dpad" aria-label="Direction pad">
+          <button class="up" data-dir="up" aria-label="Up">▲</button>
+          <button class="left" data-dir="left" aria-label="Left">◀</button>
+          <button class="down" data-dir="down" aria-label="Down">▼</button>
+          <button class="right" data-dir="right" aria-label="Right">▶</button>
+        </div>
+        <div class="btns">
+          <button class="btn" id="pauseBtn" aria-pressed="false">Pause</button>
+          <button class="btn" id="restartBtn">Restart</button>
+        </div>
+        <div class="panel">
+          <h3>Particles</h3>
+          <ul class="legend">
+            <li><span class="dot" style="background:#1c1915"></span>Black carbon: dark, absorbs sunlight</li>
+            <li><span class="dot" style="background:#c9a24a"></span>Sulphate: gold, reflects sunlight</li>
+            <li><span class="dot" style="background:#9a3b24"></span>Dust: rust, lifted from deserts</li>
+            <li><span class="dot" style="background:#2f7a6c"></span>Sea salt: teal, sprayed from waves</li>
+          </ul>
+          <p class="hint" style="margin-top:.7rem">Grey clouds drift across the sky. Touch one and the plume rains out.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>The Studio · Particle X Climate</span>
+      <a href="albedo.html">Play Albedo Tap →</a>
+    </footer>
+  </div>
+  <script src="/assets/motion.js" defer></script>
+  <script src="snake.js" defer></script>
+</body>
+</html>
