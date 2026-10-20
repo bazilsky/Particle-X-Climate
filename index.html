@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Particle X Climate</title>
-  <meta name="description" content="Particle X Climate. The Sky Lab, Research Notebook, and Research Overwatch.">
+  <meta name="description" content="Particle X Climate. Guess the Plot, The Sky Lab, Research Notebook, and Research Overwatch.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
@@ -57,6 +57,9 @@
     a.play { background: #1f4d45; border-color: #1f4d45; color: #f6f1e7; }
     a.watch { background: #9a3b24; border-color: #9a3b24; color: #f6f1e7; }
     a.test { background: #8a6a2f; border-color: #8a6a2f; color: #f6f1e7; }
+    a.guess { background: #1c1915; border-color: #1c1915; color: #f6f1e7; }
+    html:root .landing .doors { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 760px) { html:root .landing .doors { grid-template-columns: 1fr; } html:root a.door { min-height: 80px; } }
   </style>
 </head>
 <body class="landing">
@@ -66,12 +69,13 @@
   <main class="lp">
     <div class="lp-hero">
       <p class="mark motion-line"><span>Particle X Climate</span></p>
-      <h1 class="motion-enter">Three ways in.</h1>
+      <h1 class="motion-enter">Four ways in.</h1>
     </div>
     <div class="doors motion-stagger">
-      <a class="door test motion-enter" href="studio.html"><span class="n">01</span><span class="t">The Sky Lab</span><span class="arr" aria-hidden="true">→</span></a>
-      <a class="door play motion-enter" href="playground/"><span class="n">02</span><span class="t">Research Notebook</span><span class="arr" aria-hidden="true">→</span></a>
-      <a class="door watch motion-enter" href="overwatch.html"><span class="n">03</span><span class="t">Research Overwatch</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="door guess motion-enter" href="/guess-the-plot"><span class="n">01</span><span class="t">Guess the Plot</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="door test motion-enter" href="studio.html"><span class="n">02</span><span class="t">The Sky Lab</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="door play motion-enter" href="playground/"><span class="n">03</span><span class="t">Research Notebook</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="door watch motion-enter" href="overwatch.html"><span class="n">04</span><span class="t">Research Overwatch</span><span class="arr" aria-hidden="true">→</span></a>
     </div>
   </main>
   <div class="marquee" aria-hidden="true"><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div></div>
