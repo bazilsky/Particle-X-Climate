@@ -1,0 +1,59 @@
+/* Particle X Climate — Studio hub, "Arcade cabinet". Site fonts, sizes and palette; ink hero + colour cabinets. */
+.ink{position:relative;isolation:isolate;overflow:hidden;border-radius:18px;color:var(--paper)}
+.ink .kicker{color:#d9bf8a}
+.ink h1{color:#e9dfcd}
+.ink .lede{color:#e3d9c7}
+.c-snake{--c:var(--teal)}.c-albedo{--c:var(--rust)}.c-drift{--c:var(--gold)}.c-pop{--c:var(--ink)}
+.c-contrail{--c:var(--teal)}.c-volcano{--c:var(--rust)}.c-ice{--c:var(--gold)}
+
+.arc-hero{margin-top:1.2rem;padding:2rem clamp(1.4rem,4vw,2.6rem) 1.8rem;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem}
+.arc-hero h1{font-size:clamp(2.1rem,4.4vw,3.3rem);max-width:16ch}
+.arc-hero .lede{margin:0;max-width:20rem}
+
+/* 10-column grid: two playable cabinets (5 cols each) over five coming-soon cabinets (2 cols each) */
+.arc-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:.9rem;margin-top:.9rem}
+.tile{grid-column:span 2;display:block;color:var(--paper);text-decoration:none;min-width:0}
+.tile.play{grid-column:span 5}
+.tile .cab{position:relative;height:100%;display:flex;flex-direction:column;background:var(--c);border-radius:18px;padding:.85rem .85rem 1.1rem;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+a.tile:hover .cab,a.tile:focus-visible .cab{transform:translateY(-6px);box-shadow:0 22px 40px rgba(28,25,21,.18)}
+a.tile:focus-visible{outline:none}
+a.tile:focus-visible .cab{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--c),0 22px 40px rgba(28,25,21,.18)}
+.tile .screen{position:relative;display:block;border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:rgba(0,0,0,.2);box-shadow:inset 0 0 0 1px rgba(246,241,231,.12)}
+.tile.play .screen{aspect-ratio:16/9}
+.tile .screen canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tile .meta{display:flex;justify-content:space-between;align-items:center;margin:.9rem .25rem 0;font:600 .74rem/1 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.tile h2{margin:.45rem .25rem .3rem;font-size:1.35rem;line-height:1.05;color:var(--paper)}
+.tile.play h2{font-size:clamp(1.6rem,2.6vw,2.1rem)}
+.tile p{margin:0 .25rem;font-size:.9rem;line-height:1.4;color:rgba(246,241,231,.84)}
+.tile.play p{font-size:1rem;max-width:30rem}
+.tile .go{margin:auto .25rem 0;padding-top:1rem}
+.pill-play{display:inline-flex;align-items:center;gap:.45rem;background:var(--paper);color:var(--ink);border-radius:999px;padding:.45rem .95rem;font-weight:600;font-size:.92rem;transition:gap .35s var(--ease)}
+a.tile:hover .pill-play{gap:.75rem}
+.soon-tag{display:inline-block;padding:.2rem .65rem;border-radius:999px;border:1px solid rgba(246,241,231,.55);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.tile.soon{cursor:default}
+.tile.soon .screen{filter:grayscale(.6) brightness(.92)}
+.tile.soon h2,.tile.soon p{opacity:.78}
+.arc-note{color:var(--muted);font-size:.95rem;margin:1.2rem 0 0}
+/* stagger for the 7th cabinet (motion.css covers 1–6) */
+html.js-ready .motion-stagger > .motion-reveal:nth-child(7){transition-delay:540ms}
+
+@media (max-width:980px){
+  .tile h2{font-size:1.2rem}
+  .tile p{font-size:.84rem}
+}
+@media (max-width:860px){
+  .arc-hero{flex-direction:column;align-items:flex-start;gap:.7rem}
+  .arc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+  .tile,.tile.play{grid-column:span 1}
+  .tile:last-child{grid-column:1/-1}
+  .tile .cab{padding:.6rem .6rem .9rem;border-radius:16px}
+  .tile .screen,.tile.play .screen{aspect-ratio:1/1}
+  .tile:last-child .screen{aspect-ratio:2/1}
+  .tile h2,.tile.play h2{font-size:1.2rem}
+  .tile p,.tile.play p{font-size:.84rem}
+  .tile .meta{margin-top:.7rem;font-size:.66rem;letter-spacing:.12em}
+  .pill-play{padding:.4rem .8rem;font-size:.86rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .tile .cab,.pill-play{transition:none!important}
+}
