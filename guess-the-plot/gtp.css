@@ -1,0 +1,85 @@
+/* Guess the Plot. Site palette and type from /theskylab/games.css; shell from /assets/studio.css */
+.gtp [hidden],.gtp-archive[hidden],.gtp[hidden]{display:none!important}
+.visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.gtp-hero{margin-top:1.2rem;padding:2rem clamp(1.4rem,4vw,2.6rem) 1.8rem;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;background:var(--ink)}
+.gtp-hero h1{font-size:clamp(2.2rem,5vw,3.4rem)}
+.gtp-hero-side{max-width:24rem;display:flex;flex-direction:column;gap:.7rem}
+.gtp-hero .lede{margin:0;font-size:1.02rem}
+.gtp-hero .back{color:#d9bf8a;text-decoration:none;font-weight:600}
+.gtp-hero .back:hover{text-decoration:underline}
+.gtp-note{margin:1.5rem 0;color:var(--muted)}
+
+.gtp{margin-top:1.8rem}
+.gtp-paper{margin-bottom:1.1rem}
+.gtp-paper .kicker{margin-bottom:.35rem}
+.gtp-paper h2{margin:0;font-size:clamp(1.45rem,3vw,2rem);line-height:1.1}
+.gtp-paper h2 a{color:inherit;text-decoration-color:var(--line);text-underline-offset:.18em}
+.gtp-paper h2 a:hover{color:var(--rust);text-decoration-color:currentColor}
+.gtp-byline{margin:.35rem 0 0;color:var(--muted)}
+.gtp-test{display:inline-block;margin:.7rem 0 0;padding:.35rem .8rem;border-radius:999px;background:var(--gold-soft);color:var(--gold);font-size:.88rem;font-weight:600}
+
+.gtp-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:1.4rem;align-items:start}
+.gtp-stage{margin:0;min-width:0}
+.gtp-figure{position:relative;border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 18px 40px rgba(28,25,21,.08)}
+.gtp-figure img{display:block;width:100%;height:auto}
+.gtp-cover{position:absolute;border-radius:10px;background:rgba(241,230,207,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(138,106,47,.28),0 4px 12px rgba(28,25,21,.06);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:Fraunces,Georgia,serif;font-size:clamp(.8rem,1.8vw,1.15rem);pointer-events:none;
+  transition:opacity .6s var(--ease,cubic-bezier(.2,.7,.2,1)),transform .6s var(--ease,cubic-bezier(.2,.7,.2,1)),-webkit-backdrop-filter .6s,backdrop-filter .6s}
+.gtp-cover::after{content:"?"}
+.gtp-figure.is-revealed .gtp-cover{opacity:0;transform:scale(.94);-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0)}
+.gtp-figure.is-revealed .gtp-cover:nth-child(3){transition-delay:80ms}
+.gtp-figure.is-revealed .gtp-cover:nth-child(4){transition-delay:160ms}
+.gtp-figure.is-revealed .gtp-cover:nth-child(5){transition-delay:240ms}
+.gtp-figure.is-revealed .gtp-cover:nth-child(n+6){transition-delay:320ms}
+.gtp-credit{margin:.65rem .1rem 0;color:var(--muted);font-size:.88rem;line-height:1.45}
+.gtp-credit a{color:var(--rust)}
+
+.gtp-side{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.gtp-options{display:grid;gap:.6rem}
+.gtp-opt{appearance:none;display:flex;gap:.7rem;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:.75rem .9rem;font:inherit;font-size:.98rem;line-height:1.35;cursor:pointer;transition:border-color .2s,background .25s,transform .12s,opacity .3s}
+.gtp-opt .k{flex:none;display:inline-flex;align-items:center;justify-content:center;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-weight:600;font-size:.85rem}
+.gtp-opt:hover:not(:disabled){border-color:var(--ink)}
+.gtp-opt:active:not(:disabled){transform:scale(.985)}
+.gtp-opt:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.gtp-opt:disabled{cursor:default}
+.gtp-opt.is-correct{border-color:var(--teal);background:var(--teal-soft)}
+.gtp-opt.is-correct .k{background:var(--teal);color:var(--paper)}
+.gtp-opt.is-wrong{border-color:var(--rust);background:var(--rust-soft)}
+.gtp-opt.is-wrong .k{background:var(--rust);color:var(--paper)}
+.gtp-opt.is-dim{opacity:.55}
+.gtp-feedback{margin:.8rem 0 0;font-weight:600;min-height:1.2em}
+.gtp-feedback:empty{margin:0;min-height:0}
+.gtp-feedback.ok{color:var(--teal)}
+.gtp-feedback.no{color:var(--rust)}
+.panel .btns{margin-top:.9rem}
+.gtp-reveal p{margin:0}
+.gtp-reveal:focus{outline:none}
+.gtp-reveal:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.gtp-reveal:not([hidden]){animation:gtp-in .5s cubic-bezier(.2,.7,.2,1)}
+.gtp-idea{display:inline-block;margin-top:.9rem;font-weight:600;text-decoration:none}
+.gtp-idea:hover{text-decoration:underline}
+@keyframes gtp-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.gtp-archive{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.gtp-archive h2{margin:0 0 .8rem;font-size:1.6rem}
+.gtp-weeks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.7rem}
+.gtp-weeks a,.gtp-weeks .cur{display:block;height:100%;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:.85rem 1rem;color:var(--ink);text-decoration:none;transition:border-color .2s,transform .35s var(--ease,ease)}
+.gtp-weeks a:hover{border-color:var(--ink);transform:translateY(-3px)}
+.gtp-weeks a:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.gtp-weeks .d{display:block;color:var(--gold);font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.gtp-weeks .t{display:block;font-family:Fraunces,Georgia,serif;font-size:1.1rem;line-height:1.2;margin:.25rem 0 .15rem}
+.gtp-weeks .s{display:block;color:var(--muted);font-size:.88rem}
+.gtp-weeks .cur{border-color:var(--gold);background:var(--gold-soft)}
+.gtp-archive .hint{margin-top:.8rem}
+
+@media (max-width:860px){
+  .gtp-hero{flex-direction:column;align-items:flex-start;gap:.8rem;padding:1.6rem 1.3rem 1.5rem}
+  .gtp-grid{grid-template-columns:1fr;gap:1rem}
+  .gtp-figure{border-radius:12px}
+  .gtp-cover{border-radius:6px}
+  footer{flex-direction:column;gap:.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .gtp-cover,.gtp-opt,.gtp-weeks a{transition:none!important}
+  .gtp-figure.is-revealed .gtp-cover{transform:none}
+  .gtp-reveal:not([hidden]){animation:none}
+}

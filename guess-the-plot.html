@@ -8,19 +8,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Guess the Plot · Particle X Climate</title>
-  <meta name="description" content="Guess the Plot. Coming soon.">
+  <meta name="description" content="Guess the Plot: one figure from this week's Idea Path with its labels covered. Pick what it shows, then reveal.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/theskylab/games.css">
   <link rel="stylesheet" href="/theskylab/hub/hub.css">
-  <style>
-    .gtp-hero { margin-top: 1.2rem; min-height: 52vh; padding: 3rem clamp(1.4rem, 4vw, 2.6rem); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: .9rem; background: var(--ink); }
-    .gtp-hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); margin: 0; }
-    .gtp-hero .lede { margin: 0; font-size: 1.15rem; }
-    .gtp-hero .back { color: #d9bf8a; text-decoration: none; font-weight: 600; margin-top: .6rem; }
-    .gtp-hero .back:hover { text-decoration: underline; }
-  </style>
+  <link rel="stylesheet" href="/guess-the-plot/gtp.css">
 </head>
 <body class="pxc-shell">
   <div class="wrap">
@@ -38,9 +32,66 @@
 
     <main>
       <section class="ink gtp-hero">
-        <h1 class="motion-line"><span>Guess the Plot</span></h1>
-        <p class="lede motion-enter">Coming soon.</p>
-        <a class="back motion-enter" href="/">← Back to the landing page</a>
+        <div>
+          <p class="kicker motion-enter">A new figure every Thursday</p>
+          <h1 class="motion-line"><span>Guess the Plot</span></h1>
+        </div>
+        <div class="gtp-hero-side">
+          <p class="lede motion-enter">One figure from this week's Idea Path, with its labels covered. Pick what you think it shows, then reveal the labels and the authors' point.</p>
+          <a class="back motion-enter" href="/">← Back to the landing page</a>
+        </div>
+      </section>
+
+      <noscript><p class="gtp-note">Guess the Plot needs JavaScript to run.</p></noscript>
+
+      <section class="gtp motion-enter" id="game" aria-labelledby="gtp-paper-title" hidden>
+        <div class="gtp-paper">
+          <p class="kicker" id="gtp-week"></p>
+          <h2 id="gtp-paper-title"></h2>
+          <p class="gtp-byline" id="gtp-byline"></p>
+          <p class="gtp-test" id="gtp-test" hidden>Test week: this chart is a placeholder drawn to try the game, not a figure from a paper.</p>
+        </div>
+
+        <div class="gtp-grid">
+          <figure class="gtp-stage">
+            <div class="gtp-figure" id="gtp-figure">
+              <img id="gtp-img" alt="" decoding="async">
+            </div>
+            <p class="visually-hidden" id="gtp-covered"></p>
+            <figcaption class="gtp-credit" id="gtp-credit"></figcaption>
+          </figure>
+
+          <div class="gtp-side">
+            <div class="panel">
+              <h3 id="gtp-q">What does this figure show?</h3>
+              <div class="gtp-options" id="gtp-options" role="group" aria-labelledby="gtp-q"></div>
+              <p class="gtp-feedback" id="gtp-feedback" aria-live="polite"></p>
+              <div class="btns" id="gtp-step1" hidden>
+                <button type="button" class="btn primary" id="gtp-reveal-labels">Reveal the labels</button>
+              </div>
+            </div>
+
+            <div class="panel gtp-reveal" id="gtp-labels" tabindex="-1" hidden>
+              <h3>The labels</h3>
+              <p id="gtp-labels-text"></p>
+              <div class="btns">
+                <button type="button" class="btn primary" id="gtp-reveal-point">What the authors wanted it to show</button>
+              </div>
+            </div>
+
+            <div class="panel gtp-reveal" id="gtp-point" tabindex="-1" hidden>
+              <h3>What the authors wanted it to show</h3>
+              <p id="gtp-point-text"></p>
+              <a class="gtp-idea" id="gtp-idea" href="/idea/">Read this week's Idea Path →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gtp-archive motion-reveal" id="archive" aria-labelledby="archive-h" hidden>
+        <h2 id="archive-h">All plots</h2>
+        <ol class="gtp-weeks" id="gtp-weeks"></ol>
+        <p class="hint" id="archive-note"></p>
       </section>
     </main>
 
@@ -49,6 +100,8 @@
       <a href="/">Back to the landing page</a>
     </footer>
   </div>
+  <script src="/guess-the-plot/weeks.js"></script>
+  <script src="/guess-the-plot/game.js"></script>
   <script src="/assets/motion.js" defer></script>
   <script src="/assets/studio.js" defer></script>
 </body>
