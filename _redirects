@@ -1,0 +1,11 @@
+# Old URLs (The Sky Lab used to live at /studio, the Research Notebook at /playground)
+/studio                      /theskylab                   301
+/studio/                     /theskylab                   301
+/studio.html                 /theskylab                   301
+/studio/*                    /theskylab/:splat            301
+/playground                  /researchnotebook/           301
+/playground/                 /researchnotebook/           301
+/playground/index.html       /researchnotebook/           301
+/playground/altitude         /researchnotebook/altitude   301
+/playground/altitude.html    /researchnotebook/altitude   301
+/playground/*                /researchnotebook/:splat     301

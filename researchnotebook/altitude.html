@@ -460,7 +460,7 @@
       next.set("view", VIEW.value);
       next.set("month", MONTH.value);
       next.set("tau", TAU.value);
-      // "./" is the clean /playground/ URL (index.html), so no redirect is needed.
+      // "./" is the clean /researchnotebook/ URL (index.html), so no redirect is needed.
       if (VIEW.value !== "altitude") location.href = "./?" + next.toString();
     });
     MONTH.addEventListener("input", render);

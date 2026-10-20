@@ -644,7 +644,7 @@
       next.set("view", VIEW.value);
       next.set("month", MONTH.value);
       next.set("tau", TAU.value);
-      // altitude.html redirects to the clean /playground/altitude URL and keeps the query.
+      // altitude.html redirects to the clean /researchnotebook/altitude URL and keeps the query.
       if (VIEW.value === "altitude") location.href = "altitude.html?" + next.toString();
       else render();
     });
