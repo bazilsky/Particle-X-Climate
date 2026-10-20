@@ -13,7 +13,9 @@
 /* 12-column grid: three playable cabinets (4 cols each) over four coming-soon cabinets (3 cols each) */
 .arc-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:.9rem;margin-top:.9rem}
 .tile{grid-column:span 3;display:block;color:var(--paper);text-decoration:none;min-width:0}
-.tile.play{grid-column:span 4}
+.tile.play{grid-column:span 3}
+.tile.soon{grid-column:span 4}
+@media (min-width:701px){.tile.soon .screen{aspect-ratio:16/9}}
 .tile .cab{position:relative;height:100%;display:flex;flex-direction:column;background:var(--c);border-radius:18px;padding:.85rem .85rem 1.1rem;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
 a.tile:hover .cab,a.tile:focus-visible .cab{transform:translateY(-6px);box-shadow:0 22px 40px rgba(28,25,21,.18)}
 a.tile:focus-visible{outline:none}
