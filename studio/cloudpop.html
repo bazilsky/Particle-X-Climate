@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloud Pop — The Sky Lab — Particle X Climate</title>
+  <meta name="description" content="Match cloud droplets, ice crystals and aerosol specks before the minute runs out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="games.css">
+  <style>
+    .stage-wrap{display:flex;justify-content:center}
+    .stage{aspect-ratio:1/1;width:100%;max-width:min(600px,calc(100vh - 250px));min-width:min(100%,300px)}
+    .caption{min-height:2.6em;margin:0;color:var(--muted);font-size:.95rem}
+    .legend .shape{width:18px;height:18px;flex:none}
+  </style>
+</head>
+<body class="pxc-shell">
+  <div class="wrap">
+    <header>
+      <a class="mark" href="/">Particle X Climate</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+      <nav id="site-nav">
+        <a href="../overwatch.html">Home</a>
+        <a href="../studio.html">The Sky Lab</a>
+        <a href="snake.html">Aerosol Snake</a>
+        <a href="albedo.html">Albedo Tap</a>
+        <a href="cloudpop.html">Cloud Pop</a>
+        <a href="../playground/index.html">Research Notebook</a>
+      </nav>
+    </header>
+
+    <section class="game-hero">
+      <p class="kicker motion-enter"><a class="crumb" href="../studio.html">← The Sky Lab</a></p>
+      <h1 class="motion-line"><span>Cloud Pop</span></h1>
+      <p class="lede motion-enter">Swap neighbouring pieces to line up three or more. Chains score combos. You have sixty seconds.</p>
+    </section>
+
+    <section class="game motion-enter">
+      <div class="stage-wrap">
+        <div class="stage" id="stage">
+          <canvas id="board" aria-label="Cloud Pop board" role="img"></canvas>
+          <div class="overlay " id="startCard">
+            <div class="card">
+              <p class="kicker">Cloud Pop</p>
+              <h2>Grow some clouds</h2>
+              <p>Swap neighbours to match three. Drag, or tap one then the next.</p>
+              <button class="btn primary" id="startBtn">Start</button>
+            </div>
+          </div>
+          <div class="overlay " id="pauseCard" hidden>
+            <div class="card">
+              <h2>Paused</h2>
+              <p>Press P or tap Resume.</p>
+              <button class="btn primary" id="resumeBtn">Resume</button>
+            </div>
+          </div>
+          <div class="overlay " id="overCard" hidden>
+            <div class="card">
+              <p class="kicker" id="overKicker">Time is up</p>
+              <h2 id="overReason">Nice clouds</h2>
+              <div class="big" id="overScore">0</div>
+              <div class="sub" id="overBest">Best 0</div>
+              <button class="btn primary" id="againBtn">Play again</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="panel stats" aria-live="off"><div class="stat"><b id="score">0</b><span>Score</span></div><div class="stat"><b id="best">0</b><span>Best</span></div><div class="stat"><b id="time">60</b><span>Seconds</span></div></div>
+        <div class="btns">
+          <button class="btn" id="pauseBtn" aria-pressed="false">Pause</button>
+          <button class="btn" id="restartBtn">Restart</button>
+        </div>
+        <div class="panel">
+          <h3>Pieces</h3>
+          <ul class="legend" id="legend"></ul>
+          <p class="caption" id="caption" aria-live="polite" style="margin-top:.7rem">Line up three of a kind to clear them.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>The Sky Lab · Particle X Climate</span>
+      <a href="snake.html">Play Aerosol Snake →</a>
+    </footer>
+  </div>
+  <script src="/assets/motion.js" defer></script>
+  <script src="cloudpop.js" defer></script>
+</body>
+</html>
