@@ -34,15 +34,26 @@
 
   // header
   $('gtp-week').textContent = (isLatest ? "This week's plot · " : 'From the archive · ') + fmtDate(week.id);
+  // Before a pick only the short reference shows (no title, no DOI): the title can give the answer away.
+  function shortRef(w) { return w.shortRef || (w.authors + ' (' + w.year + ')' + (w.venue ? ', ' + w.venue : '')); }
   var title = $('gtp-paper-title');
-  if (week.doiUrl) { var ta = link(week.doiUrl, week.paperTitle); ta.rel = 'noopener'; title.appendChild(ta); } else title.textContent = week.paperTitle;
-  $('gtp-byline').textContent = week.placeholder ? week.figureLabel : [week.authors + ' (' + week.year + ')', week.venue, week.figureLabel].filter(Boolean).join(' · ');
+  title.textContent = shortRef(week);
+  $('gtp-byline').textContent = week.figureLabel || '';
+  function revealPaper() {
+    title.textContent = '';
+    if (week.doiUrl) { var ta = link(week.doiUrl, week.paperTitle); ta.rel = 'noopener'; title.appendChild(ta); } else title.textContent = week.paperTitle;
+    $('gtp-byline').textContent = [shortRef(week), week.figureLabel].filter(Boolean).join(' · ');
+    if (week.paperFullTitle) { var ft = $('gtp-fulltitle'); ft.textContent = week.paperFullTitle; ft.hidden = false; }
+    if (doiSlot && week.doiUrl) { var da = link(week.doiUrl, week.doiUrl.replace(/^https?:\/\//, '')); da.rel = 'noopener'; doiSlot.appendChild(da); }
+  }
   $('gtp-test').hidden = !week.placeholder;
   if (!isLatest || week.placeholder) document.title = 'Guess the Plot · ' + fmtDate(week.id) + ' · Particle X Climate';
 
   // figure + covers
   var fig = $('gtp-figure'), img = $('gtp-img');
   if (week.imageWidth && week.imageHeight) { img.width = week.imageWidth; img.height = week.imageHeight; }
+  // very wide figures (e.g. a row of panels) get the full width, with the options underneath
+  if (week.imageWidth && week.imageHeight && week.imageWidth / week.imageHeight > 2) game.querySelector('.gtp-grid').classList.add('is-wide');
   img.src = week.image;
   img.alt = week.imageAlt || '';
   (week.masks || []).forEach(function (m) {
@@ -58,17 +69,18 @@
 
   // credit (always visible)
   var cr = $('gtp-credit'), c = week.credit || { type: 'original' };
+  // 'original': "Figure 5 from Authors (Year), Venue, <licence>."  'redrawn': "Redrawn from Authors (Year), <licence>."
   var sentence = c.text || (c.type === 'redrawn'
-    ? 'Redrawn from ' + week.authors + ' (' + week.year + ')' + (week.figureLabel ? ', ' + week.figureLabel : '') + '.'
-    : (week.figureLabel || 'Figure') + ' from ' + week.authors + ' (' + week.year + '), ' + week.venue + '.');
-  cr.appendChild(document.createTextNode(sentence + ' '));
-  if (c.dataSource && c.dataSource.url) { cr.appendChild(document.createTextNode('Data: ')); cr.appendChild(link(c.dataSource.url, c.dataSource.text || 'source')); cr.appendChild(document.createTextNode('. ')); }
+    ? 'Redrawn from ' + week.authors + ' (' + week.year + ')'
+    : (week.figureLabel || 'Figure') + ' from ' + week.authors + ' (' + week.year + ')' + (week.venue ? ', ' + week.venue : ''));
+  cr.appendChild(document.createTextNode(sentence));
   if (week.licence) {
-    cr.appendChild(document.createTextNode('Licence: '));
+    cr.appendChild(document.createTextNode(c.text ? ' ' : ', '));
     var la = link(week.licence.url, week.licence.name); la.rel = 'license noopener'; cr.appendChild(la);
-    cr.appendChild(document.createTextNode('. '));
   }
-  if (week.doiUrl) { var da = link(week.doiUrl, week.doiUrl.replace(/^https?:\/\//, '')); da.rel = 'noopener'; cr.appendChild(da); }
+  cr.appendChild(document.createTextNode(c.text && !week.licence ? ' ' : '. '));
+  if (c.dataSource && c.dataSource.url) { cr.appendChild(document.createTextNode('Data: ')); cr.appendChild(link(c.dataSource.url, c.dataSource.text || 'source')); cr.appendChild(document.createTextNode('. ')); }
+  var doiSlot = el('span', 'gtp-doi'); cr.appendChild(doiSlot); // DOI link added after the pick
 
   // options
   var opts = week.options || [];
@@ -76,7 +88,7 @@
     if (window.console) console.warn('Guess the Plot: week ' + week.id + ' should have 3 options with exactly one correct.');
   }
   var box = $('gtp-options'), fb = $('gtp-feedback'), buttons = [];
-  shuffle(opts, 'gtp:' + week.id).forEach(function (o, i) {
+  (week.keepOrder ? opts : shuffle(opts, 'gtp:' + week.id)).forEach(function (o, i) {
     var b = el('button', 'gtp-opt');
     b.type = 'button';
     b.appendChild(el('span', 'k', String.fromCharCode(65 + i)));
@@ -95,7 +107,8 @@
       x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     fb.className = 'gtp-feedback ' + (right ? 'ok' : 'no');
-    fb.textContent = right ? 'You got it.' : 'Close — here’s the real one: ' + (real ? real._opt.text : '') + '.';
+    fb.textContent = right ? 'You got it.' : 'Close — here’s the real one: ' + (real ? real._opt.text.replace(/\.$/, '') : '') + '.';
+    revealPaper();
     $('gtp-step1').hidden = false;
     $('gtp-reveal-labels').focus();
   }
@@ -106,8 +119,20 @@
     var r = panel.getBoundingClientRect();
     if (r.bottom > window.innerHeight || r.top < 0) panel.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
   }
-  $('gtp-labels-text').textContent = week.labelsText || '';
-  $('gtp-point-text').textContent = week.mainPoint || '';
+  // labelsText / mainPoint: a string, or an array of blocks: 'text' | { lead, text } | { lead, list: ['…'] }
+  function rich(box, v) {
+    (Array.isArray(v) ? v : [v || '']).forEach(function (b) {
+      var p = el('p');
+      if (typeof b === 'string') { p.textContent = b; box.appendChild(p); return; }
+      if (b.lead) { p.appendChild(el('strong', null, b.lead)); if (b.text) p.appendChild(document.createTextNode(' ' + b.text)); }
+      else if (b.text) p.textContent = b.text;
+      box.appendChild(p);
+      if (b.list) { var ul = el('ul'); b.list.forEach(function (t) { ul.appendChild(el('li', null, t)); }); box.appendChild(ul); }
+    });
+  }
+  rich($('gtp-labels-text'), week.labelsText);
+  rich($('gtp-point-text'), week.mainPoint);
+  if (week.whyItMatters) { $('gtp-why').textContent = week.whyItMatters; $('gtp-why').hidden = false; }
   var idea = $('gtp-idea');
   if (week.ideaPathUrl) idea.href = week.ideaPathUrl; else idea.hidden = true;
 
@@ -133,8 +158,8 @@
     if (w === week) { inner = el('div', 'cur'); inner.setAttribute('aria-current', 'page'); }
     else { inner = link(w === listed[0] ? '/guess-the-plot' : '/guess-the-plot?week=' + encodeURIComponent(w.id)); }
     inner.appendChild(el('span', 'd', fmtDate(w.id) + (w === week ? ' · playing now' : '')));
-    inner.appendChild(el('span', 't', w.paperTitle));
-    inner.appendChild(el('span', 's', w.placeholder ? 'Test week' : w.authors + ' (' + w.year + ') · ' + w.figureLabel));
+    inner.appendChild(el('span', 't', shortRef(w)));
+    inner.appendChild(el('span', 's', w.placeholder ? 'Test week' : w.figureLabel));
     li.appendChild(inner); list.appendChild(li);
   });
   $('archive-note').textContent = shown.length === 1 ? 'Each Thursday’s plot stays here, so you can play past weeks too.' : 'Past weeks stay playable. Pick one to try it.';

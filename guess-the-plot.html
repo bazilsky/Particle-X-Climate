@@ -49,6 +49,7 @@
           <p class="kicker" id="gtp-week"></p>
           <h2 id="gtp-paper-title"></h2>
           <p class="gtp-byline" id="gtp-byline"></p>
+          <p class="gtp-fulltitle" id="gtp-fulltitle" hidden></p>
           <p class="gtp-test" id="gtp-test" hidden>Test week: this chart is a placeholder drawn to try the game, not a figure from a paper.</p>
         </div>
 
@@ -73,7 +74,7 @@
 
             <div class="panel gtp-reveal" id="gtp-labels" tabindex="-1" hidden>
               <h3>The labels</h3>
-              <p id="gtp-labels-text"></p>
+              <div class="gtp-text" id="gtp-labels-text"></div>
               <div class="btns">
                 <button type="button" class="btn primary" id="gtp-reveal-point">What the authors wanted it to show</button>
               </div>
@@ -81,7 +82,8 @@
 
             <div class="panel gtp-reveal" id="gtp-point" tabindex="-1" hidden>
               <h3>What the authors wanted it to show</h3>
-              <p id="gtp-point-text"></p>
+              <div class="gtp-text" id="gtp-point-text"></div>
+              <p class="gtp-why" id="gtp-why" hidden></p>
               <a class="gtp-idea" id="gtp-idea" href="/idea/">Read this week's Idea Path →</a>
             </div>
           </div>
