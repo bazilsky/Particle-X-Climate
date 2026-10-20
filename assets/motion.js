@@ -128,6 +128,18 @@
     );
   }
 
+  // A cross-document transition can be skipped (e.g. a quick second click or Back mid-animation).
+  // The browser then rejects its promises; handle them so nothing is reported as an error.
+  function quietTransition(ev) {
+    var vt = ev && ev.viewTransition;
+    if (!vt) return;
+    ['ready', 'finished', 'updateCallbackDone'].forEach(function (k) {
+      try { if (vt[k] && vt[k].catch) vt[k].catch(function () {}); } catch (e) {}
+    });
+  }
+  window.addEventListener('pageswap', quietTransition);
+  window.addEventListener('pagereveal', quietTransition);
+
   // bfcache / Back-Forward: never leave the page stuck faded out
   window.addEventListener('pageshow', function (ev) {
     clearLeaving();
