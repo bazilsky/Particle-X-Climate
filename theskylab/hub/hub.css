@@ -10,13 +10,11 @@
 .arc-hero h1{font-size:clamp(2.1rem,4.4vw,3.3rem);max-width:16ch}
 .arc-hero .lede{margin:0;max-width:20rem}
 
-/* 12-column grid on desktop: four playable cabinets (3 cols each) over three coming-soon cabinets (4 cols each).
+/* 12-column grid on desktop: four cabinets (3 cols each) over three (4 cols each, see the second-row rule at the end).
    Every span is reset in the narrow-screen grid below, so no cabinet can ask for more columns than the grid has. */
 .arc-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:.9rem;margin-top:.9rem}
 .tile{grid-column:span 3;display:block;color:var(--paper);text-decoration:none;min-width:0}
 .tile.play{grid-column:span 3}
-.tile.soon{grid-column:span 4}
-@media (min-width:701px){.tile.soon .screen{aspect-ratio:16/9}}
 .tile .cab{position:relative;height:100%;display:flex;flex-direction:column;background:var(--c);border-radius:18px;padding:.85rem .85rem 1.1rem;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
 a.tile:hover .cab,a.tile:focus-visible .cab{transform:translateY(-6px);box-shadow:0 22px 40px rgba(28,25,21,.18)}
 a.tile:focus-visible{outline:none}
@@ -32,10 +30,6 @@ a.tile:focus-visible .cab{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--c),0
 .tile .go{margin:auto .25rem 0;padding-top:1rem}
 .pill-play{display:inline-flex;align-items:center;gap:.45rem;background:var(--paper);color:var(--ink);border-radius:999px;padding:.45rem .95rem;font-weight:600;font-size:.92rem;transition:gap .35s var(--ease)}
 a.tile:hover .pill-play{gap:.75rem}
-.soon-tag{display:inline-block;padding:.2rem .65rem;border-radius:999px;border:1px solid rgba(246,241,231,.55);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
-.tile.soon{cursor:default}
-.tile.soon .screen{filter:grayscale(.6) brightness(.92)}
-.tile.soon h2,.tile.soon p{opacity:.78}
 .arc-note{color:var(--muted);font-size:.95rem;margin:1.2rem 0 0}
 /* stagger for the 7th cabinet (motion.css covers 1–6) */
 html.js-ready .motion-stagger > .motion-reveal:nth-child(7){transition-delay:540ms}
@@ -46,11 +40,11 @@ html.js-ready .motion-stagger > .motion-reveal:nth-child(7){transition-delay:540
 }
 @media (max-width:860px){
   .arc-hero{flex-direction:column;align-items:flex-start;gap:.7rem}
-  /* Two equal columns. .tile.soon must be reset here too: left at span 4 it forced two
+  /* Two equal columns. Every span must be reset here: a cabinet left at span 4 forces two
      extra implicit columns, which squeezed the first cabinets to zero width so their
      colour edges stacked behind their neighbours like a deck of cards. */
   .arc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
-  .tile,.tile.play,.tile.soon{grid-column:span 1}
+  .tile,.tile.play{grid-column:span 1}
   .arc-grid > .tile:last-child{grid-column:1/-1}
   .tile .cab{padding:.6rem .6rem .9rem;border-radius:16px}
   .tile .screen,.tile.play .screen{aspect-ratio:1/1}
@@ -74,5 +68,5 @@ body.atmos-lab .arc-hero{margin-top:0;border-radius:0;align-items:flex-start;gap
 body.atmos-lab .arc-hero .lede{max-width:40rem;margin-top:.7rem}
 body.atmos-lab .tile .cab{box-shadow:inset 0 0 0 1px rgba(246,241,231,.16),0 30px 60px -36px rgba(0,0,0,.7)}
 body.atmos-lab .arc-note{color:#3d3830}
-/* second row (cabinets 5-7) shares the 12 columns equally, whether a cabinet is playable or coming soon */
+/* second row (cabinets 5-7) shares the 12 columns equally */
 @media (min-width:861px){.arc-grid > .tile:nth-child(n+5){grid-column:span 4}.arc-grid > .tile:nth-child(n+5) .screen{aspect-ratio:16/9}}

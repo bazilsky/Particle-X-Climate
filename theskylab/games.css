@@ -82,3 +82,13 @@ body.atmos-game .hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem)}
 @media (max-width:640px){body.atmos-game .hero{padding:1.8rem 0 1.5rem}}
 body.atmos-game .crumb{display:inline-flex;align-items:center;min-height:44px;margin-block:-13px}
 body.atmos-sub footer a{color:#84321f}
+/* Game-page header: the longest game menu (Contrail Catcher, 11 links) needs 1338px on one line, plus room for a classic
+   scrollbar, so game pages keep the nav on one line from 1361px and switch to the Menu button at 1360px and below. */
+body.atmos-sub.atmos-game .ph #site-nav a{white-space:nowrap}
+@media (max-width:1360px){
+  body.atmos-sub.atmos-game .ph #site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);box-shadow:0 12px 30px rgba(28,25,21,.12)}
+  body.atmos-sub.atmos-game .ph #site-nav a,body.atmos-sub.atmos-game.pxc-shell .ph #site-nav a:hover{padding:1rem clamp(1.25rem,4vw,3rem);border-top:1px solid var(--line);color:var(--ink)}
+  body.atmos-sub.atmos-game .ph .menu-toggle{display:inline-flex;align-items:center;min-height:44px;padding-block:0}
+  body.atmos-sub.atmos-game .ph:has(#nav-toggle:checked){--hf:var(--ink);--hl:var(--line);background:var(--paper)!important}
+  body.atmos-sub.atmos-game .ph:has(#nav-toggle:checked) #site-nav{display:flex}
+}
