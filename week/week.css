@@ -1,0 +1,70 @@
+/* Week pages (/week/): one page per week with four big buttons. Builds on /assets/atmos.css + /assets/atmos-page.css
+   (body.atmos-sub atmos-index atmos-week). Every week page shares this file, so a new week is only a small HTML file. */
+body.atmos-week{font-size:1.05rem;line-height:1.55}
+body.atmos-week .wrap{margin:0 auto}
+body.atmos-week .hero{min-height:0}
+body.atmos-week .kicker{margin:0 0 .9rem;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+body.atmos-week h1{margin:0;font-family:Fraunces,Georgia,serif}
+body.atmos-week .lede{margin:1.1rem 0 0;font-size:1.15rem}
+body.atmos-week h2{margin:0 0 1.1rem;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:1.8rem;letter-spacing:-.02em}
+body.atmos-week footer{display:flex;justify-content:space-between;gap:1rem;font-size:.92rem}
+/* share row: Copy link / Email are shown by week.js only when they can work */
+.wk-share{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:1.6rem 0 0}
+.wk-copy,.wk-mail,.wk-all{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 1.1rem;border-radius:999px;font:600 .95rem "Source Sans 3",sans-serif;text-decoration:none;cursor:pointer;
+  border:1px solid rgba(246,241,231,.34);background:rgba(246,241,231,.06);color:var(--paper);transition:background .25s,border-color .25s,color .25s}
+.wk-copy{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.wk-copy::before{content:"";width:1rem;height:1rem;background:currentColor;-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat;
+  --i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L12 5.6'/%3E%3Cpath d='M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4L12 18.4'/%3E%3C/svg%3E")}
+.wk-copy.is-copied{background:#93d3c3;border-color:#93d3c3}
+.wk-copy.is-copied::before{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+.wk-mail:hover,.wk-all:hover{background:rgba(246,241,231,.14);border-color:rgba(246,241,231,.6)}
+.wk-copy:focus-visible,.wk-mail:focus-visible,.wk-all:focus-visible,.wk-btn:focus-visible{outline:2px solid var(--gl);outline-offset:3px}
+/* the four parts: accents match the Overwatch product cards; *-t are the same hues lifted for text on dark glass */
+.wk-grants{--acc:#5fa596;--acc-t:#93d3c3}.wk-papers{--acc:#d97a5c;--acc-t:#f2ae95}.wk-ideas{--acc:#d9bf8a;--acc-t:#e8d3a4}.wk-gtp{--acc:#b9aee0;--acc-t:#d3cbf2}
+.wk-ico{display:block;background:currentColor;-webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat}
+.wk-grants .wk-ico{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3Cpath d='M12 6.5v5M9.8 8.2h4.4'/%3E%3Cpath d='M8.6 14 7 22l5-2.8 5 2.8-1.6-8'/%3E%3C/svg%3E")}
+.wk-papers .wk-ico{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2.5h8l4 4v15H6z'/%3E%3Cpath d='M14 2.5v4h4M9 12h6M9 15.5h6M9 19h4'/%3E%3C/svg%3E")}
+.wk-ideas .wk-ico{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18.5h6M10 21.5h4'/%3E%3Cpath d='M12 2.5a6.5 6.5 0 0 0-3.8 11.8c.5.4.8 1 .8 1.6v.6h6v-.6c0-.6.3-1.2.8-1.6A6.5 6.5 0 0 0 12 2.5z'/%3E%3C/svg%3E")}
+.wk-gtp .wk-ico{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M7 15.5l3.5-4 3 2.5L19 7'/%3E%3Ccircle cx='19' cy='7' r='1.2'/%3E%3C/svg%3E")}
+.wk-btn{position:relative;color:var(--paper);text-decoration:none}
+.wk-name{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.03em;line-height:1}
+.wk-hint{color:#ddd5c6}
+/* index */
+body.wk-index .week-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:1rem}
+body.wk-index .week-btn{text-decoration:none;background:rgba(21,19,15,.88)}
+body.wk-index .week-btn .day{--acc-d:#93d3c3;background:var(--acc-d)}
+body.wk-index .week-btn .day{border-radius:999px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+body.wk-index .week-btn h3{margin:0;font-family:Fraunces,Georgia,serif;font-weight:500}
+body.wk-index .week-btn p{margin:.4rem 0 0;font-size:.95rem;color:#e6dfd2}
+body.wk-index section:not(.hero){padding:0 0 3rem}
+body.wk-index section:not(.hero) h2{color:#fffdf8}
+html:root body.atmos-week .marquee{margin-bottom:2.4rem}
+body.atmos-week .marquee+.wrap{padding-top:0}
+@media (max-width:640px){body.atmos-week .lede{font-size:1.05rem}body.atmos-week .wk-hero.hero{padding:2rem 0 1.6rem}html:root body.atmos-week .marquee{margin-bottom:1.8rem}
+  .wk-share{gap:.45rem;margin-top:1.3rem}.wk-copy,.wk-mail,.wk-all{padding:0 .85rem;font-size:.9rem}}
+@media (prefers-reduced-motion:reduce){.wk-btn,.wk-btn *,.wk-copy,.wk-mail,.wk-all{transition:none!important}.wk-btn:hover,.wk-btn:hover *{transform:none!important}}
+
+/* Direction 3 · descent: four full-width buttons stacked down the sky, each in the layer it sits in */
+body.atmos-week .wk-hero{padding-top:2.6rem;padding-bottom:2rem}
+body.atmos-week .wk-hero .kicker{color:var(--gl)}
+body.atmos-week .wk-hero h1{font-weight:620;font-size:clamp(2.5rem,6.2vw,4.8rem);line-height:.96;letter-spacing:-.04em}
+.wk-grid{position:relative;display:grid;gap:clamp(1.6rem,5vw,3.6rem);margin:0 0 4rem;padding-left:clamp(1.6rem,4vw,3rem);counter-reset:wk}
+.wk-grid::before{content:"";position:absolute;left:clamp(.45rem,1.3vw,1rem);top:1.5rem;bottom:1.5rem;width:2px;background:linear-gradient(#5fa596,#d97a5c,#b89a5e,#8a7fc0);opacity:.75}
+.wk-btn{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ico name go" "ico hint go";align-items:center;gap:.25rem 1.4rem;min-height:7.5rem;padding:1.4rem 1.6rem 1.4rem 1.5rem;
+  border-radius:24px;background:var(--bg);border:1px solid var(--edge);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--fg);
+  box-shadow:inset 0 3px 0 var(--acc),0 30px 60px -36px rgba(0,0,0,.6);transition:transform .45s var(--ease),box-shadow .45s var(--ease);counter-increment:wk}
+.wk-btn::before{content:"";position:absolute;left:calc(-1 * clamp(1.6rem,4vw,3rem) + clamp(.45rem,1.3vw,1rem) - 6px);top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 5px var(--ring)}
+/* the first two sit in the dark layers, the last two in the light ones */
+.wk-grants,.wk-papers{--bg:rgba(21,19,15,.84);--edge:rgba(246,241,231,.16);--fg:var(--paper);--fg2:#ddd5c6;--ring:rgba(246,241,231,.1)}
+.wk-papers{--bg:rgba(24,46,43,.88)}
+.wk-ideas,.wk-gtp{--bg:rgba(255,253,248,.9);--edge:rgba(28,25,21,.12);--fg:var(--ink);--fg2:#4f4a41;--ring:rgba(28,25,21,.08)}
+.wk-ideas{--acc-t:#6e521d;--acc:#b89a5e}.wk-gtp{--acc-t:#5a4e96;--acc:#8a7fc0}
+.wk-btn:hover{transform:translateX(6px);box-shadow:inset 0 3px 0 var(--acc),0 0 0 1px var(--acc),0 36px 70px -36px rgba(0,0,0,.65)}
+.wk-ico{grid-area:ico;width:3.4rem;height:3.4rem;color:var(--acc-t)}
+.wk-name{grid-area:name;font-size:clamp(2rem,3.6vw,2.9rem)}
+.wk-hint{grid-area:hint;color:var(--fg2);font-size:1.05rem}
+.wk-go{grid-area:go;display:grid;place-items:center;width:3.2rem;height:3.2rem;border-radius:50%;border:1px solid var(--edge);font-size:1.25rem;transition:background .35s,color .35s,border-color .35s}
+.wk-btn:hover .wk-go{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+body.wk-index .week-btn h3{font-size:1.5rem}
+@media (max-width:640px){.wk-grid{gap:1.6rem;padding-left:1.5rem}.wk-grid::before{left:.4rem}.wk-btn::before{left:calc(-1.5rem + .4rem - 6px)}
+  .wk-btn{grid-template-columns:auto minmax(0,1fr) auto;gap:.2rem .9rem;min-height:6.5rem;padding:1.05rem 1rem 1.05rem 1.05rem}.wk-ico{width:2.4rem;height:2.4rem}.wk-name{font-size:1.75rem}.wk-hint{font-size:.95rem}.wk-go{width:2.75rem;height:2.75rem}}

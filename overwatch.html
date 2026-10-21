@@ -16,7 +16,8 @@
   <style>
     /* Research Overwatch · Atmosphere theme. Shared header and tokens: /assets/atmos.css */
     body{font-size:1.05rem;line-height:1.55;
-      background:linear-gradient(to bottom,#15130f 0%,#1c1915 10%,#1f3b37 26%,#2c5a52 44%,#9fb3a6 60%,#e6dfcf 70%,#f6f1e7 82%,#efe4cf 100%)}
+      /* stops moved down with the This week section so each layer still sits under the same section; keep in step with ATMOS_STOPS below */
+      background:linear-gradient(to bottom,#15130f 0.0%,#1c1915 8.5%,#1f3b37 22.1%,#2c5a52 52.3%,#9fb3a6 66.0%,#e6dfcf 74.5%,#f6f1e7 84.7%,#efe4cf 100.0%)}
     .page{width:min(1080px,calc(100% - 2.5rem));margin:0 auto}
     .atmos-ow .pnav a{opacity:1}
     .atmos-ow .pnav a:hover{text-decoration:underline;text-underline-offset:.3em}
@@ -38,18 +39,43 @@
     .hero h1{margin:.8rem 0 0;font-family:Fraunces,Georgia,serif;font-weight:620;font-size:clamp(3rem,8.5vw,6.6rem);line-height:.92;letter-spacing:-.045em;color:var(--paper)}
     .hero .lede{margin:1.4rem 0 0;max-width:38rem;color:#d8cfbf;font-size:1.18rem}
 
-    /* the topic ticker: an aerosol layer drifting across the page */
-    html:root body.atmos-ow .marquee{position:relative;margin:0 0 3.5rem;padding:1.05rem 0;border-block:1px solid rgba(217,191,138,.38);background:linear-gradient(90deg,rgba(21,19,15,.72),rgba(31,59,55,.72) 50%,rgba(21,19,15,.72));
-      -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#f3e6c8;font-family:Fraunces,Georgia,serif;font-size:1.35rem}
-    html:root body.atmos-ow .marquee i{opacity:1;color:var(--gl)}
-
     /* sections */
     section.layer{padding:0 0 4rem;scroll-margin-top:5.5rem}
     .sec-head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;margin:0 0 1.3rem}
     .sec-head h2{margin:0;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(1.8rem,3.4vw,2.4rem);letter-spacing:-.025em;line-height:1.1}
-    #products .sec-head h2{color:var(--paper)}
-    #products .sec-head .kick{color:#efdcb2}
+    #this-week .sec-head h2,#products .sec-head h2{color:var(--paper)}
+    #this-week .sec-head .kick,#products .sec-head .kick{color:#efdcb2}
     .ctx-light .sec-head .kick{color:#6e521d}
+
+    /* this week: a glass pass; the stub on the right opens the week page */
+    .tw-pass{--notch:14px;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 15rem;border-radius:22px;color:var(--paper);text-decoration:none;
+      background:rgba(21,19,15,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+      -webkit-mask:radial-gradient(circle var(--notch) at calc(100% - 15rem) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle var(--notch) at calc(100% - 15rem) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+      mask:radial-gradient(circle var(--notch) at calc(100% - 15rem) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle var(--notch) at calc(100% - 15rem) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+      filter:drop-shadow(0 24px 30px rgba(0,0,0,.35));transition:transform .4s var(--ease)}
+    .tw-pass::before{content:"";position:absolute;inset:0 0 auto;height:4px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,#5fa596 0 25%,#d97a5c 25% 50%,#d9bf8a 50% 75%,#b9aee0 75%)}
+    .tw-pass:hover{transform:translateY(-3px)}
+    .tw-pass:focus-visible{outline:2px solid var(--gl);outline-offset:4px}
+    .tw-main{padding:1.7rem 1.9rem 1.6rem}
+    .tw-label{margin:0;font:600 .74rem/1.3 "Source Sans 3",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#e8d3a4}
+    .tw-title{display:block;margin:.45rem 0 1.1rem;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.02;letter-spacing:-.03em}
+    .tw-stops{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:0;padding:0;list-style:none}
+    .tw-stops span{display:flex;align-items:center;gap:.5rem;font-weight:600;color:#ddd5c6}
+    .tw-stops span::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--c)}
+    .tw-stub{display:flex;flex-direction:column;justify-content:center;gap:.2rem;padding:1.5rem 1.6rem;border-left:2px dashed rgba(246,241,231,.28)}
+    .tw-stub .tw-label{color:#ddd5c6}
+    .tw-day{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:2.5rem;line-height:1;letter-spacing:-.03em}
+    .tw-yr{color:#ddd5c6}
+    .tw-open{display:inline-flex;align-items:center;align-self:flex-start;gap:.45rem;min-height:44px;margin-top:.7rem;padding:0 1.1rem;border-radius:999px;background:var(--paper);color:var(--ink);font-weight:600}
+    .tw-open span{transition:transform .35s var(--ease)}.tw-pass:hover .tw-open span{transform:translateX(4px)}
+    @media (max-width:700px){
+      .tw-pass{grid-template-columns:1fr;
+        -webkit-mask:radial-gradient(circle var(--notch) at 0 var(--cut),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% var(--cut),#0000 98%,#000) right/51% 100% no-repeat;
+        mask:radial-gradient(circle var(--notch) at 0 var(--cut),#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--notch) at 100% var(--cut),#0000 98%,#000) right/51% 100% no-repeat;--cut:calc(100% - 8.6rem)}
+      .tw-main{padding:1.4rem 1.25rem 1.3rem}
+      .tw-stub{height:8.6rem;flex-direction:row;flex-wrap:wrap;align-items:center;align-content:center;column-gap:.6rem;padding:1rem 1.25rem;border-left:0;border-top:2px dashed rgba(246,241,231,.28)}
+      .tw-stub .tw-label{width:100%}.tw-day{font-size:1.9rem}.tw-open{margin:0 0 0 auto}}
+    @media (prefers-reduced-motion:reduce){.tw-pass,.tw-open span{transition:none}.tw-pass:hover,.tw-pass:hover .tw-open span{transform:none}}
 
     /* products: dark glass cards */
     .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
@@ -91,7 +117,6 @@
     @media (max-width:640px){
       .page{width:calc(100% - 1.5rem)}
       .hero{padding:7rem 0 2.8rem;min-height:0}
-      html:root body.atmos-ow .marquee{font-size:1.15rem;margin-bottom:2.6rem}
       .cards,.team{grid-template-columns:1fr}
       .cards a.card-link{display:inline-flex;align-items:center;min-height:44px;padding-top:.6rem;margin-bottom:-.6rem}
       .panel{border-radius:20px;padding:.9rem .8rem}
@@ -107,6 +132,7 @@
     <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
     <nav id="site-nav" class="pnav">
       <a href="/">Home</a>
+      <a href="#this-week">This week</a>
       <a href="#products">Products</a>
       <a href="grant/">Grant path</a>
       <a href="paper/">Paper path</a>
@@ -126,8 +152,27 @@
     <div class="marquee" aria-hidden="true"><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div></div>
 
   <div class="page">
+    <section class="layer ctx-dark" id="this-week">
+      <div class="sec-head motion-reveal"><p class="kick">01</p><h2>This week</h2></div>
+      <!-- THIS WEEK: point href (and the week line) at the newest /week/ page each Monday -->
+      <a class="tw-pass motion-reveal" href="/week/2026-10-19">
+        <span class="tw-main">
+          <span class="tw-label">Research Overwatch · Weekly pass</span>
+          <span class="tw-title">Latest this week</span>
+          <span class="tw-stops"><span style="--c:#5fa596">Grants</span><span style="--c:#d97a5c">Papers</span><span style="--c:#d9bf8a">Ideas</span><span style="--c:#b9aee0">Guess the Plot</span></span>
+        </span>
+        <span class="tw-stub">
+          <span class="tw-label">Week of</span>
+          <span class="tw-day">19 Oct</span>
+          <span class="tw-yr">2026</span>
+          <span class="tw-open">Open <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+      <!-- /THIS WEEK -->
+    </section>
+
     <section class="layer ctx-dark" id="products">
-      <div class="sec-head motion-reveal"><p class="kick">01</p><h2>Four products</h2></div>
+      <div class="sec-head motion-reveal"><p class="kick">02</p><h2>Four products</h2></div>
       <div class="cards">
         <article class="motion-reveal">
           <span class="day">Monday</span>
@@ -158,7 +203,7 @@
 
     <section class="layer" id="team">
       <div class="panel ctx-light">
-      <div class="sec-head motion-reveal"><p class="kick">02</p><h2>The desk</h2></div>
+      <div class="sec-head motion-reveal"><p class="kick">03</p><h2>The desk</h2></div>
       <div class="team">
         <div class="person motion-reveal">
           <p class="role">Search and send</p>
@@ -190,7 +235,7 @@
     </section>
 
     <section class="layer ctx-light" id="remit">
-      <div class="sec-head motion-reveal"><p class="kick">03</p><h2>Remit</h2></div>
+      <div class="sec-head motion-reveal"><p class="kick">04</p><h2>Remit</h2></div>
       <div class="remit-sheet motion-reveal">
       <ul class="remit">
         <li>Solar geoengineering / SRM</li>
@@ -210,7 +255,7 @@
       <span>Static page for Cloudflare Pages</span>
     </footer>
   </div>
-  <script>window.ATMOS_HEADER_ALPHA=1;window.ATMOS_STOPS=[[0,[21,19,15]],[.1,[28,25,21]],[.26,[31,59,55]],[.44,[44,90,82]],[.6,[159,179,166]],[.7,[230,223,207]],[.82,[246,241,231]],[1,[239,228,207]]];</script>
+  <script>window.ATMOS_HEADER_ALPHA=1;window.ATMOS_STOPS=[[0.0,[21,19,15]],[0.085,[28,25,21]],[0.221,[31,59,55]],[0.523,[44,90,82]],[0.66,[159,179,166]],[0.745,[230,223,207]],[0.847,[246,241,231]],[1.0,[239,228,207]]];</script>
   <script src="/assets/atmos.js"></script>
   <script src="/assets/motion.js" defer></script>
   <script src="/assets/studio.js" defer></script>
