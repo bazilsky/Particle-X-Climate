@@ -124,8 +124,71 @@
     }
     @media (prefers-reduced-motion:reduce){.hero::before{animation:none}.cards article{transition:none}.cards article:hover{transform:none}}
   </style>
+  <style>/* prototype */
+    /* tone vocabulary: surfaces in OW_TINT get --tint and tone-lt / tone-dk from the script; text uses these colours only */
+    .atmos-ow{--t-ink:#1c1915;--t-mu:#3d372f;--t-a:#6e2818}
+    .atmos-ow .tone-dk{--t-ink:#f6f1e7;--t-mu:#e8e1d4;--t-a:#ecd5a4}
+    .atmos-ow .tone-lt{--t-ink:#1c1915;--t-mu:#3d372f;--t-a:#6e2818}
+    .atmos-ow .acc1{--acc:#5fa596;--acc-l:#1f4d45;--acc-t:#93d3c3}.atmos-ow .acc2{--acc:#d97a5c;--acc-l:#6e2818;--acc-t:#f2ae95}
+    .atmos-ow .acc3{--acc:#d9bf8a;--acc-l:#5a4316;--acc-t:#e8d3a4}.atmos-ow .acc4{--acc:#b9aee0;--acc-l:#463b7d;--acc-t:#d3cbf2}
+
+    /* 1 · Gallery: every section is a full-bleed band stepping down the sky, a big Fraunces numeral column on the left */
+    .p1 main,.p1 .page{overflow:visible}
+    .p1 section.layer{position:relative;display:grid;grid-template-columns:clamp(6.5rem,12vw,11rem) minmax(0,1fr);column-gap:clamp(1.5rem,4vw,4rem);align-items:start;
+      margin:0;padding:clamp(3.4rem,6.5vw,6rem) 0;background:rgb(var(--tint,246 241 231)/.9);box-shadow:0 0 0 100vmax rgb(var(--tint,246 241 231)/.9);clip-path:inset(0 -100vmax);
+      border-top:1px solid rgba(127,127,127,.22);color:var(--t-ink)}
+    .p1 #this-week{--acc:#5fa596;--acc-l:#1f4d45;--acc-t:#93d3c3}.p1 #products{--acc:#d97a5c;--acc-l:#6e2818;--acc-t:#f2ae95}
+    .p1 #team{--acc:#d9bf8a;--acc-l:#5a4316;--acc-t:#e8d3a4}.p1 #remit{--acc:#b9aee0;--acc-l:#463b7d;--acc-t:#d3cbf2}
+    .p1 section.layer{--num:var(--acc-l)}.p1 section.layer.tone-dk{--num:var(--acc-t)}
+    .p1 section.layer::after{content:"";position:absolute;left:calc(50% - 50vw);top:0;bottom:0;width:5px;background:var(--acc)}
+    .p1 #team .panel{display:contents}
+    .p1 .sec-head{grid-column:1/-1;display:grid;grid-template-columns:subgrid;align-items:end;margin:0 0 clamp(1.8rem,3.4vw,3rem)}
+    .p1 :is(#this-week,#products,#team,#remit) .sec-head .kick{margin:0;font:500 clamp(4.4rem,9.5vw,8.4rem)/.78 Fraunces,Georgia,serif;letter-spacing:-.06em;color:var(--num)}
+    .p1 :is(#this-week,#products,#team,#remit) .sec-head h2{font-size:clamp(2.6rem,5.6vw,4.8rem);line-height:.98;letter-spacing:-.04em;color:var(--t-ink)}
+    .p1 section.layer>:not(.sec-head),.p1 #team .panel>:not(.sec-head){grid-column:2}
+    .p1 #team .panel>.team{grid-column:1/-1}
+    /* this week: the pass, larger, in night-teal glass one shade under its band */
+    .p1 .tw-pass{background:rgb(var(--tint,21 19 15)/.94)}
+    .p1 .tw-main{padding:clamp(1.6rem,3vw,2.6rem) clamp(1.4rem,3vw,2.8rem)}
+    .p1 .tw-title{font-size:clamp(2.4rem,4.8vw,4rem);margin:.6rem 0 1.4rem}
+    .p1 .tw-stops span{font-size:1.2rem}
+    .p1 .tw-day{font-size:3rem}
+    /* products: an editorial spread, two by two, hairlines instead of boxes */
+    .p1 .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(2rem,4vw,4rem)}
+    .p1 .cards article{padding:clamp(1.6rem,2.6vw,2.2rem) 0 clamp(1.8rem,3vw,2.6rem);border:0;border-top:1px solid rgba(127,127,127,.35);border-radius:0;background:none;box-shadow:none;
+      -webkit-backdrop-filter:none;backdrop-filter:none}
+    .p1 .cards article::before{content:"";position:absolute;top:-1px;left:0;width:3.5rem;height:3px;background:var(--acc)}
+    .p1 .cards article:nth-child(1){--acc:#5fa596}.p1 .cards article:nth-child(2){--acc:#d97a5c}.p1 .cards article:nth-child(3){--acc:#d9bf8a}.p1 .cards article:nth-child(4){--acc:#b9aee0}
+    .p1 .cards .day{padding:0;margin-bottom:1rem;background:none;color:var(--t-ink);font-size:.82rem;letter-spacing:.2em}
+    .p1 .cards h3{margin:0 0 .7rem;font-size:clamp(2rem,3.2vw,2.8rem);line-height:1.02;letter-spacing:-.03em;color:var(--t-ink)}
+    .p1 .cards p{font-size:clamp(1.12rem,1.4vw,1.3rem);line-height:1.55;color:var(--t-mu)}
+    .p1 .cards a.card-link{display:inline-flex;align-items:center;min-height:44px;padding-top:.8rem;font-size:1.05rem;color:var(--t-a)}
+    /* the desk: five names set large in columns */
+    .p1 .team{grid-template-columns:repeat(5,minmax(0,1fr));gap:0 clamp(1.2rem,2.4vw,2.4rem)}
+    .p1 .person{padding:1.4rem 0 .4rem;border:0;border-top:1px solid rgba(127,127,127,.4);border-radius:0;background:none;box-shadow:none}
+    .p1 .team .person .role{color:var(--t-ink);letter-spacing:.18em}
+    .p1 .person h3{font-size:clamp(1.5rem,2vw,1.95rem);line-height:1.05;letter-spacing:-.025em;color:var(--t-ink)}
+    .p1 .person p:not(.role){margin-top:.4rem;font:italic 400 clamp(1.08rem,1.3vw,1.22rem)/1.4 Fraunces,Georgia,serif;color:var(--t-mu)}
+    /* remit: three columns of large serif lines */
+    .p1 .remit-sheet{padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+    .p1 .remit{column-gap:clamp(2rem,4vw,4rem)}
+    .p1 .remit li{padding:1rem 0;border-bottom-color:rgba(127,127,127,.35);font:500 clamp(1.3rem,2vw,1.7rem)/1.25 Fraunces,Georgia,serif;color:var(--t-ink);letter-spacing:-.01em}
+    .p1 .remit li::before{color:var(--num);font-size:.85rem}
+    .p1 footer{border-top:0}
+    @media (max-width:1060px){.p1 .team{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:1.4rem}.p1 .person:nth-child(5){grid-column:auto}}
+    @media (max-width:760px){
+      .p1 section.layer{grid-template-columns:minmax(0,1fr);padding:2.8rem 0 3rem}
+      .p1 .sec-head{grid-template-columns:minmax(0,1fr);gap:.4rem}
+      .p1 section.layer>:not(.sec-head),.p1 #team .panel>:not(.sec-head),.p1 #team .panel>.team{grid-column:1}
+      .p1 :is(#this-week,#products,#team,#remit) .sec-head .kick{font-size:3.6rem}
+      .p1 :is(#this-week,#products,#team,#remit) .sec-head h2{font-size:2.5rem}
+      .p1 .cards,.p1 .team{grid-template-columns:minmax(0,1fr)}
+      .p1 .person{padding-bottom:1rem}
+    }
+
+  </style>
 </head>
-<body class="pxc-shell atmos-ow">
+<body class="pxc-shell atmos-ow p1">
   <header class="ph">
     <a class="brand" href="/">Particle X Climate</a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
@@ -257,6 +320,42 @@
   </div>
   <script>window.ATMOS_HEADER_ALPHA=1;window.ATMOS_STOPS=[[0.0,[21,19,15]],[0.085,[28,25,21]],[0.221,[31,59,55]],[0.523,[44,90,82]],[0.66,[159,179,166]],[0.745,[230,223,207]],[0.847,[246,241,231]],[1.0,[239,228,207]]];</script>
   <script src="/assets/atmos.js"></script>
+  <script>
+window.OW_STOPS=function(){var T=window.OW_TOP,q=function(s){return document.querySelector(s);},H=document.documentElement.scrollHeight,
+  hb=T(q('.marquee')),tw=T(q('#this-week')),pr=T(q('#products')),tm=T(q('#team')),rm=T(q('#remit')),ft=T(q('footer'));
+  var ph=innerWidth<=640,mid=window.OW_MID||[44,90,82];
+  /* hero and ticker sit on the same sky as on the live page (desktop and phone) */
+  return [[0,[21,19,15]],[hb*(ph?.68:.33),[28,25,21]],[ph?Math.max(tw,hb*1.76):hb*.85,[31,59,55]],[Math.max(tw,ph?hb*1.76:0),[31,59,55]],[pr+(tm-pr)*.25,mid],[tm+(rm-tm)*.1,[159,179,166]],[rm,[230,223,207]],[ft,[246,241,231]],[H,[239,228,207]]];};
+window.OW_TINT=[['section.layer',.9,function(i){return i%2?0:2;}],['.tw-pass',.94,function(){return 4;}]];</script>
+<script>
+/* Overwatch prototype: the sky is laid out against the page's own sections (px stops from OW_STOPS), atmos.js gets the same stops
+   for the header, and each surface in OW_TINT takes the sky colour at its height, nudged toward paper or night teal only until every
+   text colour on it reads at 7.4:1. */
+(function(){
+  var de=document.documentElement,b=document.body,S=window.ATMOS_STOPS,P=[];
+  var INK=[28,25,21],PAPER=[246,241,231],NIGHT=[16,40,36],LITE=[252,249,243];
+  var LT=[INK,[61,55,47],[110,40,24],[31,77,69],[90,67,22],[70,59,125]],DK=[PAPER,[232,225,212],[236,213,164],[147,211,195],[242,174,149],[211,203,242]];
+  function lum(c){return c.reduce(function(s,v,k){v/=255;v=v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return s+v*[.2126,.7152,.0722][k];},0);}
+  function cr(a,c){var x=lum(a),y=lum(c);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);}
+  function step(t,g,f){return t.map(function(v,k){return Math.round(v+(g[k]-v)*f);});}
+  function top(e){return e.getBoundingClientRect().top+scrollY;}
+  window.OW_TOP=top;
+  function col(y){if(!P.length)return PAPER;if(y<=P[0][0])return P[0][1];for(var i=1;i<P.length;i++)if(y<=P[i][0]){var a=P[i-1],c=P[i],t=(y-a[0])/((c[0]-a[0])||1);return a[1].map(function(v,k){return Math.round(v+(c[1][k]-v)*t);});}return P[P.length-1][1];}
+  function tintFor(y0,y1,a,extra){var sk=[y0,(y0+y1)/2,y1].map(col),light=cr(sk[1],INK)>=cr(sk[1],PAPER),texts=light?LT:DK,tgt=light?LITE:NIGHT,t=sk[1].slice();
+    function ok(t){return sk.every(function(s){var g=t.map(function(v,k){return v*a+s[k]*(1-a);});return texts.every(function(c){return cr(c,g)>=7.4;});});}
+    for(var i=0;i<40&&!ok(t);i++)t=step(t,tgt,.1);for(i=0;i<(extra||0);i++)t=step(t,tgt,.1);return {t:t,light:light};}
+  function run(){
+    var H=de.scrollHeight;P=window.OW_STOPS();
+    b.style.background='#efe4cf linear-gradient(to bottom,'+P.map(function(p){return 'rgb('+p[1].join(',')+') '+Math.round(p[0])+'px';}).join(',')+') no-repeat';
+    S.length=0;P.forEach(function(p){S.push([Math.min(1,Math.max(0,p[0]/H)),p[1]]);});if(S[S.length-1][0]<1)S.push([1,P[P.length-1][1]]);
+    (window.OW_TINT||[]).forEach(function(d){[].forEach.call(document.querySelectorAll(d[0]),function(e,i){var y=top(e),r=tintFor(y,y+e.offsetHeight,d[1],d[2]?d[2](i):0);
+      e.style.setProperty('--tint',r.t.join(' '));e.classList.toggle('tone-lt',r.light);e.classList.toggle('tone-dk',!r.light);});});
+    dispatchEvent(new Event('scroll'));}
+  var q=false;function queue(){if(q)return;q=true;requestAnimationFrame(function(){q=false;run();});}
+  addEventListener('resize',queue);addEventListener('load',queue);if(document.fonts)document.fonts.ready.then(queue);
+  if('ResizeObserver' in window)new ResizeObserver(queue).observe(b);run();
+})();
+</script>
   <script src="/assets/motion.js" defer></script>
   <script src="/assets/studio.js" defer></script>
 </body>
