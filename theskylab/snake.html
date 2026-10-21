@@ -18,27 +18,29 @@
     .stage-wrap{display:flex;justify-content:center}
     #pauseBtn[aria-pressed="true"]{background:var(--gold-soft)}
   </style>
+  <link rel="stylesheet" href="/assets/atmos.css">
+  <link rel="stylesheet" href="/assets/atmos-page.css">
 </head>
-<body class="pxc-shell">
+<body class="pxc-shell atmos-sub atmos-game">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="../overwatch.html">Home</a>
+      <a href="/theskylab">The Sky Lab</a>
+      <a href="/theskylab/albedo">Albedo Tap</a>
+      <a href="/theskylab/cloudpop">Cloud Pop</a>
+      <a href="/theskylab/drift">Particle Drift</a>
+      <a href="../grant/index.html">Grant path</a>
+      <a href="../paper/index.html">Paper path</a>
+      <a href="../idea/index.html">Idea path</a>
+      <a href="/researchnotebook/">Research Notebook</a>
+    </nav>
+  </header>
   <div class="wrap">
-    <header>
-      <a class="mark" href="/">Particle X Climate</a>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
-      <nav id="site-nav">
-        <a href="../overwatch.html">Home</a>
-        <a href="/theskylab">The Sky Lab</a>
-        <a href="/theskylab/albedo">Albedo Tap</a>
-        <a href="/theskylab/cloudpop">Cloud Pop</a>
-        <a href="/theskylab/drift">Particle Drift</a>
-        <a href="../grant/index.html">Grant path</a>
-        <a href="../paper/index.html">Paper path</a>
-        <a href="../idea/index.html">Idea path</a>
-        <a href="/researchnotebook/">Research Notebook</a>
-      </nav>
-    </header>
 
-    <section class="game-hero">
+    <section class="hero game-hero">
       <p class="kicker motion-enter"><a class="crumb" href="/theskylab">← The Sky Lab</a></p>
       <h1 class="motion-line"><span>Aerosol Snake</span></h1>
       <p class="lede motion-enter">Collect particles to grow a glowing plume. Dodge the drifting clouds, the edges and your own tail.</p>
@@ -109,6 +111,8 @@
       <a href="/theskylab/albedo">Play Albedo Tap →</a>
     </footer>
   </div>
+  <script src="/assets/atmos-page.js"></script>
+  <script src="/assets/atmos.js"></script>
   <script src="/assets/motion.js" defer></script>
   <script src="snake.js" defer></script>
 </body>

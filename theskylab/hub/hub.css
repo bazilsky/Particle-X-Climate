@@ -68,3 +68,9 @@ html.js-ready .motion-stagger > .motion-reveal:nth-child(7){transition-delay:540
 @media (prefers-reduced-motion:reduce){
   .tile .cab,.pill-play{transition:none!important}
 }
+/* Atmosphere theme (body.atmos-lab, shared header and sky from /assets/atmos-page.css): the hero sits on the night sky like the
+   Overwatch path pages; cabinets are unchanged, with a faint edge so they stay distinct on the teal band */
+body.atmos-lab .arc-hero{margin-top:0;border-radius:0;align-items:flex-start;gap:0}
+body.atmos-lab .arc-hero .lede{max-width:40rem;margin-top:.7rem}
+body.atmos-lab .tile .cab{box-shadow:inset 0 0 0 1px rgba(246,241,231,.16),0 30px 60px -36px rgba(0,0,0,.7)}
+body.atmos-lab .arc-note{color:#3d3830}

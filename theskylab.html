@@ -14,27 +14,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/theskylab/games.css">
   <link rel="stylesheet" href="/theskylab/hub/hub.css">
+  <link rel="stylesheet" href="/assets/atmos.css">
+  <link rel="stylesheet" href="/assets/atmos-page.css">
 </head>
-<body class="pxc-shell">
+<body class="pxc-shell atmos-sub atmos-index atmos-lab">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="index.html">Home</a>
+      <a href="overwatch.html">Research Overwatch</a>
+      <a href="/theskylab/snake">Aerosol Snake</a>
+      <a href="/theskylab/albedo">Albedo Tap</a>
+      <a href="/theskylab/cloudpop">Cloud Pop</a>
+      <a href="/theskylab/drift">Particle Drift</a>
+      <a href="/researchnotebook/">Research Notebook</a>
+    </nav>
+  </header>
   <div class="wrap">
-    <header>
-      <a class="mark" href="/">Particle X Climate</a>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
-      <nav id="site-nav">
-        <a href="index.html">Home</a>
-        <a href="overwatch.html">Research Overwatch</a>
-        <a href="/theskylab/snake">Aerosol Snake</a>
-        <a href="/theskylab/albedo">Albedo Tap</a>
-        <a href="/theskylab/cloudpop">Cloud Pop</a>
-        <a href="/theskylab/drift">Particle Drift</a>
-        <a href="/researchnotebook/">Research Notebook</a>
-      </nav>
-    </header>
 
     <main>
-      <section class="ink arc-hero">
-        <div class="hero-bg" aria-hidden="true"></div>
+      <section class="hero arc-hero">
         <div>
           <p class="kicker motion-enter">The Sky Lab</p>
           <h1 class="motion-line"><span>Small games about small particles.</span></h1>
@@ -115,6 +116,8 @@
       <a href="overwatch.html">Back to Research Overwatch</a>
     </footer>
   </div>
+  <script src="/assets/atmos-page.js"></script>
+  <script src="/assets/atmos.js"></script>
   <script src="/assets/motion.js" defer></script>
   <script src="/theskylab/hub/previews.js" defer></script>
 </body>

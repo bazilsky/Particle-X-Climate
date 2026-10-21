@@ -75,3 +75,10 @@ footer{display:flex;justify-content:space-between;gap:1rem;padding:1.2rem 0 2.4r
 }
 @media (pointer:coarse),(max-width:700px){.dpad{display:grid;order:-1;margin:0 auto}}
 @media (prefers-reduced-motion:reduce){.card{animation:none}.btn{transition:none}}
+/* Atmosphere theme (body.atmos-game, shared header and sky from /assets/atmos-page.css): page chrome only.
+   The stage, panels, buttons, overlays and d-pad are unchanged. A shorter night hero keeps the stage near the fold. */
+body.atmos-game .hero{padding:2.4rem 0 2rem}
+body.atmos-game .hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem)}
+@media (max-width:640px){body.atmos-game .hero{padding:1.8rem 0 1.5rem}}
+body.atmos-game .crumb{display:inline-flex;align-items:center;min-height:44px;margin-block:-13px}
+body.atmos-sub footer a{color:#84321f}
