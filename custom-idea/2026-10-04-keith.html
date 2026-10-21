@@ -327,23 +327,25 @@
       footer { flex-direction: column; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/atmos.css">
+  <link rel="stylesheet" href="/assets/atmos-page.css">
 </head>
-<body class="pxc-shell">
+<body class="pxc-shell atmos-sub atmos-read">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="../overwatch.html">Home</a>
+      <a href="../grant/index.html">Grant path</a>
+      <a href="../paper/index.html">Paper path</a>
+      <a href="../idea/index.html">Idea path</a>
+      <a href="index.html" aria-current="true">Custom idea path</a>
+      <a href="../overwatch.html#team">Team</a>
+      <a href="../overwatch.html#remit">Remit</a>
+    </nav>
+  </header>
   <div class="wrap">
-    <header>
-      <a class="mark" href="/">Particle X Climate</a>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
-      <nav id="site-nav">
-        <a href="../overwatch.html">Home</a>
-        <a href="../grant/index.html">Grant path</a>
-        <a href="../paper/index.html">Paper path</a>
-        <a href="../idea/index.html">Idea path</a>
-        <a href="index.html">Custom idea path</a>
-        <a href="../overwatch.html#team">Team</a>
-        <a href="../overwatch.html#remit">Remit</a>
-      </nav>
-    </header>
 
     <nav class="sticky-toc" aria-label="On this page">
       <a href="#chosen">Chosen</a>
@@ -500,6 +502,8 @@
       <a href="index.html">Back to Custom idea path</a>
     </footer>
   </div>
+  <script src="/assets/atmos-page.js"></script>
+  <script src="/assets/atmos.js"></script>
   <script src="/assets/motion.js" defer></script>
 </body>
 </html>
