@@ -188,3 +188,9 @@ body.atmos-read :is(.picked,#references) :is(p,li),body.atmos-read .table-wrap :
 /* tables: no hyphenated cells; on phones the table keeps a readable width and scrolls inside .table-wrap */
 body.atmos-read .table-wrap :is(th,td){-webkit-hyphens:none;hyphens:none}
 @media (max-width:700px){body.atmos-read .table-wrap table{min-width:36rem}body.atmos-read .table-wrap{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}}
+/* subheads inside a band belong to the text below them: more space above than below */
+body.atmos-read :is(.picked,.takeaways,.fence,.ideas>article)>:is(p,ul,ol)+h3{margin-top:1.8em}
+/* phone tables: a soft edge shadow shows there is more to scroll (scroll-shadow trick; shadows fade at the ends) */
+@media (max-width:700px){body.atmos-read .table-wrap{overflow-x:auto;
+  background:linear-gradient(to right,rgb(var(--tint,252 249 243)) 30%,transparent) left/2.5rem 100% no-repeat local,linear-gradient(to left,rgb(var(--tint,252 249 243)) 30%,transparent) right/2.5rem 100% no-repeat local,
+  radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.35),transparent) left/1rem 100% no-repeat scroll,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.35),transparent) right/1rem 100% no-repeat scroll}}
