@@ -8,7 +8,7 @@
  *   shortRef      shown BEFORE the pick, e.g. "Brunelli & Diamond (2026), Earth's Future" (default: authors (year), venue).
  *                 Title and DOI stay hidden until the visitor picks, because a title can give the answer away.
  *   paperTitle    short title, shown after the pick (linked to the DOI)
- *   paperFullTitle  optional full title, shown after the pick
+ *   paperFullTitle  optional full title, shown in small text before and after the pick
  *   authors       e.g. 'Brunelli & Diamond'
  *   venue, year   e.g. "Earth's Future", 2026
  *   doiUrl        https://doi.org/... (null for placeholder)

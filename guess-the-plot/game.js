@@ -34,16 +34,17 @@
 
   // header
   $('gtp-week').textContent = (isLatest ? "This week's plot · " : 'From the archive · ') + fmtDate(week.id);
-  // Before a pick only the short reference shows (no title, no DOI): the title can give the answer away.
+  // Before a pick: the short reference, plus the paper's full title in small text as a hint (no DOI).
   function shortRef(w) { return w.shortRef || (w.authors + ' (' + w.year + ')' + (w.venue ? ', ' + w.venue : '')); }
   var title = $('gtp-paper-title');
   title.textContent = shortRef(week);
   $('gtp-byline').textContent = week.figureLabel || '';
+  var fullTitle = week.paperFullTitle || week.paperTitle;
+  if (fullTitle) { $('gtp-fulltitle').textContent = fullTitle; $('gtp-fulltitle').hidden = false; }
   function revealPaper() {
     title.textContent = '';
     if (week.doiUrl) { var ta = link(week.doiUrl, week.paperTitle); ta.rel = 'noopener'; title.appendChild(ta); } else title.textContent = week.paperTitle;
     $('gtp-byline').textContent = [shortRef(week), week.figureLabel].filter(Boolean).join(' · ');
-    if (week.paperFullTitle) { var ft = $('gtp-fulltitle'); ft.textContent = week.paperFullTitle; ft.hidden = false; }
     if (doiSlot && week.doiUrl) { var da = link(week.doiUrl, week.doiUrl.replace(/^https?:\/\//, '')); da.rel = 'noopener'; doiSlot.appendChild(da); }
   }
   $('gtp-test').hidden = !week.placeholder;
