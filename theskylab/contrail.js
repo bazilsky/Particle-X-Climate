@@ -63,7 +63,7 @@
     G.target = Math.max(FL_MIN, Math.min(FL_MAX, Math.round(fl / 10) * 10)); hud();
   }
   function hud() {
-    elTrail.textContent = Math.round(G.ckm) + ' km';
+    elTrail.innerHTML = Math.round(G.ckm) + '<small> km</small>';
     elFuel.textContent = fuel().toFixed(1) + '%';
     elFL.textContent = 'FL' + G.target;
   }
