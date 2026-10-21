@@ -15,7 +15,7 @@
 .gtp-paper h2{margin:0;font-size:clamp(1.45rem,3vw,2rem);line-height:1.1}
 .gtp-paper h2 a{color:inherit;text-decoration-color:var(--line);text-underline-offset:.18em}
 .gtp-paper h2 a:hover{color:var(--rust);text-decoration-color:currentColor}
-.gtp-byline{margin:.35rem 0 0;color:var(--muted)}
+.gtp-byline{margin:.3rem 0 0;color:var(--muted)}
 .gtp-test{display:inline-block;margin:.7rem 0 0;padding:.35rem .8rem;border-radius:999px;background:var(--gold-soft);color:var(--gold);font-size:.88rem;font-weight:600}
 
 .gtp-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:1.4rem;align-items:start}
