@@ -71,12 +71,12 @@
     /* the desk: light frosted panel */
     .panel{border-radius:26px;padding:clamp(1.1rem,2.6vw,2rem);background:rgba(246,241,231,.9);border:1px solid rgba(28,25,21,.12);
       -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 30px 60px -36px rgba(15,25,22,.5)}
-    .team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+    .team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem}
     .person{padding:1.1rem 1.2rem 1.3rem;border-radius:16px;background:#fffdf8;border:1px solid var(--line);box-shadow:inset 0 3px 0 var(--acc)}
-    .person:nth-child(1){--acc:var(--teal)}.person:nth-child(2){--acc:var(--gold)}.person:nth-child(3){--acc:var(--rust)}.person:nth-child(4){--acc:var(--ink)}
+    .person:nth-child(1){--acc:var(--teal)}.person:nth-child(2){--acc:var(--gold)}.person:nth-child(3){--acc:var(--rust)}.person:nth-child(4){--acc:var(--ink)}.person:nth-child(5){--acc:#8a7fc0}
     .role{margin:0 0 .35rem;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
     .person:nth-child(2) .role{color:#6e521d}
-    .person h3{margin:0 0 .35rem;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:1.45rem}
+    .person h3{margin:0 0 .35rem;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(1.2rem,1.4vw,1.45rem)}
     .person p{margin:0;color:#4f4a41}
 
     /* remit: a long list, set for reading on paper */
@@ -87,7 +87,7 @@
 
     footer{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.4rem 0 2.6rem;border-top:1px solid rgba(28,25,21,.16);color:#4f4a41;font-size:.92rem}
 
-    @media (max-width:900px){.cards,.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:1060px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}.person:nth-child(5){grid-column:1/-1}}
     @media (max-width:640px){
       .page{width:calc(100% - 1.5rem)}
       .hero{padding:7rem 0 2.8rem;min-height:0}
@@ -179,6 +179,11 @@
           <p class="role">Publish</p>
           <h3>Pulse</h3>
           <p>Code designer and publisher.</p>
+        </div>
+        <div class="person motion-reveal">
+          <p class="role">Review</p>
+          <h3>Mr. Squint</h3>
+          <p>Squinter in chief.</p>
         </div>
       </div>
       </div>
