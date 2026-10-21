@@ -61,7 +61,7 @@
 .gtp-text li+li{margin-top:.2rem}
 .gtp-text strong{font-weight:600}
 .gtp-why{margin:.8rem 0 0!important;color:var(--muted)}
-.gtp-fulltitle{margin:.3rem 0 0;font-size:.95rem;font-style:italic;color:var(--muted);max-width:48rem}
+.gtp-fulltitle{margin:.35rem 0 0;font-size:1.15rem;font-style:italic;color:var(--muted);max-width:48rem}
 .gtp-reveal:focus{outline:none}
 .gtp-reveal:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
 .gtp-reveal:not([hidden]){animation:gtp-in .5s cubic-bezier(.2,.7,.2,1)}
