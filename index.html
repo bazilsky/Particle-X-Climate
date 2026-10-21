@@ -60,8 +60,9 @@
     /* aerosol layer = the topic ticker */
     .aerosol{position:relative;margin-left:calc(-1*clamp(4.5rem,9vw,8rem));margin-right:calc(-1*clamp(1.25rem,4vw,3rem))}
     .aerosol::before{content:"";position:absolute;inset:-1.4rem 0;background:radial-gradient(60% 50% at 50% 50%,rgba(217,191,138,.28),transparent 75%);filter:blur(6px);pointer-events:none}
-    html:root body .aerosol .marquee{position:relative;background:linear-gradient(90deg,rgba(138,106,47,.0),rgba(138,106,47,.32) 20%,rgba(138,106,47,.32) 80%,rgba(138,106,47,0));border-block:1px solid rgba(217,191,138,.45);color:#f3e6c8;padding:1.1rem 0;font-family:Fraunces,Georgia,serif;font-size:clamp(1.3rem,2.6vw,2.1rem)}
+    html:root body .aerosol .marquee{position:relative;background:linear-gradient(90deg,rgba(138,106,47,.0),rgba(138,106,47,.32) 20%,rgba(138,106,47,.32) 80%,rgba(138,106,47,0));border-block:1px solid rgba(217,191,138,.45);color:#f3e6c8;padding:1rem 0;font-family:Fraunces,Georgia,serif;font-size:1.35rem}
     html:root body .aerosol .marquee i{color:#d9bf8a;opacity:1}
+    @media (max-width:760px){html:root body .aerosol .marquee{font-size:1.15rem}}
     .aerosol .tag{position:absolute;right:clamp(1.25rem,4vw,3rem);top:-1.6rem;font:600 .68rem/1 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#d9bf8a}
 
     .lvl{position:relative;min-height:72svh;display:flex;align-items:center;padding:3rem 0}
