@@ -86,6 +86,11 @@
     .lt a.at{color:var(--ink);background:rgba(255,253,248,.74);border-color:rgba(28,25,21,.12)}
     .lt{--lc:rgba(28,25,21,.22)}
     .lt .n{color:#6f5424}.lt.l3 .n{color:var(--teal)}.lt.l4 .n{color:var(--rust)}
+    /* each door takes a frosted tint of the sky at its own altitude (JS sets --tint) */
+    .lvl.tinted a.at{background:rgb(var(--tint)/.72);border-color:rgba(246,241,231,.22)}
+    .lvl.tinted.lt a.at{border-color:rgba(28,25,21,.14)}
+    .lvl.tinted a.at:hover{border-color:rgba(246,241,231,.5)}.lvl.tinted.lt a.at:hover{border-color:rgba(28,25,21,.3)}
+    .tinted.lt.l1 .n,.tinted.lt.l2 .n{color:#5c4419}
     .cloud{position:absolute;z-index:0;border-radius:50%;background:rgba(255,253,248,.75);filter:blur(18px);pointer-events:none;animation:a-cl 40s linear infinite alternate}
     @keyframes a-cl{to{transform:translateX(12vw)}}
     .ground{padding:4rem 0 2.5rem;color:var(--ink);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:2px solid var(--rust)}
@@ -151,8 +156,14 @@
       for(var i=0;i<10&&cr(c,light?INK:PAPER)<7;i++)c=c.map(function(v,k){return Math.round(v+(tgt[k]-v)*.2);});
       ph.style.setProperty('--hb','rgba('+c.join(',')+',.94)');ph.classList.toggle('on-light',light);}
     var cards=[].slice.call(document.querySelectorAll('.lvl')),phone=matchMedia('(max-width:760px)'),rm=matchMedia('(prefers-reduced-motion:reduce)');
-    // each door card takes the paper style when the sky behind it is light, the dark frosted style when it is dark
-    function cardTones(){var H=document.documentElement.scrollHeight;cards.forEach(function(s){var a=s.querySelector('a.at'),r=a.getBoundingClientRect(),c=colAt((r.top+scrollY+r.height/2)/H);s.classList.toggle('lt',cr(c,INK)>=cr(c,PAPER));});}
+    // each door takes ink text over a light sky and paper text over a dark one, tinted with the sky at its own altitude;
+    // the tint moves away from the text colour only until every line reads through the frosted glass (title and blurb 7:1, kicker and numeral 5:1)
+    function ink(e){var cs=getComputedStyle(e),v=cs.color.match(/[\d.]+/g).map(Number);return [v.slice(0,3),+cs.opacity*(v.length>3?v[3]:1)];}
+    function cardTones(){var H=document.documentElement.scrollHeight;cards.forEach(function(s){var a=s.querySelector('a.at'),r=a.getBoundingClientRect(),c=colAt((r.top+scrollY+r.height/2)/H),light=cr(c,INK)>=cr(c,PAPER);s.classList.toggle('lt',light);s.classList.add('tinted');
+      var tgt=light?PAPER:INK,lines=[['.t',7],['.d',7],['.h',5],['.n',5]].map(function(q){return ink(a.querySelector(q[0])).concat(q[1]);}),t=c;
+      function reads(t){var g=t.map(function(v,k){return v*.72+c[k]*.28;});return lines.every(function(l){return cr(l[0].map(function(v,k){return v*l[1]+g[k]*(1-l[1]);}),g)>=l[2];});}
+      for(var i=0;i<20&&!reads(t);i++)t=t.map(function(v,k){return Math.round(v+(tgt[k]-v)*.15);});
+      s.style.setProperty('--tint',t.join(' '));});}
     function lnTone(){if(getComputedStyle(ln).display==='none')return;var r=ln.getBoundingClientRect(),c=colAt(Math.min(1,Math.max(0,(scrollY+r.top+r.height/2)/document.documentElement.scrollHeight)));ln.classList.toggle('on-light',cr(c,INK)>=cr(c,PAPER));}
     function name(km){return km>48?'Mesosphere':km>20?'Stratosphere':km>12?'Lower stratosphere':km>9?'Tropopause':km>0.5?'Troposphere':'Surface';}
     function upd(){var max=document.documentElement.scrollHeight-innerHeight,p=max>0?Math.min(1,Math.max(0,scrollY/max)):0,km=50*(1-p);
