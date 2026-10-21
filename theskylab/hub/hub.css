@@ -10,7 +10,8 @@
 .arc-hero h1{font-size:clamp(2.1rem,4.4vw,3.3rem);max-width:16ch}
 .arc-hero .lede{margin:0;max-width:20rem}
 
-/* 12-column grid: three playable cabinets (4 cols each) over four coming-soon cabinets (3 cols each) */
+/* 12-column grid on desktop: four playable cabinets (3 cols each) over three coming-soon cabinets (4 cols each).
+   Every span is reset in the narrow-screen grid below, so no cabinet can ask for more columns than the grid has. */
 .arc-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:.9rem;margin-top:.9rem}
 .tile{grid-column:span 3;display:block;color:var(--paper);text-decoration:none;min-width:0}
 .tile.play{grid-column:span 3}
@@ -45,9 +46,12 @@ html.js-ready .motion-stagger > .motion-reveal:nth-child(7){transition-delay:540
 }
 @media (max-width:860px){
   .arc-hero{flex-direction:column;align-items:flex-start;gap:.7rem}
-  .arc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
-  .tile,.tile.play{grid-column:span 1}
-  .tile:last-child{grid-column:1/-1}
+  /* Two equal columns. .tile.soon must be reset here too: left at span 4 it forced two
+     extra implicit columns, which squeezed the first cabinets to zero width so their
+     colour edges stacked behind their neighbours like a deck of cards. */
+  .arc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+  .tile,.tile.play,.tile.soon{grid-column:span 1}
+  .arc-grid > .tile:last-child{grid-column:1/-1}
   .tile .cab{padding:.6rem .6rem .9rem;border-radius:16px}
   .tile .screen,.tile.play .screen{aspect-ratio:1/1}
   .tile:last-child .screen{aspect-ratio:2/1}
@@ -55,6 +59,11 @@ html.js-ready .motion-stagger > .motion-reveal:nth-child(7){transition-delay:540
   .tile p,.tile.play p{font-size:.84rem}
   .tile .meta{margin-top:.7rem;font-size:.66rem;letter-spacing:.12em}
   .pill-play{padding:.4rem .8rem;font-size:.86rem}
+}
+/* Small phones: one cabinet per row, wide screens so the column stays short */
+@media (max-width:379px){
+  .arc-grid{grid-template-columns:minmax(0,1fr)}
+  .tile .screen,.tile.play .screen,.tile:last-child .screen{aspect-ratio:16/9}
 }
 @media (prefers-reduced-motion:reduce){
   .tile .cab,.pill-play{transition:none!important}
