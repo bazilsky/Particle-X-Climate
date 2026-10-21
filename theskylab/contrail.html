@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>@view-transition{navigation:auto}</style>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contrail Catcher — The Sky Lab — Particle X Climate</title>
+  <meta name="description" content="Fly a route and change flight level to avoid the cold, humid layers where lasting contrails form.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="games.css">
+  <style>
+    .stage{aspect-ratio:4/3;max-height:calc(100vh - 235px);margin:0 auto;background:#1c1915;border-color:#2e2923;cursor:ns-resize}
+    @media (max-width:860px){.stage{aspect-ratio:1/1;max-height:none}}
+    .stage{scroll-margin-top:calc(var(--ph-h,76px) + 10px)}
+    .fl{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .6rem;font-size:.92rem;font-weight:600}
+    .fl output{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:1.35rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+    .flbtns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+    .flbtns .btn,.btns .btn,.card .btn{min-height:44px}
+  </style>
+  <link rel="stylesheet" href="/assets/atmos.css">
+  <link rel="stylesheet" href="/assets/atmos-page.css">
+</head>
+<body class="pxc-shell atmos-sub atmos-game">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="../overwatch.html">Home</a>
+      <a href="/theskylab">The Sky Lab</a>
+      <a href="/theskylab/snake">Aerosol Snake</a>
+      <a href="/theskylab/drift">Particle Drift</a>
+      <a href="/theskylab/albedo">Albedo Tap</a>
+      <a href="/theskylab/cloudpop">Cloud Pop</a>
+      <a href="/theskylab/volcano">Volcano Veil</a>
+      <a href="../grant/index.html">Grant path</a>
+      <a href="../paper/index.html">Paper path</a>
+      <a href="../idea/index.html">Idea path</a>
+      <a href="/researchnotebook/">Research Notebook</a>
+    </nav>
+  </header>
+  <div class="wrap">
+
+    <section class="hero game-hero">
+      <p class="kicker motion-enter"><a class="crumb" href="/theskylab">← The Sky Lab</a></p>
+      <h1 class="motion-line"><span>Contrail Catcher</span></h1>
+      <p class="lede motion-enter">Fly a 1,500 km route. Change flight level to slip past the cold, humid layers where lasting contrails form, without burning much extra fuel.</p>
+    </section>
+
+    <section class="game motion-enter">
+      <div class="stage" id="stage">
+        <canvas id="sky" aria-label="Contrail Catcher cross-section of the atmosphere along the route, with humid layers and your aircraft" role="img"></canvas>
+        <div class="overlay dark" id="startCard">
+          <div class="card">
+            <p class="kicker">Contrail Catcher</p>
+            <h2>Clear skies behind you</h2>
+            <p>Climb or descend 1,000 ft at a time to miss the humid layers ahead. Every move off the best cruise level costs fuel.</p>
+            <button class="btn primary" id="startBtn">Start</button>
+          </div>
+        </div>
+        <div class="overlay dark" id="pauseCard" hidden>
+          <div class="card">
+            <h2>Paused</h2>
+            <p>Press P or tap Resume.</p>
+            <button class="btn primary" id="resumeBtn">Resume</button>
+          </div>
+        </div>
+        <div class="overlay dark" id="overCard" hidden>
+          <div class="card">
+            <p class="kicker" id="overKicker">Flight complete</p>
+            <h2 id="overReason">Landed</h2>
+            <div class="big" id="overScore">0</div>
+            <div class="sub" id="overBest">Best 0 of 1000</div>
+            <button class="btn primary" id="againBtn">Fly again</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="panel" id="controls">
+          <h3>Flight level</h3>
+          <p class="fl">Selected, 1,000 ft a step <output id="flOut">FL340</output></p>
+          <div class="flbtns">
+            <button class="btn" id="climbBtn" disabled>▲ Climb</button>
+            <button class="btn" id="descendBtn" disabled>▼ Descend</button>
+          </div>
+        </div>
+        <div class="panel stats" aria-live="off">
+          <div class="stat"><b id="trail">0 km</b><span>Contrail</span></div>
+          <div class="stat"><b id="fuel">0.0%</b><span>Extra fuel</span></div>
+          <div class="stat"><b id="best">0</b><span>Best</span></div>
+        </div>
+        <div class="btns">
+          <button class="btn" id="pauseBtn" aria-pressed="false">Pause</button>
+          <button class="btn" id="restartBtn">Restart</button>
+        </div>
+        <div class="panel">
+          <h3>How it works</h3>
+          <p class="hint">A contrail lasts when the air is colder than about −40 °C at cruise height (the Schmidt-Appleman criterion) and supersaturated with respect to ice, so its crystals do not evaporate. These humid layers sit mostly at 8 to 12 km and are often only a few hundred metres deep, so a change of about 2,000 ft (600 m) avoids most of them. Lasting contrails warm the climate on average; flying away from the best cruise level, FL340 here, burns more fuel.</p>
+          <p class="hint" style="margin-top:.6rem">Drag up or down on the sky, or use the buttons. Keyboard: up and down arrows (or W and S) change level, Space starts, P pauses. Score: 1000 minus contrail share of the route and extra fuel.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>The Sky Lab · Particle X Climate</span>
+      <a href="/theskylab/snake">Play Aerosol Snake →</a>
+    </footer>
+  </div>
+  <script src="/assets/atmos-page.js"></script>
+  <script src="/assets/atmos.js"></script>
+  <script src="/assets/motion.js" defer></script>
+  <script src="contrail.js" defer></script>
+</body>
+</html>
