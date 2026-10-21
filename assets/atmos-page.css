@@ -40,7 +40,7 @@ body.atmos-read{line-height:1.7;--t-ink:#1c1915;--t-mu:#3d372f;--t-a:#6e2818;--s
 body.atmos-read section:not(.hero){padding:0 0 clamp(2.4rem,5vw,4rem)}
 body.atmos-read section:not(.hero) h2{margin:clamp(1.6rem,3vw,2.4rem) 0 clamp(1.4rem,3vw,2.2rem);font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.035em;color:var(--ink)}
 /* text that sits on the sky between bands: ink by default; JS gives it the sky's tone and a soft veil only where the sky is mid-tone */
-body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint){position:relative;max-width:46rem;color:var(--t-ink);
+body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint){position:relative;max-width:none;color:var(--t-ink);
   background:rgba(252,249,243,.86);box-shadow:0 0 0 .45em rgba(252,249,243,.86);border-radius:.2em}
 body.atmos-read section:not(.hero)>:is(.lede,.note,.joint){color:var(--t-mu)}
 body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint):is(.tone-lt,.tone-dk){background:none;box-shadow:none}
@@ -71,8 +71,8 @@ body.atmos-read :is(.papers,.grants,.ideas)>article :is(h3,strong,th),body.atmos
 body.atmos-read :is(.papers,.grants,.ideas)>article :is(p,li,td,.meta,.caveat),body.atmos-read :is(.picked,.takeaways,.fence) :is(p,li,td,.meta,.caveat){color:var(--t-mu)}
 body.atmos-read :is(.papers,.grants,.ideas)>article a,body.atmos-read :is(.picked,.takeaways,.fence) a{color:var(--t-a);text-underline-offset:.2em;text-decoration-thickness:1px}
 body.atmos-read :is(.papers,.grants,.ideas)>article .label{color:var(--t-ink);letter-spacing:.14em}
-body.atmos-read :is(.picked,.takeaways,.fence,.ideas>article)>:is(p,ul,ol,h3){max-width:46rem}
-body.atmos-read :is(.papers,.grants,.ideas)>article h3,body.atmos-read .picked h3{margin:0;max-width:40ch;font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.16;letter-spacing:-.025em}
+body.atmos-read :is(.picked,.takeaways,.fence,.ideas>article)>:is(p,ul,ol,h3){max-width:none}
+body.atmos-read :is(.papers,.grants,.ideas)>article h3,body.atmos-read .picked h3{margin:0;max-width:none;font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.16;letter-spacing:-.025em}
 body.atmos-read .takeaways h3{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.2}
 body.atmos-read .ideas>article .label+h3{margin-top:.2rem}
 body.atmos-read .ideas>article h3+*{margin-top:1.1rem}
@@ -147,3 +147,5 @@ body.atmos-sub footer{margin-top:1rem;padding:1.4rem 0 2.6rem;border-top:1px sol
   body.atmos-index .week-btn{transition:none}
   body.atmos-index .week-btn:hover{transform:none}
 }
+/* bands use the full 1080px width: no narrow text column inside them */
+body.atmos-read section:not(.hero) :is(.lede,.joint,.tip,.note,.signoff,p,ul,ol,h3,.meta){max-width:none}
