@@ -10,15 +10,15 @@ body.atmos-week h2{margin:0 0 1.1rem;font-family:Fraunces,Georgia,serif;font-wei
 body.atmos-week footer{display:flex;justify-content:space-between;gap:1rem;font-size:.92rem}
 /* share row: Copy link / Email are shown by week.js only when they can work */
 .wk-share{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:1.6rem 0 0}
-.wk-copy,.wk-mail,.wk-all{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 1.1rem;border-radius:999px;font:600 .95rem "Source Sans 3",sans-serif;text-decoration:none;cursor:pointer;
+.wk-copy,.wk-all{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 1.1rem;border-radius:999px;font:600 .95rem "Source Sans 3",sans-serif;text-decoration:none;cursor:pointer;
   border:1px solid rgba(246,241,231,.34);background:rgba(246,241,231,.06);color:var(--paper);transition:background .25s,border-color .25s,color .25s}
 .wk-copy{background:var(--paper);border-color:var(--paper);color:var(--ink)}
 .wk-copy::before{content:"";width:1rem;height:1rem;background:currentColor;-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat;
   --i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L12 5.6'/%3E%3Cpath d='M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4L12 18.4'/%3E%3C/svg%3E")}
 .wk-copy.is-copied{background:#93d3c3;border-color:#93d3c3}
 .wk-copy.is-copied::before{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
-.wk-mail:hover,.wk-all:hover{background:rgba(246,241,231,.14);border-color:rgba(246,241,231,.6)}
-.wk-copy:focus-visible,.wk-mail:focus-visible,.wk-all:focus-visible,.wk-btn:focus-visible{outline:2px solid var(--gl);outline-offset:3px}
+.wk-all:hover{background:rgba(246,241,231,.14);border-color:rgba(246,241,231,.6)}
+.wk-copy:focus-visible,.wk-all:focus-visible,.wk-btn:focus-visible{outline:2px solid var(--gl);outline-offset:3px}
 /* the four parts: accents match the Overwatch product cards; *-t are the same hues lifted for text on dark glass */
 .wk-grants{--acc:#5fa596;--acc-t:#93d3c3}.wk-papers{--acc:#d97a5c;--acc-t:#f2ae95}.wk-ideas{--acc:#d9bf8a;--acc-t:#e8d3a4}.wk-gtp{--acc:#b9aee0;--acc-t:#d3cbf2}
 .wk-ico{display:block;background:currentColor;-webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat}
@@ -41,8 +41,8 @@ body.wk-index section:not(.hero) h2{color:#fffdf8}
 html:root body.atmos-week .marquee{margin-bottom:2.4rem}
 body.atmos-week .marquee+.wrap{padding-top:0}
 @media (max-width:640px){body.atmos-week .lede{font-size:1.05rem}body.atmos-week .wk-hero.hero{padding:2rem 0 1.6rem}html:root body.atmos-week .marquee{margin-bottom:1.8rem}
-  .wk-share{gap:.45rem;margin-top:1.3rem}.wk-copy,.wk-mail,.wk-all{padding:0 .85rem;font-size:.9rem}}
-@media (prefers-reduced-motion:reduce){.wk-btn,.wk-btn *,.wk-copy,.wk-mail,.wk-all{transition:none!important}.wk-btn:hover,.wk-btn:hover *{transform:none!important}}
+  .wk-share{gap:.45rem;margin-top:1.3rem}.wk-copy,.wk-all{padding:0 .85rem;font-size:.9rem}}
+@media (prefers-reduced-motion:reduce){.wk-btn,.wk-btn *,.wk-copy,.wk-all{transition:none!important}.wk-btn:hover,.wk-btn:hover *{transform:none!important}}
 
 /* Direction 3 · descent: four full-width buttons stacked down the sky, each in the layer it sits in */
 body.atmos-week .wk-hero{padding-top:2.6rem;padding-bottom:2rem}
