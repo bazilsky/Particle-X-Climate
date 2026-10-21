@@ -11,75 +11,146 @@
   <meta name="description" content="Guess the Plot: one figure from this week's Idea Path with its labels covered. Pick what it shows, then reveal.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/theskylab/games.css">
-  <link rel="stylesheet" href="/theskylab/hub/hub.css">
-  <link rel="stylesheet" href="/guess-the-plot/gtp.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,620;1,9..144,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/guess-the-plot/atmos.css">
+  <style>
+    /* A · Observation deck */
+    body{background:linear-gradient(to bottom,#15130f 0%,#1c1915 12%,#1f3b37 34%,#2c5a52 55%,#9fb3a6 72%,#e6dfcf 82%,#f6f1e7 90%,#efe4cf 100%)}
+    .page{width:min(1180px,calc(100% - 2.5rem));margin:0 auto}
+    .hero{position:relative;padding:7.5rem 0 2.6rem;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem;align-items:end}
+    .hero::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;pointer-events:none;
+      background-image:radial-gradient(1px 1px at 10% 20%,rgba(246,241,231,.7),transparent 60%),radial-gradient(1px 1px at 30% 70%,rgba(246,241,231,.5),transparent 60%),radial-gradient(1.5px 1.5px at 55% 30%,rgba(217,191,138,.8),transparent 60%),radial-gradient(1px 1px at 75% 60%,rgba(246,241,231,.6),transparent 60%),radial-gradient(1px 1px at 90% 15%,rgba(246,241,231,.6),transparent 60%);
+      background-size:420px 300px;animation:a-tw 60s linear infinite}
+    @keyframes a-tw{to{background-position:420px 0}}
+    .hero h1{font-family:Fraunces,Georgia,serif;font-weight:620;font-size:clamp(3rem,8vw,6.4rem);line-height:.92;letter-spacing:-.045em;margin:.7rem 0 0}
+    .hero .lede{margin:0 0 .8rem;color:#d8cfbf;font-size:1.08rem;max-width:30rem}
+    .back{color:var(--gl);font-weight:600;text-decoration:none}
+    .back:hover{text-decoration:underline}
+
+    /* the instrument panel */
+    .deck{position:relative;border-radius:28px;padding:clamp(1rem,2.4vw,2rem);background:rgba(21,19,15,.8);border:1px solid rgba(246,241,231,.16);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+    .deck-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:.9rem;margin-bottom:1.2rem;border-bottom:1px solid rgba(246,241,231,.14);
+      background:linear-gradient(90deg,rgba(217,191,138,.5) 1px,transparent 1px) left bottom/24px 6px repeat-x}
+    .deck-bar .live{display:inline-flex;align-items:center;gap:.5rem}
+    .deck-bar .live::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:#9fd8bb;box-shadow:0 0 0 0 rgba(159,216,187,.6);animation:d-pulse 2.2s infinite}
+    @keyframes d-pulse{70%{box-shadow:0 0 0 8px rgba(159,216,187,0)}100%{box-shadow:0 0 0 0 rgba(159,216,187,0)}}
+    .deck-bar .inst{font:600 .72rem/1 "Source Sans 3",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#d8cfbf}
+    .gtp-paper{margin-bottom:1.3rem}
+    .gtp-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:1.4rem;align-items:start}
+    .gtp-grid.is-wide{grid-template-columns:minmax(0,1fr)}
+    .gtp-grid.is-wide .gtp-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .well::before,.well::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--gl);pointer-events:none}
+    .well::before{left:-8px;top:-8px;border-right:0;border-bottom:0;border-radius:6px 0 0 0}
+    .well::after{right:-8px;bottom:-8px;border-left:0;border-top:0;border-radius:0 0 6px 0}
+    .gtp-figure::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(100deg,transparent 30%,rgba(255,253,248,.85) 50%,transparent 70%);transform:translateX(-100%)}
+    .gtp-figure.is-revealed::after{animation:d-sweep 1.3s var(--ease) .15s}
+    @keyframes d-sweep{0%{opacity:1;transform:translateX(-100%)}100%{opacity:0;transform:translateX(100%)}}
+    .gtp-side{display:flex;flex-direction:column;gap:1rem;min-width:0}
+    #gtp-labels .btns{margin-top:0}
+    .readout{border-radius:20px;padding:1.4rem 1.5rem;background:rgba(0,0,0,.22);border:1px solid rgba(246,241,231,.16);box-shadow:inset 3px 0 0 var(--gl)}
+    .gtp-text,.gtp-why{max-width:60rem}
+    .gtp-archive{margin:3.5rem 0 0;padding:1.6rem 0 0;border-top:1px solid rgba(28,25,21,.18)}
+    footer{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:2rem 0 2.5rem;color:#4f4a41;font-size:.92rem}
+    footer a{color:#8c3520;font-weight:600}
+    .spacer{height:clamp(2rem,6vw,4rem)}
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr;gap:1rem;padding-top:6rem}
+      .gtp-grid{grid-template-columns:1fr}
+      .gtp-grid.is-wide .gtp-options{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .page{width:calc(100% - 1.5rem)}
+      .deck{border-radius:20px;padding:.9rem .75rem 1.1rem}
+      .well{padding:.35rem;border-radius:10px}
+      .well::before,.well::after{display:none}
+      .readout{padding:1.1rem}
+    }
+
+    /* --- The Eye fixes --- */
+    /* 4 · live nav: Home link + CSS-checkbox Menu (works without JS) */
+    .menu-toggle{display:none;font:600 .9rem "Source Sans 3",sans-serif;background:transparent;border:1px solid var(--hl);border-radius:999px;padding:.45rem 1rem;color:var(--hf);cursor:pointer;user-select:none}
+    .nav-toggle:focus-visible+.menu-toggle{outline:2px solid var(--gl);outline-offset:3px}
+    body.pxc-shell .ph #site-nav a:hover{padding-left:0}
+    @media (max-width:760px){
+      .menu-toggle{display:block}
+      .ph:has(#nav-toggle:checked){--hf:var(--ink);--hl:var(--line);background:var(--paper)!important}
+      .ph:has(#nav-toggle:checked) .pnav{display:flex}
+      body.pxc-shell .ph #site-nav a:hover{padding-left:clamp(1.25rem,4vw,3rem)}
+    }
+    /* 3 · unpicked options: muted colour, not opacity (text and chip stay >= 4.5:1) */
+    .gtp-opt.is-dim{opacity:1;color:#b8ae9d;background:rgba(246,241,231,.03);border-color:rgba(246,241,231,.1)}
+    .gtp-opt.is-dim .k{background:#3d372e;color:#e3d9c7}
+    @media (max-width:560px){
+      /* 1 · the whole figure scales to the panel, no sideways scroll */
+      .well{overflow:visible}
+      .well .gtp-figure{width:auto;max-width:100%}
+      /* 2 · 44px tap targets without changing the look */
+      .ph .brand,.ph .menu-toggle,.back,footer a,.gtp-idea{display:inline-flex;align-items:center;min-height:44px}
+      .ph .brand{margin-block:-8px}
+      .ph .menu-toggle{min-height:44px;padding-block:0;align-items:center;display:inline-flex}
+      .back,footer a{padding-block:11px;margin-block:-11px}
+      .gtp-idea{padding-block:10px;margin-block:-10px 0;margin-top:calc(.8rem - 10px)}
+      .gtp-credit a{display:inline-block;padding-block:12px;margin-block:-12px;line-height:20px;vertical-align:baseline}
+    }
+    @media (prefers-reduced-motion:reduce){.hero::before,.deck-bar .live::before{animation:none}.gtp-figure.is-revealed::after{animation:none}}
+  </style>
 </head>
-<body class="pxc-shell">
-  <div class="wrap">
-    <header>
-      <a class="mark" href="/">Particle X Climate</a>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-      <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
-      <nav id="site-nav">
-        <a href="/">Home</a>
-        <a href="/theskylab">The Sky Lab</a>
-        <a href="/researchnotebook/">Research Notebook</a>
-        <a href="/overwatch">Research Overwatch</a>
-      </nav>
-    </header>
+<body class="pxc-shell atmos-gtp">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="/">Home</a>
+      <a href="/theskylab">The Sky Lab</a>
+      <a href="/researchnotebook/">Research Notebook</a>
+      <a href="/overwatch">Research Overwatch</a>
+    </nav>
+  </header>
+  <div class="page">
+    <section class="hero ctx-dark">
+      <div>
+        <p class="kick motion-enter">Observation deck · a new figure every Thursday</p>
+        <h1 class="motion-line"><span>Guess the Plot</span></h1>
+      </div>
+      <div>
+        <p class="lede motion-enter">One figure from this week's Idea Path, with its labels covered. Pick what you think it shows, then reveal the full figure and the authors' point.</p>
+        <a class="back motion-enter" href="/">← Back to the landing page</a>
+      </div>
+    </section>
+
+    <noscript><p>Guess the Plot needs JavaScript to run.</p></noscript>
 
     <main>
-      <section class="ink gtp-hero">
-        <div>
-          <p class="kicker motion-enter">A new figure every Thursday</p>
-          <h1 class="motion-line"><span>Guess the Plot</span></h1>
+      <section class="gtp deck ctx-dark motion-enter" id="game" aria-labelledby="gtp-paper-title" hidden>
+        <div class="deck-bar">
+          <p class="kick live" id="gtp-week"></p>
+          <span class="inst" aria-hidden="true">Instrument panel</span>
         </div>
-        <div class="gtp-hero-side">
-          <p class="lede motion-enter">One figure from this week's Idea Path, with its labels covered. Pick what you think it shows, then reveal the full figure and the authors' point.</p>
-          <a class="back motion-enter" href="/">← Back to the landing page</a>
-        </div>
-      </section>
-
-      <noscript><p class="gtp-note">Guess the Plot needs JavaScript to run.</p></noscript>
-
-      <section class="gtp motion-enter" id="game" aria-labelledby="gtp-paper-title" hidden>
         <div class="gtp-paper">
-          <p class="kicker" id="gtp-week"></p>
           <h2 id="gtp-paper-title"></h2>
           <p class="gtp-fulltitle" id="gtp-fulltitle" hidden></p>
           <p class="gtp-byline" id="gtp-byline"></p>
           <p class="gtp-test" id="gtp-test" hidden>Test week: this chart is a placeholder drawn to try the game, not a figure from a paper.</p>
         </div>
-
         <div class="gtp-grid">
           <figure class="gtp-stage">
-            <div class="gtp-figure" id="gtp-figure">
-              <img id="gtp-img" alt="" decoding="async">
-            </div>
+            <div class="well"><div class="gtp-figure" id="gtp-figure"><img id="gtp-img" alt="" decoding="async"></div></div>
             <p class="visually-hidden" id="gtp-covered"></p>
             <figcaption class="gtp-credit" id="gtp-credit"></figcaption>
           </figure>
-
           <div class="gtp-side">
-            <div class="panel">
-              <h3 id="gtp-q">What does this figure show?</h3>
+            <div>
+              <h3 class="q" id="gtp-q">What does this figure show?</h3>
               <div class="gtp-options" id="gtp-options" role="group" aria-labelledby="gtp-q"></div>
               <p class="gtp-feedback" id="gtp-feedback" aria-live="polite"></p>
-              <div class="btns" id="gtp-step1" hidden>
-                <button type="button" class="btn primary" id="gtp-reveal-labels">Reveal the labels</button>
-              </div>
+              <div class="btns" id="gtp-step1" hidden><button type="button" class="btn primary" id="gtp-reveal-labels">Reveal the labels</button></div>
             </div>
-
-            <div class="panel gtp-reveal" id="gtp-labels" tabindex="-1" hidden>
-              <div class="btns">
-                <button type="button" class="btn primary" id="gtp-reveal-point">What the authors wanted it to show</button>
-              </div>
+            <div class="gtp-reveal" id="gtp-labels" tabindex="-1" hidden>
+              <div class="btns"><button type="button" class="btn primary" id="gtp-reveal-point">What the authors wanted it to show</button></div>
             </div>
-
-            <div class="panel gtp-reveal" id="gtp-point" tabindex="-1" hidden>
-              <h3>What the authors wanted it to show</h3>
+            <div class="readout gtp-reveal" id="gtp-point" tabindex="-1" hidden>
+              <h3 class="point-h">What the authors wanted it to show</h3>
               <div class="gtp-text" id="gtp-point-text"></div>
               <p class="gtp-why" id="gtp-why" hidden></p>
               <a class="gtp-idea" id="gtp-idea" href="/idea/">Read this week's Idea Path →</a>
@@ -87,19 +158,17 @@
           </div>
         </div>
       </section>
-
-      <section class="gtp-archive motion-reveal" id="archive" aria-labelledby="archive-h" hidden>
+      <div class="spacer"></div>
+      <section class="gtp-archive ctx-light motion-reveal" id="archive" aria-labelledby="archive-h" hidden>
         <h2 id="archive-h">All plots</h2>
         <ol class="gtp-weeks" id="gtp-weeks"></ol>
         <p class="hint" id="archive-note"></p>
       </section>
     </main>
-
-    <footer>
-      <span>Guess the Plot · Particle X Climate</span>
-      <a href="/">Back to the landing page</a>
-    </footer>
+    <footer><span>Guess the Plot · Particle X Climate</span><a href="/">Back to the landing page</a></footer>
   </div>
+  <script>window.ATMOS_STOPS=[[0,[21,19,15]],[.12,[28,25,21]],[.34,[31,59,55]],[.55,[44,90,82]],[.72,[159,179,166]],[.82,[230,223,207]],[.9,[246,241,231]],[1,[239,228,207]]];</script>
+  <script src="/guess-the-plot/atmos.js"></script>
   <script src="/guess-the-plot/weeks.js"></script>
   <script src="/guess-the-plot/game.js"></script>
   <script src="/assets/motion.js" defer></script>
