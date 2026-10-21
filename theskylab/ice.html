@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>@view-transition{navigation:auto}</style>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ice Nucleus — The Sky Lab — Particle X Climate</title>
+  <meta name="description" content="Freeze supercooled cloud droplets at the right temperature for their ice-nucleating particle: bacteria, dust, soot or none.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="games.css">
+  <style>
+    .stage{aspect-ratio:4/3;max-height:calc(100vh - 235px);margin:0 auto;background:#1c1915;border-color:#2e2923;cursor:pointer}
+    @media (max-width:860px){.stage{aspect-ratio:1/1;max-height:none}}
+    .stage{scroll-margin-top:calc(var(--ph-h,76px) + 10px)}
+    #freezeBtn{width:100%;min-height:52px;font-size:1.05rem}
+    .btns .btn,.card .btn{min-height:44px}
+    .legend li{justify-content:space-between}
+    .legend li span:first-child{display:flex;align-items:center;gap:.6rem}
+    .legend li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  </style>
+  <link rel="stylesheet" href="/assets/atmos.css">
+  <link rel="stylesheet" href="/assets/atmos-page.css">
+</head>
+<body class="pxc-shell atmos-sub atmos-game">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="../overwatch.html">Home</a>
+      <a href="/theskylab">The Sky Lab</a>
+      <a href="/theskylab/snake">Aerosol Snake</a>
+      <a href="/theskylab/drift">Particle Drift</a>
+      <a href="/theskylab/albedo">Albedo Tap</a>
+      <a href="/theskylab/cloudpop">Cloud Pop</a>
+      <a href="/theskylab/contrail">Contrail Catcher</a>
+      <a href="/theskylab/volcano">Volcano Veil</a>
+      <a href="/researchnotebook/">Research Notebook</a>
+    </nav>
+  </header>
+  <div class="wrap">
+
+    <section class="hero game-hero">
+      <p class="kicker motion-enter"><a class="crumb" href="/theskylab">← The Sky Lab</a></p>
+      <h1 class="motion-line"><span>Ice Nucleus</span></h1>
+      <p class="lede motion-enter">A supercooled droplet rises and cools. Freeze it at the temperature where its seed particle turns it to ice. Five droplets, one score.</p>
+    </section>
+
+    <section class="game motion-enter">
+      <div class="stage" id="stage">
+        <canvas id="sky" aria-label="Ice Nucleus droplet rising in a cloud, with its seed particle and a thermometer" role="img"></canvas>
+        <div class="overlay dark" id="startCard">
+          <div class="card">
+            <p class="kicker">Ice Nucleus</p>
+            <h2>Call the freeze</h2>
+            <p>Watch the thermometer and press Freeze when the droplet reaches its particle's freezing temperature.</p>
+            <button class="btn primary" id="startBtn">Start</button>
+          </div>
+        </div>
+        <div class="overlay dark" id="pauseCard" hidden>
+          <div class="card">
+            <h2>Paused</h2>
+            <p>Press P or tap Resume.</p>
+            <button class="btn primary" id="resumeBtn">Resume</button>
+          </div>
+        </div>
+        <div class="overlay dark" id="overCard" hidden>
+          <div class="card">
+            <p class="kicker" id="overKicker">Final score</p>
+            <h2 id="overReason">Five droplets</h2>
+            <div class="big" id="overScore">0</div>
+            <div class="sub" id="overBest">Best 0 of 500</div>
+            <button class="btn primary" id="againBtn">Play again</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="panel" id="controls">
+          <button class="btn primary" id="freezeBtn" disabled>Freeze</button>
+        </div>
+        <div class="panel stats" aria-live="off">
+          <div class="stat"><b id="drop">1/5</b><span>Droplet</span></div>
+          <div class="stat"><b id="score">0</b><span>Score</span></div>
+          <div class="stat"><b id="best">0</b><span>Best</span></div>
+        </div>
+        <div class="btns">
+          <button class="btn" id="pauseBtn" aria-pressed="false">Pause</button>
+          <button class="btn" id="restartBtn">Restart</button>
+        </div>
+        <div class="panel">
+          <h3>Seed particles</h3>
+          <ul class="legend">
+            <li><span><i class="dot" style="background:#1f4d45"></i>Bacteria, pollen</span><span>−2 to −8 °C</span></li>
+            <li><span><i class="dot" style="background:#b4532f"></i>Mineral dust (K-feldspar)</span><span>−15 to −25 °C</span></li>
+            <li><span><i class="dot" style="background:#1c1915"></i>Soot</span><span>−30 to −38 °C</span></li>
+            <li><span><i class="dot" style="background:#fffdf8;box-shadow:0 0 0 1px #5c564c"></i>No particle</span><span>about −38 °C</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>How it works</h3>
+          <p class="hint">Cloud droplets stay liquid well below 0 °C. A pure droplet freezes on its own near −38 °C (homogeneous freezing). An ice-nucleating particle lets ice form at warmer temperatures: some bacteria and pollen from about −2 °C, mineral dust such as K-feldspar from about −15 to −25 °C, while soot is a poor seed that works only from about −30 °C.</p>
+          <p class="hint" style="margin-top:.6rem">Press Freeze near the middle of the particle's range. Too warm and no ice forms; too late and the droplet freezes on its own. The first two droplets show the range on the thermometer. Keyboard: Space freezes or starts, P pauses. You can also tap the cloud.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>The Sky Lab · Particle X Climate</span>
+      <a href="/theskylab/snake">Play Aerosol Snake →</a>
+    </footer>
+  </div>
+  <script src="/assets/atmos-page.js"></script>
+  <script src="/assets/atmos.js"></script>
+  <script src="/assets/motion.js" defer></script>
+  <script src="ice.js" defer></script>
+</body>
+</html>
