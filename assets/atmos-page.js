@@ -13,6 +13,9 @@
     S.length=0;for(var i=0;i<C.length;i++)S.push([Math.min(1,(hb*K[i]+(i>2?hb+(pp-hb)*L[i]:0))/H),C[i]]);
     S.push([1,C[6]]);
   }
+  /* the section strip (phone) wears the header's current tone */
+  window.ATMOS_ON_SCROLL=function(){var ph=document.querySelector('.ph'),t=document.querySelector('.sticky-toc');if(!ph||!t)return;
+    t.style.setProperty('--sb',ph.style.getPropertyValue('--hb'));t.classList.toggle('on-light',ph.classList.contains('on-light'));};
   measure();
   addEventListener('resize',measure);addEventListener('load',measure);
   if('ResizeObserver' in window)new ResizeObserver(measure).observe(document.body);

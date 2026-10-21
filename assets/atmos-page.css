@@ -41,6 +41,8 @@ body.atmos-read section:not(.hero) h2{color:var(--ink)}
 body.atmos-read .takeaways,body.atmos-read .picked,body.atmos-read article{border-radius:16px}
 /* metadata and link lines read better ragged than justified in the narrower column */
 body.atmos-read .meta,body.atmos-read .url{text-align:left}
+/* card headings ragged-right (no justified word gaps on phones) */
+body.atmos-read .picked h3,body.atmos-read .takeaways h3,body.atmos-read article h3{text-align:left;-webkit-hyphens:manual;hyphens:manual}
 body.atmos-read code{overflow-wrap:anywhere}
 /* keep long titles, URLs and tables inside their cards on phones (tables scroll inside .table-wrap) */
 body.atmos-read .ideas,body.atmos-read .grants,body.atmos-read .papers{grid-template-columns:minmax(0,1fr)}
@@ -65,8 +67,12 @@ body.atmos-sub footer{margin-top:1rem;padding:1.4rem 0 2.6rem;border-top:1px sol
 
 /* phone */
 @media (max-width:700px){
-  body.atmos-sub .sticky-toc{top:var(--ph-h);z-index:30;margin:0 -.75rem;background:rgba(246,241,231,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-  body.atmos-sub .sticky-toc a{min-height:44px}
+  /* section strip: same glass as the header (tone copied from the header by atmos-page.js), so header, strip and hero read as one block */
+  body.atmos-sub .sticky-toc{top:var(--ph-h);z-index:30;margin:0 -.75rem;background:var(--sb,rgba(21,19,15,.94));border-bottom:1px solid rgba(246,241,231,.16);box-shadow:none;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);--sf:var(--paper)}
+  body.atmos-sub .sticky-toc.on-light{--sf:var(--ink);border-bottom-color:rgba(28,25,21,.16)}
+  body.atmos-sub .sticky-toc a{min-height:44px;color:var(--sf)}
+  body.atmos-sub .sticky-toc a:hover,body.atmos-sub .sticky-toc a:focus{color:var(--sf);border-bottom-color:var(--gl)}
   body.atmos-sub section[id],body.atmos-sub [id^="idea-"],body.atmos-sub #references{scroll-margin-top:calc(var(--ph-h) + 56px)}
 }
 @media (max-width:640px){
