@@ -39,12 +39,15 @@ body.atmos-sub .hero .tip small{color:#d8cfbf}
 body.atmos-read{line-height:1.7;--t-ink:#1c1915;--t-mu:#3d372f;--t-a:#6e2818;--side:max(1.25rem,calc(50vw - var(--sbw,0px) / 2 - 540px))}
 body.atmos-read section:not(.hero){padding:0 0 clamp(2.4rem,5vw,4rem)}
 body.atmos-read section:not(.hero) h2{margin:clamp(1.6rem,3vw,2.4rem) 0 clamp(1.4rem,3vw,2.2rem);font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.035em;color:var(--ink)}
-/* text that sits on the sky between bands: ink by default; JS gives it the sky's tone and a soft veil only where the sky is mid-tone */
-body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint){position:relative;max-width:none;color:var(--t-ink);
-  background:rgba(252,249,243,.86);box-shadow:0 0 0 .45em rgba(252,249,243,.86);border-radius:.2em}
+/* text that sits on the sky between bands: JS gives it the sky's tone. Where neither ink nor paper reads at 7:1 on the bare sky (mid-teal),
+   it sits in a full-width strip of the band tint that runs edge to edge and fills the gaps above and below it (--mt/--mb from JS), so it reads
+   as the top of the band below, never as a patch. Without JS every such line sits in a paper strip. */
+body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint){position:relative;max-width:none;color:var(--t-ink);--strip:rgb(252 249 243/.86);
+  background:var(--strip);box-shadow:0 0 0 100vmax var(--strip);clip-path:inset(calc(-1 * var(--mt,1.2rem)) -100vmax calc(-1 * var(--mb,1.2rem)))}
 body.atmos-read section:not(.hero)>:is(.lede,.note,.joint){color:var(--t-mu)}
-body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint):is(.tone-lt,.tone-dk){background:none;box-shadow:none}
-body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint).veil{background:rgb(var(--tint)/.6);box-shadow:0 0 0 .45em rgb(var(--tint)/.6)}
+body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint):is(.tone-lt,.tone-dk){background:none;box-shadow:none;clip-path:none}
+body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint).veil{--strip:rgb(var(--tint)/.86);background:var(--strip);box-shadow:0 0 0 100vmax var(--strip);
+  clip-path:inset(calc(-1 * var(--mt,0px)) -100vmax calc(-1 * var(--mb,0px)))}
 body.atmos-read section:not(.hero)>h2{width:fit-content}
 body.atmos-read section:not(.hero)>.lede{margin:0 0 1.6rem}
 body.atmos-read .note{margin-top:2.2rem}
@@ -79,7 +82,10 @@ body.atmos-read .ideas>article h3+*{margin-top:1.1rem}
 body.atmos-read .table-wrap th,body.atmos-read .table-wrap td{border-bottom-color:rgba(127,127,127,.3)}
 /* meta as a pull quote beside the accent */
 body.atmos-read .meta{text-align:left;margin:1.3rem 0 0;padding:.1rem 0 .1rem 1.2rem;border-left:3px solid var(--acc)}
-body.atmos-read :is(.papers>article,.picked) .meta{font-family:Fraunces,Georgia,serif;font-size:clamp(1.08rem,1.6vw,1.28rem);line-height:1.45}
+body.atmos-read .papers>article .meta{font-family:Fraunces,Georgia,serif;font-size:clamp(1.08rem,1.6vw,1.28rem);line-height:1.45}
+/* chosen-paper record: body sans, ragged, no hyphenation; long URLs and file names break at / or . (<wbr> from atmos-page.js), anywhere only as a fallback */
+body.atmos-read .picked :is(.meta,.url){font-family:"Source Sans 3","Segoe UI",sans-serif;font-weight:400;text-align:left;-webkit-hyphens:none;hyphens:none;word-break:normal;overflow-wrap:anywhere}
+body.atmos-read .picked .meta{font-size:1.0425rem;line-height:1.6}
 body.atmos-read .picked .meta+.meta{margin-top:0;padding-top:.5rem}
 body.atmos-read .grants .meta li{font-size:1rem}
 body.atmos-read .url{text-align:left;margin:1rem 0 -.6rem;font-size:.95rem}
@@ -91,6 +97,15 @@ body.atmos-read .grants>article{--numw:6.5rem;padding-top:clamp(1.8rem,3.6vw,2.8
 body.atmos-read :is(.papers,.grants)>article::before,body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap))::before{content:counter(band,decimal-leading-zero);position:absolute;left:var(--side);top:0;
   margin-top:clamp(2.4rem,5vw,4.2rem);font:500 clamp(4rem,8vw,6.4rem)/.85 Fraunces,Georgia,serif;letter-spacing:-.05em;color:var(--num)}
 body.atmos-read .grants>article::before{margin-top:clamp(1.8rem,3.6vw,2.8rem);font-size:clamp(3rem,5.5vw,4.4rem)}
+/* later grant lists (grant 'Other relevant', secondary custom lists): compact bands, smaller numerals; the first list keeps the full size */
+body.atmos-read section:not(.hero)+section .grants>article{--numw:4rem;padding-top:clamp(1rem,1.6vw,1.25rem);padding-bottom:clamp(1rem,1.6vw,1.25rem)}
+body.atmos-read section:not(.hero)+section .grants>article::before{margin-top:clamp(1rem,1.6vw,1.25rem);font-size:clamp(1.8rem,3.3vw,2.65rem)}
+body.atmos-read section:not(.hero)+section .grants>article h3{font-size:clamp(1.2rem,1.6vw,1.42rem);line-height:1.22}
+body.atmos-read section:not(.hero)+section .grants>article .meta{margin-top:.6rem;line-height:1.5}
+body.atmos-read section:not(.hero)+section .grants>article .meta li{margin-bottom:.15rem}
+body.atmos-read section:not(.hero)+section .grants>article .url{margin-top:.35rem}
+/* ideas: the big numeral says 'Idea N', so the small kicker stays for screen readers only */
+body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap))>.label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 /* tags: opaque pills, so they read the same on any band */
 body.atmos-read .tag{background:#f3e4dc;color:#6a2616;box-shadow:inset 0 0 0 1px rgba(154,59,36,.3)}
 body.atmos-read .tag.go{background:#e4eeeb;color:#1f4d45;box-shadow:inset 0 0 0 1px rgba(31,77,69,.3)}
@@ -100,11 +115,16 @@ body.atmos-read .tag.new{background:#e3ecf8;color:#0b3f8f;box-shadow:inset 0 0 0
 body.atmos-read footer{color:#3d372f}
 body.atmos-read footer a{color:#6e2818}
 @media (max-width:760px){
-  body.atmos-read{--side:1.1rem}
+  /* phone: 20px sides for everything (hero, headings and band text line up), 1.6 leading, numerals stacked above the title */
+  body.atmos-read{--side:1.25rem}
+  body.atmos-read .wrap{width:calc(100% - 2.5rem)}
+  body.atmos-read :is(.papers,.grants,.ideas)>article :is(p,li,td),body.atmos-read :is(.picked,.takeaways,.fence) :is(p,li){line-height:1.6}
   body.atmos-read :is(.papers,.grants,.ideas)>article,body.atmos-read :is(.picked,.takeaways,.fence){padding:2.1rem var(--side) 2.2rem}
   body.atmos-read :is(.papers,.grants)>article,body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap)){padding-left:var(--side)}
   body.atmos-read :is(.papers,.grants)>article::before,body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap))::before{position:static;display:block;margin:0 0 .9rem;font-size:3.4rem}
   body.atmos-read .grants>article::before{font-size:2.6rem}
+  body.atmos-read section:not(.hero)+section .grants>article{padding-top:1.4rem;padding-bottom:1.5rem}
+  body.atmos-read section:not(.hero)+section .grants>article::before{font-size:1.6rem;margin-bottom:.5rem}
 }
 @media (prefers-reduced-motion:reduce){body.atmos-read :is(.papers,.grants,.ideas)>article,body.atmos-read :is(.papers,.grants,.ideas)>article *{transition:none!important}}
 /* card headings ragged-right (no justified word gaps on phones) */
@@ -137,7 +157,7 @@ body.atmos-sub footer{margin-top:1rem;padding:1.4rem 0 2.6rem;border-top:1px sol
   body.atmos-sub section[id],body.atmos-sub [id^="idea-"],body.atmos-sub #references{scroll-margin-top:calc(var(--ph-h) + 56px)}
 }
 @media (max-width:640px){
-  body.atmos-sub .wrap{width:calc(100% - 1.5rem)}
+  body.atmos-sub:not(.atmos-read) .wrap{width:calc(100% - 1.5rem)}
   body.atmos-sub .hero{padding:3rem 0 2.6rem}
   body.atmos-index .week-list{grid-template-columns:1fr}
   body.atmos-sub footer a{display:inline-flex;align-items:center;min-height:44px}
@@ -149,3 +169,22 @@ body.atmos-sub footer{margin-top:1rem;padding:1.4rem 0 2.6rem;border-top:1px sol
 }
 /* bands use the full 1080px width: no narrow text column inside them */
 body.atmos-read section:not(.hero) :is(.lede,.joint,.tip,.note,.signoff,p,ul,ol,h3,.meta){max-width:none}
+/* body text: justified, hyphenated at tablet and up; headings, meta and citation lines, URLs, tags and labels stay ragged */
+body.atmos-read :is(.papers,.grants,.ideas)>article:not(#references) :is(p:not(.meta):not(.url):not(.label),ul:not(.meta)>li),
+body.atmos-read :is(.takeaways,.fence) :is(p,li),body.atmos-read section:not(.hero)>:is(.lede,.joint,.note){text-align:left;-webkit-hyphens:none;hyphens:none}
+body.atmos-read :is(.picked,#references) :is(p,li),body.atmos-read .table-wrap :is(th,td){text-align:left}
+@media (min-width:700px){
+  body.atmos-read :is(.papers,.grants,.ideas)>article:not(#references) :is(p:not(.meta):not(.url):not(.label),ul:not(.meta)>li),
+  body.atmos-read :is(.takeaways,.fence) :is(p,li),body.atmos-read section:not(.hero)>:is(.lede,.joint,.note){text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+}
+/* wide screens: band body text at 18px so the 1080px lines run nearer 100 characters */
+@media (min-width:1100px){
+  body.atmos-read :is(.papers,.grants,.ideas)>article :is(p:not(.url):not(.label):not(.caveat),li),body.atmos-read :is(.takeaways,.fence) :is(p:not(.caveat),li),
+  body.atmos-read .picked .meta{font-size:1.125rem}
+  body.atmos-read .papers>article .meta{font-size:clamp(1.08rem,1.6vw,1.28rem)}
+  body.atmos-read section:not(.hero)+section .grants>article .meta li:is(li){font-size:1.0625rem}
+}
+@media (max-width:700px){body.atmos-read.atmos-sub .sticky-toc{margin:0 -1.25rem;padding:0 1rem}}
+/* tables: no hyphenated cells; on phones the table keeps a readable width and scrolls inside .table-wrap */
+body.atmos-read .table-wrap :is(th,td){-webkit-hyphens:none;hyphens:none}
+@media (max-width:700px){body.atmos-read .table-wrap table{min-width:36rem}body.atmos-read .table-wrap{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}}

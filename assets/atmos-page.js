@@ -36,9 +36,21 @@
   var BANDS=':is(.papers,.grants,.ideas)>article,.picked,.takeaways,.fence',FREE='section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint)';
   function bands(){
     document.querySelectorAll('.wrap '+BANDS).forEach(function(e,i){var y=top(e);apply(e,tintFor(y,y+e.offsetHeight,i%2?.58:.86,i%2?0:3));});
-    document.querySelectorAll('.wrap '+FREE).forEach(function(e){var y=top(e),y1=y+e.offsetHeight,r=tintFor(y,y1,0);
-      if(r.ok)apply(e,r);else apply(e,tintFor(y-8,y1+8,.6),true);});
+    /* free text: bare sky where it reads; otherwise a full-width strip that fills the gap above it and, unless the next line has its own strip, below it */
+    var free=[].slice.call(document.querySelectorAll('.wrap '+FREE)),veiled=free.filter(function(e){var y=top(e),r=tintFor(y,y+e.offsetHeight,0);if(r.ok)apply(e,r);return !r.ok;});
+    veiled.forEach(function(e){var q=e.getBoundingClientRect(),ps=e.parentElement.previousElementSibling,pv=e.previousElementSibling||(ps&&ps.matches('section:not(.hero)')?ps.lastElementChild:null),nx=e.nextElementSibling,cs=getComputedStyle(e),
+      mt=pv?q.top-pv.getBoundingClientRect().bottom:parseFloat(cs.marginTop),
+      mb=nx?(veiled.indexOf(nx)>=0?0:nx.getBoundingClientRect().top-q.bottom):parseFloat(cs.marginBottom);
+      e.style.setProperty('--mt',Math.max(0,mt)+'px');e.style.setProperty('--mb',Math.max(0,mb)+'px');
+      apply(e,tintFor(q.top+scrollY-mt,q.bottom+scrollY+mb,.86),true);});
   }
+  /* chosen-paper record: let long URLs and file names break after / and . only (overflow-wrap:anywhere stays as the fallback) */
+  function breaks(){document.querySelectorAll('.picked :is(.meta,.url)').forEach(function(el){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,list=[];while(n=w.nextNode())if(/\S{24,}/.test(n.data))list.push(n);
+    list.forEach(function(n){var f=document.createDocumentFragment();n.data.split(/(\S{24,})/).forEach(function(part,i){
+      if(i%2){part.split(/(?<=[\/.])(?=.)/).forEach(function(bit,j){if(j)f.appendChild(document.createElement('wbr'));f.appendChild(document.createTextNode(bit));});}
+      else if(part)f.appendChild(document.createTextNode(part));});n.parentNode.replaceChild(f,n);});});}
+  if(read)breaks();
   var q=false;function queueBands(){if(q)return;q=true;requestAnimationFrame(function(){q=false;if(window.ATMOS_COL)bands();});}
   /* the section strip (phone) wears the header's current tone */
   window.ATMOS_ON_SCROLL=function(){var ph=document.querySelector('.ph'),t=document.querySelector('.sticky-toc');if(!ph||!t)return;
