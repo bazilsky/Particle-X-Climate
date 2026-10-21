@@ -74,3 +74,5 @@ body.atmos-lab .arc-hero{margin-top:0;border-radius:0;align-items:flex-start;gap
 body.atmos-lab .arc-hero .lede{max-width:40rem;margin-top:.7rem}
 body.atmos-lab .tile .cab{box-shadow:inset 0 0 0 1px rgba(246,241,231,.16),0 30px 60px -36px rgba(0,0,0,.7)}
 body.atmos-lab .arc-note{color:#3d3830}
+/* second row (cabinets 5-7) shares the 12 columns equally, whether a cabinet is playable or coming soon */
+@media (min-width:861px){.arc-grid > .tile:nth-child(n+5){grid-column:span 4}.arc-grid > .tile:nth-child(n+5) .screen{aspect-ratio:16/9}}
