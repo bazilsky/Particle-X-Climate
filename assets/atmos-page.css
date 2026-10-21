@@ -1,10 +1,9 @@
 /* Particle X Climate · Atmosphere theme for the pages under Research Overwatch (grant, paper, idea and custom idea paths).
    Builds on /assets/atmos.css (tokens, adaptive header, Menu). Opt in with body.atmos-sub plus atmos-index or atmos-read.
-   The sky descends from night (hero) through teal to paper; every reading surface is paper. --hb / --pp / --ph-h come from atmos-page.js. */
+   The sky descends from night (hero) through teal to paper; on reading pages it runs to the footer and every card is a sky-tinted band. --hb / --pp / --ph-h come from atmos-page.js. */
 body.atmos-sub{--hb:34rem;--pp:calc(var(--hb) + 1100px);--ph-h:76px;
   background:#f6f1e7 linear-gradient(to bottom,#15130f 0,#1c1915 calc(var(--hb) * .45),#1f3b37 var(--hb),#2c5a52 calc(var(--hb) + (var(--pp) - var(--hb)) * .3),#9fb3a6 calc(var(--hb) + (var(--pp) - var(--hb)) * .62),#e6dfcf calc(var(--hb) + (var(--pp) - var(--hb)) * .8),#f6f1e7 var(--pp)) no-repeat}
 body.atmos-sub .wrap{width:min(1080px,calc(100% - 2.5rem));padding-top:var(--ph-h)}
-body.atmos-read .wrap{width:min(50rem,calc(100% - 2.5rem))}
 
 /* header: the same bar, nav and Menu as Research Overwatch (inline nav above 1100px) */
 body.atmos-sub header.ph{border-bottom:0;flex-wrap:nowrap;align-items:center;padding:1rem clamp(1.25rem,4vw,3rem)}
@@ -34,21 +33,83 @@ body.atmos-sub .hero .tip{border-left-color:var(--gl)}
 body.atmos-sub .hero .tip p,body.atmos-sub .hero .tip.joke p{color:#f3e6c8}
 body.atmos-sub .hero .tip small{color:#d8cfbf}
 
-/* reading pages: each section is a paper sheet floating on the sky */
-body.atmos-read section:not(.hero){margin:0 0 1.4rem;padding:clamp(1.1rem,2.6vw,1.9rem);border-radius:24px;background:rgba(246,241,231,.95);border:1px solid rgba(28,25,21,.12);
-  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 30px 60px -36px rgba(15,25,22,.5)}
-body.atmos-read section:not(.hero) h2{color:var(--ink)}
-body.atmos-read .takeaways,body.atmos-read .picked,body.atmos-read article{border-radius:16px}
-/* metadata and link lines read better ragged than justified in the narrower column */
-body.atmos-read .meta,body.atmos-read .url{text-align:left}
+/* reading pages · gallery long-read: every card (paper, grant, idea, chosen paper, takeaways, fence) is a full-width band down the sky.
+   Each band takes the sky colour at its height (atmos-page.js sets --tint and tone-lt / tone-dk, nudged until text reads at 7:1);
+   every other band sits one shade further. Without JS the bands are near-white glass with ink text. */
+body.atmos-read{line-height:1.7;--t-ink:#1c1915;--t-mu:#3d372f;--t-a:#6e2818;--side:max(1.25rem,calc(50vw - var(--sbw,0px) / 2 - 540px))}
+body.atmos-read section:not(.hero){padding:0 0 clamp(2.4rem,5vw,4rem)}
+body.atmos-read section:not(.hero) h2{margin:clamp(1.6rem,3vw,2.4rem) 0 clamp(1.4rem,3vw,2.2rem);font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.035em;color:var(--ink)}
+/* text that sits on the sky between bands: ink by default; JS gives it the sky's tone and a soft veil only where the sky is mid-tone */
+body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint){position:relative;max-width:46rem;color:var(--t-ink);
+  background:rgba(252,249,243,.86);box-shadow:0 0 0 .45em rgba(252,249,243,.86);border-radius:.2em}
+body.atmos-read section:not(.hero)>:is(.lede,.note,.joint){color:var(--t-mu)}
+body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint):is(.tone-lt,.tone-dk){background:none;box-shadow:none}
+body.atmos-read section:not(.hero)>:is(h2,.lede,.note,.signoff,.joint).veil{background:rgb(var(--tint)/.6);box-shadow:0 0 0 .45em rgb(var(--tint)/.6)}
+body.atmos-read section:not(.hero)>h2{width:fit-content}
+body.atmos-read section:not(.hero)>.lede{margin:0 0 1.6rem}
+body.atmos-read .note{margin-top:2.2rem}
+body.atmos-read .signoff{font-family:Fraunces,Georgia,serif;font-size:1.2rem}
+body.atmos-read section:not(.hero)>:is(.note,.lede,.joint,.signoff) a{color:var(--t-a)}
+
+/* the bands */
+body.atmos-read :is(.papers,.grants,.ideas){display:block}
+body.atmos-read :is(.papers,.grants,.ideas)>article,body.atmos-read :is(.picked,.takeaways,.fence){--num:var(--acc-l);
+  position:relative;box-sizing:border-box;width:calc(100vw - var(--sbw,0px));margin:0 0 0 calc(50% - 50vw + var(--sbw,0px) / 2);
+  padding:clamp(2.4rem,5vw,4.2rem) var(--side);border:0;border-top:1px solid rgba(127,127,127,.22);border-radius:0;
+  background:rgb(var(--tint,252 249 243)/.86);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--t-ink);overflow-wrap:break-word;
+  --acc:#5fa596;--acc-t:#93d3c3;--acc-l:#1f4d45}
+body.atmos-read .tone-dk{--t-ink:#f6f1e7;--t-mu:#e8e1d4;--t-a:#ecd5a4}
+body.atmos-read :is(.papers,.grants,.ideas)>article.tone-dk,body.atmos-read :is(.picked,.takeaways,.fence).tone-dk{--num:var(--acc-t)}
+body.atmos-read :is(.papers,.grants,.ideas)>article::after,body.atmos-read :is(.picked,.takeaways,.fence)::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--acc)}
+body.atmos-read :is(.papers,.grants,.ideas)>article:nth-child(4n+2),body.atmos-read .takeaways,body.atmos-read .fence{--acc:#d97a5c;--acc-t:#f2ae95;--acc-l:#6e2818}
+body.atmos-read :is(.papers,.grants,.ideas)>article:nth-child(4n+3),body.atmos-read .picked{--acc:#d9bf8a;--acc-t:#e8d3a4;--acc-l:#5a4316}
+body.atmos-read :is(.papers,.grants,.ideas)>article:nth-child(4n+4){--acc:#b9aee0;--acc-t:#d3cbf2;--acc-l:#463b7d}
+body.atmos-read .takeaways+.takeaways,body.atmos-read .picked+.picked{margin-top:0}
+body.atmos-read :is(.picked,.takeaways,.fence){margin-bottom:0}
+/* text inside a band follows its tone */
+body.atmos-read :is(.papers,.grants,.ideas)>article :is(h3,strong,th),body.atmos-read :is(.picked,.takeaways,.fence) :is(h3,strong,th){color:var(--t-ink)}
+body.atmos-read :is(.papers,.grants,.ideas)>article :is(p,li,td,.meta,.caveat),body.atmos-read :is(.picked,.takeaways,.fence) :is(p,li,td,.meta,.caveat){color:var(--t-mu)}
+body.atmos-read :is(.papers,.grants,.ideas)>article a,body.atmos-read :is(.picked,.takeaways,.fence) a{color:var(--t-a);text-underline-offset:.2em;text-decoration-thickness:1px}
+body.atmos-read :is(.papers,.grants,.ideas)>article .label{color:var(--t-ink);letter-spacing:.14em}
+body.atmos-read :is(.picked,.takeaways,.fence,.ideas>article)>:is(p,ul,ol,h3){max-width:46rem}
+body.atmos-read :is(.papers,.grants,.ideas)>article h3,body.atmos-read .picked h3{margin:0;max-width:40ch;font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.16;letter-spacing:-.025em}
+body.atmos-read .takeaways h3{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.2}
+body.atmos-read .ideas>article .label+h3{margin-top:.2rem}
+body.atmos-read .ideas>article h3+*{margin-top:1.1rem}
+body.atmos-read .table-wrap th,body.atmos-read .table-wrap td{border-bottom-color:rgba(127,127,127,.3)}
+/* meta as a pull quote beside the accent */
+body.atmos-read .meta{text-align:left;margin:1.3rem 0 0;padding:.1rem 0 .1rem 1.2rem;border-left:3px solid var(--acc)}
+body.atmos-read :is(.papers>article,.picked) .meta{font-family:Fraunces,Georgia,serif;font-size:clamp(1.08rem,1.6vw,1.28rem);line-height:1.45}
+body.atmos-read .picked .meta+.meta{margin-top:0;padding-top:.5rem}
+body.atmos-read .grants .meta li{font-size:1rem}
+body.atmos-read .url{text-align:left;margin:1rem 0 -.6rem;font-size:.95rem}
+body.atmos-read .url a,body.atmos-read footer a{display:inline-flex;align-items:center;min-height:44px}
+/* numbered lists (papers, grants, ideas, directions): a big numeral column */
+body.atmos-read :is(.papers,.grants,.ideas){counter-reset:band}
+body.atmos-read :is(.papers,.grants)>article,body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap)){counter-increment:band;padding-left:calc(var(--side) + var(--numw,8.5rem) + clamp(1.5rem,4vw,3.5rem))}
+body.atmos-read .grants>article{--numw:6.5rem;padding-top:clamp(1.8rem,3.6vw,2.8rem);padding-bottom:clamp(1.8rem,3.6vw,2.8rem)}
+body.atmos-read :is(.papers,.grants)>article::before,body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap))::before{content:counter(band,decimal-leading-zero);position:absolute;left:var(--side);top:0;
+  margin-top:clamp(2.4rem,5vw,4.2rem);font:500 clamp(4rem,8vw,6.4rem)/.85 Fraunces,Georgia,serif;letter-spacing:-.05em;color:var(--num)}
+body.atmos-read .grants>article::before{margin-top:clamp(1.8rem,3.6vw,2.8rem);font-size:clamp(3rem,5.5vw,4.4rem)}
+/* tags: opaque pills, so they read the same on any band */
+body.atmos-read .tag{background:#f3e4dc;color:#6a2616;box-shadow:inset 0 0 0 1px rgba(154,59,36,.3)}
+body.atmos-read .tag.go{background:#e4eeeb;color:#1f4d45;box-shadow:inset 0 0 0 1px rgba(31,77,69,.3)}
+body.atmos-read .tag.maybe{background:#f3ead4;color:#54400f;box-shadow:inset 0 0 0 1px rgba(138,106,47,.35)}
+body.atmos-read .tag.nogo{background:#f3e4dc;color:#6a2616}
+body.atmos-read .tag.new{background:#e3ecf8;color:#0b3f8f;box-shadow:inset 0 0 0 1px rgba(13,71,161,.3)}
+body.atmos-read footer{color:#3d372f}
+body.atmos-read footer a{color:#6e2818}
+@media (max-width:760px){
+  body.atmos-read{--side:1.1rem}
+  body.atmos-read :is(.papers,.grants,.ideas)>article,body.atmos-read :is(.picked,.takeaways,.fence){padding:2.1rem var(--side) 2.2rem}
+  body.atmos-read :is(.papers,.grants)>article,body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap)){padding-left:var(--side)}
+  body.atmos-read :is(.papers,.grants)>article::before,body.atmos-read .ideas>article:not(#references):not(:has(.table-wrap))::before{position:static;display:block;margin:0 0 .9rem;font-size:3.4rem}
+  body.atmos-read .grants>article::before{font-size:2.6rem}
+}
+@media (prefers-reduced-motion:reduce){body.atmos-read :is(.papers,.grants,.ideas)>article,body.atmos-read :is(.papers,.grants,.ideas)>article *{transition:none!important}}
 /* card headings ragged-right (no justified word gaps on phones) */
 body.atmos-read .picked h3,body.atmos-read .takeaways h3,body.atmos-read article h3{text-align:left;-webkit-hyphens:manual;hyphens:manual}
 body.atmos-read code{overflow-wrap:anywhere}
-/* keep long titles, URLs and tables inside their cards on phones (tables scroll inside .table-wrap) */
-body.atmos-read .ideas,body.atmos-read .grants,body.atmos-read .papers{grid-template-columns:minmax(0,1fr)}
-body.atmos-read article{overflow-wrap:break-word}
-/* MAYBE tag: deeper gold so the small caps clear 4.5:1 */
-body.atmos-sub .tag.maybe{color:#6e521d}
 body.atmos-sub section[id],body.atmos-sub [id^="idea-"],body.atmos-sub #references{scroll-margin-top:calc(var(--ph-h) + 1rem)}
 
 /* index pages: week cards as dark glass on the sky, like the Overwatch products */
@@ -76,9 +137,8 @@ body.atmos-sub footer{margin-top:1rem;padding:1.4rem 0 2.6rem;border-top:1px sol
   body.atmos-sub section[id],body.atmos-sub [id^="idea-"],body.atmos-sub #references{scroll-margin-top:calc(var(--ph-h) + 56px)}
 }
 @media (max-width:640px){
-  body.atmos-sub .wrap,body.atmos-read .wrap{width:calc(100% - 1.5rem)}
+  body.atmos-sub .wrap{width:calc(100% - 1.5rem)}
   body.atmos-sub .hero{padding:3rem 0 2.6rem}
-  body.atmos-read section:not(.hero){border-radius:20px;padding:.9rem .75rem;margin-bottom:1rem}
   body.atmos-index .week-list{grid-template-columns:1fr}
   body.atmos-sub footer a{display:inline-flex;align-items:center;min-height:44px}
 }
