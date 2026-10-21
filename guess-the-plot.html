@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,620;1,9..144,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/atmos.css">
   <link rel="stylesheet" href="/guess-the-plot/atmos.css">
   <style>
     /* A · Observation deck */
@@ -67,16 +68,6 @@
     }
 
     /* --- The Eye fixes --- */
-    /* 4 · live nav: Home link + CSS-checkbox Menu (works without JS) */
-    .menu-toggle{display:none;font:600 .9rem "Source Sans 3",sans-serif;background:transparent;border:1px solid var(--hl);border-radius:999px;padding:.45rem 1rem;color:var(--hf);cursor:pointer;user-select:none}
-    .nav-toggle:focus-visible+.menu-toggle{outline:2px solid var(--gl);outline-offset:3px}
-    body.pxc-shell .ph #site-nav a:hover{padding-left:0}
-    @media (max-width:760px){
-      .menu-toggle{display:block}
-      .ph:has(#nav-toggle:checked){--hf:var(--ink);--hl:var(--line);background:var(--paper)!important}
-      .ph:has(#nav-toggle:checked) .pnav{display:flex}
-      body.pxc-shell .ph #site-nav a:hover{padding-left:clamp(1.25rem,4vw,3rem)}
-    }
     /* 3 · unpicked options: muted colour, not opacity (text and chip stay >= 4.5:1) */
     .gtp-opt.is-dim{opacity:1;color:#b8ae9d;background:rgba(246,241,231,.03);border-color:rgba(246,241,231,.1)}
     .gtp-opt.is-dim .k{background:#3d372e;color:#e3d9c7}
@@ -85,9 +76,7 @@
       .well{overflow:visible}
       .well .gtp-figure{width:auto;max-width:100%}
       /* 2 · 44px tap targets without changing the look */
-      .ph .brand,.ph .menu-toggle,.back,footer a,.gtp-idea{display:inline-flex;align-items:center;min-height:44px}
-      .ph .brand{margin-block:-8px}
-      .ph .menu-toggle{min-height:44px;padding-block:0;align-items:center;display:inline-flex}
+      .back,footer a,.gtp-idea{display:inline-flex;align-items:center;min-height:44px}
       .back,footer a{padding-block:11px;margin-block:-11px}
       .gtp-idea{padding-block:10px;margin-block:-10px 0;margin-top:calc(.8rem - 10px)}
       .gtp-credit a{display:inline-block;padding-block:12px;margin-block:-12px;line-height:20px;vertical-align:baseline}
@@ -168,7 +157,7 @@
     <footer><span>Guess the Plot · Particle X Climate</span><a href="/">Back to the landing page</a></footer>
   </div>
   <script>window.ATMOS_STOPS=[[0,[21,19,15]],[.12,[28,25,21]],[.34,[31,59,55]],[.55,[44,90,82]],[.72,[159,179,166]],[.82,[230,223,207]],[.9,[246,241,231]],[1,[239,228,207]]];</script>
-  <script src="/guess-the-plot/atmos.js"></script>
+  <script src="/assets/atmos.js"></script>
   <script src="/guess-the-plot/weeks.js"></script>
   <script src="/guess-the-plot/game.js"></script>
   <script src="/assets/motion.js" defer></script>

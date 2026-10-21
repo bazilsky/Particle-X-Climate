@@ -1,0 +1,86 @@
+/* Research Notebook · Atmosphere theme. Shared header and tokens: /assets/atmos.css
+   Plots always sit on paper (#fffdf8) inside frosted panels; never directly on the dark layers. */
+:root{color-scheme:light;--blend:#542788}
+body{font-size:17px;line-height:1.55;
+  background:linear-gradient(to bottom,#15130f 0%,#1c1915 6%,#1f3b37 16%,#2c5a52 30%,#9fb3a6 50%,#e6dfcf 65%,#f6f1e7 80%,#efe4cf 100%)}
+.page{width:min(1140px,calc(100% - 2.5rem));margin:0 auto}
+sub{font-size:.7em;line-height:0;vertical-align:-.25em}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:#efe7d8;color:var(--ink);padding:0 .25em;border-radius:4px}
+
+/* hero: the night layer */
+.hero{position:relative;padding:7.5rem 0 2.2rem}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;pointer-events:none;
+  background-image:radial-gradient(1px 1px at 10% 20%,rgba(246,241,231,.7),transparent 60%),radial-gradient(1px 1px at 30% 70%,rgba(246,241,231,.5),transparent 60%),radial-gradient(1.5px 1.5px at 55% 30%,rgba(217,191,138,.8),transparent 60%),radial-gradient(1px 1px at 75% 60%,rgba(246,241,231,.6),transparent 60%),radial-gradient(1px 1px at 90% 15%,rgba(246,241,231,.6),transparent 60%);
+  background-size:420px 300px;animation:nb-tw 60s linear infinite}
+@keyframes nb-tw{to{background-position:420px 0}}
+.hero h1{font-family:Fraunces,Georgia,serif;font-weight:620;font-size:clamp(2.2rem,5vw,3.9rem);line-height:1.02;letter-spacing:-.04em;margin:.8rem 0 1.1rem;max-width:22ch;color:var(--paper)}
+.hero p.note{margin:0;color:#d8cfbf;max-width:68ch;font-size:1.04rem}
+.hero code{background:rgba(0,0,0,.3);color:#f3e6c8;border:1px solid rgba(246,241,231,.16)}
+
+/* header over plots: solid tone (set via ATMOS_HEADER_ALPHA) and full-strength links so text stays >= 7:1 */
+.atmos-nb .pnav a{opacity:1}
+.atmos-nb .pnav a:hover{text-decoration:underline;text-underline-offset:.3em}
+
+/* instrument panel: dark glass holding the controls */
+.deck{position:relative;border-radius:26px;padding:clamp(1rem,2.4vw,1.8rem);background:rgba(21,19,15,.78);border:1px solid rgba(246,241,231,.16);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.deck-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:.8rem;margin-bottom:1.1rem;border-bottom:1px solid rgba(246,241,231,.14);
+  background:linear-gradient(90deg,rgba(217,191,138,.5) 1px,transparent 1px) left bottom/24px 6px repeat-x}
+.deck-bar .inst{font:600 .72rem/1 "Source Sans 3",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#d8cfbf}
+.controls{display:grid;gap:10px;margin:0}
+label.row{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center}
+label.row span.name{font-size:14px;font-weight:600;color:var(--paper);font-variant-numeric:tabular-nums}
+label.row.stack{row-gap:0}
+label.row.stack span.name{grid-column:1/-1}
+label.row.stack .tau-control{grid-column:2}
+input[type="range"]{width:100%;height:44px;margin:0;accent-color:var(--gl);cursor:pointer;background:transparent}
+input[type="range"]:focus-visible,select:focus-visible{outline:2px solid var(--gl);outline-offset:2px}
+.tau-control{min-width:0}
+.tau-control input{display:block;margin:0}
+.tau-ticks{position:relative;height:1.5em;margin:-6px 8px 0;color:#d8cfbf;font-size:14px;line-height:1.5}
+.tau-ticks>span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.tau-ticks>span:first-child{transform:translateX(-8px)}
+.tau-ticks>span:last-child{transform:translateX(calc(-100% + 8px))}
+select{font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:#fffdf8;border:1px solid var(--line);border-radius:12px;padding:8px 12px;width:100%;max-width:100%;min-height:44px;cursor:pointer}
+.readout{min-height:2.8em;margin:1rem 0 0;padding:.85rem 1.1rem;font-size:16px;color:var(--paper);border-radius:16px;background:rgba(0,0,0,.24);border:1px solid rgba(246,241,231,.14);box-shadow:inset 3px 0 0 var(--gl)}
+
+/* a layer of the atmosphere: light frosted panel, plots on paper */
+.nb-row{position:relative;margin-top:1.6rem;border-radius:26px;padding:clamp(.9rem,2.2vw,1.6rem);
+  background:rgba(246,241,231,.88);border:1px solid rgba(28,25,21,.12);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 30px 60px -36px rgba(15,25,22,.55)}
+.nb-row:first-of-type{margin-top:2rem}
+h2.family{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.02em;line-height:1.15;margin:0 0 14px;color:var(--ink)}
+h2.family::before{content:"";display:inline-block;vertical-align:.18em;margin:0 .75rem 0 .2rem;width:.6rem;height:.6rem;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(31,77,69,.16)}
+.panels{display:grid;grid-template-columns:minmax(280px,.9fr) minmax(320px,1.1fr);gap:18px}
+figure{margin:0;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:14px 12px 8px;color:var(--ink)}
+figcaption{font-family:Fraunces,Georgia,serif;font-size:20px;margin:0 4px 8px}
+canvas{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:8px 4px 2px;font-size:17px;color:#333}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend span.lbl{display:inline}
+.swatch{width:18px;height:3px;border-radius:1px;display:inline-block}
+.swatch.faint{opacity:.55}
+.swatch.thick{height:4px}
+.scale{display:grid;grid-template-columns:auto minmax(80px,1fr) auto;gap:8px;align-items:center;margin:8px 4px 2px;font-size:17px;color:#333}
+.bar{height:12px;border-radius:2px;background:linear-gradient(to right,rgb(0,114,178),#fff,rgb(213,94,0));border:1px solid #e4e4e4}
+.scale-caption,.legend-caption{margin:2px 4px 6px;font-size:17px;color:var(--muted)}
+figure code{background:#f3ede2}
+
+footer.nb-foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:2.4rem 0 2.6rem;color:#4f4a41;font-size:.95rem}
+footer.nb-foot a{color:#8c3520;font-weight:600}
+
+@media (max-width:800px){.panels{grid-template-columns:1fr}label.row{grid-template-columns:88px 1fr}}
+@media (max-width:700px){
+  .tau-ticks{font-size:12px}.tau-ticks .tp{display:none}
+  .hero{padding:6rem 0 1.6rem}
+  .hero h1{font-size:2rem}
+  figure{padding:12px 8px 8px}
+  label.row{grid-template-columns:78px 1fr;gap:10px}
+}
+@media (max-width:560px){
+  .page{width:calc(100% - 1.5rem)}
+  .deck{border-radius:20px;padding:.9rem .8rem 1rem}
+  .nb-row{border-radius:20px;padding:.75rem .6rem}
+  .readout{padding:.75rem .85rem}
+  footer.nb-foot a{display:inline-flex;align-items:center;min-height:44px;padding-block:11px;margin-block:-11px}
+}
+@media (prefers-reduced-motion:reduce){.hero::before{animation:none}}

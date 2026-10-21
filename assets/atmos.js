@@ -1,4 +1,4 @@
-/* Guess the Plot · Atmosphere theme: menu + header tone from the page's layer gradient (window.ATMOS_STOPS). */
+/* Particle X Climate · Atmosphere theme: optional JS menu button + header tone from the page gradient (window.ATMOS_STOPS). */
 (function(){
   var ph=document.querySelector('.ph'),b=document.querySelector('.menu-btn');
   if(b)b.addEventListener('click',function(){var o=ph.classList.toggle('nav-open');b.setAttribute('aria-expanded',o);});
@@ -11,7 +11,7 @@
   function tone(){var y=scrollY+ph.offsetHeight/2,f=Math.min(1,Math.max(0,y/document.documentElement.scrollHeight)),c=colAt(f);
     var light=cr(c,INK)>=cr(c,PAPER),tgt=light?PAPER:INK;
     for(var i=0;i<10&&cr(c,light?INK:PAPER)<7.6;i++)c=c.map(function(v,k){return Math.round(v+(tgt[k]-v)*.2);});
-    ph.style.setProperty('--hb','rgba('+c.join(',')+',.94)');ph.classList.toggle('on-light',light);
+    ph.style.setProperty('--hb','rgba('+c.join(',')+','+(window.ATMOS_HEADER_ALPHA||.94)+')');ph.classList.toggle('on-light',light);
     if(window.ATMOS_ON_SCROLL)window.ATMOS_ON_SCROLL();}
   var tk=false;function req(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;tone();});}}
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
