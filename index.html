@@ -90,7 +90,7 @@
     .lvl.tinted a.at{background:rgb(var(--tint)/.72);border-color:rgba(246,241,231,.22)}
     .lvl.tinted.lt a.at{border-color:rgba(28,25,21,.14)}
     .lvl.tinted a.at:hover{border-color:rgba(246,241,231,.5)}.lvl.tinted.lt a.at:hover{border-color:rgba(28,25,21,.3)}
-    .tinted.lt.l1 .n,.tinted.lt.l2 .n{color:#5c4419}
+    .tinted.lt.l1 .n,.tinted.lt.l2 .n{color:#3d2c0c}
     .cloud{position:absolute;z-index:0;border-radius:50%;background:rgba(255,253,248,.75);filter:blur(18px);pointer-events:none;animation:a-cl 40s linear infinite alternate}
     @keyframes a-cl{to{transform:translateX(12vw)}}
     .ground{padding:4rem 0 2.5rem;color:var(--ink);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:2px solid var(--rust)}
@@ -149,19 +149,19 @@
     function colAt(f){for(var i=1;i<STOPS.length;i++){if(f<=STOPS[i][0]){var a=STOPS[i-1],b=STOPS[i],t=(f-a[0])/(b[0]-a[0]||1);return a[1].map(function(v,k){return Math.round(v+(b[1][k]-v)*t);});}}return STOPS[STOPS.length-1][1];}
     function lum(c){return c.reduce(function(s,v,k){v/=255;v=v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return s+v*[.2126,.7152,.0722][k];},0);}
     function cr(a,b){var x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);}
-    var INK=[28,25,21],PAPER=[246,241,231];
+    var INK=[28,25,21],PAPER=[246,241,231],NIGHT=[16,40,36];
     function tone(){var y=scrollY+ph.offsetHeight/2,f=Math.min(1,Math.max(0,y/document.documentElement.scrollHeight)),c=colAt(f);
       var light=cr(c,INK)>=cr(c,PAPER),tgt=light?PAPER:INK;
       // nudge the layer colour away from the text colour until it reads (AA, 4.5:1)
       for(var i=0;i<10&&cr(c,light?INK:PAPER)<7;i++)c=c.map(function(v,k){return Math.round(v+(tgt[k]-v)*.2);});
       ph.style.setProperty('--hb','rgba('+c.join(',')+',.94)');ph.classList.toggle('on-light',light);}
     var cards=[].slice.call(document.querySelectorAll('.lvl')),phone=matchMedia('(max-width:760px)'),rm=matchMedia('(prefers-reduced-motion:reduce)');
-    // each door takes ink text over a light sky and paper text over a dark one, tinted with the sky at its own altitude;
-    // the tint moves away from the text colour only until every line reads through the frosted glass (title and blurb 7:1, kicker and numeral 5:1)
+    // each door takes ink text over a light sky and paper text over a dark one, tinted with the sky at its own altitude (sampled at the door's top edge, checked against the sky at both edges);
+    // the tint moves away from the text colour only until every line reads through the frosted glass (title, blurb and numeral 7:1, kicker 5:1); dark doors deepen toward night teal, not ink, so they stay teal
     function ink(e){var cs=getComputedStyle(e),v=cs.color.match(/[\d.]+/g).map(Number);return [v.slice(0,3),+cs.opacity*(v.length>3?v[3]:1)];}
-    function cardTones(){var H=document.documentElement.scrollHeight;cards.forEach(function(s){var a=s.querySelector('a.at'),r=a.getBoundingClientRect(),c=colAt((r.top+scrollY+r.height/2)/H),light=cr(c,INK)>=cr(c,PAPER);s.classList.toggle('lt',light);s.classList.add('tinted');
-      var tgt=light?PAPER:INK,lines=[['.t',7],['.d',7],['.h',5],['.n',5]].map(function(q){return ink(a.querySelector(q[0])).concat(q[1]);}),t=c;
-      function reads(t){var g=t.map(function(v,k){return v*.72+c[k]*.28;});return lines.every(function(l){return cr(l[0].map(function(v,k){return v*l[1]+g[k]*(1-l[1]);}),g)>=l[2];});}
+    function cardTones(){var H=document.documentElement.scrollHeight;cards.forEach(function(s){var a=s.querySelector('a.at'),r=a.getBoundingClientRect(),c=colAt((r.top+scrollY)/H),c2=colAt((r.bottom+scrollY)/H),light=cr(c,INK)>=cr(c,PAPER);s.classList.toggle('lt',light);s.classList.add('tinted');
+      var tgt=light?PAPER:NIGHT,lines=[['.t',7],['.d',7],['.h',5],['.n',7]].map(function(q){return ink(a.querySelector(q[0])).concat(q[1]);}),t=c;
+      function reads(t){return [c,c2].every(function(b){var g=t.map(function(v,k){return v*.72+b[k]*.28;});return lines.every(function(l){return cr(l[0].map(function(v,k){return v*l[1]+g[k]*(1-l[1]);}),g)>=l[2];});});}
       for(var i=0;i<20&&!reads(t);i++)t=t.map(function(v,k){return Math.round(v+(tgt[k]-v)*.15);});
       s.style.setProperty('--tint',t.join(' '));});}
     function lnTone(){if(getComputedStyle(ln).display==='none')return;var r=ln.getBoundingClientRect(),c=colAt(Math.min(1,Math.max(0,(scrollY+r.top+r.height/2)/document.documentElement.scrollHeight)));ln.classList.toggle('on-light',cr(c,INK)>=cr(c,PAPER));}
