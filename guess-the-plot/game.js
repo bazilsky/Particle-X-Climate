@@ -130,7 +130,6 @@
       if (b.list) { var ul = el('ul'); b.list.forEach(function (t) { ul.appendChild(el('li', null, t)); }); box.appendChild(ul); }
     });
   }
-  rich($('gtp-labels-text'), week.labelsText);
   rich($('gtp-point-text'), week.mainPoint);
   if (week.whyItMatters) { $('gtp-why').textContent = week.whyItMatters; $('gtp-why').hidden = false; }
   var idea = $('gtp-idea');
@@ -141,7 +140,11 @@
     if (week.imageAltRevealed) img.alt = week.imageAltRevealed;
     $('gtp-covered').textContent = 'The labels are now uncovered.';
     $('gtp-step1').hidden = true;
-    show($('gtp-labels'));
+    $('gtp-labels').hidden = false;
+    $('gtp-reveal-point').focus({ preventScroll: true });
+    var hdr = document.querySelector('header'), off = (hdr ? hdr.getBoundingClientRect().bottom : 0) + 12;
+    var top = fig.getBoundingClientRect().top;
+    if (top < off || top > window.innerHeight * 0.5) window.scrollTo({ top: window.scrollY + top - off, behavior: reduce ? 'auto' : 'smooth' });
   });
   $('gtp-reveal-point').addEventListener('click', function () {
     this.parentNode.hidden = true;
