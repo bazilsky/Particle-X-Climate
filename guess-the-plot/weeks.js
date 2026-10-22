@@ -123,10 +123,6 @@ window.PXC_GTP_WEEKS = [
     ],
     "labelsText": [
       {
-        "lead": "The decoys:",
-        "text": "The decoys are real quantities from this paper. Figure 3 maps the near-surface temperature and precipitation responses to the same global and regional aerosol reductions for 2035–2049, compared with the SSP3-7.0 baseline (Figure 3 caption, PDF p. 13: \"(b): near-surface temperature [K], and (c): precipitation [mm day−1 ] responses to global and regional aerosol reductions in 2035 - 2049, compared to the SSP3-7.0 baseline\"). It has no historical panel."
-      },
-      {
         "lead": "Colour bar:",
         "text": "ERF [W m⁻²]"
       },
@@ -136,6 +132,10 @@ window.PXC_GTP_WEEKS = [
       }
     ],
     "mainPoint": [
+      {
+        "lead": "The decoys:",
+        "text": "The decoys are real quantities from this paper. Figure 3 maps the near-surface temperature and precipitation responses to the same global and regional aerosol reductions for 2035–2049, compared with the SSP3-7.0 baseline (Figure 3 caption, PDF p. 13: \"(b): near-surface temperature [K], and (c): precipitation [mm day−1 ] responses to global and regional aerosol reductions in 2035 - 2049, compared to the SSP3-7.0 baseline\"). It has no historical panel."
+      },
       "\"Global aerosol reductions following SSP1-2.6 result in a multi-model mean global mean ERF of 0.71±0.27 W m−2 relative to SSP3-7.0 emissions in 2050.\" (PDF p. 16)",
       "Table 3 note: \"Uncertainties are inter-model standard deviation.\" (PDF p. 16)",
       "\"Local ERFs of up to 5 W m−2 are found over South and East Asia, with large forcing over the surrounding ocean due to transported aerosol.\" (PDF p. 16)",
