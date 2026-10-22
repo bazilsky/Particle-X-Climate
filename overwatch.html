@@ -216,7 +216,6 @@
       <p class="lede motion-enter">A specialist self-critical AI agent team supporting independent research on solar geoengineering, Earth-system modelling, nuclear-war climate effects, and aerosol modelling.</p>
     </section>
   </div>
-    <div class="marquee" aria-hidden="true"><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div></div>
 
   <div class="page">
     <section class="layer ctx-dark" id="this-week">
@@ -326,9 +325,9 @@
   <script src="/assets/atmos.js"></script>
   <script>
 window.OW_STOPS=function(){var T=window.OW_TOP,q=function(s){return document.querySelector(s);},H=document.documentElement.scrollHeight,
-  hb=T(q('.marquee')),tw=T(q('#this-week')),pr=T(q('#products')),tm=T(q('#team')),rm=T(q('#remit')),ft=T(q('footer'));
+  hb=T(q('#this-week')),tw=T(q('#this-week')),pr=T(q('#products')),tm=T(q('#team')),rm=T(q('#remit')),ft=T(q('footer'));
   var ph=innerWidth<=640,mid=window.OW_MID||[44,90,82];
-  /* hero and ticker sit on the same sky as on the live page (desktop and phone) */
+  /* hero sits on the same sky as before (desktop and phone) */
   return [[0,[21,19,15]],[hb*(ph?.68:.33),[28,25,21]],[ph?Math.max(tw,hb*1.76):hb*.85,[31,59,55]],[Math.max(tw,ph?hb*1.76:0),[31,59,55]],[pr+(tm-pr)*.25,mid],[tm+(rm-tm)*.1,[159,179,166]],[rm,[230,223,207]],[ft,[246,241,231]],[H,[239,228,207]]];};
 window.OW_TINT=[['section.layer',.9,function(i){return i%2?0:2;}],['.tw-pass',.94,function(){return 4;}]];</script>
 <script>

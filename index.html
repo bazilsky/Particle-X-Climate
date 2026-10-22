@@ -62,13 +62,6 @@
       background-size:420px 300px;animation:a-tw 60s linear infinite}
     @keyframes a-tw{to{background-position:420px 0}}
 
-    /* aerosol layer = the topic ticker */
-    .aerosol{position:relative;margin-left:calc(-1*clamp(4.5rem,9vw,8rem));margin-right:calc(-1*clamp(1.25rem,4vw,3rem))}
-    .aerosol::before{content:"";position:absolute;inset:-1.4rem 0;background:radial-gradient(60% 50% at 50% 50%,rgba(217,191,138,.28),transparent 75%);filter:blur(6px);pointer-events:none}
-    html:root body .aerosol .marquee{position:relative;background:linear-gradient(90deg,rgba(138,106,47,.0),rgba(138,106,47,.32) 20%,rgba(138,106,47,.32) 80%,rgba(138,106,47,0));border-block:1px solid rgba(217,191,138,.45);color:#f3e6c8;padding:1rem 0;font-family:Fraunces,Georgia,serif;font-size:1.35rem}
-    html:root body .aerosol .marquee i{color:#d9bf8a;opacity:1}
-    @media (max-width:760px){html:root body .aerosol .marquee{font-size:1.15rem}}
-    .aerosol .tag{position:absolute;right:clamp(1.25rem,4vw,3rem);top:-1.6rem;font:600 .68rem/1 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#d9bf8a}
 
     .lvl{position:relative;min-height:50svh;display:flex;align-items:center;padding:1.5rem 0}
     .lvl::before{content:"";position:absolute;left:calc(-1*clamp(4.5rem,9vw,8rem)*.42);right:0;top:50%;border-top:1px dashed var(--lc,rgba(246,241,231,.3))}
@@ -106,7 +99,6 @@
       .ro{left:.5rem;transform:translateY(-50%);font-size:.75rem;padding:.3rem .45rem;min-width:2.9rem;text-align:center}
       .layer-name{display:none}
       .stars{left:-3.75rem}
-      .aerosol{margin-left:-3.75rem;margin-right:-1.1rem}
       .lvl{min-height:auto;padding:2.2rem 0}
       .lvl::before{left:-1.4rem}
       a.at{grid-template-columns:auto 1fr;padding:1.2rem}
@@ -134,7 +126,6 @@
       <h1 class="motion-enter">Four ways in.</h1>
       <p class="s motion-enter">Scroll to descend through the atmosphere.</p>
     </section>
-    <div class="aerosol motion-enter"><span class="tag">Aerosol layer</span><div class="marquee" aria-hidden="true"><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div><div class="track"><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i><span>Solar geoengineering</span><i>·</i><span>Earth-system modelling</span><i>·</i><span>Nuclear-war climate effects</span><i>·</i><span>Aerosol modelling</span><i>·</i></div></div></div>
     <section class="lvl l1"><a class="at motion-reveal" href="/guess-the-plot"><span class="n">01</span><span><span class="h">32 km · Stratosphere</span><span class="t">Guess the Plot</span><span class="d">One figure from this week's paper. Pick what it shows.</span></span><span class="arr" aria-hidden="true">→</span></a></section>
     <section class="lvl l2"><a class="at motion-reveal" href="/theskylab"><span class="n">02</span><span><span class="h">18 km · Lower stratosphere</span><span class="t">The Sky Lab</span><span class="d">Small browser games about aerosols and climate.</span></span><span class="arr" aria-hidden="true">→</span></a></section>
     <section class="lvl l3 lt"><span class="cloud" style="width:42vw;height:90px;left:-6vw;top:20%" aria-hidden="true"></span><a class="at motion-reveal" href="/researchnotebook/"><span class="n">03</span><span><span class="h">11 km · Tropopause</span><span class="t">Research Notebook</span><span class="d">Interactive figures from the research.</span></span><span class="arr" aria-hidden="true">→</span></a></section>
