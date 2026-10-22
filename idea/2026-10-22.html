@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>@view-transition{navigation:auto}</style>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idea path — 22 October 2026 · Wilcox et al.</title>
+  <meta name="description" content="Idea path for 22 October 2026: Wilcox et al. (2026), climate responses to regional aerosol reductions in the Regional Aerosol Model Intercomparison Project (RAMIP).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+
+    /* Mobile-only sticky TOC */
+    .sticky-toc {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .sticky-toc {
+        display: flex;
+        gap: 0.15rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -1.25rem;
+        padding: 0 0.75rem;
+        min-height: 44px;
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      }
+
+      .sticky-toc a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 0.7rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sticky-toc a:hover,
+      .sticky-toc a:focus {
+        color: var(--ink);
+        border-bottom-color: var(--rust);
+      }
+
+      #chosen, #takeaways, #ideas, #directions, #references,
+      [id^="idea-"] {
+        scroll-margin-top: 52px;
+      }
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+      background: var(--rust-soft);
+      color: var(--rust);
+    }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid #0d47a1;
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
+
+    article ol {
+      margin: 0.75rem 0 0;
+      padding-left: 1.4rem;
+      text-align: left;
+    }
+    #references ol li { margin: 0.35rem 0; color: var(--muted); font-size: 0.95rem; }
+    article code { font-size: 0.9em; }
+
+    .table-wrap { overflow-x: auto; margin-top: 0.5rem; }
+    .table-wrap table { border-collapse: collapse; width: 100%; font-size: 0.95rem; text-align: left; }
+    .table-wrap th, .table-wrap td { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem; vertical-align: top; color: var(--muted); }
+    .table-wrap th { color: var(--ink); font-weight: 600; }
+    .table-wrap + p { margin-top: 0.85rem; }
+  </style>
+  <link rel="stylesheet" href="/assets/atmos.css">
+  <link rel="stylesheet" href="/assets/atmos-page.css">
+</head>
+<body class="pxc-shell atmos-sub atmos-read">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="../overwatch.html">Home</a>
+      <a href="../grant/index.html">Grant path</a>
+      <a href="../paper/index.html">Paper path</a>
+      <a href="index.html" aria-current="true">Idea path</a>
+      <a href="../custom-idea/index.html">Custom idea path</a>
+      <a href="../overwatch.html#team">Team</a>
+      <a href="../overwatch.html#remit">Remit</a>
+    </nav>
+  </header>
+  <div class="wrap">
+
+    <nav class="sticky-toc" aria-label="On this page">
+      <a href="#chosen">Chosen</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#directions">Directions</a>
+      <a href="#references">References</a>
+    </nav>
+
+
+    <section class="hero">
+      <p class="kicker motion-enter">22 October 2026</p>
+      <h1 class="motion-line"><span>Wilcox et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, three ideas, and research directions.</p>
+      <div class="tip joke motion-enter">
+        <p>I asked ten climate models what aerosols do, and they all agreed, to within a factor of 3.5. — Dr. D</p>
+      </div>
+    </section>
+
+    <section id="chosen">
+      <h2 class="motion-reveal">Chosen paper</h2>
+      <div class="picked">
+        <h3>Distinct climate responses to regional aerosol reductions: an overview of the regional aerosol model intercomparison project</h3>
+        <p class="meta">Laura J Wilcox, Bjørn H Samset, Camilla Weum Stjern, Robert J Allen et al. (30 authors in the Crossref record)</p>
+        <p class="meta">Year / venue: 2026, Environmental Research: Climate (IOP Publishing), "in press"</p>
+        <p class="meta">Status: a peer-reviewed Accepted Manuscript, "the version of the article accepted for publication including all changes made as a result of the peer review process", not the version of record.</p>
+        <p class="meta">Design (author documented): RAMIP Tier 1 experiments perturb SO2, BC and OC to SSP1-2.6 levels, globally and over four regions (East Asia, South Asia, Africa and the Middle East, North America and Europe), against an SSP3-7.0 baseline; There are 10 participating models, and 10 ensemble members were requested for each coupled transient experiment. Responses are shown for 2035–2049; ERF comes from paired 2050 fixed-SST runs (piClim-370*): "These simulations use pre-industrial SSTs, sea ice, and land use, with 2050 anthropogenic emissions of aerosols and greenhouse gases (Table 1)." (PDF p. 6); Historical ERF comes from RFMIP piClim-control and piClim-aer (Table 2 caption, PDF p. 9).</p>
+        <p class="meta">UKESM row, Table 2 (PDF p. 9): UKESM1-0-LL uses atmosphere MetUM-HadGEM3-GA7.1, aerosol "UKCA-GLOMAP-mode" and chemistry "UKCA-StratTrop". Its ECS and historical ERF are printed as "5.34, -1.11".</p>
+        <p class="meta">Licence: CC BY 4.0. The cover sheet says "this Accepted Manuscript is available for reuse under a CC BY 4.0 licence immediately".</p>
+        <p class="meta">Data: "CMORized data for the Tier 1 experiments presented here is available for download from the Centre for Environmental Data Analysis (CEDA)" (PDF p. 31). The UKESM1-0-LL collection is <a href="http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee" target="_blank" rel="noopener noreferrer">http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee</a> (record checked 22 Oct; variable-level contents not checked).</p>
+        <p class="url">DOI: <a href="https://doi.org/10.1088/2752-5295/aeb71a" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/2752-5295/aeb71a</a></p>
+        <p class="url">HTML: <a href="https://iopscience.iop.org/article/10.1088/2752-5295/aeb71a" target="_blank" rel="noopener noreferrer">https://iopscience.iop.org/article/10.1088/2752-5295/aeb71a</a> (marked Accepted Manuscript, checked 22 Oct)</p>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <h2 class="motion-reveal">Site takeaways</h2>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Air-quality policy is about to cut aerosol emissions in many parts of the world, and those cuts will change climate. RAMIP asks how much, where, and whose emissions matter. Ten Earth system models ran the same experiments, with ten ensemble members requested for each. Aerosol and precursor emissions (sulfur dioxide, black carbon and organic carbon) follow a clean-air pathway (SSP1-2.6) instead of staying high (SSP3-7.0). The cuts are applied either globally or only over East Asia, South Asia, Africa and the Middle East, or North America and Europe. The forcing comes from paired runs with fixed sea surface temperatures for 2050, and the climate responses are averaged over 2035–2049.</p>
+        <p>The global answer is substantial. Cutting aerosol emissions everywhere gives an effective radiative forcing of 0.71±0.27 W m−2 in 2050 and a global-mean warming of 0.31±0.12 K, where the ± is the spread between models (one standard deviation). The authors find the warming occurs largely over the Northern Hemisphere, causing a northward shift of the tropical rain belt and stronger Northern Hemisphere monsoons. The regional experiments show that the location of the cut matters. In the authors' words, reductions over North America and East Asia have hemisphere-wide impacts and account for most of the global-mean response. The North American cuts are part of the combined North America-and-Europe experiment. South Asian reductions act mainly locally. Reductions over Africa and the Middle East change rainfall across the tropics. A region's climate can be as strongly influenced by cuts made elsewhere as by its own. Ensemble size matters too. In the authors' South Asia example, a smaller ensemble can predict a rainfall response of the opposite sign to the one seen in the 10-member ensemble mean. The paper states that "CMORized data for the Tier 1 experiments presented here is available for download from the Centre for Environmental Data Analysis (CEDA)".</p>
+        <h3>What they didn’t quite nail</h3>
+        <p>The regional pieces do not add up to the global experiment. The sum of the four regional forcings is only 54% of the forcing from global cuts, and the authors call for caution in attribution. Part of the gap is South America, which the first design left out. The authors are already running "Rest of the world" experiments to close that gap.</p>
+        <p>Two questions stay open in the paper itself. First, the models disagree more about future aerosol forcing than about historical forcing: a factor of 3.5 spread for the 2050 global cuts, against 1.8 for historical forcing. Some models, including UKESM1-0-LL, have relatively small future forcing compared with their historical values, while others are more sensitive. The authors suggest aerosol forcing "may be state dependent in some models", perhaps through changes in cloud properties with warming or through natural aerosol feedbacks, but this overview does not test either. Second, the ten models share no aerosol or chemistry scheme. That makes RAMIP well suited to asking how model structure shapes the response, but the paper describes the opportunity rather than answering it. Over Africa, the forcing differs between models even in sign in some places, which the authors put down to different dust and cloud feedbacks.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): this is tropospheric air-pollution aerosol under two emission pathways. The forcing numbers come from runs with pre-industrial sea surface temperatures and 2050 emissions, and the climate responses from coupled runs averaged over 2035–2049.</p>
+        <p class="caveat">Reader caveat (not a paper flaw): the version read is the peer-reviewed Accepted Manuscript, ahead of the typeset version of record.</p>
+      </div>
+    </section>
+
+    <section id="ideas">
+      <h2 class="motion-reveal">Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Three ideas, each tied to an open problem the authors document. A distinctness table follows them.</p>
+      <div class="ideas">
+        <article id="idea-1">
+          <p class="label">Idea 1</p>
+          <h3>Why is UKESM1-0-LL's future aerosol forcing smaller than its historical forcing? An inventory of what differs between the two fixed-SST pairs, and the greenhouse-gas year as one isolatable factor</h3>
+          <p><strong>What it would do.</strong></p>
+          <ul>
+            <li>Take the UKESM1-0-LL fixed-SST pairs that already exist:
+              <ul>
+                <li>RFMIP piClim-control and piClim-aer: 1850 vs 2014 aerosol.</li>
+                <li>RAMIP piClim-370 and piClim-370-126aer: SSP3-7.0 vs SSP1-2.6 aerosol in 2050, with 2050 greenhouse gases.</li>
+              </ul>
+            </li>
+            <li>In each pair, compute:
+              <ul>
+                <li>forcing per unit change in aerosol optical depth, and per unit SO2 emission change</li>
+                <li>sulfate produced per unit SO2 (aqueous and gas-phase production, cheaqpso4 and chegpso4, against sulfate burden from mmrso4)</li>
+                <li>droplet number (cdnc) and cloud-top effective radius (reffclwtop) per unit change in aerosol optical depth</li>
+              </ul>
+            </li>
+            <li>Do this globally and over the four RAMIP regions. The regional split partly controls for the different emission patterns, since it compares like regions across the two pairs.</li>
+            <li>Write down every way the two pairs differ (list below) before reading any result. The comparison describes how UKESM's forcing chain differs between the pairs; it does not attribute the difference to any single factor.</li>
+            <li>Optional: add two fixed-SST runs that change only the greenhouse-gas year. These are 2050 SSP3-7.0 and SSP1-2.6 aerosol with 1850 greenhouse gases, everything else as in RAMIP. This swap isolates the greenhouse-gas year only (see <strong>What it can and cannot attribute</strong>). The design is our addition.</li>
+            <li>What UKESM shows is not assumed.</li>
+          </ul>
+          <p><strong>Every known difference between the RFMIP pair and the RAMIP pair.</strong></p>
+          <ol>
+            <li><strong>Greenhouse-gas year: 1850 vs 2050.</strong>
+              <ul>
+                <li>RAMIP: "with 2050 anthropogenic emissions of aerosols and greenhouse gases" <strong>(author documented)</strong>.</li>
+                <li>RFMIP: 1850, per the RFMIP protocol (Pincus et al., 2016, not re-read here) <strong>(inferred)</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Aerosol background: clean vs polluted.</strong> The RFMIP perturbation starts from 1850 aerosol. The RAMIP perturbation starts from polluted 2050 SSP3-7.0 aerosol (author documented for RAMIP; the 1850 baseline per Wilcox et al., 2023, Table 5 caption).</li>
+            <li><strong>Sign of the perturbation: an increase vs a cut.</strong>
+              <ul>
+                <li>RFMIP adds aerosol (1850 → 2014). RAMIP removes it (SSP3-7.0 → SSP1-2.6).</li>
+                <li>Even with a perfectly linear model, an increase from a clean state and a cut from a polluted state probe different parts of a non-linear response <strong>(inferred)</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Size of the perturbation.</strong> The RAMIP protocol says global BC and SO2 differences are "comparable in size to their respective increases over the historical period" (Wilcox et al., 2023). Comparable is not equal, and the regional sizes differ <strong>(inferred)</strong>.</li>
+            <li><strong>Spatial pattern of the emission change.</strong>
+              <ul>
+                <li>Author documented: "The largest differences in near-future aerosol emission pathways in the SSPs are found over Asia" (PDF p. 16).</li>
+                <li>Author documented: the paper links the larger future spread partly to "the change in the spatial pattern of aerosol emissions" (PDF p. 17).</li>
+                <li>The historical increase also includes strong North American and European growth <strong>(inferred)</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Species perturbed.</strong>
+              <ul>
+                <li>RAMIP Tier 1 perturbs "sulfur dioxide (SO2 ), sulfate (SO4 ), black carbon (BC), and organic aerosol (OA)" (Allen et al., 2026b). NH3 and NOx follow SSP1-2.6 only in the separate Tier 2 experiment ssp370-126aer_nh3nox (Wilcox et al., 2023, Table 2).</li>
+                <li>Which species change in UKESM's RFMIP piClim-aer was not checked <strong>(inferred: a possible difference)</strong>.</li>
+                <li>The absorbing-to-scattering mix of the perturbation also differs by region <strong>(inferred)</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Chemistry and oxidant state.</strong>
+              <ul>
+                <li>RAMIP runs "feature year 2050 GHGs, ozone and natural aerosol and precursor gas emissions from SSP3-7.0" (Allen et al., 2026b). RFMIP uses an 1850 state <strong>(inferred)</strong>.</li>
+                <li>In UKESM, with UKCA-StratTrop chemistry (Table 2), the oxidant state sets how much sulfate forms per unit SO2. The two pairs can therefore differ in sulfate yield, not only in emissions <strong>(inferred)</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Natural aerosol and precursor emissions.</strong> These are SSP3-7.0 2050 in RAMIP (Allen et al., 2026b), and 1850 conditions in RFMIP <strong>(inferred)</strong>. Whether UKESM computes or prescribes them in these runs is Idea 2's step one.</li>
+            <li><strong>Model version and run generation.</strong>
+              <ul>
+                <li>The RFMIP pair is CMIP6 output (ESGF dataset versions from 2019). The RAMIP pair is CMIP6Plus output (CEDA records from 2026). Both carry the member label r1i1p1f2.</li>
+                <li>Whether the code and configuration are identical was not checked <strong>(inferred: a possible difference)</strong>.</li>
+              </ul>
+            </li>
+          </ol>
+          <p><strong>Shared by both pairs:</strong> pre-industrial SSTs, sea ice and land use (RAMIP: author documented, PDF p. 6; RFMIP: per protocol, <strong>inferred</strong>). So in either pair, "changes in cloud properties with warming" can only act through land and atmospheric adjustment, not through ocean warming <strong>(inferred)</strong>.</p>
+          <p><strong>What it can and cannot attribute.</strong></p>
+          <ul>
+            <li><strong>Can:</strong>
+              <ul>
+                <li>Describe whether UKESM's forcing per unit emission, sulfate yield per unit SO2, and droplet response per unit aerosol optical depth differ between the two pairs, globally and by region.</li>
+                <li>With the optional runs, estimate within UKESM, in fixed-SST mode, the part of the RAMIP forcing that changes when only the greenhouse-gas year changes.</li>
+              </ul>
+            </li>
+            <li><strong>Cannot:</strong>
+              <ul>
+                <li>Attribute the remaining difference between the pairs to any one of items 2–9. Background, sign, size, pattern, species, oxidants, natural emissions and model version all change together.</li>
+                <li>Show saturation of aerosol–cloud interactions as the cause.</li>
+                <li>Speak for other models or for coupled responses.</li>
+              </ul>
+            </li>
+            <li><strong>Defining the swap:</strong> if the swap also moves ozone or other chemistry to 1850, it isolates a greenhouse-gas-plus-chemistry year, not the greenhouse-gas year alone. The run design must say which <strong>(inferred)</strong>.</li>
+          </ul>
+          <p><strong>Why it is new.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> The authors raise state dependence but do not test it in this overview.</li>
+            <li><strong>(inferred)</strong> The contribution is the explicit inventory above, for one model whose forcing the authors single out, plus one clean single-factor test (the greenhouse-gas year). It does not claim to separate "background" from "greenhouse gases" in general.</li>
+            <li><strong>Precedents (base-state tests in other models):</strong>
+              <ul>
+                <li>Zhang et al. (2026, GFDL-ESM4.1) conducted "pairs of simulations under different base states, by comparing present‐day versus pre‐industrial sea surface temperatures, sea‐ice, and atmospheric composition, to diagnose aerosol ERF", and found the global-mean aerosol ERF "relatively robust" while "regional aerosol ERF differs strongly depending on the background climate and composition".</li>
+                <li>White et al. (2025, CESM2) found "statistically insignificant increases in aerosol ERF when estimated in the different background climates".</li>
+                <li>Allen et al. (2026b), on the RAMIP fixed-SST runs, write that "saturation of aerosol-cloud interactions are expected under more polluted backgrounds".</li>
+              </ul>
+            </li>
+            <li><strong>Search limit:</strong> our search (22 Oct 2026) found no published UKESM1 base-state test of this kind. That reflects the search, not a finding.</li>
+          </ul>
+          <p><strong>Feasibility for Ananth.</strong> Moderate. The diagnostic stage needs no new simulations <strong>(inferred)</strong>.</p>
+          <ul>
+            <li><strong>RFMIP pair on ESGF:</strong> a CEDA ESGF search (22 Oct) lists UKESM1-0-LL piClim-aer and piClim-control Amon rsut datasets, e.g. <code>CMIP6.AerChemMIP.MOHC.UKESM1-0-LL.piClim-aer.r1i1p1f2.Amon.rsut.gn.v20190726</code>. Only rsut was queried; cdnc and the other variables were not.</li>
+            <li><strong>RAMIP output on CEDA:</strong>
+              <ul>
+                <li>The UKESM1-0-LL RAMIP collection is published on the CEDA catalogue. The record states it "also contains NetCDF output for a set of partner experiments with anthropogenic emissions for the year 2050 and fixed, pre-industrial, sea surface temperatures, sea ice extent, and land use".</li>
+                <li>Public directory listings checked on 22 Oct, with no files downloaded:
+                  <ul>
+                    <li>piClim-370 r1i1p1f2 shows cdnc, reffclwtop, od550aer, od550lt1aer, cheaqpso4, chegpso4, mmrso4 and o3.</li>
+                    <li>piClim-370-126aer shows the same cloud, optical-depth and sulfate-production variables.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><strong>The optional single-factor runs need UKESM access.</strong> That access is assumed, not verified <strong>(inferred)</strong>.</li>
+            <li><strong>Relevance:</strong> Ananth's UKCA/GLOMAP background is relevant to reading droplet-activation, sulfate-production and size-distribution diagnostics in UKESM <strong>(inferred)</strong>.</li>
+          </ul>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> PDF p. 17: "CanESM5-1, UKESM1-0-LL. CNRM-ESM2-1, and EC-Earth3-AerChem have relatively small future forcing compared to their historical values, while CESM2, NorESM2-LM, and MIROC6 are relatively more sensitive to future aerosol changes, suggesting aerosol forcing may be state dependent in some models (perhaps due to changes in cloud properties with warming, or natural aerosol feedbacks)."</li>
+            <li><strong>(author documented)</strong> PDF p. 17: "and reflects a change in sensitivity to aerosol changes in some models with global warming (RAMIP piClim experiments include 2050 greenhouse gases and aerosols) and the change in the spatial pattern of aerosol emissions."</li>
+            <li><strong>(author documented)</strong> PDF p. 6: "These simulations use pre-industrial SSTs, sea ice, and land use, with 2050 anthropogenic emissions of aerosols and greenhouse gases (Table 1)."</li>
+            <li><strong>(author documented)</strong> PDF p. 16: "The largest differences in near-future aerosol emission pathways in the SSPs are found over Asia (e.g. Lund et al. (2019)), and this is reflected in the effective radiative forcing (ERF) due to future emission reductions in RAMIP (Figure 4)."</li>
+            <li><strong>(author documented, RAMIP protocol)</strong> Wilcox et al. (2023), GMD, PDF p. 11: "Global differences in emissions of BC and SO2 between SSP3-7.0 and SSP1-2.6 in 2050 are comparable in size to their respective increases over the historical period (2014 vs. 1850)."</li>
+            <li><strong>(author documented, RAMIP protocol)</strong> Wilcox et al. (2023), GMD, Table 2 caption (Tier 2 experiments, PDF p. 7): "except for ssp370-126aer_nh3nox, where NH3 and NOx should also follow SSP1-2.6"</li>
+            <li><strong>(author documented, RAMIP protocol)</strong> Wilcox et al. (2023), GMD, p. 4464 (PDF p. 14): "Aerosol forcing is mediated by clouds, which may change in response to increasing greenhouse gas (GHG) concentrations, influencing the pattern and magnitude of aerosol forcing."</li>
+            <li><strong>(author documented, RAMIP protocol)</strong> In the GMD test runs, Table 5 prints UKESM1 historical ERF as −1.1 and 2050 126aer ERF as 0.56 (W m−2).</li>
+            <li><strong>(author documented, companion paper)</strong> Allen et al. (2026b), PDF p. 4: "All simulations feature year 2050 GHGs, ozone and natural aerosol and precursor gas emissions from SSP3-7.0." Also, in the Table 1 notes: "includes both industrial and biomass burning emissions of sulfur dioxide (SO2 ), sulfate (SO4 ), black carbon (BC), and organic aerosol (OA)".</li>
+            <li><strong>Related work checked:</strong>
+              <ul>
+                <li>Allen et al. (2026b), Environ. Res.: Climate 5, 025014, <a href="https://doi.org/10.1088/2752-5295/ae5418" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/2752-5295/ae5418</a> (open PDF). PDF p. 4: "As ERF is weakly dependent on the background state (Forster et al 2016, Pincus et al 2016), the exact choice of background SST and sea ice has little impact of the ERF." (quoted as printed). That statement concerns SSTs and sea ice, not aerosol background <strong>(inferred)</strong>.</li>
+                <li>Zhang et al. (2026), JGR Atmospheres 131, e2026JD046386, <a href="https://doi.org/10.1029/2026jd046386" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2026jd046386</a> (Crossref abstract).</li>
+                <li>White et al. (2025), J. Climate 38, 147–163, <a href="https://doi.org/10.1175/JCLI-D-23-0755.1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1175/JCLI-D-23-0755.1</a> (Crossref abstract).</li>
+                <li>Jia and Quaas (2023), Nat. Clim. Change 13, 943–950, <a href="https://doi.org/10.1038/s41558-023-01775-5" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41558-023-01775-5</a>, observational: "the N d sensitivity decreases at large aerosol concentrations" (Crossref abstract; as rendered there, with a space in "N d").</li>
+                <li>O'Connor et al. (2021), ACP 21, 1211–1243, <a href="https://doi.org/10.5194/acp-21-1211-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-1211-2021</a>: "UKESM1 has an aerosol ERF of −1.09 ± 0.04 W m −2 ." (Crossref abstract, as rendered). This is a different averaging from Table 2's "-1.11", and the two are not compared here.</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <article id="idea-2">
+          <p class="label">Idea 2</p>
+          <h3>How much do natural aerosol changes contribute to UKESM1-0-LL's response to RAMIP reductions? Africa as the test case.</h3>
+          <p><strong>What it would do.</strong></p>
+          <ul>
+            <li>In UKESM1-0-LL, quantify changes in natural aerosol between the RAMIP global and Africa-and-Middle-East reduction runs and their baselines:
+              <ul>
+                <li>dust emission and optical depth (emidust, od550dust)</li>
+                <li>sea-salt mass (mmrsss)</li>
+                <li>secondary organic aerosol (mmrsoas, od550soa)</li>
+              </ul>
+            </li>
+            <li>Do this both in the fixed-SST pairs (fast response) and in the coupled transient runs (2015 onwards).</li>
+            <li>Ask how large those changes are next to the anthropogenic part, and whether they line up with the places where the African forcing changes sign between models.</li>
+            <li>Separate fast (fixed-SST) from slower (coupled) natural-aerosol changes, but only after step one below.</li>
+            <li>What UKESM shows is not assumed.</li>
+          </ul>
+          <p><strong>Up front: a possible empty half.</strong></p>
+          <ul>
+            <li>Allen et al. (2026b) print that the RAMIP fixed-SST runs use "natural aerosol and precursor gas emissions from SSP3-7.0". If UKESM's natural emissions are prescribed in these runs, the fixed-SST ("fast response") part of this idea is empty by design: there would be no natural-emission change to measure between the paired runs. The idea would then rest on the coupled transient runs alone.</li>
+            <li>UKESM computes several natural emissions interactively in its CMIP6 configuration (Mulcahy et al., 2020). Whether that holds in the RAMIP piClim-370 runs has not been checked <strong>(inferred)</strong>.</li>
+          </ul>
+          <p><strong>Step one (before any budget work): check UKESM's emission settings in piClim-370 and piClim-370-126aer, interactive vs prescribed, for each source:</strong></p>
+          <ol>
+            <li>Dust, sea salt, DMS and BVOC (the precursor of secondary organic aerosol). Use the CEDA record lineage, the run documentation, or the model team's run notes.</li>
+            <li>Empirical cross-check <strong>(inferred)</strong>: compare emidust (and any other natural emission field that is archived) between the two paired runs. Identical fields would be consistent with prescribed or unresponsive emissions. Differing fields would show the emissions are computed online.</li>
+            <li>Public directory listings checked on 22 Oct, with no files downloaded:
+              <ul>
+                <li>piClim-370 r1i1p1f2 shows emidust, drydust, od550dust and mmrdust.</li>
+                <li>piClim-370-126aer shows emidust, drydust, wetdust, od550dust and mmrss (sea salt).</li>
+                <li>No DMS emission, secondary-organic or BVOC emission field appears in either listing.</li>
+                <li>The listings differ between the two runs, so variable coverage must be confirmed per run.</li>
+              </ul>
+            </li>
+            <li>Only if at least one natural source responds in the fixed-SST pair does the fast-response budget go ahead. Otherwise, go straight to the coupled runs.</li>
+          </ol>
+          <p><strong>Why it is new.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> The authors name "natural aerosol feedbacks" as one possible reason for state-dependent forcing, and "different dust and cloud feedbacks" for the African sign diversity. The overview quantifies neither.</li>
+            <li><strong>(inferred)</strong> A UKESM-specific budget of natural aerosol change under regional anthropogenic reductions is the step that would turn that suggestion into a number for one model.</li>
+            <li><strong>Precedent:</strong> Thornhill et al. (2021) quantified chemistry and aerosol feedbacks in CMIP6 ESMs, but for a quadrupling of CO2, not for aerosol-policy reductions: "This is principally due to increased emissions of sea salt and BVOCs which are sensitive to climate change and cause strong negative radiative forcings."</li>
+          </ul>
+          <p><strong>Feasibility for Ananth.</strong> Moderate <strong>(inferred)</strong>.</p>
+          <ul>
+            <li>The RAMIP data request lists emidust, od550dust, od550soa, mmrsss and mmrsoas (Wilcox et al., 2023, Table B1).</li>
+            <li>The UKESM RAMIP piClim directory listings were checked, but not the files (step one, item 3). The coupled-run archive's variable contents were not checked.</li>
+            <li>A DMS emission variable does not appear in the Table B1 list as extracted, so a sulfur-cycle budget may need model-side output <strong>(inferred)</strong>.</li>
+            <li>UKESM1 computes several natural emissions interactively in its CMIP6 historical configuration. Whether this holds in the RAMIP piClim runs is step one (Mulcahy et al., 2020, abstract: "The additional Earth system interactions included in UKESM1 lead to differences in the emissions of natural aerosol sources such as dimethyl sulfide, mineral dust and organic aerosol and subsequent evolution of these species in the model.").</li>
+          </ul>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> PDF p. 17: "suggesting aerosol forcing may be state dependent in some models (perhaps due to changes in cloud properties with warming, or natural aerosol feedbacks)"</li>
+            <li><strong>(author documented)</strong> PDF p. 16: "There is also large uncertainty in African emission pathways, but the multi-model mean ERF is smaller here, due to large diversity in the pattern of the forcing, and even the sign of the forcing in some locations, across models due to different dust and cloud feedbacks"</li>
+            <li><strong>(author documented, RAMIP protocol)</strong> Wilcox et al. (2023), GMD, Appendix B: "RAMIP outputs will also enable the study of Earth system responses to future anthropogenic aerosol changes, such as natural aerosol feedbacks, cryosphere changes, and changes in atmospheric chemistry, in models that simulate them."</li>
+            <li><strong>(author documented, companion paper)</strong> Allen et al. (2026b), PDF p. 4: "All simulations feature year 2050 GHGs, ozone and natural aerosol and precursor gas emissions from SSP3-7.0."</li>
+            <li><strong>Related work checked:</strong>
+              <ul>
+                <li>Thornhill et al. (2021), ACP 21, 1105–1126, <a href="https://doi.org/10.5194/acp-21-1105-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-1105-2021</a> (Crossref abstract).</li>
+                <li>Mulcahy et al. (2020), GMD 13, 6383–6423, <a href="https://doi.org/10.5194/gmd-13-6383-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-13-6383-2020</a> (Crossref abstract).</li>
+                <li>Wilcox et al. (2023), GMD 16, 4451–4479, <a href="https://doi.org/10.5194/gmd-16-4451-2023" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-16-4451-2023</a> (open PDF). In its UKESM test runs, Table 5 prints the 2050 AFR126aer ERF as −0.04 W m−2 (as printed; test simulations, not the Tier 1 ensemble).</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <article id="idea-3">
+          <p class="label">Idea 3</p>
+          <h3>Does aerosol-scheme structure organise the inter-model spread in RAMIP forcing? A diagnostic chain from emission to droplets</h3>
+          <p><strong>What it would do.</strong></p>
+          <ul>
+            <li>For each model with the needed output, build the chain for the global and regional reductions: emission change → aerosol optical depth (od550aer, and fine mode od550lt1aer) → droplet number (cdnc) → aerosol–cloud forcing.</li>
+            <li>Use Allen et al. (2026b)'s ERF decomposition and their scheme classification (modal vs bulk; Twomey-only vs Twomey and Albrecht) as the grouping.</li>
+            <li>Ask whether forcing per unit aerosol optical depth, or droplet response per unit aerosol optical depth, groups by scheme class. With 9–10 models this is a diagnostic, not a statistical test.</li>
+            <li>Take UKESM1-0-LL (GLOMAP-mode, modal) as a worked case. Allen et al. report its East Asian regional-mean forcing at the bottom of the model range ("−0.82 W m−2 in UKESM1-0-LL to 3.83 W m−2 in MIROC6").</li>
+            <li>What the grouping shows is not assumed.</li>
+          </ul>
+          <p><strong>Why it is new.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> The authors describe RAMIP as "well suited to exploring the effects of model structural uncertainty" because no two models share aerosol or chemistry schemes. They also write that the representation of aerosol size, composition and mixing state "is also challenging".</li>
+            <li><strong>(author documented, Allen et al. 2026b)</strong> The companion paper already decomposes the forcing into aerosol–radiation and aerosol–cloud parts and gives forcing efficiency per unit absorbing aerosol optical depth.</li>
+            <li><strong>(inferred)</strong> Relating the per-model values to scheme properties (size-resolved activation vs mass-based droplet relations) is the step neither paper takes, by our reading of both texts. Our search (22 Oct) found no RAMIP study doing this. That reflects the search, not a finding.</li>
+          </ul>
+          <p><strong>Feasibility for Ananth.</strong> Moderate to high, but it depends on archived variables <strong>(inferred)</strong>.</p>
+          <ul>
+            <li>The data request lists od550aer, od550lt1aer and cdnc. It also lists ccn02 and ccn1 "where possible", and double radiation calls for the Ghan (2013) decomposition "where possible" (Wilcox et al., 2023, Appendix B).</li>
+            <li>Allen et al. (2026b) state their data "will be openly available after acceptance (but before publication)" via ESGF nodes (PDF p. 18).</li>
+            <li><strong>Data check, 22 Oct:</strong>
+              <ul>
+                <li><strong>ESGF:</strong> dataset searches on three ESGF indexes (CEDA, distributed; ORNL ESGF 1.5 bridge; DKRZ) returned 0 datasets for experiment_id piClim-370, piClim-370-126aer and ssp370-126aer. The ORNL activity facet list shows no RAMIP activity. On ESGF, we could not confirm the data are available.</li>
+                <li><strong>CEDA catalogue:</strong>
+                  <ul>
+                    <li>The API lists 122 RAMIP-titled records. They include piClim-370, piClim-370-126aer and the four regional piClim-370 collections for eight models: CESM2, CNRM-ESM2-1, CanESM5-1, EC-Earth3-AerChem, MIROC6, MRI-ESM2-0, NorESM2-LM and UKESM1-0-LL. Catalogue state is <code>citable</code>, and <code>published</code> for MIROC6.</li>
+                    <li>Of Allen et al.'s nine fixed-SST models, GFDL-SPEAR_LO and GISS-E2-1-G had no piClim-370 record in this title search.</li>
+                  </ul>
+                </li>
+                <li><strong>What these records do not establish:</strong> we downloaded no files, and we have not confirmed that these collections are the exact data behind Allen et al. (2026b).</li>
+                <li><strong>UKESM listing:</strong> the UKESM piClim-370 directory listing shows cdnc, od550aer, od550lt1aer and reffclwtop. ccn02 and ccn1 do not appear. Other models' variable lists were not checked.</li>
+              </ul>
+            </li>
+            <li>Ananth's GLOMAP-mode background fits the UKESM case <strong>(inferred)</strong>.</li>
+          </ul>
+          <p><strong>Evidence base.</strong></p>
+          <ul>
+            <li><strong>(author documented)</strong> PDF p. 30: "with few models sharing components (and none sharing aerosol or chemistry schemes), making RAMIP well suited to exploring the effects of model structural uncertainty on the simulated climate responses"</li>
+            <li><strong>(author documented)</strong> PDF p. 3: "although the representation of aerosols themselves (e.g. their size, composition, and mixing state) is also challenging (Riipinen et al., 2026)."</li>
+            <li><strong>(author documented)</strong> PDF p. 16: "There is a factor of 3.5 spread in the magnitude of the global-mean forcing due to global aerosol reductions simulated by the RAMIP models."</li>
+            <li><strong>(author documented)</strong> PDF p. 6: "Most models include a representation of the first and second indirect effects of aerosol on cloud properties, and 4 include interactive tropospheric chemistry"</li>
+            <li><strong>(author documented)</strong> PDF p. 8: "However, we do not expect this to influence the model responses to aerosol changes presented in this work as there is no relationship between ECS and aerosol ERF in the RAMIP ensemble (r=0.47, p=0.17), or in the larger CMIP6 ensemble (Smith et al., 2020)."</li>
+            <li><strong>Related work checked:</strong>
+              <ul>
+                <li>Allen et al. (2026b), <a href="https://doi.org/10.1088/2752-5295/ae5418" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/2752-5295/ae5418</a>, PDF p. 15: "This is particularly the case for EAS, where the intermodel net ERFari+aci spread is −0.82 W m−2 in UKESM1-0-LL to 3.83 W m−2 in MIROC6 (figure 6(a))." Also on PDF p. 11, NAE is described as the region that "yields the largest forcing efficiency".</li>
+                <li>Ghan (2013), ACP 13, 9971–9974, <a href="https://doi.org/10.5194/acp-13-9971-2013" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-13-9971-2013</a> (Crossref record).</li>
+                <li>Grosvenor and Carslaw (2020), ACP 20, 15681–15724, <a href="https://doi.org/10.5194/acp-20-15681-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-20-15681-2020</a> (Crossref abstract), a UKESM1 decomposition of aerosol–cloud forcing into droplet number, liquid water path and cloud fraction terms.</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <article class="motion-reveal">
+          <h3>Idea distinctness check</h3>
+          <div class="table-wrap"><table><thead><tr><th>Idea</th><th>Core lever</th><th>Ownership</th><th>Cost</th></tr></thead><tbody><tr><td>1</td><td>Base state: inventory of every RFMIP-vs-RAMIP difference in UKESM's forcing chain (clouds, sulfate yield); greenhouse-gas year as the one isolatable factor</td><td>(author documented) state-dependence and emission-pattern remarks; inventory and single-factor design (inferred)</td><td>Low for existing pairs; moderate if new runs</td></tr><tr><td>2</td><td>Base state, natural-aerosol side: dust, sea salt, SOA budgets in UKESM; Africa test case</td><td>(author documented) natural-feedback and dust remarks; budget design (inferred)</td><td>Moderate, variable availability unchecked</td></tr><tr><td>3</td><td>Structure: emission → AOD → droplets → forcing chain across schemes</td><td>(author documented) structural-uncertainty remark; grouping design (inferred)</td><td>Moderate, multi-model and variable-dependent</td></tr></tbody></table></div>
+          <p>The non-linearity left by the omission of South America is not an idea here. The authors are already running "Rest of the world" simulations.</p>
+        </article>
+        <article id="references">
+          <h3>External citations used (checked on 22 October 2026 against Crossref, the open PDFs, CEDA or ESGF)</h3>
+          <ol>
+            <li>Wilcox, L. J., et al. (2023). The Regional Aerosol Model Intercomparison Project (RAMIP). <em>Geosci. Model Dev.</em>, 16, 4451–4479. <a href="https://doi.org/10.5194/gmd-16-4451-2023" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-16-4451-2023</a></li>
+            <li>Allen, R. J., et al. (2026b). Decomposing the global and regional aerosol effective radiative forcing associated with strong versus weak air quality policies by Mid-21st century. <em>Environ. Res.: Climate</em>, 5, 025014. <a href="https://doi.org/10.1088/2752-5295/ae5418" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/2752-5295/ae5418</a></li>
+            <li>Zhang, et al. (2026). The Dependence of Emissions‐Based Anthropogenic Aerosol ERFs on Background Composition and Meteorological States in the GFDL‐ESM4.1 Model. <em>J. Geophys. Res. Atmos.</em>, 131, e2026JD046386. <a href="https://doi.org/10.1029/2026jd046386" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2026jd046386</a></li>
+            <li>White, et al. (2025). Absence of Aerosol Indirect Effect Dependence on Background Climate State in NCAR CESM2. <em>J. Climate</em>, 38, 147–163. <a href="https://doi.org/10.1175/JCLI-D-23-0755.1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1175/JCLI-D-23-0755.1</a></li>
+            <li>Jia, H. and Quaas, J. (2023). Nonlinearity of the cloud response postpones climate penalty of mitigating air pollution in polluted regions. <em>Nat. Clim. Change</em>, 13, 943–950. <a href="https://doi.org/10.1038/s41558-023-01775-5" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41558-023-01775-5</a></li>
+            <li>Thornhill, G., et al. (2021). Climate-driven chemistry and aerosol feedbacks in CMIP6 Earth system models. <em>Atmos. Chem. Phys.</em>, 21, 1105–1126. <a href="https://doi.org/10.5194/acp-21-1105-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-1105-2021</a></li>
+            <li>Mulcahy, J. P., et al. (2020). Description and evaluation of aerosol in UKESM1 and HadGEM3-GC3.1 CMIP6 historical simulations. <em>Geosci. Model Dev.</em>, 13, 6383–6423. <a href="https://doi.org/10.5194/gmd-13-6383-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-13-6383-2020</a></li>
+            <li>O'Connor, F. M., et al. (2021). Assessment of pre-industrial to present-day anthropogenic climate forcing in UKESM1. <em>Atmos. Chem. Phys.</em>, 21, 1211–1243. <a href="https://doi.org/10.5194/acp-21-1211-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-21-1211-2021</a></li>
+            <li>Grosvenor, D. P. and Carslaw, K. S. (2020). The decomposition of cloud–aerosol forcing in the UK Earth System Model (UKESM1). <em>Atmos. Chem. Phys.</em>, 20, 15681–15724. <a href="https://doi.org/10.5194/acp-20-15681-2020" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-20-15681-2020</a></li>
+            <li>Ghan, S. J. (2013). Technical Note: Estimating aerosol effects on cloud radiative forcing. <em>Atmos. Chem. Phys.</em>, 13, 9971–9974. <a href="https://doi.org/10.5194/acp-13-9971-2013" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/acp-13-9971-2013</a></li>
+            <li>CEDA collection record: UKESM1-0-LL output prepared for the Regional Aerosol Model Intercomparison Project (RAMIP). <a href="http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee" target="_blank" rel="noopener noreferrer">http://catalogue.ceda.ac.uk/uuid/63233813672245a2ba3c6de90c4cfaee</a></li>
+            <li>ESGF (CEDA index) dataset listing: UKESM1-0-LL piClim-aer and piClim-control, Amon rsut.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="directions">
+      <h2 class="motion-reveal">Research directions</h2>
+      <div class="takeaways">
+        <p>The three ideas make one programme around a single sentence in the paper: some models, UKESM1-0-LL among them, have relatively small future aerosol forcing compared with their historical values, and the authors suggest forcing "may be state dependent". There are two candidate routes, clouds and natural aerosol, and a third question underneath both: whether the answer depends on how a model represents aerosol in the first place.</p>
+        <p>Idea 1 is the cheapest start. The fixed-SST pairs behind both the historical and the 2050 forcing already exist, but they differ in many ways at once. These are the greenhouse-gas year, how polluted the aerosol background is, whether aerosol is added or removed, how large the change is and where it happens, which species change, the chemistry and natural-emission state, and possibly the model version. Both have pre-industrial sea surface temperatures, so in these runs "warming" can only mean the land and atmosphere adjusting to 2050 greenhouse gases (inferred). Comparing UKESM's forcing chain in each pair (sulfate formed per unit SO2, droplets per unit aerosol, forcing per unit emission), region by region, describes where the two differ but cannot pin the difference on one cause. Two extra runs that change only the greenhouse-gas year would isolate that single factor and nothing more.</p>
+        <p>Idea 2 takes the authors' other candidate, natural aerosol, and turns it into a budget for one model. Africa is the natural test region because the authors already point to dust and cloud feedbacks there. Idea 3 widens the lens to all the models. The authors stress that no two RAMIP models share an aerosol or chemistry scheme. The companion forcing paper has already split the forcing into its radiation and cloud parts, which leaves room to ask whether the models' spread lines up with the way their schemes turn emissions into cloud droplets.</p>
+        <p>The guard-rails are the same throughout. This is tropospheric air-pollution aerosol under two emission pathways. The forcing comes from fixed-SST runs, and the responses are averaged over 2035–2049. Nothing here predicts what UKESM or the other models will show. Ananth's GLOMAP-mode experience is relevant to reading UKESM's droplet and size diagnostics; that link is ours (inferred), not the paper's. The programme's value is that each step tests a specific sentence in the paper. Idea 1's optional runs that change only the greenhouse-gas year would be new simulations; everything else uses output that is already archived.</p>
+      </div>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <span>Static page for Cloudflare Pages</span>
+      <a href="index.html">Back to Idea path</a>
+    </footer>
+  </div>
+  <script src="/assets/atmos-page.js"></script>
+  <script src="/assets/atmos.js"></script>
+  <script src="/assets/motion.js" defer></script>
+</body>
+</html>

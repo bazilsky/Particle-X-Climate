@@ -35,6 +35,121 @@
  */
 window.PXC_GTP_WEEKS = [
   {
+    "id": "2026-10-22",
+    "shortRef": "Wilcox et al. (2026), Environ. Res.: Climate",
+    "paperTitle": "Climate responses to regional aerosol reductions (RAMIP)",
+    "paperFullTitle": "Distinct climate responses to regional aerosol reductions: an overview of the regional aerosol model intercomparison project",
+    "authors": "Wilcox et al.",
+    "venue": "Environ. Res.: Climate",
+    "year": 2026,
+    "doiUrl": "https://doi.org/10.1088/2752-5295/aeb71a",
+    "licence": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "ideaPathUrl": "/idea/2026-10-22",
+    "figureLabel": "Figure 4",
+    "figureType": "map",
+    "image": "/guess-the-plot/img/wilcox-2026-fig4.png",
+    "imageWidth": 1835,
+    "imageHeight": 915,
+    "imageAlt": "Six world maps in two rows of three, labelled (a) to (f), sharing one colour bar that runs from dark blue (−4) through white to dark red (4). Map (a) is shaded orange and red across much of the Northern Hemisphere, strongest over South and East Asia and the oceans beside them, with smaller orange areas over South America and the Atlantic. Maps (b) to (e) are mostly white, each with one patch of colour: (b) over East Asia and the North Pacific, (c) over India, the Arabian Sea and the Bay of Bengal, (d) over North America, Europe and the North Atlantic, and (e) faint patches over Africa and the Middle East with a small blue patch in central Africa. Map (f) is the mirror image of (a): blue across the Northern Hemisphere and tropics, darkest over Asia, with a few orange patches over North Africa. A diagonal grey \"Accepted Manuscript\" watermark crosses maps (c) and (f).",
+    "imageAltRevealed": "Six world maps of the annual-mean, multi-model mean effective radiative forcing in watts per square metre. (a) Forcing in 2050 from cutting aerosol emissions everywhere to SSP1-2.6 levels instead of SSP3-7.0: positive across much of the Northern Hemisphere, strongest over South and East Asia, global mean 0.71. (b)–(e) The same cuts made only over East Asia (0.12), South Asia (0.10), North America and Europe (0.12), and Africa and the Middle East (0.04), each forcing mainly near its own region. (f) Historical forcing from anthropogenic aerosols, 2014 versus 1850: negative almost everywhere the other maps are positive, global mean −1.10. Global means are as printed in each panel's top-right corner.",
+    "masks": [
+      {
+        "x": 0.2959,
+        "y": 0.0066,
+        "w": 0.0311,
+        "h": 0.0393,
+        "label": "(a) global-mean value"
+      },
+      {
+        "x": 0.6283,
+        "y": 0.0066,
+        "w": 0.0316,
+        "h": 0.0393,
+        "label": "(b) global-mean value"
+      },
+      {
+        "x": 0.9569,
+        "y": 0.0066,
+        "w": 0.0316,
+        "h": 0.0393,
+        "label": "(c) global-mean value"
+      },
+      {
+        "x": 0.2959,
+        "y": 0.4689,
+        "w": 0.0311,
+        "h": 0.0339,
+        "label": "(d) global-mean value"
+      },
+      {
+        "x": 0.6283,
+        "y": 0.4689,
+        "w": 0.0316,
+        "h": 0.0339,
+        "label": "(e) global-mean value"
+      },
+      {
+        "x": 0.9553,
+        "y": 0.4689,
+        "w": 0.0354,
+        "h": 0.0339,
+        "label": "(f) global-mean value"
+      },
+      {
+        "x": 0.4496,
+        "y": 0.9607,
+        "w": 0.0768,
+        "h": 0.0393,
+        "label": "Colour-bar label (quantity and units)"
+      }
+    ],
+    "keepOrder": true,
+    "options": [
+      {
+        "text": "Change in annual-mean surface air temperature (K) averaged over 2035–2049 when aerosol emissions are cut to SSP1-2.6 levels globally (a) or only over East Asia (b), South Asia (c), North America and Europe (d), or Africa and the Middle East (e), relative to SSP3-7.0. Panel (f) shows historical temperature change due to anthropogenic aerosols. Corner numbers give the global-mean warming.",
+        "correct": false
+      },
+      {
+        "text": "Effective radiative forcing (W m−2) in 2050 when aerosol emissions are cut to SSP1-2.6 levels globally (a) or only over East Asia (b), South Asia (c), North America and Europe (d), or Africa and the Middle East (e), relative to SSP3-7.0. Panel (f) shows historical (2014 vs 1850) forcing from anthropogenic aerosols. Corner numbers give the global means.",
+        "correct": true
+      },
+      {
+        "text": "Change in annual-mean precipitation (mm per day) averaged over 2035–2049 when aerosol emissions are cut to SSP1-2.6 levels globally (a) or only over East Asia (b), South Asia (c), North America and Europe (d), or Africa and the Middle East (e), relative to SSP3-7.0. Panel (f) shows historical precipitation change due to anthropogenic aerosols. Corner numbers give the global-mean change.",
+        "correct": false
+      }
+    ],
+    "labelsText": [
+      {
+        "lead": "The decoys:",
+        "text": "The decoys are real quantities from this paper. Figure 3 maps the near-surface temperature and precipitation responses to the same global and regional aerosol reductions for 2035–2049, compared with the SSP3-7.0 baseline (Figure 3 caption, PDF p. 13: \"(b): near-surface temperature [K], and (c): precipitation [mm day−1 ] responses to global and regional aerosol reductions in 2035 - 2049, compared to the SSP3-7.0 baseline\"). It has no historical panel."
+      },
+      {
+        "lead": "Colour bar:",
+        "text": "ERF [W m⁻²]"
+      },
+      {
+        "lead": "Corner numbers (global means), (a)–(f):",
+        "text": "0.71 · 0.12 · 0.10 · 0.12 · 0.04 · −1.10"
+      }
+    ],
+    "mainPoint": [
+      "\"Global aerosol reductions following SSP1-2.6 result in a multi-model mean global mean ERF of 0.71±0.27 W m−2 relative to SSP3-7.0 emissions in 2050.\" (PDF p. 16)",
+      "Table 3 note: \"Uncertainties are inter-model standard deviation.\" (PDF p. 16)",
+      "\"Local ERFs of up to 5 W m−2 are found over South and East Asia, with large forcing over the surrounding ocean due to transported aerosol.\" (PDF p. 16)",
+      "\"ERFs due to regional aerosol reductions are small in the global mean (Figure 4), but they are large regionally, and can therefore drive large local and remote climate impacts.\" (PDF p. 16)",
+      "\"The forcing due to South Asian emission changes is largely confined to South Asia, the Arabian Sea, and the Bay of Bengal (Figure 4).\" (PDF p. 17)",
+      "\"The pattern of the ERF due to aerosol reductions in RAMIP mirrors the pattern of the 2014 vs. 1850 ERF due to anthropogenic aerosol, which was also dominated by strong Asian forcing (Figure 4).\" (PDF p. 17)"
+    ],
+    "whyItMatters": "Air-quality policy will decide how much of this forcing arrives, and where. Three follow-up ideas, on what makes aerosol forcing depend on the background state and why the models disagree, are on the Idea Path page:",
+    "credit": {
+      "type": "original",
+      "text": "Figure 4 from Wilcox et al. (2026), Environ. Res.: Climate (Accepted Manuscript),"
+    }
+  },
+  {
     "id": "2026-10-15",
     "shortRef": "Brunelli & Diamond (2026), Earth's Future",
     "paperTitle": "Climate zones under sulfate geoengineering",
