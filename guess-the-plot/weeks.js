@@ -1,5 +1,5 @@
 /*
- * Guess the Plot: one entry per Thursday. Newest week first is not required (sorted by id).
+ * Guess the Plot: one entry per Wednesday. Newest week first is not required (sorted by id).
  *
  * Fields
  *   id            'YYYY-MM-DD' (the Idea Path date). Used in ?week=<id> and to seed the option order.

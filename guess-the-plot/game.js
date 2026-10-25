@@ -166,7 +166,7 @@
     inner.appendChild(el('span', 's', w.placeholder ? 'Test week' : w.figureLabel));
     li.appendChild(inner); list.appendChild(li);
   });
-  $('archive-note').textContent = shown.length === 1 ? 'Each Thursday’s plot stays here, so you can play past weeks too.' : 'Past weeks stay playable. Pick one to try it.';
+  $('archive-note').textContent = shown.length === 1 ? 'Each Wednesday’s plot stays here, so you can play past weeks too.' : 'Past weeks stay playable. Pick one to try it.';
   if (asked && asked !== week.id) $('archive-note').textContent = 'That week isn’t in the archive yet, so here is the latest plot.';
   archive.hidden = false;
 })();
