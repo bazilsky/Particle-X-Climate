@@ -61,3 +61,19 @@ html:root body.atmos-ow .marquee i,html:root body.atmos-week .marquee i{opacity:
 :where(.ctx-dark,.tone-dk,.hero,.ink,.ph){--focus:var(--gl)}
 :where(.ctx-light,.tone-lt,.ph.on-light,.ph:has(#nav-toggle:checked)){--focus:var(--rust)}
 @media (max-width:1100px){:where(.ph) #site-nav{--focus:var(--rust)}}
+
+/* ---------- Open sky: tones for items that sit straight on the sky, set per item by atmos.js (.sky-lt ink, .sky-dk paper, .sky-scrim soft edgeless scrim) ---------- */
+.sky-lt{--tx:var(--ink);--tx2:#3d372f}
+.sky-dk,.sky-scrim{--tx:var(--paper);--tx2:#e3dccf}
+.sky-scrim{position:relative;isolation:isolate}
+.sky-scrim{--ex:var(--cg,2.2rem);--ey:2.4rem}
+.sky-scrim::before{content:"";position:absolute;z-index:-1;left:calc(var(--sl,0px) - var(--ex));top:calc(var(--st,0px) - var(--ey));width:calc(var(--sw,100%) + 2 * var(--ex));height:calc(var(--sh,100%) + 2 * var(--ey));pointer-events:none;background:rgb(var(--sc,21 19 15)/var(--sa,.6));
+  -webkit-mask:linear-gradient(to right,transparent,#000 var(--ex),#000 calc(100% - var(--ex)),transparent),linear-gradient(to bottom,transparent,#000 var(--ey),#000 calc(100% - var(--ey)),transparent);-webkit-mask-composite:source-in;
+  mask:linear-gradient(to right,transparent,#000 var(--ex),#000 calc(100% - var(--ex)),transparent),linear-gradient(to bottom,transparent,#000 var(--ey),#000 calc(100% - var(--ey)),transparent);mask-composite:intersect}
+.sky-scrim.scrim-follow::before{content:none}
+.sky-scrim.scrim-lt{--tx:var(--ink);--tx2:#3d372f}
+/* phone: a full-bleed band, feathered top and bottom only, never a boxed patch */
+@media (max-width:640px){.sky-scrim{--ey:2rem}
+  .sky-scrim::before{left:var(--vl,-1.25rem);width:var(--vw,100vw);-webkit-mask:linear-gradient(to bottom,transparent,#000 var(--ey),#000 calc(100% - var(--ey)),transparent);mask:linear-gradient(to bottom,transparent,#000 var(--ey),#000 calc(100% - var(--ey)),transparent)}}
+/* Guess the Plot / notebook deck: when it needs a scrim it runs the full page width (feathered top and bottom only), never a box with sky glowing at its sides */
+body:is(.atmos-gtp,.atmos-nb) .deck.sky-scrim::before{left:var(--vl,0px);width:var(--vw,100vw);-webkit-mask:linear-gradient(to bottom,transparent,#000 var(--ey),#000 calc(100% - var(--ey)),transparent);mask:linear-gradient(to bottom,transparent,#000 var(--ey),#000 calc(100% - var(--ey)),transparent)}

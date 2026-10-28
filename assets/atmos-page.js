@@ -12,7 +12,13 @@
     b.style.setProperty('--ph-h',(ph?ph.offsetHeight:76)+'px');
     b.style.setProperty('--hb',hb+'px');b.style.setProperty('--pp',pp+'px');
     if(read)b.style.setProperty('--sbw',(innerWidth-de.clientWidth)+'px');
-    S.length=0;for(var i=0;i<C.length;i++)S.push([Math.min(1,(hb*K[i]+(i>2?hb+(pp-hb)*L[i]:0))/H),C[i]]);
+    /* index lists (.week-list): hold the dark sky until below the last row, so the whole list sits on one tone, then clear to paper by the footer */
+    var rows=read?[]:[].slice.call(document.querySelectorAll('.week-list>*')),D=0;
+    rows.forEach(function(e){D=Math.max(D,Math.round(top(e)+e.offsetHeight));});
+    S.length=0;
+    if(D){D+=40;pp=Math.max(pp,D+240);if(ft)pp=Math.max(pp,Math.round(top(ft)));b.style.setProperty('--pp',pp+'px');b.style.setProperty('--wd',D+'px');b.classList.add('atmos-hold');
+      var Y=[0,hb*.45,hb,D,D+(pp-D)*.45,D+(pp-D)*.75,pp];for(var j=0;j<C.length;j++)S.push([Math.min(1,Y[j]/H),C[j]]);}
+    else for(var i=0;i<C.length;i++)S.push([Math.min(1,(hb*K[i]+(i>2?hb+(pp-hb)*L[i]:0))/H),C[i]]);
     S.push([1,C[6]]);
     if(read)queueBands();
   }

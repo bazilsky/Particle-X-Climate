@@ -89,3 +89,26 @@
   .gtp-reveal:not([hidden]){animation:none}
 }
 
+
+/* ---------- Open sky ----------
+   The deck is no longer a glass box: it sits on the sky, with a soft edgeless scrim from atmos.js only where the sky gets too light for its
+   paper text. The figure keeps its paper plate and corner marks, without the shadow stack. The authors' point is set off by a gold rule,
+   not a box. The archive is a list on the sky: date with a dot, title underlined as the link. */
+body.atmos-gtp .deck{border:0;border-radius:0;padding:.4rem 0 0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+body.atmos-gtp .well{box-shadow:none}
+body.atmos-gtp .gtp-opt{-webkit-backdrop-filter:none;backdrop-filter:none}
+body.atmos-gtp .readout{border:0;border-left:3px solid var(--gl);border-radius:0;background:none;box-shadow:none;padding:.2rem 0 .2rem 1.2rem}
+body.atmos-gtp .btn::after{content:none}
+body.atmos-gtp .gtp-archive{border-top:0;color:var(--tx,var(--ink))}
+body.atmos-gtp .gtp-archive>h2{width:fit-content;color:var(--tx,var(--ink))}
+body.atmos-gtp .hint{color:var(--tx2,#4f4a41)}
+body.atmos-gtp .gtp-weeks{gap:1.4rem 2rem}
+body.atmos-gtp .gtp-weeks>li{--tx:var(--ink);--tx2:#3d372f;--dc:#6e521d}
+body.atmos-gtp .gtp-weeks>li:is(.sky-dk,.sky-scrim:not(.scrim-lt)){--tx:var(--paper);--tx2:#e3dccf;--dc:var(--gl)}
+body.atmos-gtp .gtp-weeks a,body.atmos-gtp .gtp-weeks .cur{border:0;border-radius:0;background:none;box-shadow:none;padding:.15rem 0;color:var(--tx)}
+body.atmos-gtp .gtp-weeks a:hover{transform:none}
+body.atmos-gtp .gtp-weeks .d{display:inline-flex;align-items:center;gap:.5rem;color:var(--dc)}
+body.atmos-gtp .gtp-weeks .cur .d::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--gold)}
+body.atmos-gtp .gtp-weeks a .t{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:.18em}
+body.atmos-gtp .gtp-weeks a:hover .t{text-decoration-thickness:4px}
+body.atmos-gtp .gtp-weeks .s{color:var(--tx2)}

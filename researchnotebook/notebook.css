@@ -84,3 +84,15 @@ footer.nb-foot a{color:#8c3520;font-weight:600}
   footer.nb-foot a{display:inline-flex;align-items:center;min-height:44px;padding-block:11px;margin-block:-11px}
 }
 @media (prefers-reduced-motion:reduce){.hero::before{animation:none}}
+
+/* ---------- Open sky ----------
+   No glass panels. The controls sit on the sky (soft edgeless scrim from atmos.js only where the sky is too light for their paper text);
+   the readout is set off by a gold rule. Each row is a heading on the sky over its plots, and the plots keep their paper plate (no border). */
+.atmos-nb .deck{border:0;border-radius:0;padding:.4rem 0 0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.atmos-nb .readout{border:0;border-left:3px solid var(--gl);border-radius:0;background:none;box-shadow:none;padding:.2rem 0 .2rem 1.2rem}
+.atmos-nb .nb-row{margin-top:clamp(2.4rem,5vw,3.6rem);padding:0;border:0;border-radius:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.atmos-nb .nb-row:first-of-type{margin-top:clamp(2.6rem,5vw,3.8rem)}
+.atmos-nb h2.family{width:fit-content;color:var(--tx,var(--ink))}
+.atmos-nb h2.family:is(.sky-dk,.sky-scrim:not(.scrim-lt))::before{background:#5fa596;box-shadow:0 0 0 4px rgba(95,165,150,.25)}
+.atmos-nb figure{border:0}
+@media (max-width:560px){.atmos-nb .deck,.atmos-nb .nb-row{padding:0}.atmos-nb .readout{padding:.2rem 0 .2rem 1rem}}

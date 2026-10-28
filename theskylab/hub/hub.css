@@ -70,3 +70,22 @@ body.atmos-lab .tile .cab{box-shadow:inset 0 0 0 1px rgba(246,241,231,.16),0 30p
 body.atmos-lab .arc-note{color:#3d3830}
 /* second row (cabinets 5-7) shares the 12 columns equally */
 @media (min-width:861px){.arc-grid > .tile:nth-child(n+5){grid-column:span 4}.arc-grid > .tile:nth-child(n+5) .screen{aspect-ratio:16/9}}
+/* Open sky: no cabinets. Each game sits straight on the sky: its preview window, the title, the line about it and one cue
+   ("Play <game>") underlined in the game's colour; the whole item is the link. Tone or soft scrim from atmos.js (sky items). */
+body.atmos-lab .arc-grid{--cg:clamp(1.2rem,2.4vw,2rem);gap:clamp(1.8rem,3vw,2.6rem) var(--cg);margin-top:1.4rem}
+body.atmos-lab .tile{--acc:#5fa596;--acc-d:#1f4d45}
+body.atmos-lab .c-drift,body.atmos-lab .c-ice{--acc:#d9bf8a;--acc-d:#6e521d}
+body.atmos-lab .c-albedo,body.atmos-lab .c-volcano{--acc:#d97a5c;--acc-d:#8c3520}
+body.atmos-lab .c-pop{--acc:#b9aee0;--acc-d:#4d4290}
+body.atmos-lab .tile .cab,body.atmos-lab a.tile:hover .cab,body.atmos-lab a.tile:focus-visible .cab{background:none;padding:0;border-radius:0;box-shadow:none;transform:none}
+body.atmos-lab a.tile:focus-visible{outline:2px solid var(--gl);outline-offset:6px;border-radius:4px}
+body.atmos-lab .tile .screen{box-shadow:none}
+body.atmos-lab .tile .meta{display:none}
+body.atmos-lab .tile h2{margin:.95rem 0 .35rem;color:var(--tx,var(--paper))}
+body.atmos-lab .tile p{margin:0;color:var(--tx2,#e3dccf)}
+body.atmos-lab .tile .go{margin:auto 0 0;padding-top:.85rem}
+body.atmos-lab .tile .cue{font-weight:600;font-size:.98rem;color:var(--tx,var(--paper));text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:.18em;transition:text-decoration-thickness .2s}
+body.atmos-lab a.tile:hover .cue{text-decoration-thickness:4px}
+body.atmos-lab .arc-note{color:var(--tx,#3d3830)}
+@media (max-width:860px){body.atmos-lab .tile .cab{padding:0}body.atmos-lab .tile .cue{font-size:.9rem}}
+body.atmos-lab .tile:is(.sky-lt,.scrim-lt):nth-child(n){--acc:var(--acc-d)}
