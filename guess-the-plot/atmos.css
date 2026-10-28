@@ -10,7 +10,7 @@
 /* figure on a paper surface */
 .gtp-stage{margin:0;min-width:0}
 .well{position:relative;background:var(--card);border-radius:14px;padding:clamp(.5rem,1.4vw,1rem);box-shadow:inset 0 0 0 1px rgba(28,25,21,.08),0 20px 50px -28px rgba(0,0,0,.6)}
-.gtp-figure{position:relative;overflow:hidden;border-radius:6px;background:#fff}
+.gtp-figure{position:relative;overflow:hidden;border-radius:6px;background:var(--card)}
 .gtp-figure img{display:block;width:100%;height:auto}
 .gtp-cover{position:absolute;border-radius:8px;pointer-events:none;display:flex;align-items:center;justify-content:center;color:#7a5c22;font-family:Fraunces,Georgia,serif;font-size:clamp(.8rem,1.8vw,1.15rem);
   background:radial-gradient(120% 140% at 30% 30%,rgba(255,253,248,.98),rgba(236,226,206,.97));-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);

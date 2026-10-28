@@ -2,7 +2,7 @@
    Builds on /assets/atmos.css (tokens, adaptive header, Menu). Opt in with body.atmos-sub plus atmos-index or atmos-read.
    The sky descends from night (hero) through teal to paper; on reading pages it runs to the footer and every card is a sky-tinted band. --hb / --pp / --ph-h come from atmos-page.js. */
 body.atmos-sub{--hb:34rem;--pp:calc(var(--hb) + 1100px);--ph-h:76px;
-  background:#f6f1e7 linear-gradient(to bottom,#15130f 0,#1c1915 calc(var(--hb) * .45),#1f3b37 var(--hb),#2c5a52 calc(var(--hb) + (var(--pp) - var(--hb)) * .3),#9fb3a6 calc(var(--hb) + (var(--pp) - var(--hb)) * .62),#e6dfcf calc(var(--hb) + (var(--pp) - var(--hb)) * .8),#f6f1e7 var(--pp)) no-repeat}
+  background:var(--paper) linear-gradient(to bottom,var(--night) 0,var(--ink) calc(var(--hb) * .45),#1f3b37 var(--hb),#2c5a52 calc(var(--hb) + (var(--pp) - var(--hb)) * .3),#9fb3a6 calc(var(--hb) + (var(--pp) - var(--hb)) * .62),#e6dfcf calc(var(--hb) + (var(--pp) - var(--hb)) * .8),var(--paper) var(--pp)) no-repeat}
 body.atmos-sub .wrap{width:min(1080px,calc(100% - 2.5rem));padding-top:var(--ph-h)}
 
 /* header: the same bar, nav and Menu as Research Overwatch (inline nav above 1100px) */
@@ -194,3 +194,6 @@ body.atmos-read :is(.picked,.takeaways,.fence,.ideas>article)>:is(p,ul,ol)+h3{ma
 @media (max-width:700px){body.atmos-read .table-wrap{overflow-x:auto;
   background:linear-gradient(to right,rgb(var(--tint,252 249 243)) 30%,transparent) left/2.5rem 100% no-repeat local,linear-gradient(to left,rgb(var(--tint,252 249 243)) 30%,transparent) right/2.5rem 100% no-repeat local,
   radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.35),transparent) left/1rem 100% no-repeat scroll,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.35),transparent) right/1rem 100% no-repeat scroll}}
+
+/* new footer link home (item 1): the week pages had no footer link colour, so it showed browser blue */
+body.atmos-sub footer a{color:#6e2818}

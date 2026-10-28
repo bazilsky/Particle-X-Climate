@@ -24,6 +24,26 @@
   <link rel="stylesheet" href="/assets/atmos.css">
   <link rel="stylesheet" href="/assets/atmos-page.css">
   <link rel="stylesheet" href="/week/week.css">
+  <style id="proto-C">
+/* C · Open sky: no boxes. The four parts hang off the coloured timeline as type: icon, name underlined in its colour, one line */
+.wk-btn{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"ico name" "ico hint";min-height:0;padding:.4rem 0 .4rem .4rem;background:none;border:0;border-radius:0;
+  -webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.wk-btn:hover{box-shadow:none}
+.wk-name{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:.14em;text-decoration-color:var(--acc)}
+.wk-grid{gap:clamp(1.4rem,4vw,2.8rem)}
+/* the dark rows sit where the sky turns mid-teal: ONE soft night scrim spans the Grants + Papers rows (a grid item behind them,
+   solid core masked to transparent on every side, no visible edge, no text-shadow), so every line is >= 4.5:1 and the rows read like Ideas and Guess the Plot */
+.wk-grid{isolation:isolate}
+.wk-grants{grid-row:1}.wk-papers{grid-row:2}.wk-ideas{grid-row:3}.wk-gtp{grid-row:4}
+.wk-grants,.wk-papers,.wk-ideas,.wk-gtp{grid-column:1}
+.wk-grid::after{content:"";grid-row:1 / span 2;grid-column:1;justify-self:start;width:min(62rem,calc(100% + 10rem));z-index:-1;pointer-events:none;
+  margin:-6rem 0 -5rem -10rem;
+  background:radial-gradient(ellipse 62% 58% at 36% 50%,rgba(21,19,15,.56) 0,rgba(21,19,15,.5) 46%,rgba(21,19,15,.24) 74%,rgba(21,19,15,.07) 90%,transparent 100%);
+  --mv:linear-gradient(to bottom,#000 0,#000 calc(100% - 5.2rem),transparent 100%);-webkit-mask-image:var(--mv);mask-image:var(--mv)}
+@media (max-width:640px){.wk-grid::after{width:auto;justify-self:stretch;margin:-4rem -.75rem -3.4rem -2.75rem;background:rgba(21,19,15,.52);
+  --mv:linear-gradient(to bottom,transparent 0,#000 4rem,#000 calc(100% - 3.8rem),transparent 100%);-webkit-mask-image:var(--mv);mask-image:var(--mv)}}
+.wk-hint{color:var(--fg);font-weight:600}
+  </style>
 </head>
 <body class="pxc-shell atmos-sub atmos-index atmos-week">
   <header class="ph">
@@ -56,14 +76,14 @@
   <div class="wrap">
     <nav class="wk-grid" aria-label="This week">
       <!-- THIS WEEK: the four links and their one-line hints (no dates on the buttons) -->
-      <a class="wk-btn wk-grants motion-reveal" href="/grant/2026-10-19"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Grants</span><span class="wk-hint">Open calls and the deadlines coming up.</span><span class="wk-go" aria-hidden="true">→</span></a>
-      <a class="wk-btn wk-papers motion-reveal" href="/paper/2026-10-22"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Papers</span><span class="wk-hint">Six remit matches from two blind searches.</span><span class="wk-go" aria-hidden="true">→</span></a>
-      <a class="wk-btn wk-ideas motion-reveal" href="/idea/2026-10-22"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Ideas</span><span class="wk-hint">Takeaways, three ideas and research directions.</span><span class="wk-go" aria-hidden="true">→</span></a>
-      <a class="wk-btn wk-gtp motion-reveal" href="/guess-the-plot"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Guess the Plot</span><span class="wk-hint">One figure, labels covered. What does it show?</span><span class="wk-go" aria-hidden="true">→</span></a>
+      <a class="wk-btn wk-grants motion-reveal" href="/grant/2026-10-19"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Grants</span><span class="wk-hint">Open calls and the deadlines coming up.</span></a>
+      <a class="wk-btn wk-papers motion-reveal" href="/paper/2026-10-22"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Papers</span><span class="wk-hint">Six remit matches from two blind searches.</span></a>
+      <a class="wk-btn wk-ideas motion-reveal" href="/idea/2026-10-22"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Ideas</span><span class="wk-hint">Takeaways, three ideas and research directions.</span></a>
+      <a class="wk-btn wk-gtp motion-reveal" href="/guess-the-plot"><span class="wk-ico" aria-hidden="true"></span><span class="wk-name">Guess the Plot</span><span class="wk-hint">One figure, labels covered. What does it show?</span></a>
       <!-- /THIS WEEK -->
     </nav>
     <footer>
-      <span>Static page for Cloudflare Pages</span>
+      <a href="/overwatch">Particle X Climate · Research Overwatch</a>
     </footer>
   </div>
   <script src="/assets/atmos-page.js"></script>

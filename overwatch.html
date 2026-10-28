@@ -191,6 +191,44 @@
     }
 
   </style>
+  <style id="proto-C">
+/* C · Open sky: no cards at all. Section titles move into the left margin column where the numbers were; content sits straight on the sky bands.
+   The week pass becomes a large type link; products are four text columns whose titles are the links. */
+.p1 .sec-head{grid-column:1;grid-row:1;display:block;margin:0}
+.p1 :is(#this-week,#products,#team,#remit) .sec-head h2{font-size:clamp(1.5rem,2.3vw,2rem);line-height:1.1;letter-spacing:-.02em;padding-top:.35rem}
+.p1 section.layer>:not(.sec-head),.p1 #team .panel>:not(.sec-head),.p1 #team .panel>.team{grid-column:2;grid-row:1}
+.p1 section.layer{grid-template-columns:clamp(8rem,15vw,13rem) minmax(0,1fr)}
+.p1 .tw-pass{display:block;background:none!important;filter:none;-webkit-mask:none;mask:none;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:0;color:var(--t-ink)}
+.p1 .tw-pass::before{display:none}
+.p1 .tw-main{display:block;padding:0}
+.p1 .tw-label{color:var(--t-mu)}
+.p1 .tw-title{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:.14em;text-decoration-color:var(--gl)}
+.p1 .tw-stops span{color:var(--t-mu)}
+.p1 .tw-stub{display:flex;flex-direction:row;justify-content:flex-start;align-items:baseline;gap:.6rem;height:auto;padding:1.2rem 0 0;border:0}
+.p1 .tw-stub .tw-label{width:auto}.p1 .tw-day{font-size:1.6rem}.p1 .tw-yr{color:var(--t-mu)}
+.p1 .tw-open{margin:0 0 0 .6rem;min-height:0;padding:0;background:none;color:var(--t-a);text-decoration:underline;text-underline-offset:.2em}
+.p1 .cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.2rem,2.4vw,2.4rem)}
+.p1 .cards article{padding:0;border:0;background:none;box-shadow:none;transform:none!important}
+.p1 .cards article::before{display:none}
+.p1 .cards .day{margin-bottom:.6rem;letter-spacing:.14em}
+.p1 .cards .day::before{content:"";display:inline-block;width:.55rem;height:.55rem;margin-right:.5rem;border-radius:50%;background:var(--acc)}
+.p1 .cards h3{font-size:clamp(1.5rem,2.1vw,1.9rem)}
+.p1 .cards h3 a.card-link{display:inline;min-height:0;margin:0;padding:0;font:inherit;color:inherit;text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:.18em}
+.p1 .cards p{font-size:1.05rem}
+.p1 .person{border-top:0;padding-top:0}
+.p1 .team{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:1.8rem}
+.p1 .remit li{border-bottom:0;padding:.5rem 0}
+.tw-pass,.cards article,.panel{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+@media (max-width:1060px){.p1 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .p1 section.layer{grid-template-columns:minmax(0,1fr)}
+  .p1 section.layer>:not(.sec-head),.p1 #team .panel>:not(.sec-head),.p1 #team .panel>.team{grid-column:1;grid-row:auto}
+  .p1 .sec-head{grid-row:auto;margin-bottom:1.2rem}
+  .p1 :is(#this-week,#products,#team,#remit) .sec-head h2{font-size:2.1rem}
+  .p1 .cards,.p1 .team{grid-template-columns:minmax(0,1fr)}
+  .p1 .tw-stub{flex-wrap:wrap}
+}
+  </style>
 </head>
 <body class="pxc-shell atmos-ow p1">
   <header class="ph">
@@ -219,7 +257,7 @@
 
   <div class="page">
     <section class="layer ctx-dark" id="this-week">
-      <div class="sec-head motion-reveal"><p class="kick">01</p><h2>This week</h2></div>
+      <div class="sec-head motion-reveal"><h2>This week</h2></div>
       <!-- THIS WEEK: point href (and the week line) at the newest /week/ page each Wednesday -->
       <a class="tw-pass motion-reveal" href="/week/2026-10-19">
         <span class="tw-main">
@@ -231,77 +269,73 @@
           <span class="tw-label">Week of</span>
           <span class="tw-day">19 Oct</span>
           <span class="tw-yr">2026</span>
-          <span class="tw-open">Open <span aria-hidden="true">→</span></span>
+          <span class="tw-open">Open the week</span>
         </span>
       </a>
       <!-- /THIS WEEK -->
     </section>
 
     <section class="layer ctx-dark" id="products">
-      <div class="sec-head motion-reveal"><p class="kick">02</p><h2>Four products</h2></div>
+      <div class="sec-head motion-reveal"><h2>Four products</h2></div>
       <div class="cards">
         <article class="motion-reveal">
           <span class="day">Wednesday</span>
-          <h3>Grant path</h3>
+          <h3><a class="card-link" href="grant/">Grant path</a></h3>
           <p>Two separate searches, then one mail. The grant path ends there.</p>
-          <a class="card-link" href="grant/">Open Grant path →</a>
         </article>
         <article class="motion-reveal">
           <span class="day">Wednesday</span>
-          <h3>Paper path</h3>
+          <h3><a class="card-link" href="paper/">Paper path</a></h3>
           <p>The same two-search pattern for papers. If nothing clears the checklist, the run stops at the path.</p>
-          <a class="card-link" href="paper/">Open Paper path →</a>
         </article>
         <article class="motion-reveal">
           <span class="day">When it clears</span>
-          <h3>Idea path</h3>
-          <p>Nominated papers are used to generate 3 ideas and propose personalised research paths to move forward.</p>
-          <a class="card-link" href="idea/">Open Idea path →</a>
+          <h3><a class="card-link" href="idea/">Idea path</a></h3>
+          <p>When a Wednesday paper clears review, you get a short read on it and up to five research ideas it opens up.</p>
         </article>
         <article class="motion-reveal">
           <span class="day">On request</span>
-          <h3>Custom idea path</h3>
+          <h3><a class="card-link" href="custom-idea/">Custom idea path</a></h3>
           <p>Selected papers, chosen by our creator, Mr. A.</p>
-          <a class="card-link" href="custom-idea/">Open Custom idea path →</a>
         </article>
       </div>
     </section>
 
     <section class="layer" id="team">
       <div class="panel ctx-light">
-      <div class="sec-head motion-reveal"><p class="kick">03</p><h2>The desk</h2></div>
+      <div class="sec-head motion-reveal"><h2>The desk</h2></div>
       <div class="team">
         <div class="person motion-reveal">
           <p class="role">Search and send</p>
           <h3>Mrs. Vanguard</h3>
-          <p>Leading from the front.</p>
+          <p>Runs the Wednesday grant and paper searches and gives the go-ahead to publish.</p>
         </div>
         <div class="person motion-reveal">
           <p class="role">Write</p>
           <h3>Mrs. Lantern</h3>
-          <p>Visionary.</p>
+          <p>Picks one paper and writes the takeaways and ideas, every claim cited.</p>
         </div>
         <div class="person motion-reveal">
           <p class="role">Attack</p>
           <h3>Dr. Doubt</h3>
-          <p>Team critic and pessimist.</p>
+          <p>Tests each idea against the literature and passes or kills it.</p>
         </div>
         <div class="person motion-reveal">
           <p class="role">Publish</p>
           <h3>Pulse</h3>
-          <p>Code designer and publisher.</p>
+          <p>Builds the pages and puts them on this site.</p>
         </div>
         <div class="person motion-reveal">
           <p class="role">Review</p>
           <h3>Mr. Squint</h3>
-          <p>Squinter in chief.</p>
+          <p>Checks new page designs on desktop and phone before they go live.</p>
         </div>
       </div>
       </div>
     </section>
 
     <section class="layer ctx-light" id="remit">
-      <div class="sec-head motion-reveal"><p class="kick">04</p><h2>Remit</h2></div>
+      <div class="sec-head motion-reveal"><h2>Remit</h2></div>
       <div class="remit-sheet motion-reveal">
       <ul class="remit">
         <li>Solar geoengineering / SRM</li>
@@ -318,7 +352,7 @@
     </section>
 
     <footer class="ctx-light">
-      <span>Static page for Cloudflare Pages</span>
+      <span>Particle X Climate · Research Overwatch</span>
     </footer>
   </div>
   <script>window.ATMOS_HEADER_ALPHA=1;window.ATMOS_STOPS=[[0.0,[21,19,15]],[0.085,[28,25,21]],[0.221,[31,59,55]],[0.523,[44,90,82]],[0.66,[159,179,166]],[0.745,[230,223,207]],[0.847,[246,241,231]],[1.0,[239,228,207]]];</script>

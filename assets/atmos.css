@@ -1,6 +1,6 @@
 /* Particle X Climate · Atmosphere theme, shared by Guess the Plot, Research Notebook and Research Overwatch.
    Fonts, palette and the adaptive header follow the landing page. */
-:root{--ink:#1c1915;--muted:#5c564c;--paper:#f6f1e7;--card:#fffdf8;--line:#e2d8c8;--rust:#9a3b24;--teal:#1f4d45;--gold:#8a6a2f;--gl:#d9bf8a;--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--ink:#1c1915;--muted:#5c564c;--paper:#f6f1e7;--card:#fffdf8;--line:#e2d8c8;--rust:#9a3b24;--teal:#1f4d45;--gold:#8a6a2f;--gl:#d9bf8a;--night:#15130f;--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box}
 html,body{overflow-x:clip}
 body{margin:0;color:var(--ink);font-family:"Source Sans 3","Segoe UI",sans-serif;line-height:1.5}
@@ -54,3 +54,10 @@ html:root body.atmos-ow .marquee,html:root body.atmos-week .marquee{position:rel
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#f3e6c8;font-family:Fraunces,Georgia,serif;font-size:1.35rem}
 html:root body.atmos-ow .marquee i,html:root body.atmos-week .marquee i{opacity:1;color:var(--gl)}
 @media (max-width:640px){html:root body.atmos-ow .marquee,html:root body.atmos-week .marquee{font-size:1.15rem;margin-bottom:2.6rem}}
+
+/* focus ring, site-wide (review item 5): rust on paper bands (6.2:1), gold on dark bands and the night header.
+   :where() keeps it at zero specificity, so component rings (.week-btn, .gtp-opt, Sky Lab cabinets) still win. */
+:where(a,button,input,select,textarea,summary,label,[tabindex]):focus-visible{outline:2px solid var(--focus,var(--rust));outline-offset:3px}
+:where(.ctx-dark,.tone-dk,.hero,.ink,.ph){--focus:var(--gl)}
+:where(.ctx-light,.tone-lt,.ph.on-light,.ph:has(#nav-toggle:checked)){--focus:var(--rust)}
+@media (max-width:1100px){:where(.ph) #site-nav{--focus:var(--rust)}}

@@ -158,3 +158,8 @@ html.pxc-leaving body {
     transition: none !important;
   }
 }
+
+/* Reduced motion, everything (review item 7): covers inline hovers, twinkles, previews' CSS and page transitions on every page */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
