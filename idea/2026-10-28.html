@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>@view-transition{navigation:auto}</style>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <link rel="stylesheet" href="/assets/motion.css">
+  <link rel="stylesheet" href="/assets/studio.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idea path — 28 October 2026 · Cheung et al.</title>
+  <meta name="description" content="Idea path for 28 October 2026: Cheung et al. (2026), unexpected land-surface warming following a relatively limited-forcing hypothetical nuclear war.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --paper: #f6f1e7;
+      --card: #fffdf8;
+      --line: #e2d8c8;
+      --rust: #9a3b24;
+      --rust-soft: #f3e4dc;
+      --teal: #1f4d45;
+      --teal-soft: #e4eeeb;
+      --gold: #8a6a2f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 90% -10%, #efe4cf 0%, transparent 55%),
+        var(--paper);
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      font-size: 1.1125rem;
+      line-height: 1.55;
+    }
+
+    a { color: var(--rust); }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.4rem 0 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      font-size: 1.15rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--rust);
+      outline-offset: 2px;
+    }
+
+    .hero { padding: 3rem 0 2rem; }
+
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.1rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    section { padding: 0.5rem 0 2.5rem; }
+
+    h2 {
+      margin: 0 0 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .takeaways, .picked, article {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    .takeaways, .picked, article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem 1.35rem;
+    }
+
+    .takeaways { margin-bottom: 1.5rem; }
+    .picked { margin-bottom: 1.5rem; }
+
+    .ideas { display: grid; gap: 1rem; }
+
+    .takeaways h3, .picked h3, article h3 {
+      margin: 0 0 0.65rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .picked h3 { font-size: 1.25rem; }
+    .takeaways h3 { font-size: 1.15rem; }
+    article h3 { font-size: 1.2rem; }
+
+    .takeaways h3 + h3 { margin-top: 1.35rem; }
+
+    .takeaways p, .picked p, article p, article li {
+      color: var(--muted);
+      font-size: 1.0425rem;
+    }
+
+    .takeaways p, article p { margin: 0; }
+    .takeaways p + p, article p + p, article p + ul, article ul + p { margin-top: 0.85rem; }
+
+    .takeaways .caveat {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .meta { margin: 0; color: var(--muted); font-size: 1.0425rem; }
+
+    .url {
+      margin: 0.75rem 0 0;
+      word-break: break-all;
+      font-size: 0.92rem;
+    }
+
+    article ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      text-align: left;
+    }
+
+    article li { margin: 0.35rem 0; }
+
+    .label {
+      margin: 0 0 0.55rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fence {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      background: var(--rust-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .fence ul { margin: 0.55rem 0 0; padding-left: 1.15rem; }
+    .fence li { margin: 0.35rem 0; }
+
+    .joint {
+      margin: 1.25rem 0 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .signoff {
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+
+    /* Mobile-only sticky TOC */
+    .sticky-toc {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .sticky-toc {
+        display: flex;
+        gap: 0.15rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -1.25rem;
+        padding: 0 0.75rem;
+        min-height: 44px;
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      }
+
+      .sticky-toc a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 0.7rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sticky-toc a:hover,
+      .sticky-toc a:focus {
+        color: var(--ink);
+        border-bottom-color: var(--rust);
+      }
+
+      #chosen, #takeaways, #ideas, #directions, #references,
+      [id^="idea-"] {
+        scroll-margin-top: 52px;
+      }
+    }
+
+    
+    /* always-menu: dropdown at all widths */
+    header {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    header #site-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.35rem 0 0.6rem;
+    }
+    header:has(#nav-toggle:checked) #site-nav,
+    header.nav-open #site-nav {
+      display: flex;
+    }
+    header #site-nav a {
+      padding: 0.65rem 0.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header #site-nav a:last-child { border-bottom: 0; }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      footer { flex-direction: column; }
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: 0.05em;
+      background: var(--rust-soft);
+      color: var(--rust);
+    }
+
+    .tip {
+      margin: 1.4rem 0 0;
+      border-left: 3px solid #0d47a1;
+      padding: 0.15rem 0 0.15rem 1.1rem;
+      max-width: 42rem;
+    }
+    .tip p {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    .tip.joke p { font-weight: 700; color: #0d47a1; }
+
+    article ol {
+      margin: 0.75rem 0 0;
+      padding-left: 1.4rem;
+      text-align: left;
+    }
+    #references ol li { margin: 0.35rem 0; color: var(--muted); font-size: 0.95rem; }
+    article code { font-size: 0.9em; }
+
+    .table-wrap { overflow-x: auto; margin-top: 0.5rem; }
+    .table-wrap table { border-collapse: collapse; width: 100%; font-size: 0.95rem; text-align: left; }
+    .table-wrap th, .table-wrap td { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem; vertical-align: top; color: var(--muted); }
+    .table-wrap th { color: var(--ink); font-weight: 600; }
+    .table-wrap + p { margin-top: 0.85rem; }
+  </style>
+  <link rel="stylesheet" href="/assets/atmos.css">
+  <link rel="stylesheet" href="/assets/atmos-page.css">
+  <style>
+    html body.atmos-sub .hero .tip.joke { border-left: 4px solid #0d47a1; background: #e3ecf8; border-radius: 0 10px 10px 0; padding: 0.7rem 1rem; }
+    html body.atmos-sub .hero .tip.joke p { font-weight: 700; color: #0d47a1; }
+  </style>
+</head>
+<body class="pxc-shell atmos-sub atmos-read">
+  <header class="ph">
+    <a class="brand" href="/">Particle X Climate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle visually-hidden">
+    <label for="nav-toggle" class="menu-toggle" aria-controls="site-nav">Menu</label>
+    <nav id="site-nav" class="pnav">
+      <a href="../overwatch.html">Home</a>
+      <a href="../grant/index.html">Grant path</a>
+      <a href="../paper/index.html">Paper path</a>
+      <a href="index.html" aria-current="true">Idea path</a>
+      <a href="../custom-idea/index.html">Custom idea path</a>
+      <a href="../overwatch.html#team">Team</a>
+      <a href="../overwatch.html#remit">Remit</a>
+    </nav>
+  </header>
+  <div class="wrap">
+
+    <nav class="sticky-toc" aria-label="On this page">
+      <a href="#chosen">Chosen</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#directions">Directions</a>
+      <a href="#references">References</a>
+    </nav>
+    <section class="hero">
+      <p class="kicker motion-enter">28 October 2026</p>
+      <h1 class="motion-line"><span>Cheung et al.</span></h1>
+      <p class="lede motion-enter">Takeaways, three ideas, and research directions.</p>
+      <div class="tip joke motion-enter">
+        <p>A model top is just where the atmosphere agrees to stop asking questions. — Mrs. V</p>
+      </div>
+    </section>
+
+    <section id="chosen">
+      <h2 class="motion-reveal">Chosen paper</h2>
+      <div class="picked">
+        <h3>Unexpected land-surface warming following a relatively limited-forcing hypothetical nuclear war</h3>
+        <p class="meta">Anson Ka Hei Cheung, Paul J. Kushner, Francesco S. R. Pausata, Zhihong Zhuo, Marguerite L. Brown</p>
+        <p class="meta">Year / venue: 2026, Earth System Dynamics, 17, 1573–1588 (Copernicus Publications, on behalf of the European Geosciences Union)</p>
+        <p class="meta">Status: peer-reviewed version of record, published 23 October 2026 (received 14 November 2025, accepted 9 August 2026). Edited by Ben Kravitz.</p>
+        <p class="meta">Design (author documented): CanESM5.1, whose atmosphere CanAM5 uses a bulk aerosol scheme at T63 (2.8°) with 49 layers, the top layer "2 km at about 1 hPa, which is the upper bound" (p. 1574), and "18 levels from about 300 to 10 hPa" in the stratosphere (p. 1575). Black carbon is injected "uniformly between 300 to 150 hPa over the United States and Russia at a constant rate over 1 week, starting from 1 January" (p. 1575). BC20 has 15 members; BC12, BC16 and BC24 have "9, 3, and 8 members, respectively" (p. 1575). Each run lasts 20 years against a 100-year pre-industrial control.</p>
+        <p class="meta">Licence: CC BY 4.0. The paper says "This work is distributed under the Creative Commons Attribution 4.0 License." (p. 1573)</p>
+        <p class="meta">Data: "Postprocessed output from the CanESM simulations, needed to reproduce the main figures, are publicly available on the University of Toronto Dataverse" (p. 1585). The Borealis record <a href="https://doi.org/10.5683/SP3/UG2598" target="_blank" rel="noopener noreferrer">https://doi.org/10.5683/SP3/UG2598</a> (version 3, CC0 1.0, record checked 28 Oct; no files downloaded) lists surface, flux, BC and atmospheric fields for each case and the control.</p>
+        <p class="url">DOI: <a href="https://doi.org/10.5194/esd-17-1573-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/esd-17-1573-2026</a></p>
+        <p class="url">HTML: <a href="https://esd.copernicus.org/articles/17/1573/2026/" target="_blank" rel="noopener noreferrer">https://esd.copernicus.org/articles/17/1573/2026/</a> (checked 28 Oct)</p>
+        <p class="meta">Credit: Cheung et al. (2026), Earth Syst. Dynam., 17, 1573–1588, CC BY 4.0. Quotations are the authors' words; page numbers are journal pages.</p>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <h2 class="motion-reveal">Site takeaways</h2>
+      <div class="takeaways">
+        <h3>What they got right (main result)</h3>
+        <p>Most nuclear-winter modelling looks at a full-scale exchange of about 150 Tg of black carbon or a regional 5 Tg war. Cheung and colleagues ask what happens in between: a United States–Russia exchange that injects 12 to 24 Tg of black carbon, in a model, CanESM5.1, "that has not been explored previously in this application". The early response looks familiar: sunlight at the surface drops by 14.80 to 26.52 W m−2 and the globe cools by 0.38 to 0.59 °C in the first January–February. Then, in the first northern summer, the global mean swings back to +0.39 °C for 12 Tg and −0.06 °C for 24 Tg before turning negative again. The warming sits over dry land: "A warming of up to +3–5 °C develops around Tibet, +2–3 °C in southern Greenland and the western North America, and +1–2 °C in northern Africa".</p>
+        <p>The authors link the summer warming to "reduced cooling via net longwave and turbulent fluxes", with more downward longwave from black carbon aloft and water vapour, and they find that "The transient warming is most pronounced for the lowest forcing cases." Precipitation "decreases even while the surface warms", which they tie to "stabilizing, top-heavy warming". The long-term cooling is also nonlinear in the injection, and the authors tie that to self-lofting: doubling the injection from 12 to 24 Tg puts "more than 2.5 times more BC" into the overworld above about 15 km. Their own summary is careful: "our simulations demonstrate, for the first time, the possibility of a transient global warming signal during the first year following fire emissions in relatively limited-forcing nuclear war scenarios."</p>
+        <h3>What they didn't quite nail</h3>
+        <p>This is one model, which the authors describe as "Although it is a low top model with a coarse stratospheric representation and a lack of stratospheric chemistry and aerosol model". The faster black-carbon removal may partly reflect model differences, including the model top at about 1 hPa. Over two-thirds of the emitted BC leaves within the first year, against less than one-third in earlier 150 Tg and 5 Tg studies, and the authors offer two explanations: "This may reflect the lower concentrations of BC in our 12–24 Tg injections" and "model differences – such as aerosol coagulation treatment, gravitational settling, and model-top height – also affect the removal rate". They do not separate the two. CanAM5 also "does not take into account the aerosol number for determining gravitational settling rate", has no coagulation and leaves out organic carbon.</p>
+        <p>The ensembles are thin: the scaling rests on four injection sizes, one of them (BC16) with only three members, and every case starts on 1 January, so the summer warming has been seen after one start date only. The authors close on the same point: "Multi-model assessment of these relatively limited-forcing cases is warranted given their potential impacts."</p>
+        <p class="caveat">Reader caveats (not paper flaws): the injections are hypothetical scenarios of black carbon only, placed between 300 and 150 hPa over two countries in one week of January, in a pre-industrial background climate. Figures quoted here are ensemble-mean responses as printed in the paper.</p>
+      </div>
+    </section>
+
+    <section id="ideas">
+      <h2 class="motion-reveal">Ideas</h2>
+      <p class="lede" style="margin: 0 0 1.1rem; padding: 0;">Three ideas, each tied to an open problem the authors document. Each is a proposal; nothing here assumes what UKESM or the other models will show.</p>
+      <div class="ideas">
+        <article id="idea-1">
+          <p class="label">Idea 1</p>
+          <h3>Does the first-summer warming survive in UKESM with UKCA-GLOMAP-mode?</h3>
+          <p>The authors ask for exactly this test: "This relatively limited but plausible forcing scenario bears investigating in other models." UKESM1.1 (Mulcahy et al., 2023) is a natural second model, because its nuclear setup already matches CanESM in two ways (author documented, in Ranjithkumar et al., 2026). That study emits 5 Tg of BC "distributed evenly between 300 and 150 hPa (~9–13 km altitude)", in January, with "BC stratospheric emission occurring between Jan 1st and 7th". It differs in the places the authors flag as limits: UKESM1.1 has "85 vertical levels with 50 levels between 0 and 18 km and 35 levels between 18 and 85 km", and the aerosol is modal, in GLOMAP-mode, rather than bulk. The idea is to run the 12, 20 and 24 Tg United States–Russia cases with that setup and ask one question first: does the global mean surface temperature rise in the first June–August, and over which land?</p>
+          <p>The comparison has to be fair to the thin ensembles: CanESM ran 3 to 15 members per case, and UKESM's earlier study ran six. The useful output is the authors' own flux budget (downward and clear-sky longwave, sensible and latent heat) over Tibet, western North America and northern Africa, set beside the CanESM fields on Borealis (files not downloaded, so their member structure is unchecked, inferred). One fence matters. The FLI SHIVER grant to Haywood's group plans UKESM1 runs of an "all-out USA-Russia nuclear war" alongside India–Pakistan and eastern Europe cases, and says "Different numbers of nuclear detonations, vertical profiles, and seasons of conflict are assumed over each area", so a lower-forcing USA–Russia case may already sit inside SHIVER. Which loadings, profiles and start months were chosen, and whether results are out, is not stated on the page. Haywood, the named primary investigator and a co-author of Ranjithkumar et al. (2026), can say before any runs are planned. Ananth's own UKESM1.1 nuclear setup is a ready starting point; that link is ours (inferred), not the paper's.</p>
+        </article>
+        <article id="idea-2">
+          <p class="label">Idea 2</p>
+          <h3>How much of the fast removal is the model, including its lid near 1 hPa?</h3>
+          <p>The authors give two candidate explanations for removing BC faster than earlier studies and test neither: lower BC concentrations at 12–24 Tg, and model differences including "model-top height" (author documented). CanAM5's top layer ends at "about 1 hPa", and its cloud processes are "limited to pressures greater than 10 hPa". For heating, the authors note that for 5 Tg (Pausata et al., 2016) temperature peaked "at 50 hPa 4 months after the injection in NorESM1-M (model top at 3 hPa), unlike the peak below 1 hPa at the beginning in CESM1-WACCM4 (model top at 5.1 × 10−6 hPa)", and they conclude "the heating rate and vertical temperature structure depend strongly on the model configuration as well." A model lid does not delete aerosol; what a top near 1 hPa can change is where the BC heating goes and how sponge-layer damping near the lid holds back the lofting circulation. The paper does not discuss a sponge layer, so this is our reading (inferred).</p>
+          <p>The idea is a removal budget in a high-top model: in UKESM1.1 runs of the same injections, track how much BC and heating rise above 1 hPa and split the first-year loss into wet deposition, dry deposition and sedimentation. If little reaches 1 hPa at these loadings, the lid explains little; if much does, its heating and damping effects are worth isolating (inferred). Comparing per-Tg removal across 5, 12 and 24 Tg in one model then separates loading from model. Coupe et al. (2019) found "WACCM4's more sophisticated aerosol representation removes smoke more quickly, but the magnitude of the climate response is not reduced", and Mills et al. (2014) report an e-folding time of 8.7 years for stratospheric BC, against 4–6.5 years in earlier studies. Those lifetimes are defined differently from Cheung's overworld measure, so they are context, not a benchmark (inferred). GLOMAP-mode's size-resolved settling is where Ananth's experience applies; that link is ours (inferred).</p>
+        </article>
+        <article id="idea-3">
+          <p class="label">Idea 3</p>
+          <h3>Does a May start change the summer warming?</h3>
+          <p>This question is the authors' own (author documented). Unlike earlier 150 Tg studies, CanESM's zero-degree line stayed near the surface in the first few years, "likely because their injections were greater and occurred in May, whereas ours began in January." They note that Mills et al. (2014) found "the choice of the initial season did not significantly affect the BC distribution or the climate impact for the 5 Tg India-Pakistan case", but "this may not be true for our 20 Tg USA-Russia case, which has initially less concentrated BC particles and less insolation in January." A May start asks whether any transient warming appears when the smoke meets strong sunlight first (inferred).</p>
+          <p>With global surface DSRF reaching "a minimum in two months following the UTLS injection of BC", a 1 May start would put the first summer at peak dimming (inferred, from that printed timing), so a May run tests a different stage of the response, not the same warming under more sunlight (inferred). Ananth cannot run CanESM, so a 15-member BC20 repeat from 1 May, comparing the first summer, early overworld burden and year 6–15 cooling, would be a request to, or a collaboration with, the CanESM authors (inferred); the UKESM analogue is a May-start version of the Idea 1 runs, which SHIVER's "seasons of conflict" may already cover (inferred). We do not assume the result (inferred).</p>
+          <p>Organic carbon and full microphysics are not an idea here, as the authors write "We did not include OC emission in our scenarios" and plan "an updated version of CanESM with the Piecewise log-normal Aerosol Model".</p>
+        </article>
+        <article id="references">
+          <h3>External citations used (checked on 28 October 2026 against Crossref, the publisher pages, Borealis or the FLI grant page)</h3>
+          <ol>
+            <li>Ranjithkumar, A., Mayne, N., Jones, A. C. and Haywood, J. M. (2026). Nuclear Conflict in Eastern Europe: Climate disruption and Radiological fallout. npj Clean Air, 2, 28. CC BY 4.0. <a href="https://doi.org/10.1038/s44407-026-00064-7" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s44407-026-00064-7</a></li>
+            <li>Coupe, J., Bardeen, C. G., Robock, A. and Toon, O. B. (2019). Nuclear Winter Responses to Nuclear War Between the United States and Russia in the Whole Atmosphere Community Climate Model Version 4 and the Goddard Institute for Space Studies ModelE. J. Geophys. Res. Atmos., 124, 8522–8543. <a href="https://doi.org/10.1029/2019JD030509" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2019JD030509</a></li>
+            <li>Mills, M. J., Toon, O. B., Lee-Taylor, J. and Robock, A. (2014). Multidecadal global cooling and unprecedented ozone loss following a regional nuclear conflict. Earth's Future, 2, 161–176. <a href="https://doi.org/10.1002/2013EF000205" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/2013EF000205</a></li>
+            <li>Pausata, F. S. R., Lindvall, J., Ekman, A. M. L. and Svensson, G. (2016). Climate effects of a hypothetical regional nuclear war: Sensitivity to emission duration and particle composition. Earth's Future, 4, 498–511. <a href="https://doi.org/10.1002/2016EF000415" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/2016EF000415</a></li>
+            <li>Mulcahy, J. P., et al. (2023). UKESM1.1: development and evaluation of an updated configuration of the UK Earth System Model. Geosci. Model Dev., 16, 1569–1600. <a href="https://doi.org/10.5194/gmd-16-1569-2023" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/gmd-16-1569-2023</a></li>
+            <li>Future of Life Institute grant page: StratospHeric aerosol Impacts under Various nuclEaR conflict scenarios (SHIVER), primary investigator James Haywood, University of Exeter &amp; Hadley Centre, Exeter, UK. <a href="https://futureoflife.org/grant/stratospheric-aerosol-impacts-under-various-nuclear-conflict-scenarios-shiver/" target="_blank" rel="noopener noreferrer">https://futureoflife.org/grant/stratospheric-aerosol-impacts-under-various-nuclear-conflict-scenarios-shiver/</a></li>
+            <li>Cheung, A. (2025). Dataset for "Unexpected land-surface warming following a relatively limited-forcing hypothetical nuclear war", Borealis, V3 (CC0 1.0). <a href="https://doi.org/10.5683/SP3/UG2598" target="_blank" rel="noopener noreferrer">https://doi.org/10.5683/SP3/UG2598</a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="directions">
+      <h2 class="motion-reveal">Research directions</h2>
+      <div class="takeaways">
+        <p>The three ideas form one programme around the authors' closing request, "Future research should include systematic model intercomparisons to constrain these uncertainties": first ask whether the summer warming appears in a second, high-top, modal-aerosol model (Idea 1), then ask how much of CanESM's fast removal belongs to the model, its lid near 1 hPa included, rather than to the smaller loading (Idea 2), and finally test the authors' own doubt about a January start (Idea 3). Ideas 1 and 2 can share one set of UKESM runs (inferred). The guard-rails hold throughout: these are hypothetical black-carbon-only injections, the first-summer warming has so far been seen in one model after one start date, and nothing here predicts what UKESM will show. Ananth's UKESM1.1 nuclear-conflict setup is an existing tool for every step; that link is ours (inferred), not the paper's.</p>
+      </div>
+      <p class="signoff">Mrs. Vanguard</p>
+    </section>
+
+    <footer>
+      <a href="/overwatch">Particle X Climate · Research Overwatch</a>
+      <a href="index.html">Back to Idea path</a>
+    </footer>
+  </div>
+  <script src="/assets/atmos-page.js"></script>
+  <script src="/assets/atmos.js"></script>
+  <script src="/assets/motion.js" defer></script>
+</body>
+</html>

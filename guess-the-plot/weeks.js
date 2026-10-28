@@ -35,6 +35,132 @@
  */
 window.PXC_GTP_WEEKS = [
   {
+    "id": "2026-10-28",
+    "shortRef": "Anson Ka Hei Cheung, Paul J. Kushner, Francesco S. R. Pausata, Zhihong Zhuo and Marguerite L. Brown (2026), Earth System Dynamics",
+    "paperTitle": "Unexpected land-surface warming following a relatively limited-forcing hypothetical nuclear war",
+    "paperFullTitle": "Unexpected land-surface warming following a relatively limited-forcing hypothetical nuclear war",
+    "authors": "Cheung et al.",
+    "venue": "Earth System Dynamics",
+    "year": 2026,
+    "doiUrl": "https://doi.org/10.5194/esd-17-1573-2026",
+    "licence": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "ideaPathUrl": "/idea/2026-10-28",
+    "figureLabel": "Figure 5",
+    "figureType": "map",
+    "image": "/guess-the-plot/img/cheung-2026-fig5.png",
+    "imageWidth": 1892,
+    "imageHeight": 920,
+    "imageAlt": "Four world maps in two rows of two, each with a colour bar from dark blue through white to dark red; the left bars run from −5 to 5 and the right bars from −3 to 3. Orange solid and dashed lines trace the edges of the Arctic and Antarctic sea ice. Top left: deep blue across North America, Europe and northern Asia, with a white hole in central Asia and faint pink over parts of the southern oceans. Top right: deep blue across the Arctic and northern Eurasia, lighter blue over Europe and North America, and pale blue bands over the Southern Ocean. Bottom left: red patches over Tibet, western North America, southern Greenland and northern Africa, with blue over the Arctic coasts. Bottom right: mostly white over land, blue along the Arctic sea-ice edge and a strong blue band around Antarctica, with one small red spot over Tibet.",
+    "imageAltRevealed": "Four world maps of the surface temperature response, in degrees Celsius, to a 20 Tg black-carbon injection over the United States and Russia starting on 1 January (BC20, mean of 15 members, against a pre-industrial control). Top left: the first January–February, with cooling of up to about 8 °C over the northern continents. Top right: December–February averaged over years 6–15, with the strongest cooling at high northern latitudes and sea ice expanded. Bottom left: the first June–August, with warming of up to 3–5 °C around Tibet, 2–3 °C in southern Greenland and western North America and 1–2 °C in northern Africa. Bottom right: June–August averaged over years 6–15, with cooling mostly at high latitudes. White areas are not significant at the 95 % level. The orange solid and dashed lines are the sea-ice edge in the scenario and in the control climatology.",
+    "masks": [
+      {
+        "x": 0.0539,
+        "y": 0.0163,
+        "w": 0.3631,
+        "h": 0.038,
+        "label": "(a) panel title"
+      },
+      {
+        "x": 0.5328,
+        "y": 0.0163,
+        "w": 0.3969,
+        "h": 0.038,
+        "label": "(b) panel title"
+      },
+      {
+        "x": 0.0518,
+        "y": 0.5261,
+        "w": 0.3673,
+        "h": 0.037,
+        "label": "(c) panel title"
+      },
+      {
+        "x": 0.5349,
+        "y": 0.5261,
+        "w": 0.3922,
+        "h": 0.037,
+        "label": "(d) panel title"
+      },
+      {
+        "x": 0.4831,
+        "y": 0.2272,
+        "w": 0.0132,
+        "h": 0.0359,
+        "label": "(a) colour-bar unit label"
+      },
+      {
+        "x": 0.9789,
+        "y": 0.2272,
+        "w": 0.0132,
+        "h": 0.0359,
+        "label": "(b) colour-bar unit label"
+      },
+      {
+        "x": 0.4831,
+        "y": 0.737,
+        "w": 0.0132,
+        "h": 0.0359,
+        "label": "(c) colour-bar unit label"
+      },
+      {
+        "x": 0.9789,
+        "y": 0.737,
+        "w": 0.0132,
+        "h": 0.0359,
+        "label": "(d) colour-bar unit label"
+      }
+    ],
+    "keepOrder": true,
+    "options": [
+      {
+        "text": "Change in surface downwelling longwave radiation (W m−2) for the 20 Tg case (BC20): the first January–February (top left), December–February of years 6–15 (top right), the first June–August (bottom left) and June–August of years 6–15 (bottom right). Blue means less longwave reaching the ground.",
+        "correct": false
+      },
+      {
+        "text": "Change in surface temperature (°C) for the 20 Tg case (BC20): the first January–February (top left), December–February of years 6–15 (top right), the first June–August (bottom left) and June–August of years 6–15 (bottom right). Blue means cooling.",
+        "correct": true
+      },
+      {
+        "text": "Change in surface temperature (°C) in the first June–August for four injection sizes: 12 Tg (top left), 16 Tg (top right), 20 Tg (bottom left) and 24 Tg (bottom right). Blue means cooling.",
+        "correct": false
+      }
+    ],
+    "labelsText": [
+      {
+        "lead": "Panel titles, (a)–(d):",
+        "list": [
+          "(a) Surface temperature anomaly (BC20; Year 1 JF)",
+          "(b) Surface temperature anomaly (BC20; Year 6-15 DJF)",
+          "(c) Surface temperature anomaly (BC20; Year 1 JJA)",
+          "(d) Surface temperature anomaly (BC20; Year 6-15 JJA)"
+        ]
+      },
+      {
+        "lead": "Colour bars:",
+        "text": "°C"
+      }
+    ],
+    "mainPoint": [
+      {
+        "lead": "The decoys:",
+        "text": "The decoys are real quantities from this paper. Figure 4 maps first-summer surface temperature for two injection sizes only (Figure 4 caption, journal p. 1579: \"Responses of surface temperature for (a) BC12 and (b) BC24 in JJA of the first simulated year.\"), and Figure 6 maps the longwave for the first summer only (Figure 6 caption, journal p. 1580: \"Responses of (a) surface DLRF, and (b) surface net energy flux in JJA of the first year for BC20.\")."
+      },
+      "\"Overall, these simulations reveal a whipsaw effect on the surface temperature in the first year, where there is a quick transition from the very cold initial conditions to much warmer conditions over midlatitude land surfaces, and then a transition to strong mid-to-high latitude cooling as sea ice and ocean adjustments kick in.\" (journal p. 1580)",
+      "\"In NH, there is a statistically significant maximum cooling of about 8 °C in continental regions in the JF-mean (Fig. 5a).\" (journal p. 1578)",
+      "\"A warming of up to +3–5 °C develops around Tibet, +2–3 °C in southern Greenland and the western North America, and +1–2 °C in northern Africa (Fig. 5c; and see Fig. 4 for the corresponding plots for BC12 and BC24).\" (journal p. 1579)",
+      "\"In December to January (DJF) over years 6 to 15, the maximum cooling is at high latitudes, accompanied by sea-ice extent increase (Fig. 5b).\" (journal p. 1579)",
+      "Conditions, in the authors' words: \"We generate an ensemble with an injection of 20 Tg of BC (hereafter as BC20), consisting of 15 ensemble members.\" and the injection is \"uniformly between 300 to 150 hPa over the United States and Russia at a constant rate over 1 week, starting from 1 January\" (journal p. 1575). The abstract frames the result as \"a transient surface warming develops in the first boreal summer following a boreal-winter injection\" (journal p. 1573)."
+    ],
+    "whyItMatters": "The size of a nuclear war's smoke cloud may change not just how cold it gets, but whether some places briefly warm first. Ideas built on this paper (whether the first-summer warming appears in UKESM, how much of the fast smoke removal belongs to the model, and what a May start would change) are on the Idea Path page:",
+    "credit": {
+      "type": "original",
+      "text": "Figure 5 from Cheung et al. (2026), Earth Syst. Dynam., 17, 1573–1588,"
+    }
+  },
+  {
     "id": "2026-10-22",
     "shortRef": "Wilcox et al. (2026), Environ. Res.: Climate",
     "paperTitle": "Climate responses to regional aerosol reductions (RAMIP)",
