@@ -111,6 +111,7 @@
     .remit li{break-inside:avoid;display:flex;align-items:baseline;gap:.85rem;padding:.8rem 0;border-bottom:1px solid var(--line);font-size:1.08rem;line-height:1.4;color:var(--ink);counter-increment:r}
     .remit li::before{content:counter(r,decimal-leading-zero);flex:none;font:600 .78rem/1 "Source Sans 3",sans-serif;letter-spacing:.08em;color:#7a5c22;min-width:1.6rem}
 
+    footer .archive a{display:inline-flex;align-items:center;min-height:44px;color:inherit}
     footer{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.4rem 0 2.6rem;border-top:1px solid rgba(28,25,21,.16);color:#4f4a41;font-size:.92rem}
 
     @media (max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:1060px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}.person:nth-child(5){grid-column:1/-1}}
@@ -207,7 +208,7 @@
 .p1 .tw-stub{display:flex;flex-direction:row;justify-content:flex-start;align-items:baseline;gap:.6rem;height:auto;padding:1.2rem 0 0;border:0}
 .p1 .tw-stub .tw-label{width:auto}.p1 .tw-day{font-size:1.6rem}.p1 .tw-yr{color:var(--t-mu)}
 .p1 .tw-open{margin:0 0 0 .6rem;min-height:0;padding:0;background:none;color:var(--t-a);text-decoration:underline;text-underline-offset:.2em}
-.p1 .cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.2rem,2.4vw,2.4rem)}
+.p1 .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.2rem,2.4vw,2.4rem)}
 .p1 .cards article{padding:0;border:0;background:none;box-shadow:none;transform:none!important}
 .p1 .cards article::before{display:none}
 .p1 .cards .day{margin-bottom:.6rem;letter-spacing:.14em}
@@ -241,8 +242,6 @@
       <a href="#products">Products</a>
       <a href="grant/">Grant path</a>
       <a href="paper/">Paper path</a>
-      <a href="idea/">Idea path</a>
-      <a href="custom-idea/">Custom idea path</a>
       <a href="#team">Team</a>
       <a href="#remit">Remit</a>
     </nav>
@@ -263,7 +262,7 @@
         <span class="tw-main">
           <span class="tw-label">Research Overwatch · Weekly pass</span>
           <span class="tw-title">Latest this week</span>
-          <span class="tw-stops"><span style="--c:#5fa596">Grants</span><span style="--c:#d97a5c">Papers</span><span style="--c:#d9bf8a">Ideas</span><span style="--c:#b9aee0">Guess the Plot</span></span>
+          <span class="tw-stops"><span style="--c:#5fa596">Grants</span><span style="--c:#d97a5c">Papers</span></span>
         </span>
         <span class="tw-stub">
           <span class="tw-label">Week of</span>
@@ -276,7 +275,7 @@
     </section>
 
     <section class="layer ctx-dark" id="products">
-      <div class="sec-head motion-reveal"><h2>Four products</h2></div>
+      <div class="sec-head motion-reveal"><h2>Two products</h2></div>
       <div class="cards">
         <article class="motion-reveal">
           <span class="day">Wednesday</span>
@@ -287,16 +286,6 @@
           <span class="day">Wednesday</span>
           <h3><a class="card-link" href="paper/">Paper path</a></h3>
           <p>The same two-search pattern for papers. If nothing clears the checklist, the run stops at the path.</p>
-        </article>
-        <article class="motion-reveal">
-          <span class="day">When it clears</span>
-          <h3><a class="card-link" href="idea/">Idea path</a></h3>
-          <p>When a Wednesday paper clears review, you get a short read on it and up to five research ideas it opens up.</p>
-        </article>
-        <article class="motion-reveal">
-          <span class="day">On request</span>
-          <h3><a class="card-link" href="custom-idea/">Custom idea path</a></h3>
-          <p>Selected papers, chosen by our creator, Mr. A.</p>
         </article>
       </div>
     </section>
@@ -353,6 +342,7 @@
 
     <footer class="ctx-light">
       <span>Particle X Climate · Research Overwatch</span>
+      <span class="archive">Archive: <a href="idea/">Idea path</a> · <a href="custom-idea/">Custom idea path</a> · <a href="guess-the-plot">Guess the Plot</a></span>
     </footer>
   </div>
   <script>window.ATMOS_HEADER_ALPHA=1;window.ATMOS_STOPS=[[0.0,[21,19,15]],[0.085,[28,25,21]],[0.221,[31,59,55]],[0.523,[44,90,82]],[0.66,[159,179,166]],[0.745,[230,223,207]],[0.847,[246,241,231]],[1.0,[239,228,207]]];</script>
